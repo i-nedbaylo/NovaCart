@@ -109,19 +109,19 @@
 
 #### 1.3.1 Catalog.Domain
 
-- [ ] Создать проект `NovaCart.Services.Catalog.Domain` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/Services/Catalog`)
-- [ ] Добавить зависимость на `BuildingBlocks.Common`
-- [ ] Реализовать entity `Category` (Id, Name, Description, ParentCategoryId?, Slug)
-- [ ] Реализовать entity `Product` (Id, Name, Description, Slug, ImageUrl)
-- [ ] Реализовать value object `Price` (Amount: decimal, Currency: string)
-- [ ] Реализовать value object `ProductStatus` (Draft, Active, Discontinued)
-- [ ] Связать Product с Category (CategoryId, навигационное свойство)
-- [ ] Связать Product с Price (value object, owned type)
-- [ ] Реализовать domain events: `ProductCreatedDomainEvent`, `ProductUpdatedDomainEvent`
-- [ ] Реализовать интерфейс `IProductRepository` (наследуется от `IRepository<Product>`, + специфичные методы)
-- [ ] Реализовать интерфейс `ICategoryRepository`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Catalog.Domain` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/Services/Catalog`)
+- [x] Добавить зависимость на `BuildingBlocks.Common`
+- [x] Реализовать entity `Category` (Id, Name, Description, ParentCategoryId?, Slug)
+- [x] Реализовать entity `Product` (Id, Name, Description, Slug, ImageUrl)
+- [x] Реализовать value object `Price` (Amount: decimal, Currency: string)
+- [x] Реализовать value object `ProductStatus` (Draft, Active, Discontinued)
+- [x] Связать Product с Category (CategoryId, навигационное свойство)
+- [x] Связать Product с Price (value object, owned type)
+- [x] Реализовать domain events: `ProductCreatedDomainEvent`, `ProductUpdatedDomainEvent`
+- [x] Реализовать интерфейс `IProductRepository` (наследуется от `IRepository<Product>`, + специфичные методы)
+- [x] Реализовать интерфейс `ICategoryRepository`
+- [x] Убедиться, что проект собирается
 
 #### 1.3.2 Catalog.Application
 

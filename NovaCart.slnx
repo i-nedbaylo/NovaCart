@@ -5,6 +5,10 @@
     <Project Path="src/BuildingBlocks/BuildingBlocks.CQRS/NovaCart.BuildingBlocks.CQRS.csproj" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Persistence/NovaCart.BuildingBlocks.Persistence.csproj" />
   </Folder>
+  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/Catalog/">
+    <Project Path="src/Services/Catalog/Catalog.Domain/NovaCart.Services.Catalog.Domain.csproj" />
+  </Folder>
   <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
   <Project Path="NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj" />
 </Solution>
