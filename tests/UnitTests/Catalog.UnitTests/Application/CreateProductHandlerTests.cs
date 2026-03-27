@@ -1,4 +1,5 @@
 using FluentAssertions;
+using FluentValidation.TestHelper;
 using NSubstitute;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Catalog.Application.Products.Commands;
@@ -84,5 +85,35 @@ public class CreateProductHandlerTests
         // Assert
         result.IsSuccess.Should().BeFalse();
         result.Error.Code.Should().Contain("NotFound");
+    }
+
+    [Fact]
+    public async Task Validate_Should_HaveError_When_NameIsEmpty()
+    {
+        // Arrange
+        var validator = new CreateProductValidator();
+        var command = new CreateProductCommand(
+            "", "Description", "test-product", 29.99m, "USD", Guid.NewGuid());
+
+        // Act
+        var result = await validator.TestValidateAsync(command);
+
+        // Assert
+        result.ShouldHaveValidationErrorFor(x => x.Name);
+    }
+
+    [Fact]
+    public async Task Validate_Should_HaveError_When_PriceIsNegative()
+    {
+        // Arrange
+        var validator = new CreateProductValidator();
+        var command = new CreateProductCommand(
+            "Test Product", "Description", "test-product", -5m, "USD", Guid.NewGuid());
+
+        // Act
+        var result = await validator.TestValidateAsync(command);
+
+        // Assert
+        result.ShouldHaveValidationErrorFor(x => x.PriceAmount);
     }
 }
