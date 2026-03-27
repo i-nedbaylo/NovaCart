@@ -456,16 +456,16 @@
 
 #### 1.9.3 Architecture-тесты
 
-- [ ] Создать проект `NovaCart.Tests.ArchitectureTests` (xUnit, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `tests/ArchitectureTests`)
-- [ ] Добавить NuGet: `NetArchTest.Rules`
-- [ ] Тест: Domain не ссылается на Application
-- [ ] Тест: Domain не ссылается на Infrastructure
-- [ ] Тест: Domain не ссылается на API
-- [ ] Тест: Application не ссылается на Infrastructure
-- [ ] Тест: Application не ссылается на API
-- [ ] Тест: Infrastructure не ссылается на API
-- [ ] Все тесты проходят
+- [x] Создать проект `NovaCart.Tests.ArchitectureTests` (xUnit, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `tests/ArchitectureTests`)
+- [x] Добавить NuGet: `NetArchTest.Rules`
+- [x] Тест: Domain не ссылается на Application
+- [x] Тест: Domain не ссылается на Infrastructure
+- [x] Тест: Domain не ссылается на API
+- [x] Тест: Application не ссылается на Infrastructure
+- [x] Тест: Application не ссылается на API
+- [x] Тест: Infrastructure не ссылается на API
+- [x] Все тесты проходят
 
 ---
 
