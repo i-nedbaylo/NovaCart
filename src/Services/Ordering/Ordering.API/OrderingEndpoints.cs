@@ -1,4 +1,5 @@
 using MediatR;
+using NovaCart.BuildingBlocks.Common;
 using NovaCart.Services.Ordering.Application.Commands;
 using NovaCart.Services.Ordering.Application.Dtos;
 using NovaCart.Services.Ordering.Application.Queries;
@@ -27,7 +28,7 @@ public static class OrderingEndpoints
 
             return result.IsSuccess
                 ? Results.Ok(result.Value)
-                : Results.BadRequest(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapGet("/{id:guid}", async (Guid id, ISender sender) =>
@@ -36,7 +37,7 @@ public static class OrderingEndpoints
 
             return result.IsSuccess
                 ? Results.Ok(result.Value)
-                : Results.NotFound(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapPost("/", async (CreateOrderRequest request, ISender sender) =>
@@ -50,7 +51,7 @@ public static class OrderingEndpoints
 
             return result.IsSuccess
                 ? Results.Created($"/api/v1/orders/{result.Value}", new { id = result.Value })
-                : Results.BadRequest(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapPut("/{id:guid}/cancel", async (Guid id, ISender sender) =>
@@ -59,9 +60,17 @@ public static class OrderingEndpoints
 
             return result.IsSuccess
                 ? Results.NoContent()
-                : Results.BadRequest(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         return app;
     }
+
+    private static IResult MapError(Error error) => error.Type switch
+    {
+        ErrorType.NotFound => Results.NotFound(new { error.Code, error.Message }),
+        ErrorType.Conflict => Results.Conflict(new { error.Code, error.Message }),
+        ErrorType.Validation => Results.BadRequest(new { error.Code, error.Message }),
+        _ => Results.BadRequest(new { error.Code, error.Message })
+    };
 }

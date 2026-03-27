@@ -12,6 +12,10 @@ public sealed class PagedResult<T> : IPagedResult<T>
 
     public PagedResult(IReadOnlyList<T> items, int totalCount, int pageNumber, int pageSize)
     {
+        ArgumentOutOfRangeException.ThrowIfLessThan(pageNumber, 1);
+        ArgumentOutOfRangeException.ThrowIfLessThan(pageSize, 1);
+        ArgumentOutOfRangeException.ThrowIfNegative(totalCount);
+
         Items = items;
         TotalCount = totalCount;
         PageNumber = pageNumber;

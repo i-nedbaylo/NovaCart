@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
+using NovaCart.BuildingBlocks.Common;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Catalog.Application.Categories.Commands;
 using NovaCart.Services.Catalog.Application.Categories.Dtos;
@@ -45,7 +46,7 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.Ok(result.Value)
-                : Results.BadRequest(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapGet("/{id:guid}", async (Guid id, ISender sender) =>
@@ -54,7 +55,7 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.Ok(result.Value)
-                : Results.NotFound(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapPost("/", async (CreateProductRequest request, ISender sender) =>
@@ -72,7 +73,7 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.Created($"/api/v1/products/{result.Value}", new { id = result.Value })
-                : Results.BadRequest(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapPut("/{id:guid}", async (Guid id, UpdateProductRequest request, ISender sender) =>
@@ -91,7 +92,7 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.NoContent()
-                : Results.NotFound(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapDelete("/{id:guid}", async (Guid id, ISender sender) =>
@@ -100,7 +101,7 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.NoContent()
-                : Results.NotFound(new { error = result.Error });
+                : MapError(result.Error);
         });
     }
 
@@ -115,7 +116,7 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.Ok(result.Value)
-                : Results.BadRequest(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapGet("/{id:guid}", async (Guid id, ISender sender) =>
@@ -124,7 +125,7 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.Ok(result.Value)
-                : Results.NotFound(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapPost("/", async (CreateCategoryCommand command, ISender sender) =>
@@ -133,7 +134,7 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.Created($"/api/v1/categories/{result.Value}", new { id = result.Value })
-                : Results.BadRequest(new { error = result.Error });
+                : MapError(result.Error);
         });
 
         group.MapPut("/{id:guid}", async (Guid id, UpdateCategoryRequest request, ISender sender) =>
@@ -149,9 +150,17 @@ public static class CatalogEndpoints
 
             return result.IsSuccess
                 ? Results.NoContent()
-                : Results.NotFound(new { error = result.Error });
+                : MapError(result.Error);
         });
     }
+
+    private static IResult MapError(Error error) => error.Type switch
+    {
+        ErrorType.NotFound => Results.NotFound(new { error.Code, error.Message }),
+        ErrorType.Conflict => Results.Conflict(new { error.Code, error.Message }),
+        ErrorType.Validation => Results.BadRequest(new { error.Code, error.Message }),
+        _ => Results.BadRequest(new { error.Code, error.Message })
+    };
 }
 
 public sealed record UpdateCategoryRequest(
