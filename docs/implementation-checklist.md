@@ -15,48 +15,48 @@
 
 #### 1.1.1 Структура папок
 
-- [ ] Создать папку `src/`
-- [ ] Создать папку `src/Services/`
-- [ ] Создать папку `src/BuildingBlocks/`
-- [ ] Создать папку `src/ApiGateway/`
-- [ ] Создать папку `src/Web/`
-- [ ] Создать папку `tests/`
-- [ ] Создать папку `tests/UnitTests/`
-- [ ] Создать папку `tests/IntegrationTests/`
-- [ ] Создать папку `tests/ArchitectureTests/`
-- [ ] Создать папку `docs/`
-- [ ] Создать папку `docs/architecture/`
-- [ ] Создать папку `docs/architecture/decisions/`
-- [ ] Создать папку `docs/api/`
-- [ ] Создать папку `docs/diagrams/`
+- [x] Создать папку `src/`
+- [x] Создать папку `src/Services/`
+- [x] Создать папку `src/BuildingBlocks/`
+- [x] Создать папку `src/ApiGateway/`
+- [x] Создать папку `src/Web/`
+- [x] Создать папку `tests/`
+- [x] Создать папку `tests/UnitTests/`
+- [x] Создать папку `tests/IntegrationTests/`
+- [x] Создать папку `tests/ArchitectureTests/`
+- [x] Создать папку `docs/`
+- [x] Создать папку `docs/architecture/`
+- [x] Создать папку `docs/architecture/decisions/`
+- [x] Создать папку `docs/api/`
+- [x] Создать папку `docs/diagrams/`
 
 #### 1.1.2 Aspire AppHost
 
-- [ ] Создать проект `NovaCart.AppHost` (Aspire AppHost SDK)
-- [ ] Добавить проект в `NovaCart.slnx`
-- [ ] Настроить `Program.cs` — минимальная конфигурация `DistributedApplication.CreateBuilder`
-- [ ] Добавить ресурс PostgreSQL (`builder.AddPostgres`)
-- [ ] Добавить базы данных: `catalogdb`, `orderingdb`, `identitydb`
-- [ ] Убедиться, что AppHost запускается без ошибок
+- [x] Создать проект `NovaCart.AppHost` (Aspire AppHost SDK)
+- [x] Добавить проект в `NovaCart.slnx`
+- [x] Настроить `Program.cs` — минимальная конфигурация `DistributedApplication.CreateBuilder`
+- [x] Добавить ресурс PostgreSQL (`builder.AddPostgres`)
+- [x] Добавить базы данных: `catalogdb`, `orderingdb`, `identitydb`
+- [x] Убедиться, что AppHost запускается без ошибок
 
 #### 1.1.3 Aspire ServiceDefaults
 
-- [ ] Создать проект `NovaCart.ServiceDefaults` (Class Library)
-- [ ] Добавить проект в `NovaCart.slnx`
-- [ ] Реализовать `Extensions.cs` — метод `AddServiceDefaults`
-- [ ] Настроить OpenTelemetry (логи, метрики, трейсы)
-- [ ] Настроить Health Checks (`/health`, `/alive`)
-- [ ] Настроить Service Discovery
-- [ ] Настроить Resilience (стандартный resilience handler для HttpClient)
+- [x] Создать проект `NovaCart.ServiceDefaults` (Class Library)
+- [x] Добавить проект в `NovaCart.slnx`
+- [x] Реализовать `Extensions.cs` — метод `AddServiceDefaults`
+- [x] Настроить OpenTelemetry (логи, метрики, трейсы)
+- [x] Настроить Health Checks (`/health`, `/alive`)
+- [x] Настроить Service Discovery
+- [x] Настроить Resilience (стандартный resilience handler для HttpClient)
 
 #### 1.1.4 README.md
 
-- [ ] Создать `README.md` в корне репозитория
-- [ ] Описание проекта (на русском)
-- [ ] Архитектурная схема (текстовая)
-- [ ] Технологический стек
-- [ ] Инструкция запуска (`dotnet run` через AppHost)
-- [ ] Структура репозитория
+- [x] Создать `README.md` в корне репозитория
+- [x] Описание проекта (на русском)
+- [x] Архитектурная схема (текстовая)
+- [x] Технологический стек
+- [x] Инструкция запуска (`dotnet run` через AppHost)
+- [x] Структура репозитория
 
 ---
 
@@ -64,44 +64,44 @@
 
 #### 1.2.1 BuildingBlocks.Common
 
-- [ ] Создать проект `NovaCart.BuildingBlocks.Common` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/BuildingBlocks`)
-- [ ] Реализовать `BaseEntity` (Id: Guid, CreatedAt, UpdatedAt)
-- [ ] Реализовать `AggregateRoot` (наследуется от BaseEntity, список Domain Events)
-- [ ] Реализовать `IDomainEvent` (интерфейс-маркер)
-- [ ] Реализовать `Result<T>` (Success/Failure, Error messages)
-- [ ] Реализовать `Result` (без generic — для void-операций)
-- [ ] Реализовать `Error` (код ошибки + сообщение)
-- [ ] Реализовать базовые исключения: `NotFoundException`, `ValidationException`, `ConflictException`
-- [ ] Реализовать `IDateTimeProvider` (абстракция для тестируемости)
-- [ ] Реализовать `DateTimeProvider` (реализация, использует `DateTimeOffset.UtcNow`)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.BuildingBlocks.Common` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/BuildingBlocks`)
+- [x] Реализовать `BaseEntity` (Id: Guid, CreatedAt, UpdatedAt)
+- [x] Реализовать `AggregateRoot` (наследуется от BaseEntity, список Domain Events)
+- [x] Реализовать `IDomainEvent` (интерфейс-маркер)
+- [x] Реализовать `Result<T>` (Success/Failure, Error messages)
+- [x] Реализовать `Result` (без generic — для void-операций)
+- [x] Реализовать `Error` (код ошибки + сообщение)
+- [x] Реализовать базовые исключения: `NotFoundException`, `ValidationException`, `ConflictException`
+- [x] Реализовать `IDateTimeProvider` (абстракция для тестируемости)
+- [x] Реализовать `DateTimeProvider` (реализация, использует `DateTimeOffset.UtcNow`)
+- [x] Убедиться, что проект собирается
 
 #### 1.2.2 BuildingBlocks.CQRS
 
-- [ ] Создать проект `NovaCart.BuildingBlocks.CQRS` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить NuGet-зависимость: `MediatR`
-- [ ] Реализовать `ICommand` (наследуется от `IRequest<Result>`)
-- [ ] Реализовать `ICommand<TResponse>` (наследуется от `IRequest<Result<TResponse>>`)
-- [ ] Реализовать `IQuery<TResponse>` (наследуется от `IRequest<Result<TResponse>>`)
-- [ ] Реализовать `ICommandHandler<TCommand>` (наследуется от `IRequestHandler`)
-- [ ] Реализовать `ICommandHandler<TCommand, TResponse>`
-- [ ] Реализовать `IQueryHandler<TQuery, TResponse>`
-- [ ] Добавить NuGet-зависимость: `FluentValidation`
-- [ ] Реализовать `ValidationBehavior<TRequest, TResponse>` (MediatR Pipeline Behavior)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.BuildingBlocks.CQRS` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить NuGet-зависимость: `MediatR`
+- [x] Реализовать `ICommand` (наследуется от `IRequest<Result>`)
+- [x] Реализовать `ICommand<TResponse>` (наследуется от `IRequest<Result<TResponse>>`)
+- [x] Реализовать `IQuery<TResponse>` (наследуется от `IRequest<Result<TResponse>>`)
+- [x] Реализовать `ICommandHandler<TCommand>` (наследуется от `IRequestHandler`)
+- [x] Реализовать `ICommandHandler<TCommand, TResponse>`
+- [x] Реализовать `IQueryHandler<TQuery, TResponse>`
+- [x] Добавить NuGet-зависимость: `FluentValidation`
+- [x] Реализовать `ValidationBehavior<TRequest, TResponse>` (MediatR Pipeline Behavior)
+- [x] Убедиться, что проект собирается
 
 #### 1.2.3 BuildingBlocks.Persistence
 
-- [ ] Создать проект `NovaCart.BuildingBlocks.Persistence` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимость на `BuildingBlocks.Common`
-- [ ] Реализовать `IRepository<T>` (generic interface: GetById, Add, Update, Delete)
-- [ ] Реализовать `IUnitOfWork` (SaveChangesAsync)
-- [ ] Реализовать `IPagedResult<T>` (Items, TotalCount, PageNumber, PageSize)
-- [ ] Реализовать `PagedResult<T>`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.BuildingBlocks.Persistence` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимость на `BuildingBlocks.Common`
+- [x] Реализовать `IRepository<T>` (generic interface: GetById, Add, Update, Delete)
+- [x] Реализовать `IUnitOfWork` (SaveChangesAsync)
+- [x] Реализовать `IPagedResult<T>` (Items, TotalCount, PageNumber, PageSize)
+- [x] Реализовать `PagedResult<T>`
+- [x] Убедиться, что проект собирается
 
 ---
 
@@ -109,102 +109,102 @@
 
 #### 1.3.1 Catalog.Domain
 
-- [ ] Создать проект `NovaCart.Services.Catalog.Domain` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/Services/Catalog`)
-- [ ] Добавить зависимость на `BuildingBlocks.Common`
-- [ ] Реализовать entity `Category` (Id, Name, Description, ParentCategoryId?, Slug)
-- [ ] Реализовать entity `Product` (Id, Name, Description, Slug, ImageUrl)
-- [ ] Реализовать value object `Price` (Amount: decimal, Currency: string)
-- [ ] Реализовать value object `ProductStatus` (Draft, Active, Discontinued)
-- [ ] Связать Product с Category (CategoryId, навигационное свойство)
-- [ ] Связать Product с Price (value object, owned type)
-- [ ] Реализовать domain events: `ProductCreatedDomainEvent`, `ProductUpdatedDomainEvent`
-- [ ] Реализовать интерфейс `IProductRepository` (наследуется от `IRepository<Product>`, + специфичные методы)
-- [ ] Реализовать интерфейс `ICategoryRepository`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Catalog.Domain` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/Services/Catalog`)
+- [x] Добавить зависимость на `BuildingBlocks.Common`
+- [x] Реализовать entity `Category` (Id, Name, Description, ParentCategoryId?, Slug)
+- [x] Реализовать entity `Product` (Id, Name, Description, Slug, ImageUrl)
+- [x] Реализовать value object `Price` (Amount: decimal, Currency: string)
+- [x] Реализовать value object `ProductStatus` (Draft, Active, Discontinued)
+- [x] Связать Product с Category (CategoryId, навигационное свойство)
+- [x] Связать Product с Price (value object, owned type)
+- [x] Реализовать domain events: `ProductCreatedDomainEvent`, `ProductUpdatedDomainEvent`
+- [x] Реализовать интерфейс `IProductRepository` (наследуется от `IRepository<Product>`, + специфичные методы)
+- [x] Реализовать интерфейс `ICategoryRepository`
+- [x] Убедиться, что проект собирается
 
 #### 1.3.2 Catalog.Application
 
-- [ ] Создать проект `NovaCart.Services.Catalog.Application` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Catalog.Domain`, `BuildingBlocks.CQRS`, `BuildingBlocks.Persistence`
-- [ ] Создать папку `Products/Commands/`
-- [ ] Реализовать `CreateProductCommand` (record)
-- [ ] Реализовать `CreateProductHandler` → возвращает `Result<Guid>`
-- [ ] Реализовать `CreateProductValidator` (FluentValidation)
-- [ ] Реализовать `UpdateProductCommand`
-- [ ] Реализовать `UpdateProductHandler`
-- [ ] Реализовать `UpdateProductValidator`
-- [ ] Реализовать `DeleteProductCommand`
-- [ ] Реализовать `DeleteProductHandler`
-- [ ] Создать папку `Products/Queries/`
-- [ ] Реализовать `GetProductByIdQuery` → `Result<ProductDto>`
-- [ ] Реализовать `GetProductByIdHandler`
-- [ ] Реализовать `GetProductsQuery` (с пагинацией, фильтрацией, сортировкой)
-- [ ] Реализовать `GetProductsHandler` → `Result<PagedResult<ProductDto>>`
-- [ ] Создать папку `Products/Dtos/`
-- [ ] Реализовать `ProductDto`
-- [ ] Реализовать `CreateProductRequest`
-- [ ] Реализовать `UpdateProductRequest`
-- [ ] Создать папку `Categories/Commands/`
-- [ ] Реализовать `CreateCategoryCommand`, Handler, Validator
-- [ ] Реализовать `UpdateCategoryCommand`, Handler, Validator
-- [ ] Создать папку `Categories/Queries/`
-- [ ] Реализовать `GetCategoriesQuery`, Handler
-- [ ] Реализовать `GetCategoryByIdQuery`, Handler
-- [ ] Реализовать `CategoryDto`
-- [ ] Настроить DI-регистрацию: `AddCatalogApplication` (extension method)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Catalog.Application` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Catalog.Domain`, `BuildingBlocks.CQRS`, `BuildingBlocks.Persistence`
+- [x] Создать папку `Products/Commands/`
+- [x] Реализовать `CreateProductCommand` (record)
+- [x] Реализовать `CreateProductHandler` → возвращает `Result<Guid>`
+- [x] Реализовать `CreateProductValidator` (FluentValidation)
+- [x] Реализовать `UpdateProductCommand`
+- [x] Реализовать `UpdateProductHandler`
+- [x] Реализовать `UpdateProductValidator`
+- [x] Реализовать `DeleteProductCommand`
+- [x] Реализовать `DeleteProductHandler`
+- [x] Создать папку `Products/Queries/`
+- [x] Реализовать `GetProductByIdQuery` → `Result<ProductDto>`
+- [x] Реализовать `GetProductByIdHandler`
+- [x] Реализовать `GetProductsQuery` (с пагинацией, фильтрацией, сортировкой)
+- [x] Реализовать `GetProductsHandler` → `Result<PagedResult<ProductDto>>`
+- [x] Создать папку `Products/Dtos/`
+- [x] Реализовать `ProductDto`
+- [x] Реализовать `CreateProductRequest`
+- [x] Реализовать `UpdateProductRequest`
+- [x] Создать папку `Categories/Commands/`
+- [x] Реализовать `CreateCategoryCommand`, Handler, Validator
+- [x] Реализовать `UpdateCategoryCommand`, Handler, Validator
+- [x] Создать папку `Categories/Queries/`
+- [x] Реализовать `GetCategoriesQuery`, Handler
+- [x] Реализовать `GetCategoryByIdQuery`, Handler
+- [x] Реализовать `CategoryDto`
+- [x] Настроить DI-регистрацию: `AddCatalogApplication` (extension method)
+- [x] Убедиться, что проект собирается
 
 #### 1.3.3 Catalog.Infrastructure
 
-- [ ] Создать проект `NovaCart.Services.Catalog.Infrastructure` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Catalog.Domain`, `Catalog.Application`, `BuildingBlocks.Persistence`
-- [ ] Добавить NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL`, `Microsoft.EntityFrameworkCore.Tools`
-- [ ] Реализовать `CatalogDbContext` (наследуется от `DbContext`)
-- [ ] Реализовать `ProductConfiguration` (`IEntityTypeConfiguration<Product>`) — snake_case таблицы
-- [ ] Реализовать `CategoryConfiguration` (`IEntityTypeConfiguration<Category>`) — snake_case таблицы
-- [ ] Настроить Price как Owned Type в конфигурации Product
-- [ ] Реализовать `ProductRepository` (имплементация `IProductRepository`)
-- [ ] Реализовать `CategoryRepository` (имплементация `ICategoryRepository`)
-- [ ] Реализовать `UnitOfWork` (имплементация `IUnitOfWork`, обёртка над `DbContext.SaveChangesAsync`)
-- [ ] Создать seed data: начальные категории (Electronics, Clothing, Books, Home & Garden)
-- [ ] Создать seed data: начальные товары (10–15 товаров)
-- [ ] Настроить DI-регистрацию: `AddCatalogInfrastructure` (extension method, принимает connection string)
-- [ ] Создать initial migration
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Catalog.Infrastructure` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Catalog.Domain`, `Catalog.Application`, `BuildingBlocks.Persistence`
+- [x] Добавить NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL`, `Microsoft.EntityFrameworkCore.Tools`
+- [x] Реализовать `CatalogDbContext` (наследуется от `DbContext`)
+- [x] Реализовать `ProductConfiguration` (`IEntityTypeConfiguration<Product>`) — snake_case таблицы
+- [x] Реализовать `CategoryConfiguration` (`IEntityTypeConfiguration<Category>`) — snake_case таблицы
+- [x] Настроить Price как Owned Type в конфигурации Product
+- [x] Реализовать `ProductRepository` (имплементация `IProductRepository`)
+- [x] Реализовать `CategoryRepository` (имплементация `ICategoryRepository`)
+- [x] Реализовать `UnitOfWork` (имплементация `IUnitOfWork`, обёртка над `DbContext.SaveChangesAsync`)
+- [x] Создать seed data: начальные категории (Electronics, Clothing, Books, Home & Garden)
+- [x] Создать seed data: начальные товары (10–15 товаров)
+- [x] Настроить DI-регистрацию: `AddCatalogInfrastructure` (extension method, принимает connection string)
+- [x] Создать initial migration
+- [x] Убедиться, что проект собирается
 
 #### 1.3.4 Catalog.Contracts
 
-- [ ] Создать проект `NovaCart.Services.Catalog.Contracts` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Реализовать `ProductDto` (public DTO для внешних потребителей)
-- [ ] Реализовать `CategoryDto` (public DTO)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Catalog.Contracts` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Реализовать `ProductDto` (public DTO для внешних потребителей)
+- [x] Реализовать `CategoryDto` (public DTO)
+- [x] Убедиться, что проект собирается
 
 #### 1.3.5 Catalog.API
 
-- [ ] Создать проект `NovaCart.Services.Catalog.API` (ASP.NET Core Web API, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Catalog.Application`, `Catalog.Infrastructure`, `ServiceDefaults`
-- [ ] Настроить `Program.cs`: AddServiceDefaults, AddCatalogApplication, AddCatalogInfrastructure
-- [ ] Настроить Swagger/OpenAPI
-- [ ] Реализовать Minimal API эндпоинты — Products:
-  - [ ] `GET /api/v1/products` — список с пагинацией
-  - [ ] `GET /api/v1/products/{id}` — по ID
-  - [ ] `POST /api/v1/products` — создание
-  - [ ] `PUT /api/v1/products/{id}` — обновление
-  - [ ] `DELETE /api/v1/products/{id}` — удаление
-- [ ] Реализовать Minimal API эндпоинты — Categories:
-  - [ ] `GET /api/v1/categories` — список
-  - [ ] `GET /api/v1/categories/{id}` — по ID
-  - [ ] `POST /api/v1/categories` — создание
-  - [ ] `PUT /api/v1/categories/{id}` — обновление
-- [ ] Настроить глобальную обработку ошибок (Exception Middleware → ProblemDetails)
-- [ ] Настроить автоматическое применение миграций при запуске (development only)
-- [ ] Зарегистрировать в Aspire AppHost с подключением к `catalogdb`
-- [ ] Убедиться, что API запускается и отвечает через Aspire
+- [x] Создать проект `NovaCart.Services.Catalog.API` (ASP.NET Core Web API, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Catalog.Application`, `Catalog.Infrastructure`, `ServiceDefaults`
+- [x] Настроить `Program.cs`: AddServiceDefaults, AddCatalogApplication, AddCatalogInfrastructure
+- [x] Настроить Swagger/OpenAPI
+- [x] Реализовать Minimal API эндпоинты — Products:
+  - [x] `GET /api/v1/products` — список с пагинацией
+  - [x] `GET /api/v1/products/{id}` — по ID
+  - [x] `POST /api/v1/products` — создание
+  - [x] `PUT /api/v1/products/{id}` — обновление
+  - [x] `DELETE /api/v1/products/{id}` — удаление
+- [x] Реализовать Minimal API эндпоинты — Categories:
+  - [x] `GET /api/v1/categories` — список
+  - [x] `GET /api/v1/categories/{id}` — по ID
+  - [x] `POST /api/v1/categories` — создание
+  - [x] `PUT /api/v1/categories/{id}` — обновление
+- [x] Настроить глобальную обработку ошибок (Exception Middleware → ProblemDetails)
+- [x] Настроить автоматическое применение миграций при запуске (development only)
+- [x] Зарегистрировать в Aspire AppHost с подключением к `catalogdb`
+- [x] Убедиться, что API запускается и отвечает через Aspire
 
 ---
 
@@ -212,71 +212,71 @@
 
 #### 1.4.1 Ordering.Domain
 
-- [ ] Создать проект `NovaCart.Services.Ordering.Domain` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/Services/Ordering`)
-- [ ] Добавить зависимость на `BuildingBlocks.Common`
-- [ ] Реализовать value object `OrderStatus` (Created, Confirmed, Paid, Shipped, Delivered, Cancelled)
-- [ ] Реализовать value object `Address` (Street, City, State, Country, ZipCode)
-- [ ] Реализовать entity `OrderItem` (ProductId, ProductName, UnitPrice, Quantity)
-- [ ] Реализовать aggregate root `Order` (BuyerId, OrderDate, Status, ShippingAddress, Items)
-- [ ] Реализовать бизнес-методы в Order: `AddItem`, `RemoveItem`, `Cancel`, `Confirm`, `MarkAsPaid`, `Ship`, `Deliver`
-- [ ] Реализовать валидацию состояний (нельзя отменить доставленный заказ и т.д.)
-- [ ] Реализовать domain events: `OrderCreatedDomainEvent`, `OrderCancelledDomainEvent`, `OrderStatusChangedDomainEvent`
-- [ ] Реализовать интерфейс `IOrderRepository`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Ordering.Domain` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/Services/Ordering`)
+- [x] Добавить зависимость на `BuildingBlocks.Common`
+- [x] Реализовать value object `OrderStatus` (Created, Confirmed, Paid, Shipped, Delivered, Cancelled)
+- [x] Реализовать value object `Address` (Street, City, State, Country, ZipCode)
+- [x] Реализовать entity `OrderItem` (ProductId, ProductName, UnitPrice, Quantity)
+- [x] Реализовать aggregate root `Order` (BuyerId, OrderDate, Status, ShippingAddress, Items)
+- [x] Реализовать бизнес-методы в Order: `AddItem`, `RemoveItem`, `Cancel`, `Confirm`, `MarkAsPaid`, `Ship`, `Deliver`
+- [x] Реализовать валидацию состояний (нельзя отменить доставленный заказ и т.д.)
+- [x] Реализовать domain events: `OrderCreatedDomainEvent`, `OrderCancelledDomainEvent`, `OrderStatusChangedDomainEvent`
+- [x] Реализовать интерфейс `IOrderRepository`
+- [x] Убедиться, что проект собирается
 
 #### 1.4.2 Ordering.Application
 
-- [ ] Создать проект `NovaCart.Services.Ordering.Application` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Ordering.Domain`, `BuildingBlocks.CQRS`, `BuildingBlocks.Persistence`
-- [ ] Реализовать `CreateOrderCommand`, Handler, Validator
-- [ ] Реализовать `CancelOrderCommand`, Handler, Validator
-- [ ] Реализовать `GetOrderByIdQuery`, Handler
-- [ ] Реализовать `GetOrdersQuery` (с фильтрацией по BuyerId, пагинацией), Handler
-- [ ] Реализовать `OrderDto`, `OrderItemDto`
-- [ ] Реализовать `CreateOrderRequest` (с items и shipping address)
-- [ ] Настроить DI-регистрацию: `AddOrderingApplication`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Ordering.Application` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Ordering.Domain`, `BuildingBlocks.CQRS`, `BuildingBlocks.Persistence`
+- [x] Реализовать `CreateOrderCommand`, Handler, Validator
+- [x] Реализовать `CancelOrderCommand`, Handler, Validator
+- [x] Реализовать `GetOrderByIdQuery`, Handler
+- [x] Реализовать `GetOrdersQuery` (с фильтрацией по BuyerId, пагинацией), Handler
+- [x] Реализовать `OrderDto`, `OrderItemDto`
+- [x] Реализовать `CreateOrderRequest` (с items и shipping address)
+- [x] Настроить DI-регистрацию: `AddOrderingApplication`
+- [x] Убедиться, что проект собирается
 
 #### 1.4.3 Ordering.Infrastructure
 
-- [ ] Создать проект `NovaCart.Services.Ordering.Infrastructure` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Ordering.Domain`, `Ordering.Application`, `BuildingBlocks.Persistence`
-- [ ] Добавить NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL`, `Microsoft.EntityFrameworkCore.Tools`
-- [ ] Реализовать `OrderingDbContext`
-- [ ] Реализовать `OrderConfiguration` (IEntityTypeConfiguration) — snake_case, owned types для Address
-- [ ] Реализовать `OrderItemConfiguration`
-- [ ] Реализовать `OrderRepository`
-- [ ] Реализовать `UnitOfWork`
-- [ ] Настроить DI-регистрацию: `AddOrderingInfrastructure`
-- [ ] Создать initial migration
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Ordering.Infrastructure` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Ordering.Domain`, `Ordering.Application`, `BuildingBlocks.Persistence`
+- [x] Добавить NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL`, `Microsoft.EntityFrameworkCore.Tools`
+- [x] Реализовать `OrderingDbContext`
+- [x] Реализовать `OrderConfiguration` (IEntityTypeConfiguration) — snake_case, owned types для Address
+- [x] Реализовать `OrderItemConfiguration`
+- [x] Реализовать `OrderRepository`
+- [x] Реализовать `UnitOfWork`
+- [x] Настроить DI-регистрацию: `AddOrderingInfrastructure`
+- [x] Создать initial migration
+- [x] Убедиться, что проект собирается
 
 #### 1.4.4 Ordering.Contracts
 
-- [ ] Создать проект `NovaCart.Services.Ordering.Contracts` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Реализовать `OrderDto` (public DTO)
-- [ ] Реализовать `OrderItemDto` (public DTO)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Ordering.Contracts` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Реализовать `OrderDto` (public DTO)
+- [x] Реализовать `OrderItemDto` (public DTO)
+- [x] Убедиться, что проект собирается
 
 #### 1.4.5 Ordering.API
 
-- [ ] Создать проект `NovaCart.Services.Ordering.API` (ASP.NET Core Web API, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Ordering.Application`, `Ordering.Infrastructure`, `ServiceDefaults`
-- [ ] Настроить `Program.cs`
-- [ ] Реализовать Minimal API эндпоинты:
-  - [ ] `GET /api/v1/orders` — список заказов (фильтр по buyerId)
-  - [ ] `GET /api/v1/orders/{id}` — заказ по ID
-  - [ ] `POST /api/v1/orders` — создание заказа
-  - [ ] `PUT /api/v1/orders/{id}/cancel` — отмена заказа
-- [ ] Настроить глобальную обработку ошибок
-- [ ] Настроить автоматическое применение миграций (development only)
-- [ ] Зарегистрировать в Aspire AppHost с подключением к `orderingdb`
-- [ ] Убедиться, что API запускается и отвечает через Aspire
+- [x] Создать проект `NovaCart.Services.Ordering.API` (ASP.NET Core Web API, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Ordering.Application`, `Ordering.Infrastructure`, `ServiceDefaults`
+- [x] Настроить `Program.cs`
+- [x] Реализовать Minimal API эндпоинты:
+  - [x] `GET /api/v1/orders` — список заказов (фильтр по buyerId)
+  - [x] `GET /api/v1/orders/{id}` — заказ по ID
+  - [x] `POST /api/v1/orders` — создание заказа
+  - [x] `PUT /api/v1/orders/{id}/cancel` — отмена заказа
+- [x] Настроить глобальную обработку ошибок
+- [x] Настроить автоматическое применение миграций (development only)
+- [x] Зарегистрировать в Aspire AppHost с подключением к `orderingdb`
+- [x] Убедиться, что API запускается и отвечает через Aspire
 
 ---
 
@@ -284,85 +284,86 @@
 
 #### 1.5.1 Identity.Domain
 
-- [ ] Создать проект `NovaCart.Services.Identity.Domain` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/Services/Identity`)
-- [ ] Добавить зависимость на `BuildingBlocks.Common`
-- [ ] Реализовать `ApplicationUser` (наследуется от `IdentityUser`, добавить FirstName, LastName)
-- [ ] Реализовать `UserRole` (enum или constants: Admin, Customer)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Identity.Domain` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/Services/Identity`)
+- [x] Добавить зависимость на `BuildingBlocks.Common`
+- [x] Реализовать `ApplicationUser` (наследуется от `IdentityUser`, добавить FirstName, LastName)
+- [x] Реализовать `UserRole` (enum или constants: Admin, Customer)
+- [x] Убедиться, что проект собирается
 
 #### 1.5.2 Identity.Application
 
-- [ ] Создать проект `NovaCart.Services.Identity.Application` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Identity.Domain`, `BuildingBlocks.CQRS`
-- [ ] Реализовать `RegisterCommand`, Handler, Validator
-- [ ] Реализовать `LoginCommand`, Handler, Validator → возвращает `Result<TokenResponse>`
-- [ ] Реализовать `RefreshTokenCommand`, Handler
-- [ ] Реализовать `GetCurrentUserQuery`, Handler → возвращает `Result<UserDto>`
-- [ ] Реализовать `TokenResponse` (AccessToken, RefreshToken, ExpiresAt)
-- [ ] Реализовать `UserDto` (Id, Email, FirstName, LastName, Roles)
-- [ ] Реализовать `RegisterRequest`, `LoginRequest`
-- [ ] Реализовать интерфейс `ITokenService` (GenerateAccessToken, GenerateRefreshToken, ValidateRefreshToken)
-- [ ] Настроить DI-регистрацию: `AddIdentityApplication`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Identity.Application` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Identity.Domain`, `BuildingBlocks.CQRS`
+- [x] Реализовать `RegisterCommand`, Handler, Validator
+- [x] Реализовать `LoginCommand`, Handler, Validator → возвращает `Result<TokenResponse>`
+- [x] Реализовать `RefreshTokenCommand`, Handler
+- [x] Реализовать `GetCurrentUserQuery`, Handler → возвращает `Result<UserDto>`
+- [x] Реализовать `TokenResponse` (AccessToken, RefreshToken, ExpiresAt)
+- [x] Реализовать `UserDto` (Id, Email, FirstName, LastName, Roles)
+- [x] Реализовать `RegisterRequest`, `LoginRequest`
+- [x] Реализовать интерфейс `ITokenService` (GenerateAccessToken, GenerateRefreshToken, ValidateRefreshToken)
+- [x] Настроить DI-регистрацию: `AddIdentityApplication`
+- [x] Убедиться, что проект собирается
 
 #### 1.5.3 Identity.Infrastructure
 
-- [ ] Создать проект `NovaCart.Services.Identity.Infrastructure` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Identity.Domain`, `Identity.Application`
-- [ ] Добавить NuGet: `Microsoft.AspNetCore.Identity.EntityFrameworkCore`, `Npgsql.EntityFrameworkCore.PostgreSQL`
-- [ ] Реализовать `IdentityDbContext` (наследуется от `IdentityDbContext<ApplicationUser>`)
-- [ ] Реализовать `TokenService` (имплементация `ITokenService`, генерация JWT)
-- [ ] Настроить JWT-параметры (Issuer, Audience, Secret, Expiration)
-- [ ] Создать seed data: Admin user (admin@novacart.com)
-- [ ] Создать seed data: роли (Admin, Customer)
-- [ ] Настроить DI-регистрацию: `AddIdentityInfrastructure`
-- [ ] Создать initial migration
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Identity.Infrastructure` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Identity.Domain`, `Identity.Application`
+- [x] Добавить NuGet: `Microsoft.AspNetCore.Identity.EntityFrameworkCore`, `Npgsql.EntityFrameworkCore.PostgreSQL`
+- [x] Реализовать `IdentityAppDbContext` (наследуется от `IdentityDbContext<ApplicationUser>`)
+- [x] Реализовать `TokenService` (имплементация `ITokenService`, генерация JWT)
+- [x] Настроить JWT-параметры (Issuer, Audience, Secret, Expiration) — `JwtSettings` class
+- [x] Создать seed data: Admin user (admin@novacart.com) — runtime seed via `SeedAdminUserAsync`
+- [x] Создать seed data: роли (Admin, Customer) — migration seed via `HasData`
+- [x] Реализовать `UserRepository` (имплементация `IUserRepository`)
+- [x] Настроить DI-регистрацию: `AddIdentityInfrastructure`
+- [x] Создать initial migration
+- [x] Убедиться, что проект собирается
 
 #### 1.5.4 Identity.Contracts
 
-- [ ] Создать проект `NovaCart.Services.Identity.Contracts` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Реализовать `UserDto` (public DTO)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Identity.Contracts` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Реализовать `UserDto` (public DTO)
+- [x] Убедиться, что проект собирается
 
 #### 1.5.5 Identity.API
 
-- [ ] Создать проект `NovaCart.Services.Identity.API` (ASP.NET Core Web API, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Identity.Application`, `Identity.Infrastructure`, `ServiceDefaults`
-- [ ] Настроить `Program.cs`: ASP.NET Core Identity, JWT Bearer authentication
-- [ ] Реализовать Minimal API эндпоинты:
-  - [ ] `POST /api/v1/auth/register` — регистрация
-  - [ ] `POST /api/v1/auth/login` — вход
-  - [ ] `POST /api/v1/auth/refresh` — обновление токена
-  - [ ] `GET /api/v1/auth/me` — текущий пользователь (требует авторизации)
-- [ ] Настроить глобальную обработку ошибок
-- [ ] Настроить автоматическое применение миграций (development only)
-- [ ] Зарегистрировать в Aspire AppHost с подключением к `identitydb`
-- [ ] Убедиться, что API запускается и отвечает через Aspire
+- [x] Создать проект `NovaCart.Services.Identity.API` (ASP.NET Core Web API, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Identity.Application`, `Identity.Infrastructure`, `ServiceDefaults`
+- [x] Настроить `Program.cs`: ASP.NET Core Identity, JWT Bearer authentication
+- [x] Реализовать Minimal API эндпоинты:
+  - [x] `POST /api/v1/auth/register` — регистрация
+  - [x] `POST /api/v1/auth/login` — вход
+  - [x] `POST /api/v1/auth/refresh` — обновление токена
+  - [x] `GET /api/v1/auth/me` — текущий пользователь (требует авторизации)
+- [x] Настроить глобальную обработку ошибок
+- [x] Настроить автоматическое применение миграций (development only)
+- [x] Зарегистрировать в Aspire AppHost с подключением к `identitydb`
+- [x] Убедиться, что API запускается и отвечает через Aspire
 
 ---
 
 ### 1.6 API Gateway (YARP)
 
-- [ ] Создать проект `NovaCart.ApiGateway.Yarp` (ASP.NET Core Web API, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/ApiGateway`)
-- [ ] Добавить NuGet: `Yarp.ReverseProxy`
-- [ ] Добавить зависимость на `ServiceDefaults`
-- [ ] Настроить `Program.cs`: AddReverseProxy, LoadFromConfig
-- [ ] Настроить `appsettings.json` — маршруты:
-  - [ ] `/api/v1/products/**` → `catalog-api`
-  - [ ] `/api/v1/categories/**` → `catalog-api`
-  - [ ] `/api/v1/orders/**` → `ordering-api`
-  - [ ] `/api/v1/auth/**` → `identity-api`
-- [ ] Настроить Aspire service discovery в маршрутах (использовать имена сервисов, а не адреса)
-- [ ] Настроить прокидывание заголовков (Authorization, Content-Type)
-- [ ] Зарегистрировать в Aspire AppHost с `WithReference` на все API-сервисы
-- [ ] Убедиться, что Gateway запускается и проксирует запросы
+- [x] Создать проект `NovaCart.ApiGateway.Yarp` (ASP.NET Core Web API, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/ApiGateway`)
+- [x] Добавить NuGet: `Yarp.ReverseProxy`
+- [x] Добавить зависимость на `ServiceDefaults`
+- [x] Настроить `Program.cs`: AddReverseProxy, LoadFromConfig
+- [x] Настроить `appsettings.json` — маршруты:
+  - [x] `/api/v1/products/**` → `catalog-api`
+  - [x] `/api/v1/categories/**` → `catalog-api`
+  - [x] `/api/v1/orders/**` → `ordering-api`
+  - [x] `/api/v1/auth/**` → `identity-api`
+- [x] Настроить Aspire service discovery в маршрутах (использовать имена сервисов, а не адреса)
+- [x] Настроить прокидывание заголовков (Authorization, Content-Type)
+- [x] Зарегистрировать в Aspire AppHost с `WithReference` на все API-сервисы
+- [x] Убедиться, что Gateway запускается и проксирует запросы
 
 ---
 
@@ -370,49 +371,49 @@
 
 #### 1.7.1 NovaCart.Web (Server — BFF)
 
-- [ ] Создать проект `NovaCart.Web` (Blazor Web App, .NET 10, Auto render mode, Per page/component)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/Web`)
-- [ ] Добавить зависимость на `ServiceDefaults`
-- [ ] Добавить NuGet: `MudBlazor`
-- [ ] Настроить `Program.cs`: AddServiceDefaults, MudBlazor services
-- [ ] Настроить `App.razor`: MudBlazor providers, HeadOutlet
-- [ ] Настроить Layout: `MainLayout.razor` с MudBlazor (AppBar, NavMenu, Footer)
-- [ ] Создать BFF-сервисы (server-side, папка `Services/`):
-  - [ ] `CatalogService` — вызовы к Gateway для товаров и категорий
-  - [ ] `OrderService` — вызовы к Gateway для заказов
-  - [ ] `AuthService` — вызовы к Gateway для аутентификации
-- [ ] Настроить HttpClient для BFF → Gateway (через Aspire service discovery)
-- [ ] Создать SSR-страницы (папка `Components/Pages/`):
-  - [ ] `Home.razor` — главная страница (лендинг)
-  - [ ] `CatalogPage.razor` — каталог товаров с пагинацией
-  - [ ] `ProductPage.razor` — страница отдельного товара
-- [ ] Зарегистрировать в Aspire AppHost с `WithReference(gateway)`, `WithExternalHttpEndpoints`
-- [ ] Убедиться, что Web App запускается через Aspire
+- [x] Создать проект `NovaCart.Web` (Blazor Web App, .NET 10, Auto render mode, Per page/component)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/Web`)
+- [x] Добавить зависимость на `ServiceDefaults`
+- [x] Добавить NuGet: `MudBlazor`
+- [x] Настроить `Program.cs`: AddServiceDefaults, MudBlazor services
+- [x] Настроить `App.razor`: MudBlazor providers, HeadOutlet
+- [x] Настроить Layout: `MainLayout.razor` с MudBlazor (AppBar, NavMenu, Footer)
+- [x] Создать BFF-сервисы (server-side, папка `Services/`):
+  - [x] `CatalogService` — вызовы к Gateway для товаров и категорий
+  - [x] `OrderService` — вызовы к Gateway для заказов
+  - [x] `AuthService` — вызовы к Gateway для аутентификации
+- [x] Настроить HttpClient для BFF → Gateway (через Aspire service discovery)
+- [x] Создать SSR-страницы (папка `Components/Pages/`):
+  - [x] `Home.razor` — главная страница (лендинг)
+  - [x] `CatalogPage.razor` — каталог товаров с пагинацией
+  - [x] `ProductPage.razor` — страница отдельного товара
+- [x] Зарегистрировать в Aspire AppHost с `WithReference(gateway)`, `WithExternalHttpEndpoints`
+- [x] Убедиться, что Web App запускается через Aspire
 
 #### 1.7.2 NovaCart.Web.Client (WASM — интерактивные компоненты)
 
-- [ ] Создать проект `NovaCart.Web.Client` (Blazor WebAssembly, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить NuGet: `MudBlazor`, `Microsoft.AspNetCore.Components.WebAssembly`
-- [ ] Настроить `Program.cs`: HttpClient, MudBlazor services
-- [ ] Создать client-side сервисы (папка `Services/`):
-  - [ ] `AuthClientService` — HTTP-вызовы для логина/регистрации
-- [ ] Создать интерактивные компоненты (папка `Pages/`):
-  - [ ] `Login.razor` (`@rendermode InteractiveAuto`) — форма логина
-  - [ ] `Register.razor` (`@rendermode InteractiveAuto`) — форма регистрации
-- [ ] Убедиться, что интерактивные компоненты работают
+- [x] Создать проект `NovaCart.Web.Client` (Blazor WebAssembly, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить NuGet: `MudBlazor`, `Microsoft.AspNetCore.Components.WebAssembly`
+- [x] Настроить `Program.cs`: HttpClient, MudBlazor services
+- [x] Создать client-side сервисы (папка `Services/`):
+  - [x] `AuthClientService` — HTTP-вызовы для логина/регистрации
+- [x] Создать интерактивные компоненты (папка `Pages/`):
+  - [x] `Login.razor` (`@rendermode InteractiveAuto`) — форма логина
+  - [x] `Register.razor` (`@rendermode InteractiveAuto`) — форма регистрации
+- [x] Убедиться, что интерактивные компоненты работают
 
 ---
 
 ### 1.8 Aspire AppHost — финальная конфигурация Phase 1
 
-- [ ] AppHost `Program.cs` содержит:
-  - [ ] PostgreSQL с 3 базами (catalogdb, orderingdb, identitydb)
-  - [ ] Catalog API с подключением к catalogdb
-  - [ ] Ordering API с подключением к orderingdb
-  - [ ] Identity API с подключением к identitydb
-  - [ ] YARP Gateway с references на все API
-  - [ ] Web App с reference на Gateway
+- [x] AppHost `Program.cs` содержит:
+  - [x] PostgreSQL с 3 базами (catalogdb, orderingdb, identitydb)
+  - [x] Catalog API с подключением к catalogdb
+  - [x] Ordering API с подключением к orderingdb
+  - [x] Identity API с подключением к identitydb
+  - [x] YARP Gateway с references на все API
+  - [x] Web App с reference на Gateway
 - [ ] Все сервисы запускаются через единый `dotnet run` из AppHost
 - [ ] Aspire Dashboard доступен и показывает все сервисы
 - [ ] Health checks работают для всех сервисов

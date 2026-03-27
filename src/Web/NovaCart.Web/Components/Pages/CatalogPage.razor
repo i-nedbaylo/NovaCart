@@ -1,0 +1,96 @@
+@page "/catalog"
+@using NovaCart.Web.Services
+@using NovaCart.Web.Services.Models
+@inject CatalogService CatalogService
+
+<PageTitle>NovaCart — Catalog</PageTitle>
+
+<MudText Typo="Typo.h4" GutterBottom="true">Product Catalog</MudText>
+
+@if (_loading)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (_products is null || _products.Items.Count == 0)
+{
+    <MudAlert Severity="Severity.Info">No products found.</MudAlert>
+}
+else
+{
+    <MudGrid>
+        @foreach (var product in _products.Items)
+        {
+            <MudItem xs="12" sm="6" md="4" lg="3">
+                <MudCard Elevation="2" Class="mud-height-full">
+                    @if (!string.IsNullOrWhiteSpace(product.ImageUrl))
+                    {
+                        <MudCardMedia Image="@product.ImageUrl" Height="200" />
+                    }
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">@product.Name</MudText>
+                        <MudText Typo="Typo.body2" Class="mb-2" Style="color: gray;">@product.CategoryName</MudText>
+                        <MudText Typo="Typo.body2" Class="mb-2">
+                            @(product.Description.Length > 100
+                                ? product.Description[..100] + "..."
+                                : product.Description)
+                        </MudText>
+                        <MudText Typo="Typo.h6" Color="Color.Primary">
+                            @product.PriceAmount.ToString("C2") @product.PriceCurrency
+                        </MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary"
+                                   Href="@($"/catalog/{product.Id}")">
+                            View Details
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+
+    <MudPagination Class="mt-4 d-flex justify-center"
+                   Count="@TotalPages"
+                   Selected="@_currentPage"
+                   SelectedChanged="OnPageChanged" />
+}
+
+@code {
+    private PagedResult<ProductViewModel>? _products;
+    private bool _loading = true;
+    private int _currentPage = 1;
+    private const int PageSize = 12;
+
+    private int TotalPages => _products is null || _products.TotalCount == 0
+        ? 1
+        : (int)Math.Ceiling((double)_products.TotalCount / PageSize);
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProductsAsync();
+    }
+
+    private async Task LoadProductsAsync()
+    {
+        _loading = true;
+
+        try
+        {
+            _products = await CatalogService.GetProductsAsync(page: _currentPage, pageSize: PageSize);
+        }
+        catch
+        {
+            _products = null;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private async Task OnPageChanged(int page)
+    {
+        _currentPage = page;
+        await LoadProductsAsync();
+    }
+}

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.3.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAspireHost>true</IsAspireHost>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.3.0" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj" />
+    <ProjectReference Include="..\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj" />
+    <ProjectReference Include="..\src\Services\Identity\Identity.API\NovaCart.Services.Identity.API.csproj" />
+    <ProjectReference Include="..\src\ApiGateway\Gateway.Yarp\NovaCart.ApiGateway.Yarp.csproj" />
+    <ProjectReference Include="..\src\Web\NovaCart.Web\NovaCart.Web.csproj" />
+  </ItemGroup>
+
+</Project>
