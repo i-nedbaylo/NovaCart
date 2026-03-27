@@ -125,36 +125,36 @@
 
 #### 1.3.2 Catalog.Application
 
-- [ ] Создать проект `NovaCart.Services.Catalog.Application` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Catalog.Domain`, `BuildingBlocks.CQRS`, `BuildingBlocks.Persistence`
-- [ ] Создать папку `Products/Commands/`
-- [ ] Реализовать `CreateProductCommand` (record)
-- [ ] Реализовать `CreateProductHandler` → возвращает `Result<Guid>`
-- [ ] Реализовать `CreateProductValidator` (FluentValidation)
-- [ ] Реализовать `UpdateProductCommand`
-- [ ] Реализовать `UpdateProductHandler`
-- [ ] Реализовать `UpdateProductValidator`
-- [ ] Реализовать `DeleteProductCommand`
-- [ ] Реализовать `DeleteProductHandler`
-- [ ] Создать папку `Products/Queries/`
-- [ ] Реализовать `GetProductByIdQuery` → `Result<ProductDto>`
-- [ ] Реализовать `GetProductByIdHandler`
-- [ ] Реализовать `GetProductsQuery` (с пагинацией, фильтрацией, сортировкой)
-- [ ] Реализовать `GetProductsHandler` → `Result<PagedResult<ProductDto>>`
-- [ ] Создать папку `Products/Dtos/`
-- [ ] Реализовать `ProductDto`
-- [ ] Реализовать `CreateProductRequest`
-- [ ] Реализовать `UpdateProductRequest`
-- [ ] Создать папку `Categories/Commands/`
-- [ ] Реализовать `CreateCategoryCommand`, Handler, Validator
-- [ ] Реализовать `UpdateCategoryCommand`, Handler, Validator
-- [ ] Создать папку `Categories/Queries/`
-- [ ] Реализовать `GetCategoriesQuery`, Handler
-- [ ] Реализовать `GetCategoryByIdQuery`, Handler
-- [ ] Реализовать `CategoryDto`
-- [ ] Настроить DI-регистрацию: `AddCatalogApplication` (extension method)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Catalog.Application` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Catalog.Domain`, `BuildingBlocks.CQRS`, `BuildingBlocks.Persistence`
+- [x] Создать папку `Products/Commands/`
+- [x] Реализовать `CreateProductCommand` (record)
+- [x] Реализовать `CreateProductHandler` → возвращает `Result<Guid>`
+- [x] Реализовать `CreateProductValidator` (FluentValidation)
+- [x] Реализовать `UpdateProductCommand`
+- [x] Реализовать `UpdateProductHandler`
+- [x] Реализовать `UpdateProductValidator`
+- [x] Реализовать `DeleteProductCommand`
+- [x] Реализовать `DeleteProductHandler`
+- [x] Создать папку `Products/Queries/`
+- [x] Реализовать `GetProductByIdQuery` → `Result<ProductDto>`
+- [x] Реализовать `GetProductByIdHandler`
+- [x] Реализовать `GetProductsQuery` (с пагинацией, фильтрацией, сортировкой)
+- [x] Реализовать `GetProductsHandler` → `Result<PagedResult<ProductDto>>`
+- [x] Создать папку `Products/Dtos/`
+- [x] Реализовать `ProductDto`
+- [x] Реализовать `CreateProductRequest`
+- [x] Реализовать `UpdateProductRequest`
+- [x] Создать папку `Categories/Commands/`
+- [x] Реализовать `CreateCategoryCommand`, Handler, Validator
+- [x] Реализовать `UpdateCategoryCommand`, Handler, Validator
+- [x] Создать папку `Categories/Queries/`
+- [x] Реализовать `GetCategoriesQuery`, Handler
+- [x] Реализовать `GetCategoryByIdQuery`, Handler
+- [x] Реализовать `CategoryDto`
+- [x] Настроить DI-регистрацию: `AddCatalogApplication` (extension method)
+- [x] Убедиться, что проект собирается
 
 #### 1.3.3 Catalog.Infrastructure
 

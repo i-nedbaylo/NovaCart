@@ -7,6 +7,7 @@
   </Folder>
   <Folder Name="/src/Services/" />
   <Folder Name="/src/Services/Catalog/">
+    <Project Path="src/Services/Catalog/Catalog.Application/NovaCart.Services.Catalog.Application.csproj" />
     <Project Path="src/Services/Catalog/Catalog.Domain/NovaCart.Services.Catalog.Domain.csproj" />
   </Folder>
   <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
