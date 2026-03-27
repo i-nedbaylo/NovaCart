@@ -204,7 +204,7 @@
 - [x] Настроить глобальную обработку ошибок (Exception Middleware → ProblemDetails)
 - [x] Настроить автоматическое применение миграций при запуске (development only)
 - [x] Зарегистрировать в Aspire AppHost с подключением к `catalogdb`
-- [ ] Убедиться, что API запускается и отвечает через Aspire
+- [x] Убедиться, что API запускается и отвечает через Aspire
 
 ---
 
@@ -276,7 +276,7 @@
 - [x] Настроить глобальную обработку ошибок
 - [x] Настроить автоматическое применение миграций (development only)
 - [x] Зарегистрировать в Aspire AppHost с подключением к `orderingdb`
-- [ ] Убедиться, что API запускается и отвечает через Aspire
+- [x] Убедиться, что API запускается и отвечает через Aspire
 
 ---
 
@@ -284,85 +284,86 @@
 
 #### 1.5.1 Identity.Domain
 
-- [ ] Создать проект `NovaCart.Services.Identity.Domain` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/Services/Identity`)
-- [ ] Добавить зависимость на `BuildingBlocks.Common`
-- [ ] Реализовать `ApplicationUser` (наследуется от `IdentityUser`, добавить FirstName, LastName)
-- [ ] Реализовать `UserRole` (enum или constants: Admin, Customer)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Identity.Domain` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/Services/Identity`)
+- [x] Добавить зависимость на `BuildingBlocks.Common`
+- [x] Реализовать `ApplicationUser` (наследуется от `IdentityUser`, добавить FirstName, LastName)
+- [x] Реализовать `UserRole` (enum или constants: Admin, Customer)
+- [x] Убедиться, что проект собирается
 
 #### 1.5.2 Identity.Application
 
-- [ ] Создать проект `NovaCart.Services.Identity.Application` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Identity.Domain`, `BuildingBlocks.CQRS`
-- [ ] Реализовать `RegisterCommand`, Handler, Validator
-- [ ] Реализовать `LoginCommand`, Handler, Validator → возвращает `Result<TokenResponse>`
-- [ ] Реализовать `RefreshTokenCommand`, Handler
-- [ ] Реализовать `GetCurrentUserQuery`, Handler → возвращает `Result<UserDto>`
-- [ ] Реализовать `TokenResponse` (AccessToken, RefreshToken, ExpiresAt)
-- [ ] Реализовать `UserDto` (Id, Email, FirstName, LastName, Roles)
-- [ ] Реализовать `RegisterRequest`, `LoginRequest`
-- [ ] Реализовать интерфейс `ITokenService` (GenerateAccessToken, GenerateRefreshToken, ValidateRefreshToken)
-- [ ] Настроить DI-регистрацию: `AddIdentityApplication`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Identity.Application` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Identity.Domain`, `BuildingBlocks.CQRS`
+- [x] Реализовать `RegisterCommand`, Handler, Validator
+- [x] Реализовать `LoginCommand`, Handler, Validator → возвращает `Result<TokenResponse>`
+- [x] Реализовать `RefreshTokenCommand`, Handler
+- [x] Реализовать `GetCurrentUserQuery`, Handler → возвращает `Result<UserDto>`
+- [x] Реализовать `TokenResponse` (AccessToken, RefreshToken, ExpiresAt)
+- [x] Реализовать `UserDto` (Id, Email, FirstName, LastName, Roles)
+- [x] Реализовать `RegisterRequest`, `LoginRequest`
+- [x] Реализовать интерфейс `ITokenService` (GenerateAccessToken, GenerateRefreshToken, ValidateRefreshToken)
+- [x] Настроить DI-регистрацию: `AddIdentityApplication`
+- [x] Убедиться, что проект собирается
 
 #### 1.5.3 Identity.Infrastructure
 
-- [ ] Создать проект `NovaCart.Services.Identity.Infrastructure` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Identity.Domain`, `Identity.Application`
-- [ ] Добавить NuGet: `Microsoft.AspNetCore.Identity.EntityFrameworkCore`, `Npgsql.EntityFrameworkCore.PostgreSQL`
-- [ ] Реализовать `IdentityDbContext` (наследуется от `IdentityDbContext<ApplicationUser>`)
-- [ ] Реализовать `TokenService` (имплементация `ITokenService`, генерация JWT)
-- [ ] Настроить JWT-параметры (Issuer, Audience, Secret, Expiration)
-- [ ] Создать seed data: Admin user (admin@novacart.com)
-- [ ] Создать seed data: роли (Admin, Customer)
-- [ ] Настроить DI-регистрацию: `AddIdentityInfrastructure`
-- [ ] Создать initial migration
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Identity.Infrastructure` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Identity.Domain`, `Identity.Application`
+- [x] Добавить NuGet: `Microsoft.AspNetCore.Identity.EntityFrameworkCore`, `Npgsql.EntityFrameworkCore.PostgreSQL`
+- [x] Реализовать `IdentityAppDbContext` (наследуется от `IdentityDbContext<ApplicationUser>`)
+- [x] Реализовать `TokenService` (имплементация `ITokenService`, генерация JWT)
+- [x] Настроить JWT-параметры (Issuer, Audience, Secret, Expiration) — `JwtSettings` class
+- [x] Создать seed data: Admin user (admin@novacart.com) — runtime seed via `SeedAdminUserAsync`
+- [x] Создать seed data: роли (Admin, Customer) — migration seed via `HasData`
+- [x] Реализовать `UserRepository` (имплементация `IUserRepository`)
+- [x] Настроить DI-регистрацию: `AddIdentityInfrastructure`
+- [x] Создать initial migration
+- [x] Убедиться, что проект собирается
 
 #### 1.5.4 Identity.Contracts
 
-- [ ] Создать проект `NovaCart.Services.Identity.Contracts` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Реализовать `UserDto` (public DTO)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Identity.Contracts` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Реализовать `UserDto` (public DTO)
+- [x] Убедиться, что проект собирается
 
 #### 1.5.5 Identity.API
 
-- [ ] Создать проект `NovaCart.Services.Identity.API` (ASP.NET Core Web API, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Identity.Application`, `Identity.Infrastructure`, `ServiceDefaults`
-- [ ] Настроить `Program.cs`: ASP.NET Core Identity, JWT Bearer authentication
-- [ ] Реализовать Minimal API эндпоинты:
-  - [ ] `POST /api/v1/auth/register` — регистрация
-  - [ ] `POST /api/v1/auth/login` — вход
-  - [ ] `POST /api/v1/auth/refresh` — обновление токена
-  - [ ] `GET /api/v1/auth/me` — текущий пользователь (требует авторизации)
-- [ ] Настроить глобальную обработку ошибок
-- [ ] Настроить автоматическое применение миграций (development only)
-- [ ] Зарегистрировать в Aspire AppHost с подключением к `identitydb`
-- [ ] Убедиться, что API запускается и отвечает через Aspire
+- [x] Создать проект `NovaCart.Services.Identity.API` (ASP.NET Core Web API, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Identity.Application`, `Identity.Infrastructure`, `ServiceDefaults`
+- [x] Настроить `Program.cs`: ASP.NET Core Identity, JWT Bearer authentication
+- [x] Реализовать Minimal API эндпоинты:
+  - [x] `POST /api/v1/auth/register` — регистрация
+  - [x] `POST /api/v1/auth/login` — вход
+  - [x] `POST /api/v1/auth/refresh` — обновление токена
+  - [x] `GET /api/v1/auth/me` — текущий пользователь (требует авторизации)
+- [x] Настроить глобальную обработку ошибок
+- [x] Настроить автоматическое применение миграций (development only)
+- [x] Зарегистрировать в Aspire AppHost с подключением к `identitydb`
+- [x] Убедиться, что API запускается и отвечает через Aspire
 
 ---
 
 ### 1.6 API Gateway (YARP)
 
-- [ ] Создать проект `NovaCart.ApiGateway.Yarp` (ASP.NET Core Web API, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/ApiGateway`)
-- [ ] Добавить NuGet: `Yarp.ReverseProxy`
-- [ ] Добавить зависимость на `ServiceDefaults`
-- [ ] Настроить `Program.cs`: AddReverseProxy, LoadFromConfig
-- [ ] Настроить `appsettings.json` — маршруты:
-  - [ ] `/api/v1/products/**` → `catalog-api`
-  - [ ] `/api/v1/categories/**` → `catalog-api`
-  - [ ] `/api/v1/orders/**` → `ordering-api`
-  - [ ] `/api/v1/auth/**` → `identity-api`
-- [ ] Настроить Aspire service discovery в маршрутах (использовать имена сервисов, а не адреса)
-- [ ] Настроить прокидывание заголовков (Authorization, Content-Type)
-- [ ] Зарегистрировать в Aspire AppHost с `WithReference` на все API-сервисы
-- [ ] Убедиться, что Gateway запускается и проксирует запросы
+- [x] Создать проект `NovaCart.ApiGateway.Yarp` (ASP.NET Core Web API, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/ApiGateway`)
+- [x] Добавить NuGet: `Yarp.ReverseProxy`
+- [x] Добавить зависимость на `ServiceDefaults`
+- [x] Настроить `Program.cs`: AddReverseProxy, LoadFromConfig
+- [x] Настроить `appsettings.json` — маршруты:
+  - [x] `/api/v1/products/**` → `catalog-api`
+  - [x] `/api/v1/categories/**` → `catalog-api`
+  - [x] `/api/v1/orders/**` → `ordering-api`
+  - [x] `/api/v1/auth/**` → `identity-api`
+- [x] Настроить Aspire service discovery в маршрутах (использовать имена сервисов, а не адреса)
+- [x] Настроить прокидывание заголовков (Authorization, Content-Type)
+- [x] Зарегистрировать в Aspire AppHost с `WithReference` на все API-сервисы
+- [x] Убедиться, что Gateway запускается и проксирует запросы
 
 ---
 
@@ -370,49 +371,49 @@
 
 #### 1.7.1 NovaCart.Web (Server — BFF)
 
-- [ ] Создать проект `NovaCart.Web` (Blazor Web App, .NET 10, Auto render mode, Per page/component)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/Web`)
-- [ ] Добавить зависимость на `ServiceDefaults`
-- [ ] Добавить NuGet: `MudBlazor`
-- [ ] Настроить `Program.cs`: AddServiceDefaults, MudBlazor services
-- [ ] Настроить `App.razor`: MudBlazor providers, HeadOutlet
-- [ ] Настроить Layout: `MainLayout.razor` с MudBlazor (AppBar, NavMenu, Footer)
-- [ ] Создать BFF-сервисы (server-side, папка `Services/`):
-  - [ ] `CatalogService` — вызовы к Gateway для товаров и категорий
-  - [ ] `OrderService` — вызовы к Gateway для заказов
-  - [ ] `AuthService` — вызовы к Gateway для аутентификации
-- [ ] Настроить HttpClient для BFF → Gateway (через Aspire service discovery)
-- [ ] Создать SSR-страницы (папка `Components/Pages/`):
-  - [ ] `Home.razor` — главная страница (лендинг)
-  - [ ] `CatalogPage.razor` — каталог товаров с пагинацией
-  - [ ] `ProductPage.razor` — страница отдельного товара
-- [ ] Зарегистрировать в Aspire AppHost с `WithReference(gateway)`, `WithExternalHttpEndpoints`
-- [ ] Убедиться, что Web App запускается через Aspire
+- [x] Создать проект `NovaCart.Web` (Blazor Web App, .NET 10, Auto render mode, Per page/component)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/Web`)
+- [x] Добавить зависимость на `ServiceDefaults`
+- [x] Добавить NuGet: `MudBlazor`
+- [x] Настроить `Program.cs`: AddServiceDefaults, MudBlazor services
+- [x] Настроить `App.razor`: MudBlazor providers, HeadOutlet
+- [x] Настроить Layout: `MainLayout.razor` с MudBlazor (AppBar, NavMenu, Footer)
+- [x] Создать BFF-сервисы (server-side, папка `Services/`):
+  - [x] `CatalogService` — вызовы к Gateway для товаров и категорий
+  - [x] `OrderService` — вызовы к Gateway для заказов
+  - [x] `AuthService` — вызовы к Gateway для аутентификации
+- [x] Настроить HttpClient для BFF → Gateway (через Aspire service discovery)
+- [x] Создать SSR-страницы (папка `Components/Pages/`):
+  - [x] `Home.razor` — главная страница (лендинг)
+  - [x] `CatalogPage.razor` — каталог товаров с пагинацией
+  - [x] `ProductPage.razor` — страница отдельного товара
+- [x] Зарегистрировать в Aspire AppHost с `WithReference(gateway)`, `WithExternalHttpEndpoints`
+- [x] Убедиться, что Web App запускается через Aspire
 
 #### 1.7.2 NovaCart.Web.Client (WASM — интерактивные компоненты)
 
-- [ ] Создать проект `NovaCart.Web.Client` (Blazor WebAssembly, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить NuGet: `MudBlazor`, `Microsoft.AspNetCore.Components.WebAssembly`
-- [ ] Настроить `Program.cs`: HttpClient, MudBlazor services
-- [ ] Создать client-side сервисы (папка `Services/`):
-  - [ ] `AuthClientService` — HTTP-вызовы для логина/регистрации
-- [ ] Создать интерактивные компоненты (папка `Pages/`):
-  - [ ] `Login.razor` (`@rendermode InteractiveAuto`) — форма логина
-  - [ ] `Register.razor` (`@rendermode InteractiveAuto`) — форма регистрации
-- [ ] Убедиться, что интерактивные компоненты работают
+- [x] Создать проект `NovaCart.Web.Client` (Blazor WebAssembly, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить NuGet: `MudBlazor`, `Microsoft.AspNetCore.Components.WebAssembly`
+- [x] Настроить `Program.cs`: HttpClient, MudBlazor services
+- [x] Создать client-side сервисы (папка `Services/`):
+  - [x] `AuthClientService` — HTTP-вызовы для логина/регистрации
+- [x] Создать интерактивные компоненты (папка `Pages/`):
+  - [x] `Login.razor` (`@rendermode InteractiveAuto`) — форма логина
+  - [x] `Register.razor` (`@rendermode InteractiveAuto`) — форма регистрации
+- [x] Убедиться, что интерактивные компоненты работают
 
 ---
 
 ### 1.8 Aspire AppHost — финальная конфигурация Phase 1
 
-- [ ] AppHost `Program.cs` содержит:
-  - [ ] PostgreSQL с 3 базами (catalogdb, orderingdb, identitydb)
-  - [ ] Catalog API с подключением к catalogdb
-  - [ ] Ordering API с подключением к orderingdb
-  - [ ] Identity API с подключением к identitydb
-  - [ ] YARP Gateway с references на все API
-  - [ ] Web App с reference на Gateway
+- [x] AppHost `Program.cs` содержит:
+  - [x] PostgreSQL с 3 базами (catalogdb, orderingdb, identitydb)
+  - [x] Catalog API с подключением к catalogdb
+  - [x] Ordering API с подключением к orderingdb
+  - [x] Identity API с подключением к identitydb
+  - [x] YARP Gateway с references на все API
+  - [x] Web App с reference на Gateway
 - [ ] Все сервисы запускаются через единый `dotnet run` из AppHost
 - [ ] Aspire Dashboard доступен и показывает все сервисы
 - [ ] Health checks работают для всех сервисов

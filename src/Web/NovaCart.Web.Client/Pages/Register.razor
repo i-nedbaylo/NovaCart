@@ -1,0 +1,127 @@
+@page "/register"
+@rendermode InteractiveAuto
+
+<PageTitle>NovaCart — Register</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small">
+    <MudPaper Elevation="2" Class="pa-8 mt-8">
+        <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">Create Account</MudText>
+
+        @if (!string.IsNullOrWhiteSpace(_errorMessage))
+        {
+            <MudAlert Severity="Severity.Error" Class="mb-4">@_errorMessage</MudAlert>
+        }
+
+        @if (_registered)
+        {
+            <MudAlert Severity="Severity.Success" Class="mb-4">
+                Account created successfully! <MudLink Href="/login">Sign In</MudLink>
+            </MudAlert>
+        }
+
+        <MudForm @ref="_form" @bind-IsValid="_formValid">
+            <MudTextField T="string" @bind-Value="_firstName" Label="First Name" Required="true"
+                          RequiredError="First name is required"
+                          Variant="Variant.Outlined" Class="mb-4" />
+
+            <MudTextField T="string" @bind-Value="_lastName" Label="Last Name" Required="true"
+                          RequiredError="Last name is required"
+                          Variant="Variant.Outlined" Class="mb-4" />
+
+            <MudTextField T="string" @bind-Value="_email" Label="Email" Required="true"
+                          RequiredError="Email is required" InputType="InputType.Email"
+                          Validation="@(new EmailAddressAttribute() { ErrorMessage = "Enter a valid email" })"
+                          Variant="Variant.Outlined" Class="mb-4" />
+
+            <MudTextField T="string" @bind-Value="_password" Label="Password" Required="true"
+                          RequiredError="Password is required" InputType="InputType.Password"
+                          Validation="@(new Func<string, string?>(ValidatePassword))"
+                          Variant="Variant.Outlined" Class="mb-4" />
+
+            <MudTextField T="string" @bind-Value="_confirmPassword" Label="Confirm Password" Required="true"
+                          RequiredError="Please confirm your password" InputType="InputType.Password"
+                          Validation="@(new Func<string, string?>(ValidateConfirmPassword))"
+                          Variant="Variant.Outlined" Class="mb-4" />
+
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true"
+                       Disabled="@(!_formValid || _submitting)" OnClick="HandleRegister" Class="mb-4">
+                @if (_submitting)
+                {
+                    <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                }
+                Create Account
+            </MudButton>
+        </MudForm>
+
+        <MudText Align="Align.Center">
+            Already have an account?
+            <MudLink Href="/login">Sign In</MudLink>
+        </MudText>
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private MudForm? _form;
+    private bool _formValid;
+    private bool _submitting;
+    private bool _registered;
+    private string _firstName = string.Empty;
+    private string _lastName = string.Empty;
+    private string _email = string.Empty;
+    private string _password = string.Empty;
+    private string _confirmPassword = string.Empty;
+    private string? _errorMessage;
+
+    private string? ValidatePassword(string password)
+    {
+        if (string.IsNullOrWhiteSpace(password))
+            return "Password is required";
+        if (password.Length < 8)
+            return "Password must be at least 8 characters";
+        if (!password.Any(char.IsUpper))
+            return "Password must contain an uppercase letter";
+        if (!password.Any(char.IsLower))
+            return "Password must contain a lowercase letter";
+        if (!password.Any(char.IsDigit))
+            return "Password must contain a digit";
+
+        return null;
+    }
+
+    private string? ValidateConfirmPassword(string confirmPassword)
+    {
+        if (confirmPassword != _password)
+            return "Passwords do not match";
+
+        return null;
+    }
+
+    private async Task HandleRegister()
+    {
+        if (_form is not null)
+        {
+            await _form.Validate();
+        }
+
+        if (!_formValid) return;
+
+        _submitting = true;
+        _errorMessage = null;
+
+        try
+        {
+            // NOTE: Simplified for demo purposes. In production, use a proper AuthenticationStateProvider
+            // and persist tokens securely (e.g., HttpOnly cookies via BFF pattern).
+            await Task.Delay(500); // Simulate API call
+            _errorMessage = "Registration functionality will be connected to the BFF in a future phase.";
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"Registration failed: {ex.Message}";
+        }
+        finally
+        {
+            _submitting = false;
+        }
+    }
+}

@@ -1,0 +1,97 @@
+@page "/catalog/{Id:guid}"
+@using NovaCart.Web.Services
+@using NovaCart.Web.Services.Models
+@inject CatalogService CatalogService
+
+<PageTitle>NovaCart — Product</PageTitle>
+
+@if (_loading)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (_product is null)
+{
+    <MudAlert Severity="Severity.Warning">Product not found.</MudAlert>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/catalog" Class="mt-4">
+        Back to Catalog
+    </MudButton>
+}
+else
+{
+    <MudBreadcrumbs Items="_breadcrumbs" Class="mb-4" />
+
+    <MudGrid>
+        <MudItem xs="12" md="5">
+            @if (!string.IsNullOrWhiteSpace(_product.ImageUrl))
+            {
+                <MudImage Src="@_product.ImageUrl" Alt="@_product.Name"
+                          ObjectFit="ObjectFit.Cover" Width="100"
+                          Class="rounded-lg" Elevation="2" />
+            }
+            else
+            {
+                <MudPaper Class="d-flex align-center justify-center" Height="300px" Elevation="2">
+                    <MudIcon Icon="@Icons.Material.Filled.Image" Size="Size.Large" Color="Color.Default" />
+                </MudPaper>
+            }
+        </MudItem>
+        <MudItem xs="12" md="7">
+            <MudText Typo="Typo.h4" GutterBottom="true">@_product.Name</MudText>
+            <MudChip T="string" Color="Color.Info" Size="Size.Small">@_product.CategoryName</MudChip>
+            <MudChip T="string" Color="@GetStatusColor(_product.Status)" Size="Size.Small">@_product.Status</MudChip>
+
+            <MudText Typo="Typo.h4" Color="Color.Primary" Class="mt-4 mb-4">
+                @_product.PriceAmount.ToString("C2") @_product.PriceCurrency
+            </MudText>
+
+            <MudText Typo="Typo.body1" Class="mb-4">@_product.Description</MudText>
+
+            <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                       StartIcon="@Icons.Material.Filled.ShoppingCart" Size="Size.Large">
+                Add to Cart
+            </MudButton>
+        </MudItem>
+    </MudGrid>
+}
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private ProductViewModel? _product;
+    private bool _loading = true;
+    private List<BreadcrumbItem> _breadcrumbs = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+
+        try
+        {
+            _product = await CatalogService.GetProductByIdAsync(Id);
+
+            _breadcrumbs =
+            [
+                new BreadcrumbItem("Home", href: "/"),
+                new BreadcrumbItem("Catalog", href: "/catalog"),
+                new BreadcrumbItem(_product?.Name ?? "Product", href: null, disabled: true)
+            ];
+        }
+        catch
+        {
+            _product = null;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private static Color GetStatusColor(string status) => status switch
+    {
+        "Active" => Color.Success,
+        "Draft" => Color.Warning,
+        "Discontinued" => Color.Error,
+        _ => Color.Default
+    };
+}

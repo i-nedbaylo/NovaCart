@@ -1,0 +1,78 @@
+@page "/login"
+@rendermode InteractiveAuto
+
+<PageTitle>NovaCart — Login</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small">
+    <MudPaper Elevation="2" Class="pa-8 mt-8">
+        <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">Sign In</MudText>
+
+        @if (!string.IsNullOrWhiteSpace(_errorMessage))
+        {
+            <MudAlert Severity="Severity.Error" Class="mb-4">@_errorMessage</MudAlert>
+        }
+
+        <MudForm @ref="_form" @bind-IsValid="_formValid">
+            <MudTextField T="string" @bind-Value="_email" Label="Email" Required="true"
+                          RequiredError="Email is required" InputType="InputType.Email"
+                          Validation="@(new EmailAddressAttribute() { ErrorMessage = "Enter a valid email" })"
+                          Variant="Variant.Outlined" Class="mb-4" />
+
+            <MudTextField T="string" @bind-Value="_password" Label="Password" Required="true"
+                          RequiredError="Password is required" InputType="InputType.Password"
+                          Variant="Variant.Outlined" Class="mb-4" />
+
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true"
+                       Disabled="@(!_formValid || _submitting)" OnClick="HandleLogin" Class="mb-4">
+                @if (_submitting)
+                {
+                    <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                }
+                Sign In
+            </MudButton>
+        </MudForm>
+
+        <MudText Align="Align.Center">
+            Don't have an account?
+            <MudLink Href="/register">Sign Up</MudLink>
+        </MudText>
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private MudForm? _form;
+    private bool _formValid;
+    private bool _submitting;
+    private string _email = string.Empty;
+    private string _password = string.Empty;
+    private string? _errorMessage;
+
+    private async Task HandleLogin()
+    {
+        if (_form is not null)
+        {
+            await _form.Validate();
+        }
+
+        if (!_formValid) return;
+
+        _submitting = true;
+        _errorMessage = null;
+
+        try
+        {
+            // NOTE: Simplified for demo purposes. In production, use a proper AuthenticationStateProvider
+            // and persist tokens securely (e.g., HttpOnly cookies via BFF pattern).
+            await Task.Delay(500); // Simulate API call
+            _errorMessage = "Login functionality will be connected to the BFF in a future phase.";
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"Login failed: {ex.Message}";
+        }
+        finally
+        {
+            _submitting = false;
+        }
+    }
+}

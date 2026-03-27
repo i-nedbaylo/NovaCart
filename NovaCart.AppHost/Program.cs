@@ -15,4 +15,19 @@ var orderingApi = builder.AddProject<Projects.NovaCart_Services_Ordering_API>("o
     .WithReference(orderingDb)
     .WaitFor(orderingDb);
 
+var identityApi = builder.AddProject<Projects.NovaCart_Services_Identity_API>("identity-api")
+    .WithReference(identityDb)
+    .WaitFor(identityDb);
+
+// API Gateway
+var gateway = builder.AddProject<Projects.NovaCart_ApiGateway_Yarp>("gateway")
+    .WithReference(catalogApi)
+    .WithReference(orderingApi)
+    .WithReference(identityApi);
+
+// Web (BFF)
+builder.AddProject<Projects.NovaCart_Web>("web")
+    .WithExternalHttpEndpoints()
+    .WithReference(gateway);
+
 builder.Build().Run();

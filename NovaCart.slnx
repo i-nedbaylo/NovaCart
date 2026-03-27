@@ -1,5 +1,8 @@
 <Solution>
   <Folder Name="/src/" />
+  <Folder Name="/src/ApiGateway/">
+    <Project Path="src/ApiGateway/Gateway.Yarp/NovaCart.ApiGateway.Yarp.csproj" />
+  </Folder>
   <Folder Name="/src/BuildingBlocks/">
     <Project Path="src/BuildingBlocks/BuildingBlocks.Common/NovaCart.BuildingBlocks.Common.csproj" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.CQRS/NovaCart.BuildingBlocks.CQRS.csproj" />
@@ -14,8 +17,11 @@
     <Project Path="src/Services/Catalog/Catalog.Infrastructure/NovaCart.Services.Catalog.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/src/Services/Identity/">
+    <Project Path="src/Services/Identity/Identity.API/NovaCart.Services.Identity.API.csproj" />
     <Project Path="src/Services/Identity/Identity.Application/NovaCart.Services.Identity.Application.csproj" />
+    <Project Path="src/Services/Identity/Identity.Contracts/NovaCart.Services.Identity.Contracts.csproj" />
     <Project Path="src/Services/Identity/Identity.Domain/NovaCart.Services.Identity.Domain.csproj" />
+    <Project Path="src/Services/Identity/Identity.Infrastructure/NovaCart.Services.Identity.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/src/Services/Ordering/">
     <Project Path="src/Services/Ordering/Ordering.API/NovaCart.Services.Ordering.API.csproj" />
@@ -23,6 +29,10 @@
     <Project Path="src/Services/Ordering/Ordering.Contracts/NovaCart.Services.Ordering.Contracts.csproj" />
     <Project Path="src/Services/Ordering/Ordering.Domain/NovaCart.Services.Ordering.Domain.csproj" />
     <Project Path="src/Services/Ordering/Ordering.Infrastructure/NovaCart.Services.Ordering.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Web/">
+    <Project Path="src/Web/NovaCart.Web.Client/NovaCart.Web.Client.csproj" />
+    <Project Path="src/Web/NovaCart.Web/NovaCart.Web.csproj" />
   </Folder>
   <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
   <Project Path="NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj" />
