@@ -23,6 +23,7 @@ public sealed record Address
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(street);
         ArgumentException.ThrowIfNullOrWhiteSpace(city);
+        ArgumentException.ThrowIfNullOrWhiteSpace(state);
         ArgumentException.ThrowIfNullOrWhiteSpace(country);
         ArgumentException.ThrowIfNullOrWhiteSpace(zipCode);
 
