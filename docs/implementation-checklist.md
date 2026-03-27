@@ -424,35 +424,35 @@
 
 #### 1.9.1 Unit-тесты — Catalog
 
-- [ ] Создать проект `NovaCart.Tests.Catalog.UnitTests` (xUnit, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `tests/UnitTests`)
-- [ ] Добавить NuGet: `FluentAssertions`, `NSubstitute`
-- [ ] Тесты для `Product` entity:
-  - [ ] Создание продукта с валидными данными
-  - [ ] Создание продукта с невалидной ценой
-- [ ] Тесты для `Price` value object:
-  - [ ] Equality
-  - [ ] Невалидные значения
-- [ ] Тесты для `CreateProductHandler`:
-  - [ ] Успешное создание
-  - [ ] Валидация — пустое имя
-  - [ ] Валидация — отрицательная цена
-- [ ] Тесты для `GetProductByIdHandler`:
-  - [ ] Продукт найден
-  - [ ] Продукт не найден → NotFound
+- [x] Создать проект `NovaCart.Tests.Catalog.UnitTests` (xUnit, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `tests/UnitTests`)
+- [x] Добавить NuGet: `FluentAssertions`, `NSubstitute`
+- [x] Тесты для `Product` entity:
+  - [x] Создание продукта с валидными данными
+  - [x] Создание продукта с невалидной ценой
+- [x] Тесты для `Price` value object:
+  - [x] Equality
+  - [x] Невалидные значения
+- [x] Тесты для `CreateProductHandler`:
+  - [x] Успешное создание
+  - [x] Валидация — пустое имя
+  - [x] Валидация — отрицательная цена
+- [x] Тесты для `GetProductByIdHandler`:
+  - [x] Продукт найден
+  - [x] Продукт не найден → NotFound
 
 #### 1.9.2 Unit-тесты — Ordering
 
-- [ ] Создать проект `NovaCart.Tests.Ordering.UnitTests` (xUnit, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Тесты для `Order` aggregate:
-  - [ ] Создание заказа
-  - [ ] Добавление элементов
-  - [ ] Отмена заказа
-  - [ ] Нельзя отменить доставленный заказ
-  - [ ] Переход статусов (state machine)
-- [ ] Тесты для `CreateOrderHandler`
-- [ ] Тесты для `CancelOrderHandler`
+- [x] Создать проект `NovaCart.Tests.Ordering.UnitTests` (xUnit, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Тесты для `Order` aggregate:
+  - [x] Создание заказа
+  - [x] Добавление элементов
+  - [x] Отмена заказа
+  - [x] Нельзя отменить доставленный заказ
+  - [x] Переход статусов (state machine)
+- [x] Тесты для `CreateOrderHandler`
+- [x] Тесты для `CancelOrderHandler`
 
 #### 1.9.3 Architecture-тесты
 
