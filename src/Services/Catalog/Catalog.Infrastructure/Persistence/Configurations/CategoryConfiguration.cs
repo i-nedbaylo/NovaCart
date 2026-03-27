@@ -46,8 +46,6 @@ public sealed class CategoryConfiguration : IEntityTypeConfiguration<Category>
             .HasForeignKey(c => c.ParentCategoryId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(c => c.Products)
-            .WithOne(p => p.Category)
-            .HasForeignKey(p => p.CategoryId);
+        // NOTE: Product↔Category relationship is configured in ProductConfiguration (FK owner).
     }
 }

@@ -13,16 +13,16 @@ public sealed class OrderService
     }
 
     public async Task<PagedResult<OrderViewModel>?> GetOrdersAsync(
-        string? buyerId = null,
+        Guid? buyerId = null,
         int page = 1,
         int pageSize = 10,
         CancellationToken cancellationToken = default)
     {
         var url = $"/api/v1/orders?pageNumber={page}&pageSize={pageSize}";
 
-        if (!string.IsNullOrWhiteSpace(buyerId))
+        if (buyerId.HasValue)
         {
-            url += $"&buyerId={buyerId}";
+            url += $"&buyerId={buyerId.Value}";
         }
 
         return await _httpClient.GetFromJsonAsync<PagedResult<OrderViewModel>>(url, cancellationToken);

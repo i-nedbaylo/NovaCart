@@ -20,7 +20,7 @@ public sealed class GetCurrentUserHandler : IQueryHandler<GetCurrentUserQuery, U
         var user = await _userManager.FindByIdAsync(request.UserId);
         if (user is null)
         {
-            return Result<UserDto>.Failure(Error.NotFound("User.NotFound", $"User with ID '{request.UserId}' was not found."));
+            return Result<UserDto>.Failure(Error.NotFound("User", request.UserId));
         }
 
         var roles = await _userManager.GetRolesAsync(user);

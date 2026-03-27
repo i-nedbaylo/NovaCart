@@ -15,15 +15,15 @@ public sealed class CatalogService
     public async Task<PagedResult<ProductViewModel>?> GetProductsAsync(
         int page = 1,
         int pageSize = 10,
-        string? categoryId = null,
+        Guid? categoryId = null,
         string? searchTerm = null,
         CancellationToken cancellationToken = default)
     {
         var url = $"/api/v1/products?pageNumber={page}&pageSize={pageSize}";
 
-        if (!string.IsNullOrWhiteSpace(categoryId))
+        if (categoryId.HasValue)
         {
-            url += $"&categoryId={categoryId}";
+            url += $"&categoryId={categoryId.Value}";
         }
 
         if (!string.IsNullOrWhiteSpace(searchTerm))

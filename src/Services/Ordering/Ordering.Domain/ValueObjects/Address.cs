@@ -26,6 +26,6 @@ public sealed record Address
         ArgumentException.ThrowIfNullOrWhiteSpace(country);
         ArgumentException.ThrowIfNullOrWhiteSpace(zipCode);
 
-        return new Address(street, city, state ?? string.Empty, country, zipCode);
+        return new Address(street, city, state, country, zipCode);
     }
 }

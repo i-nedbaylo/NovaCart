@@ -27,7 +27,7 @@ public sealed class RefreshTokenHandler : ICommandHandler<RefreshTokenCommand, T
     {
         var user = await _userRepository.FindByRefreshTokenAsync(request.RefreshToken, cancellationToken);
 
-        if (user is null || user.RefreshTokenExpiryTime <= DateTimeOffset.UtcNow)
+        if (user is null || user.RefreshTokenExpiryTime is null || user.RefreshTokenExpiryTime <= DateTimeOffset.UtcNow)
         {
             return Result<TokenResponse>.Failure(Error.Validation("Auth.InvalidRefreshToken", "Invalid or expired refresh token."));
         }
