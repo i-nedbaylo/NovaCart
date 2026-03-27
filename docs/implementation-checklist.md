@@ -158,22 +158,22 @@
 
 #### 1.3.3 Catalog.Infrastructure
 
-- [ ] Создать проект `NovaCart.Services.Catalog.Infrastructure` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Catalog.Domain`, `Catalog.Application`, `BuildingBlocks.Persistence`
-- [ ] Добавить NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL`, `Microsoft.EntityFrameworkCore.Tools`
-- [ ] Реализовать `CatalogDbContext` (наследуется от `DbContext`)
-- [ ] Реализовать `ProductConfiguration` (`IEntityTypeConfiguration<Product>`) — snake_case таблицы
-- [ ] Реализовать `CategoryConfiguration` (`IEntityTypeConfiguration<Category>`) — snake_case таблицы
-- [ ] Настроить Price как Owned Type в конфигурации Product
-- [ ] Реализовать `ProductRepository` (имплементация `IProductRepository`)
-- [ ] Реализовать `CategoryRepository` (имплементация `ICategoryRepository`)
-- [ ] Реализовать `UnitOfWork` (имплементация `IUnitOfWork`, обёртка над `DbContext.SaveChangesAsync`)
-- [ ] Создать seed data: начальные категории (Electronics, Clothing, Books, Home & Garden)
-- [ ] Создать seed data: начальные товары (10–15 товаров)
-- [ ] Настроить DI-регистрацию: `AddCatalogInfrastructure` (extension method, принимает connection string)
-- [ ] Создать initial migration
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Catalog.Infrastructure` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Catalog.Domain`, `Catalog.Application`, `BuildingBlocks.Persistence`
+- [x] Добавить NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL`, `Microsoft.EntityFrameworkCore.Tools`
+- [x] Реализовать `CatalogDbContext` (наследуется от `DbContext`)
+- [x] Реализовать `ProductConfiguration` (`IEntityTypeConfiguration<Product>`) — snake_case таблицы
+- [x] Реализовать `CategoryConfiguration` (`IEntityTypeConfiguration<Category>`) — snake_case таблицы
+- [x] Настроить Price как Owned Type в конфигурации Product
+- [x] Реализовать `ProductRepository` (имплементация `IProductRepository`)
+- [x] Реализовать `CategoryRepository` (имплементация `ICategoryRepository`)
+- [x] Реализовать `UnitOfWork` (имплементация `IUnitOfWork`, обёртка над `DbContext.SaveChangesAsync`)
+- [x] Создать seed data: начальные категории (Electronics, Clothing, Books, Home & Garden)
+- [x] Создать seed data: начальные товары (10–15 товаров)
+- [x] Настроить DI-регистрацию: `AddCatalogInfrastructure` (extension method, принимает connection string)
+- [x] Создать initial migration
+- [x] Убедиться, что проект собирается
 
 #### 1.3.4 Catalog.Contracts
 
