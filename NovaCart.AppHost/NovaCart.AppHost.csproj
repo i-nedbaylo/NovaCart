@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj" />
+    <ProjectReference Include="..\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj" />
   </ItemGroup>
 
 </Project>

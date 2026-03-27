@@ -1,20 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using NovaCart.ServiceDefaults;
-using NovaCart.Services.Catalog.API;
-using NovaCart.Services.Catalog.Application;
-using NovaCart.Services.Catalog.Infrastructure;
-using NovaCart.Services.Catalog.Infrastructure.Persistence;
+using NovaCart.Services.Ordering.API;
+using NovaCart.Services.Ordering.Application;
+using NovaCart.Services.Ordering.Infrastructure;
+using NovaCart.Services.Ordering.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.Services.AddCatalogApplication();
+builder.Services.AddOrderingApplication();
 
-var connectionString = builder.Configuration.GetConnectionString("catalogdb")
-    ?? throw new InvalidOperationException("Connection string 'catalogdb' not found.");
+var connectionString = builder.Configuration.GetConnectionString("orderingdb")
+    ?? throw new InvalidOperationException("Connection string 'orderingdb' not found.");
 
-builder.Services.AddCatalogInfrastructure(connectionString);
+builder.Services.AddOrderingInfrastructure(connectionString);
 
 builder.Services.AddOpenApi();
 
@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 
     using var scope = app.Services.CreateScope();
-    var dbContext = scope.ServiceProvider.GetRequiredService<CatalogDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<OrderingDbContext>();
     await dbContext.Database.MigrateAsync();
 }
 
@@ -47,7 +47,6 @@ app.UseExceptionHandler(exceptionHandlerApp =>
     });
 });
 
-app.MapCatalogEndpoints();
+app.MapOrderingEndpoints();
 
 app.Run();
-

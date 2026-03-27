@@ -11,4 +11,8 @@ var catalogApi = builder.AddProject<Projects.NovaCart_Services_Catalog_API>("cat
     .WithReference(catalogDb)
     .WaitFor(catalogDb);
 
+var orderingApi = builder.AddProject<Projects.NovaCart_Services_Ordering_API>("ordering-api")
+    .WithReference(orderingDb)
+    .WaitFor(orderingDb);
+
 builder.Build().Run();

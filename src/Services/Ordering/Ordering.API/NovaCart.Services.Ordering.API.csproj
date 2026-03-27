@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Catalog.Application\NovaCart.Services.Catalog.Application.csproj" />
-    <ProjectReference Include="..\Catalog.Infrastructure\NovaCart.Services.Catalog.Infrastructure.csproj" />
+    <ProjectReference Include="..\Ordering.Application\NovaCart.Services.Ordering.Application.csproj" />
+    <ProjectReference Include="..\Ordering.Infrastructure\NovaCart.Services.Ordering.Infrastructure.csproj" />
     <ProjectReference Include="..\..\..\..\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj" />
   </ItemGroup>
 

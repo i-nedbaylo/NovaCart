@@ -241,41 +241,41 @@
 
 #### 1.4.3 Ordering.Infrastructure
 
-- [ ] Создать проект `NovaCart.Services.Ordering.Infrastructure` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Ordering.Domain`, `Ordering.Application`, `BuildingBlocks.Persistence`
-- [ ] Добавить NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL`, `Microsoft.EntityFrameworkCore.Tools`
-- [ ] Реализовать `OrderingDbContext`
-- [ ] Реализовать `OrderConfiguration` (IEntityTypeConfiguration) — snake_case, owned types для Address
-- [ ] Реализовать `OrderItemConfiguration`
-- [ ] Реализовать `OrderRepository`
-- [ ] Реализовать `UnitOfWork`
-- [ ] Настроить DI-регистрацию: `AddOrderingInfrastructure`
-- [ ] Создать initial migration
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Ordering.Infrastructure` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Ordering.Domain`, `Ordering.Application`, `BuildingBlocks.Persistence`
+- [x] Добавить NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL`, `Microsoft.EntityFrameworkCore.Tools`
+- [x] Реализовать `OrderingDbContext`
+- [x] Реализовать `OrderConfiguration` (IEntityTypeConfiguration) — snake_case, owned types для Address
+- [x] Реализовать `OrderItemConfiguration`
+- [x] Реализовать `OrderRepository`
+- [x] Реализовать `UnitOfWork`
+- [x] Настроить DI-регистрацию: `AddOrderingInfrastructure`
+- [x] Создать initial migration
+- [x] Убедиться, что проект собирается
 
 #### 1.4.4 Ordering.Contracts
 
-- [ ] Создать проект `NovaCart.Services.Ordering.Contracts` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Реализовать `OrderDto` (public DTO)
-- [ ] Реализовать `OrderItemDto` (public DTO)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Ordering.Contracts` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Реализовать `OrderDto` (public DTO)
+- [x] Реализовать `OrderItemDto` (public DTO)
+- [x] Убедиться, что проект собирается
 
 #### 1.4.5 Ordering.API
 
-- [ ] Создать проект `NovaCart.Services.Ordering.API` (ASP.NET Core Web API, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Ordering.Application`, `Ordering.Infrastructure`, `ServiceDefaults`
-- [ ] Настроить `Program.cs`
-- [ ] Реализовать Minimal API эндпоинты:
-  - [ ] `GET /api/v1/orders` — список заказов (фильтр по buyerId)
-  - [ ] `GET /api/v1/orders/{id}` — заказ по ID
-  - [ ] `POST /api/v1/orders` — создание заказа
-  - [ ] `PUT /api/v1/orders/{id}/cancel` — отмена заказа
-- [ ] Настроить глобальную обработку ошибок
-- [ ] Настроить автоматическое применение миграций (development only)
-- [ ] Зарегистрировать в Aspire AppHost с подключением к `orderingdb`
+- [x] Создать проект `NovaCart.Services.Ordering.API` (ASP.NET Core Web API, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Ordering.Application`, `Ordering.Infrastructure`, `ServiceDefaults`
+- [x] Настроить `Program.cs`
+- [x] Реализовать Minimal API эндпоинты:
+  - [x] `GET /api/v1/orders` — список заказов (фильтр по buyerId)
+  - [x] `GET /api/v1/orders/{id}` — заказ по ID
+  - [x] `POST /api/v1/orders` — создание заказа
+  - [x] `PUT /api/v1/orders/{id}/cancel` — отмена заказа
+- [x] Настроить глобальную обработку ошибок
+- [x] Настроить автоматическое применение миграций (development only)
+- [x] Зарегистрировать в Aspire AppHost с подключением к `orderingdb`
 - [ ] Убедиться, что API запускается и отвечает через Aspire
 
 ---
