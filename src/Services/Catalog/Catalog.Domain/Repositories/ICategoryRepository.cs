@@ -7,5 +7,4 @@ public interface ICategoryRepository : IRepository<Category>
 {
     Task<Category?> GetBySlugAsync(string slug, CancellationToken cancellationToken = default);
     Task<List<Category>> GetByParentIdAsync(Guid? parentCategoryId, CancellationToken cancellationToken = default);
-    Task<List<Category>> GetAllAsync(CancellationToken cancellationToken = default);
 }

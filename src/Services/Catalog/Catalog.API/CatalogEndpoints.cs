@@ -1,5 +1,4 @@
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
 using NovaCart.BuildingBlocks.Common;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Catalog.Application.Categories.Commands;
