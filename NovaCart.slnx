@@ -34,6 +34,14 @@
     <Project Path="src/Web/NovaCart.Web.Client/NovaCart.Web.Client.csproj" />
     <Project Path="src/Web/NovaCart.Web/NovaCart.Web.csproj" />
   </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/ArchitectureTests/">
+    <Project Path="tests/ArchitectureTests/NovaCart.Tests.ArchitectureTests.csproj" />
+  </Folder>
+  <Folder Name="/tests/UnitTests/">
+    <Project Path="tests/UnitTests/Catalog.UnitTests/NovaCart.Tests.Catalog.UnitTests.csproj" />
+    <Project Path="tests/UnitTests/Ordering.UnitTests/NovaCart.Tests.Ordering.UnitTests.csproj" />
+  </Folder>
   <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
   <Project Path="NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj" />
 </Solution>

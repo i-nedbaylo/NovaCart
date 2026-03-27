@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Services\Catalog\Catalog.Domain\NovaCart.Services.Catalog.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Services\Catalog\Catalog.Application\NovaCart.Services.Catalog.Application.csproj" />
+    <ProjectReference Include="..\..\src\Services\Catalog\Catalog.Infrastructure\NovaCart.Services.Catalog.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj" />
+    <ProjectReference Include="..\..\src\Services\Ordering\Ordering.Domain\NovaCart.Services.Ordering.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Services\Ordering\Ordering.Application\NovaCart.Services.Ordering.Application.csproj" />
+    <ProjectReference Include="..\..\src\Services\Ordering\Ordering.Infrastructure\NovaCart.Services.Ordering.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj" />
+  </ItemGroup>
+
+</Project>
