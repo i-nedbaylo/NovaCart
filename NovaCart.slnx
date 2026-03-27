@@ -13,6 +13,9 @@
     <Project Path="src/Services/Catalog/Catalog.Domain/NovaCart.Services.Catalog.Domain.csproj" />
     <Project Path="src/Services/Catalog/Catalog.Infrastructure/NovaCart.Services.Catalog.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/src/Services/Ordering/">
+    <Project Path="src/Services/Ordering/Ordering.Domain/NovaCart.Services.Ordering.Domain.csproj" />
+  </Folder>
   <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
   <Project Path="NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj" />
 </Solution>

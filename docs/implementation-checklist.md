@@ -212,18 +212,18 @@
 
 #### 1.4.1 Ordering.Domain
 
-- [ ] Создать проект `NovaCart.Services.Ordering.Domain` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/Services/Ordering`)
-- [ ] Добавить зависимость на `BuildingBlocks.Common`
-- [ ] Реализовать value object `OrderStatus` (Created, Confirmed, Paid, Shipped, Delivered, Cancelled)
-- [ ] Реализовать value object `Address` (Street, City, State, Country, ZipCode)
-- [ ] Реализовать entity `OrderItem` (ProductId, ProductName, UnitPrice, Quantity)
-- [ ] Реализовать aggregate root `Order` (BuyerId, OrderDate, Status, ShippingAddress, Items)
-- [ ] Реализовать бизнес-методы в Order: `AddItem`, `RemoveItem`, `Cancel`, `Confirm`, `MarkAsPaid`, `Ship`, `Deliver`
-- [ ] Реализовать валидацию состояний (нельзя отменить доставленный заказ и т.д.)
-- [ ] Реализовать domain events: `OrderCreatedDomainEvent`, `OrderCancelledDomainEvent`, `OrderStatusChangedDomainEvent`
-- [ ] Реализовать интерфейс `IOrderRepository`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Ordering.Domain` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/Services/Ordering`)
+- [x] Добавить зависимость на `BuildingBlocks.Common`
+- [x] Реализовать value object `OrderStatus` (Created, Confirmed, Paid, Shipped, Delivered, Cancelled)
+- [x] Реализовать value object `Address` (Street, City, State, Country, ZipCode)
+- [x] Реализовать entity `OrderItem` (ProductId, ProductName, UnitPrice, Quantity)
+- [x] Реализовать aggregate root `Order` (BuyerId, OrderDate, Status, ShippingAddress, Items)
+- [x] Реализовать бизнес-методы в Order: `AddItem`, `RemoveItem`, `Cancel`, `Confirm`, `MarkAsPaid`, `Ship`, `Deliver`
+- [x] Реализовать валидацию состояний (нельзя отменить доставленный заказ и т.д.)
+- [x] Реализовать domain events: `OrderCreatedDomainEvent`, `OrderCancelledDomainEvent`, `OrderStatusChangedDomainEvent`
+- [x] Реализовать интерфейс `IOrderRepository`
+- [x] Убедиться, что проект собирается
 
 #### 1.4.2 Ordering.Application
 
