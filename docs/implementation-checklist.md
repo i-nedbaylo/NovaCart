@@ -64,44 +64,44 @@
 
 #### 1.2.1 BuildingBlocks.Common
 
-- [ ] Создать проект `NovaCart.BuildingBlocks.Common` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx` (solution folder `src/BuildingBlocks`)
-- [ ] Реализовать `BaseEntity` (Id: Guid, CreatedAt, UpdatedAt)
-- [ ] Реализовать `AggregateRoot` (наследуется от BaseEntity, список Domain Events)
-- [ ] Реализовать `IDomainEvent` (интерфейс-маркер)
-- [ ] Реализовать `Result<T>` (Success/Failure, Error messages)
-- [ ] Реализовать `Result` (без generic — для void-операций)
-- [ ] Реализовать `Error` (код ошибки + сообщение)
-- [ ] Реализовать базовые исключения: `NotFoundException`, `ValidationException`, `ConflictException`
-- [ ] Реализовать `IDateTimeProvider` (абстракция для тестируемости)
-- [ ] Реализовать `DateTimeProvider` (реализация, использует `DateTimeOffset.UtcNow`)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.BuildingBlocks.Common` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx` (solution folder `src/BuildingBlocks`)
+- [x] Реализовать `BaseEntity` (Id: Guid, CreatedAt, UpdatedAt)
+- [x] Реализовать `AggregateRoot` (наследуется от BaseEntity, список Domain Events)
+- [x] Реализовать `IDomainEvent` (интерфейс-маркер)
+- [x] Реализовать `Result<T>` (Success/Failure, Error messages)
+- [x] Реализовать `Result` (без generic — для void-операций)
+- [x] Реализовать `Error` (код ошибки + сообщение)
+- [x] Реализовать базовые исключения: `NotFoundException`, `ValidationException`, `ConflictException`
+- [x] Реализовать `IDateTimeProvider` (абстракция для тестируемости)
+- [x] Реализовать `DateTimeProvider` (реализация, использует `DateTimeOffset.UtcNow`)
+- [x] Убедиться, что проект собирается
 
 #### 1.2.2 BuildingBlocks.CQRS
 
-- [ ] Создать проект `NovaCart.BuildingBlocks.CQRS` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить NuGet-зависимость: `MediatR`
-- [ ] Реализовать `ICommand` (наследуется от `IRequest<Result>`)
-- [ ] Реализовать `ICommand<TResponse>` (наследуется от `IRequest<Result<TResponse>>`)
-- [ ] Реализовать `IQuery<TResponse>` (наследуется от `IRequest<Result<TResponse>>`)
-- [ ] Реализовать `ICommandHandler<TCommand>` (наследуется от `IRequestHandler`)
-- [ ] Реализовать `ICommandHandler<TCommand, TResponse>`
-- [ ] Реализовать `IQueryHandler<TQuery, TResponse>`
-- [ ] Добавить NuGet-зависимость: `FluentValidation`
-- [ ] Реализовать `ValidationBehavior<TRequest, TResponse>` (MediatR Pipeline Behavior)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.BuildingBlocks.CQRS` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить NuGet-зависимость: `MediatR`
+- [x] Реализовать `ICommand` (наследуется от `IRequest<Result>`)
+- [x] Реализовать `ICommand<TResponse>` (наследуется от `IRequest<Result<TResponse>>`)
+- [x] Реализовать `IQuery<TResponse>` (наследуется от `IRequest<Result<TResponse>>`)
+- [x] Реализовать `ICommandHandler<TCommand>` (наследуется от `IRequestHandler`)
+- [x] Реализовать `ICommandHandler<TCommand, TResponse>`
+- [x] Реализовать `IQueryHandler<TQuery, TResponse>`
+- [x] Добавить NuGet-зависимость: `FluentValidation`
+- [x] Реализовать `ValidationBehavior<TRequest, TResponse>` (MediatR Pipeline Behavior)
+- [x] Убедиться, что проект собирается
 
 #### 1.2.3 BuildingBlocks.Persistence
 
-- [ ] Создать проект `NovaCart.BuildingBlocks.Persistence` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимость на `BuildingBlocks.Common`
-- [ ] Реализовать `IRepository<T>` (generic interface: GetById, Add, Update, Delete)
-- [ ] Реализовать `IUnitOfWork` (SaveChangesAsync)
-- [ ] Реализовать `IPagedResult<T>` (Items, TotalCount, PageNumber, PageSize)
-- [ ] Реализовать `PagedResult<T>`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.BuildingBlocks.Persistence` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимость на `BuildingBlocks.Common`
+- [x] Реализовать `IRepository<T>` (generic interface: GetById, Add, Update, Delete)
+- [x] Реализовать `IUnitOfWork` (SaveChangesAsync)
+- [x] Реализовать `IPagedResult<T>` (Items, TotalCount, PageNumber, PageSize)
+- [x] Реализовать `PagedResult<T>`
+- [x] Убедиться, что проект собирается
 
 ---
 

@@ -1,4 +1,10 @@
 <Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Common/NovaCart.BuildingBlocks.Common.csproj" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.CQRS/NovaCart.BuildingBlocks.CQRS.csproj" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.Persistence/NovaCart.BuildingBlocks.Persistence.csproj" />
+  </Folder>
   <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
   <Project Path="NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj" />
 </Solution>
