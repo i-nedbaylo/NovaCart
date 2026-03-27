@@ -20,6 +20,10 @@ public sealed class CreateOrderValidator : AbstractValidator<CreateOrderCommand>
             .NotEmpty().WithMessage("City is required.")
             .When(x => x.ShippingAddress is not null);
 
+        RuleFor(x => x.ShippingAddress.State)
+            .NotEmpty().WithMessage("State is required.")
+            .When(x => x.ShippingAddress is not null);
+
         RuleFor(x => x.ShippingAddress.Country)
             .NotEmpty().WithMessage("Country is required.")
             .When(x => x.ShippingAddress is not null);
