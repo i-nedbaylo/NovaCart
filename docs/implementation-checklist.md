@@ -227,17 +227,17 @@
 
 #### 1.4.2 Ordering.Application
 
-- [ ] Создать проект `NovaCart.Services.Ordering.Application` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Ordering.Domain`, `BuildingBlocks.CQRS`, `BuildingBlocks.Persistence`
-- [ ] Реализовать `CreateOrderCommand`, Handler, Validator
-- [ ] Реализовать `CancelOrderCommand`, Handler, Validator
-- [ ] Реализовать `GetOrderByIdQuery`, Handler
-- [ ] Реализовать `GetOrdersQuery` (с фильтрацией по BuyerId, пагинацией), Handler
-- [ ] Реализовать `OrderDto`, `OrderItemDto`
-- [ ] Реализовать `CreateOrderRequest` (с items и shipping address)
-- [ ] Настроить DI-регистрацию: `AddOrderingApplication`
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Ordering.Application` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Ordering.Domain`, `BuildingBlocks.CQRS`, `BuildingBlocks.Persistence`
+- [x] Реализовать `CreateOrderCommand`, Handler, Validator
+- [x] Реализовать `CancelOrderCommand`, Handler, Validator
+- [x] Реализовать `GetOrderByIdQuery`, Handler
+- [x] Реализовать `GetOrdersQuery` (с фильтрацией по BuyerId, пагинацией), Handler
+- [x] Реализовать `OrderDto`, `OrderItemDto`
+- [x] Реализовать `CreateOrderRequest` (с items и shipping address)
+- [x] Настроить DI-регистрацию: `AddOrderingApplication`
+- [x] Убедиться, что проект собирается
 
 #### 1.4.3 Ordering.Infrastructure
 
