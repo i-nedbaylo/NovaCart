@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
+  <Project Path="NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj" />
+</Solution>

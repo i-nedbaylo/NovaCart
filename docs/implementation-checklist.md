@@ -15,48 +15,48 @@
 
 #### 1.1.1 Структура папок
 
-- [ ] Создать папку `src/`
-- [ ] Создать папку `src/Services/`
-- [ ] Создать папку `src/BuildingBlocks/`
-- [ ] Создать папку `src/ApiGateway/`
-- [ ] Создать папку `src/Web/`
-- [ ] Создать папку `tests/`
-- [ ] Создать папку `tests/UnitTests/`
-- [ ] Создать папку `tests/IntegrationTests/`
-- [ ] Создать папку `tests/ArchitectureTests/`
-- [ ] Создать папку `docs/`
-- [ ] Создать папку `docs/architecture/`
-- [ ] Создать папку `docs/architecture/decisions/`
-- [ ] Создать папку `docs/api/`
-- [ ] Создать папку `docs/diagrams/`
+- [x] Создать папку `src/`
+- [x] Создать папку `src/Services/`
+- [x] Создать папку `src/BuildingBlocks/`
+- [x] Создать папку `src/ApiGateway/`
+- [x] Создать папку `src/Web/`
+- [x] Создать папку `tests/`
+- [x] Создать папку `tests/UnitTests/`
+- [x] Создать папку `tests/IntegrationTests/`
+- [x] Создать папку `tests/ArchitectureTests/`
+- [x] Создать папку `docs/`
+- [x] Создать папку `docs/architecture/`
+- [x] Создать папку `docs/architecture/decisions/`
+- [x] Создать папку `docs/api/`
+- [x] Создать папку `docs/diagrams/`
 
 #### 1.1.2 Aspire AppHost
 
-- [ ] Создать проект `NovaCart.AppHost` (Aspire AppHost SDK)
-- [ ] Добавить проект в `NovaCart.slnx`
-- [ ] Настроить `Program.cs` — минимальная конфигурация `DistributedApplication.CreateBuilder`
-- [ ] Добавить ресурс PostgreSQL (`builder.AddPostgres`)
-- [ ] Добавить базы данных: `catalogdb`, `orderingdb`, `identitydb`
-- [ ] Убедиться, что AppHost запускается без ошибок
+- [x] Создать проект `NovaCart.AppHost` (Aspire AppHost SDK)
+- [x] Добавить проект в `NovaCart.slnx`
+- [x] Настроить `Program.cs` — минимальная конфигурация `DistributedApplication.CreateBuilder`
+- [x] Добавить ресурс PostgreSQL (`builder.AddPostgres`)
+- [x] Добавить базы данных: `catalogdb`, `orderingdb`, `identitydb`
+- [x] Убедиться, что AppHost запускается без ошибок
 
 #### 1.1.3 Aspire ServiceDefaults
 
-- [ ] Создать проект `NovaCart.ServiceDefaults` (Class Library)
-- [ ] Добавить проект в `NovaCart.slnx`
-- [ ] Реализовать `Extensions.cs` — метод `AddServiceDefaults`
-- [ ] Настроить OpenTelemetry (логи, метрики, трейсы)
-- [ ] Настроить Health Checks (`/health`, `/alive`)
-- [ ] Настроить Service Discovery
-- [ ] Настроить Resilience (стандартный resilience handler для HttpClient)
+- [x] Создать проект `NovaCart.ServiceDefaults` (Class Library)
+- [x] Добавить проект в `NovaCart.slnx`
+- [x] Реализовать `Extensions.cs` — метод `AddServiceDefaults`
+- [x] Настроить OpenTelemetry (логи, метрики, трейсы)
+- [x] Настроить Health Checks (`/health`, `/alive`)
+- [x] Настроить Service Discovery
+- [x] Настроить Resilience (стандартный resilience handler для HttpClient)
 
 #### 1.1.4 README.md
 
-- [ ] Создать `README.md` в корне репозитория
-- [ ] Описание проекта (на русском)
-- [ ] Архитектурная схема (текстовая)
-- [ ] Технологический стек
-- [ ] Инструкция запуска (`dotnet run` через AppHost)
-- [ ] Структура репозитория
+- [x] Создать `README.md` в корне репозитория
+- [x] Описание проекта (на русском)
+- [x] Архитектурная схема (текстовая)
+- [x] Технологический стек
+- [x] Инструкция запуска (`dotnet run` через AppHost)
+- [x] Структура репозитория
 
 ---
 
