@@ -15,4 +15,8 @@
     <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj" />
+  </ItemGroup>
+
 </Project>

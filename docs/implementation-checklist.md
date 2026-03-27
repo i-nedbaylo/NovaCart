@@ -177,33 +177,33 @@
 
 #### 1.3.4 Catalog.Contracts
 
-- [ ] Создать проект `NovaCart.Services.Catalog.Contracts` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Реализовать `ProductDto` (public DTO для внешних потребителей)
-- [ ] Реализовать `CategoryDto` (public DTO)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.Services.Catalog.Contracts` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Реализовать `ProductDto` (public DTO для внешних потребителей)
+- [x] Реализовать `CategoryDto` (public DTO)
+- [x] Убедиться, что проект собирается
 
 #### 1.3.5 Catalog.API
 
-- [ ] Создать проект `NovaCart.Services.Catalog.API` (ASP.NET Core Web API, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить зависимости: `Catalog.Application`, `Catalog.Infrastructure`, `ServiceDefaults`
-- [ ] Настроить `Program.cs`: AddServiceDefaults, AddCatalogApplication, AddCatalogInfrastructure
-- [ ] Настроить Swagger/OpenAPI
-- [ ] Реализовать Minimal API эндпоинты — Products:
-  - [ ] `GET /api/v1/products` — список с пагинацией
-  - [ ] `GET /api/v1/products/{id}` — по ID
-  - [ ] `POST /api/v1/products` — создание
-  - [ ] `PUT /api/v1/products/{id}` — обновление
-  - [ ] `DELETE /api/v1/products/{id}` — удаление
-- [ ] Реализовать Minimal API эндпоинты — Categories:
-  - [ ] `GET /api/v1/categories` — список
-  - [ ] `GET /api/v1/categories/{id}` — по ID
-  - [ ] `POST /api/v1/categories` — создание
-  - [ ] `PUT /api/v1/categories/{id}` — обновление
-- [ ] Настроить глобальную обработку ошибок (Exception Middleware → ProblemDetails)
-- [ ] Настроить автоматическое применение миграций при запуске (development only)
-- [ ] Зарегистрировать в Aspire AppHost с подключением к `catalogdb`
+- [x] Создать проект `NovaCart.Services.Catalog.API` (ASP.NET Core Web API, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить зависимости: `Catalog.Application`, `Catalog.Infrastructure`, `ServiceDefaults`
+- [x] Настроить `Program.cs`: AddServiceDefaults, AddCatalogApplication, AddCatalogInfrastructure
+- [x] Настроить Swagger/OpenAPI
+- [x] Реализовать Minimal API эндпоинты — Products:
+  - [x] `GET /api/v1/products` — список с пагинацией
+  - [x] `GET /api/v1/products/{id}` — по ID
+  - [x] `POST /api/v1/products` — создание
+  - [x] `PUT /api/v1/products/{id}` — обновление
+  - [x] `DELETE /api/v1/products/{id}` — удаление
+- [x] Реализовать Minimal API эндпоинты — Categories:
+  - [x] `GET /api/v1/categories` — список
+  - [x] `GET /api/v1/categories/{id}` — по ID
+  - [x] `POST /api/v1/categories` — создание
+  - [x] `PUT /api/v1/categories/{id}` — обновление
+- [x] Настроить глобальную обработку ошибок (Exception Middleware → ProblemDetails)
+- [x] Настроить автоматическое применение миграций при запуске (development only)
+- [x] Зарегистрировать в Aspire AppHost с подключением к `catalogdb`
 - [ ] Убедиться, что API запускается и отвечает через Aspire
 
 ---
