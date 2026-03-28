@@ -57,6 +57,9 @@ public sealed class PaymentRecordConfiguration : IEntityTypeConfiguration<Paymen
 
         // Optimistic concurrency via PostgreSQL xmin system column.
         // Prevents concurrent consumers from both transitioning a Pending payment.
+        // Npgsql convention auto-detects uint properties configured as concurrency tokens
+        // with ValueGeneratedOnAddOrUpdate and maps them to the PostgreSQL system xmin column.
+        // NpgsqlMigrationsSqlGenerator skips system columns in DDL operations.
         builder.Property<uint>("xmin")
             .HasColumnType("xid")
             .IsRowVersion();

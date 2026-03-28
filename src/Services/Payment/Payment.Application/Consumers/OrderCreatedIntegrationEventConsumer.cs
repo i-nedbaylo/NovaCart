@@ -48,14 +48,14 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
         {
             if (!existingPayment.Status.Equals(PaymentStatus.Pending))
             {
-                // Already processed (Succeeded or Failed).
-                // Re-publish the corresponding integration event to handle crash-recovery
-                // where SaveChanges succeeded but Publish did not. Subscribers must be idempotent.
+                // Already fully processed (Succeeded or Failed) — idempotent skip.
+                // NOTE: Simplified for demo purposes. If a crash occurs between SaveChanges
+                // (status update) and Publish (integration event), the event will be lost.
+                // In production, the Outbox Pattern (Phase 2.6) ensures atomic persistence
+                // and publication of events, eliminating this window.
                 _logger.LogInformation(
-                    "Payment {PaymentId} already processed for Order {OrderId} with status {Status}. Re-publishing event.",
+                    "Payment {PaymentId} already processed for Order {OrderId} with status {Status}. Skipping.",
                     existingPayment.Id, message.OrderId, existingPayment.Status);
-
-                await RepublishEventForProcessedPaymentAsync(existingPayment, message, context.CancellationToken);
                 return;
             }
 
@@ -112,36 +112,6 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
                 Reason = reason,
                 CorrelationId = message.CorrelationId
             }, context.CancellationToken);
-        }
-    }
-
-    private async Task RepublishEventForProcessedPaymentAsync(
-        PaymentRecord payment,
-        OrderCreatedIntegrationEvent message,
-        CancellationToken cancellationToken)
-    {
-        if (payment.Status.Equals(PaymentStatus.Succeeded))
-        {
-            await _publishEndpoint.Publish(new PaymentSucceededIntegrationEvent
-            {
-                OrderId = payment.OrderId,
-                PaymentId = payment.Id,
-                Amount = payment.Amount,
-                Currency = payment.Currency,
-                CorrelationId = message.CorrelationId
-            }, cancellationToken);
-        }
-        else if (payment.Status.Equals(PaymentStatus.Failed))
-        {
-            await _publishEndpoint.Publish(new PaymentFailedIntegrationEvent
-            {
-                OrderId = payment.OrderId,
-                PaymentId = payment.Id,
-                Amount = payment.Amount,
-                Currency = payment.Currency,
-                Reason = payment.FailureReason ?? "Unknown failure reason (recovered publish).",
-                CorrelationId = message.CorrelationId
-            }, cancellationToken);
         }
     }
 }
