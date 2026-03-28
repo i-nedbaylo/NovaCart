@@ -10,6 +10,7 @@
     <ProjectReference Include="..\Ordering.Domain\NovaCart.Services.Ordering.Domain.csproj" />
     <ProjectReference Include="..\Ordering.Application\NovaCart.Services.Ordering.Application.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.Persistence\NovaCart.BuildingBlocks.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.Outbox\NovaCart.BuildingBlocks.Outbox.csproj" />
   </ItemGroup>
 
   <ItemGroup>

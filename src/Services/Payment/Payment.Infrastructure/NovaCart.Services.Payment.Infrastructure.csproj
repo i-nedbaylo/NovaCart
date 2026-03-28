@@ -4,6 +4,7 @@
     <ProjectReference Include="..\Payment.Domain\NovaCart.Services.Payment.Domain.csproj" />
     <ProjectReference Include="..\Payment.Application\NovaCart.Services.Payment.Application.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.Persistence\NovaCart.BuildingBlocks.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.Outbox\NovaCart.BuildingBlocks.Outbox.csproj" />
   </ItemGroup>
 
   <ItemGroup>
