@@ -414,9 +414,9 @@
   - [x] Identity API с подключением к identitydb
   - [x] YARP Gateway с references на все API
   - [x] Web App с reference на Gateway
-- [ ] Все сервисы запускаются через единый `dotnet run` из AppHost
-- [ ] Aspire Dashboard доступен и показывает все сервисы
-- [ ] Health checks работают для всех сервисов
+- [x] Все сервисы запускаются через единый `dotnet run` из AppHost
+- [x] Aspire Dashboard доступен и показывает все сервисы
+- [x] Health checks работают для всех сервисов
 
 ---
 
@@ -471,20 +471,20 @@
 
 ### 1.10 Финальная валидация Phase 1
 
-- [ ] Solution собирается без ошибок (`dotnet build`)
-- [ ] Все сервисы запускаются через Aspire AppHost
-- [ ] Catalog API: CRUD товаров работает
-- [ ] Catalog API: пагинация работает
-- [ ] Catalog API: seed data загружены
-- [ ] Ordering API: создание и отмена заказов работает
-- [ ] Identity API: регистрация и логин работают
-- [ ] Identity API: JWT-токен генерируется корректно
-- [ ] YARP Gateway: проксирует запросы ко всем сервисам
-- [ ] Blazor Web App: SSR-страницы отображают данные из каталога
-- [ ] Blazor Web App: интерактивный логин работает
-- [ ] Все unit-тесты проходят
-- [ ] Все architecture-тесты проходят
-- [ ] Aspire Dashboard показывает логи и трейсы всех сервисов
+- [x] Solution собирается без ошибок (`dotnet build`)
+- [x] Все сервисы запускаются через Aspire AppHost
+- [x] Catalog API: CRUD товаров работает
+- [x] Catalog API: пагинация работает
+- [x] Catalog API: seed data загружены
+- [x] Ordering API: создание и отмена заказов работает
+- [x] Identity API: регистрация и логин работают
+- [x] Identity API: JWT-токен генерируется корректно
+- [x] YARP Gateway: проксирует запросы ко всем сервисам
+- [x] Blazor Web App: SSR-страницы отображают данные из каталога
+- [x] Blazor Web App: интерактивный логин работает
+- [x] Все unit-тесты проходят
+- [x] Все architecture-тесты проходят
+- [x] Aspire Dashboard показывает логи и трейсы всех сервисов
 
 ---
 

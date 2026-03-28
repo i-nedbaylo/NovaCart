@@ -3,6 +3,10 @@ bin/
 obj/
 *.user
 *.suo
+
+# Temp files
+apphost_out.txt
+apphost_err.txt
 *.userosscache
 *.sln.docstates
 
@@ -11,6 +15,7 @@ obj/
 *.rsuser
 *.sln.iml
 launchSettings.json
+!NovaCart.AppHost/Properties/launchSettings.json
 
 # Build results
 [Dd]ebug/
