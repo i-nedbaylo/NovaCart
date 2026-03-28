@@ -33,10 +33,11 @@ public sealed class OutboxInterceptor(IOutboxEventCollector collector) : SaveCha
 
         foreach (var @event in pendingEvents)
         {
-            var eventType = @event.GetType().FullName
-                ?? throw new InvalidOperationException($"Cannot resolve FullName for event type {@event.GetType()}");
+            var type = @event.GetType();
+            var assemblyName = type.Assembly.GetName().Name;
+            var eventType = $"{type.FullName}, {assemblyName}";
 
-            var payload = JsonSerializer.Serialize(@event, @event.GetType(), JsonOptions);
+            var payload = JsonSerializer.Serialize(@event, type, JsonOptions);
 
             var outboxMessage = OutboxMessage.Create(eventType, payload);
             dbContext.Set<OutboxMessage>().Add(outboxMessage);

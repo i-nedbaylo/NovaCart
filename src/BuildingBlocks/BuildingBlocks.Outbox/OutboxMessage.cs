@@ -39,6 +39,7 @@ public sealed class OutboxMessage
 
     public void MarkAsFailed(string error)
     {
+        ProcessedAt = DateTimeOffset.UtcNow;
         Error = error;
     }
 }

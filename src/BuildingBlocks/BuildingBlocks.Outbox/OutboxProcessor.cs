@@ -13,9 +13,8 @@ namespace NovaCart.BuildingBlocks.Outbox;
 /// Generic over TDbContext so each service has its own processor instance.
 /// </summary>
 /// <remarks>
-/// NOTE: Simplified for demo purposes. In production, consider using
-/// a distributed lock (e.g., PostgreSQL advisory locks) to prevent
-/// concurrent processing in scaled-out scenarios.
+/// Uses PostgreSQL-specific <c>FOR UPDATE SKIP LOCKED</c> to atomically claim
+/// messages, preventing duplicate processing when multiple service instances run.
 /// </remarks>
 public sealed class OutboxProcessor<TDbContext>(
     IServiceScopeFactory scopeFactory,
@@ -61,20 +60,31 @@ public sealed class OutboxProcessor<TDbContext>(
         var dbContext = scope.ServiceProvider.GetRequiredService<TDbContext>();
         var publishEndpoint = scope.ServiceProvider.GetRequiredService<IPublishEndpoint>();
 
+        // NOTE: PostgreSQL-specific FOR UPDATE SKIP LOCKED ensures atomic
+        // message claiming — concurrent instances won't process the same messages.
+        await using var transaction = await dbContext.Database.BeginTransactionAsync(ct);
+
         var messages = await dbContext.Set<OutboxMessage>()
-            .Where(m => m.ProcessedAt == null)
-            .OrderBy(m => m.CreatedAt)
-            .Take(BatchSize)
+            .FromSql($"""
+                SELECT * FROM outbox_messages
+                WHERE processed_at IS NULL
+                ORDER BY created_at
+                LIMIT {BatchSize}
+                FOR UPDATE SKIP LOCKED
+                """)
             .ToListAsync(ct);
 
         if (messages.Count == 0)
+        {
+            await transaction.CommitAsync(ct);
             return;
+        }
 
         foreach (var message in messages)
         {
             try
             {
-                var eventType = ResolveType(message.EventType);
+                var eventType = Type.GetType(message.EventType);
                 if (eventType is null)
                 {
                     logger.LogWarning("Cannot resolve type '{EventType}' for outbox message {MessageId}",
@@ -99,27 +109,15 @@ public sealed class OutboxProcessor<TDbContext>(
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "Failed to publish outbox message {MessageId}", message.Id);
-                message.MarkAsFailed(ex.Message);
+                // Transient errors (e.g., broker unavailable) — do NOT mark as failed.
+                // The message stays unprocessed and will be retried on the next cycle.
+                logger.LogError(ex, "Failed to publish outbox message {MessageId}. Will retry on next cycle",
+                    message.Id);
             }
         }
 
         await dbContext.SaveChangesAsync(ct);
+        await transaction.CommitAsync(ct);
     }
 
-    private static Type? ResolveType(string fullName)
-    {
-        var type = Type.GetType(fullName);
-        if (type is not null)
-            return type;
-
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            type = assembly.GetType(fullName);
-            if (type is not null)
-                return type;
-        }
-
-        return null;
     }
-}
