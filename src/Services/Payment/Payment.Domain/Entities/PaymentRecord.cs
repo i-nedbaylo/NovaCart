@@ -25,11 +25,15 @@ public sealed class PaymentRecord : AggregateRoot
         if (string.IsNullOrWhiteSpace(currency))
             throw new ArgumentException("Currency cannot be empty.", nameof(currency));
 
+        var normalizedCurrency = currency.Trim().ToUpperInvariant();
+        if (normalizedCurrency.Length != 3 || !normalizedCurrency.All(c => c >= 'A' && c <= 'Z'))
+            throw new ArgumentException("Currency must be a 3-letter ISO 4217 code.", nameof(currency));
+
         return new PaymentRecord
         {
             OrderId = orderId,
             Amount = amount,
-            Currency = currency,
+            Currency = normalizedCurrency,
             Status = PaymentStatus.Pending
         };
     }
@@ -48,6 +52,12 @@ public sealed class PaymentRecord : AggregateRoot
     {
         if (Status != PaymentStatus.Pending)
             throw new InvalidOperationException($"Cannot mark payment as failed when status is '{Status}'.");
+
+        if (string.IsNullOrWhiteSpace(reason))
+            throw new ArgumentException("Failure reason cannot be empty.", nameof(reason));
+
+        if (reason.Length > 500)
+            throw new ArgumentException("Failure reason cannot exceed 500 characters.", nameof(reason));
 
         Status = PaymentStatus.Failed;
         FailureReason = reason;

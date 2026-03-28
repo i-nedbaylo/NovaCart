@@ -17,7 +17,6 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
 
     // NOTE: Simplified for demo purposes. In production, use a real payment gateway
     // (Stripe, PayPal, etc.) instead of random simulation.
-    private static readonly Random PaymentSimulator = new();
 
     public OrderCreatedIntegrationEventConsumer(
         IPaymentRepository paymentRepository,
@@ -39,6 +38,16 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
             "Processing payment for Order {OrderId}, Amount: {Amount} {Currency}",
             message.OrderId, message.TotalAmount, message.Currency);
 
+        // Idempotency: skip if payment already exists for this order (retry/redelivery)
+        var existingPayment = await _paymentRepository.GetByOrderIdAsync(message.OrderId, context.CancellationToken);
+        if (existingPayment is not null)
+        {
+            _logger.LogWarning(
+                "Payment {PaymentId} already exists for Order {OrderId} with status {Status}. Skipping.",
+                existingPayment.Id, message.OrderId, existingPayment.Status);
+            return;
+        }
+
         var payment = PaymentRecord.Create(message.OrderId, message.TotalAmount, message.Currency);
         _paymentRepository.Add(payment);
         await _unitOfWork.SaveChangesAsync(context.CancellationToken);
@@ -47,7 +56,7 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
         await Task.Delay(TimeSpan.FromSeconds(1), context.CancellationToken);
 
         // Simulate 80% success rate
-        var isSuccessful = PaymentSimulator.Next(100) < 80;
+        var isSuccessful = Random.Shared.Next(100) < 80;
 
         if (isSuccessful)
         {

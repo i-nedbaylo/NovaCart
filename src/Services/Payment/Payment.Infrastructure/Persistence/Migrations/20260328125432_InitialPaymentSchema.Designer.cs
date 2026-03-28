@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NovaCart.Services.Payment.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(PaymentDbContext))]
-    [Migration("20260328092202_InitialPaymentSchema")]
+    [Migration("20260328125432_InitialPaymentSchema")]
     partial class InitialPaymentSchema
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace NovaCart.Services.Payment.Infrastructure.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.5")
+                .HasAnnotation("ProductVersion", "10.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -73,6 +73,7 @@ namespace NovaCart.Services.Payment.Infrastructure.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId")
+                        .IsUnique()
                         .HasDatabaseName("ix_payments_order_id");
 
                     b.ToTable("payments", (string)null);
