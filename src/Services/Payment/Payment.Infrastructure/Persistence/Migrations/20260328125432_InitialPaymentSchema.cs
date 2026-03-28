@@ -33,7 +33,8 @@ namespace NovaCart.Services.Payment.Infrastructure.Persistence.Migrations
             migrationBuilder.CreateIndex(
                 name: "ix_payments_order_id",
                 table: "payments",
-                column: "order_id");
+                column: "order_id",
+                unique: true);
         }
 
         /// <inheritdoc />

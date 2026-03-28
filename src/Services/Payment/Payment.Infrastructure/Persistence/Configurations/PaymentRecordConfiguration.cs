@@ -21,6 +21,7 @@ public sealed class PaymentRecordConfiguration : IEntityTypeConfiguration<Paymen
             .IsRequired();
 
         builder.HasIndex(p => p.OrderId)
+            .IsUnique()
             .HasDatabaseName("ix_payments_order_id");
 
         builder.Property(p => p.Amount)
