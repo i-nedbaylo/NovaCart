@@ -587,11 +587,13 @@
 
 ### 2.6 Outbox Pattern
 
-- [ ] Добавить таблицу `outbox_messages` в `BuildingBlocks.Persistence`
-- [ ] Реализовать `OutboxMessage` entity
-- [ ] Реализовать `OutboxInterceptor` (SaveChanges → сохранить события в outbox)
-- [ ] Реализовать `OutboxProcessor` (BackgroundService → отправить события в RabbitMQ)
-- [ ] Подключить к Ordering и Payment сервисам
+- [x] Добавить проект `BuildingBlocks.Outbox` с `OutboxMessage`, `OutboxMessageConfiguration`
+- [x] Реализовать `IOutboxEventCollector` (в EventBus) и `OutboxEventCollector` (в Outbox)
+- [x] Реализовать `OutboxInterceptor` (SaveChanges → сохранить события в outbox, short AQN type storage)
+- [x] Реализовать `OutboxProcessor` (BackgroundService, FOR UPDATE SKIP LOCKED, terminal MarkAsFailed)
+- [x] Реализовать `OutboxExtensions` (DI-регистрация, ApplyOutboxConfiguration)
+- [x] Подключить к Ordering и Payment сервисам (DbContext, DI, interceptor, миграции)
+- [x] PR review: AssemblyQualifiedName (short form), MarkAsFailed sets ProcessedAt, FOR UPDATE SKIP LOCKED
 
 ### 2.7 Resilience
 
