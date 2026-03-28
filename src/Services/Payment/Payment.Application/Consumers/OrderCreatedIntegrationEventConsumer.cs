@@ -5,6 +5,7 @@ using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
 using NovaCart.Services.Payment.Contracts.IntegrationEvents;
 using NovaCart.Services.Payment.Domain.Entities;
 using NovaCart.Services.Payment.Domain.Repositories;
+using NovaCart.Services.Payment.Domain.ValueObjects;
 
 namespace NovaCart.Services.Payment.Application.Consumers;
 
@@ -38,19 +39,35 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
             "Processing payment for Order {OrderId}, Amount: {Amount} {Currency}",
             message.OrderId, message.TotalAmount, message.Currency);
 
-        // Idempotency: skip if payment already exists for this order (retry/redelivery)
+        // Idempotency: check if payment already exists for this order (retry/redelivery)
         var existingPayment = await _paymentRepository.GetByOrderIdAsync(message.OrderId, context.CancellationToken);
+
+        PaymentRecord payment;
+
         if (existingPayment is not null)
         {
-            _logger.LogWarning(
-                "Payment {PaymentId} already exists for Order {OrderId} with status {Status}. Skipping.",
-                existingPayment.Id, message.OrderId, existingPayment.Status);
-            return;
-        }
+            if (!existingPayment.Status.Equals(PaymentStatus.Pending))
+            {
+                // Already fully processed (Succeeded or Failed) — truly idempotent skip
+                _logger.LogInformation(
+                    "Payment {PaymentId} already processed for Order {OrderId} with status {Status}. Skipping.",
+                    existingPayment.Id, message.OrderId, existingPayment.Status);
+                return;
+            }
 
-        var payment = PaymentRecord.Create(message.OrderId, message.TotalAmount, message.Currency);
-        _paymentRepository.Add(payment);
-        await _unitOfWork.SaveChangesAsync(context.CancellationToken);
+            // Existing Pending payment found — previous processing crashed before completing.
+            // Resume processing with the existing record.
+            _logger.LogWarning(
+                "Resuming processing for Pending payment {PaymentId} for Order {OrderId}.",
+                existingPayment.Id, message.OrderId);
+            payment = existingPayment;
+        }
+        else
+        {
+            payment = PaymentRecord.Create(message.OrderId, message.TotalAmount, message.Currency);
+            _paymentRepository.Add(payment);
+            await _unitOfWork.SaveChangesAsync(context.CancellationToken);
+        }
 
         // Simulate payment processing delay
         await Task.Delay(TimeSpan.FromSeconds(1), context.CancellationToken);
