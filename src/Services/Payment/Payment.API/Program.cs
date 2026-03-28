@@ -1,25 +1,22 @@
+using Microsoft.EntityFrameworkCore;
 using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.ServiceDefaults;
-using NovaCart.Services.Basket.API;
-using NovaCart.Services.Basket.Application;
-using NovaCart.Services.Basket.Infrastructure;
+using NovaCart.Services.Payment.Application;
+using NovaCart.Services.Payment.Infrastructure;
+using NovaCart.Services.Payment.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.Services.AddBasketApplication();
-builder.Services.AddBasketInfrastructure();
+builder.Services.AddPaymentApplication();
 
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    var connectionString = builder.Configuration.GetConnectionString("redis")
-        ?? throw new InvalidOperationException("Connection string 'redis' not found.");
+var connectionString = builder.Configuration.GetConnectionString("paymentdb")
+    ?? throw new InvalidOperationException("Connection string 'paymentdb' not found.");
 
-    options.Configuration = connectionString;
-});
+builder.Services.AddPaymentInfrastructure(connectionString);
 
-builder.AddEventBus(typeof(Program).Assembly);
+builder.AddEventBus(typeof(NovaCart.Services.Payment.Application.DependencyInjection).Assembly);
 
 builder.Services.AddOpenApi();
 
@@ -30,6 +27,10 @@ app.MapDefaultEndpoints();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<PaymentDbContext>();
+    await dbContext.Database.MigrateAsync();
 }
 
 app.UseExceptionHandler(exceptionHandlerApp =>
@@ -47,7 +48,5 @@ app.UseExceptionHandler(exceptionHandlerApp =>
         });
     });
 });
-
-app.MapBasketEndpoints();
 
 app.Run();

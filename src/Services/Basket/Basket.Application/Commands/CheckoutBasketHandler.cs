@@ -23,9 +23,14 @@ public sealed class CheckoutBasketHandler : ICommandHandler<CheckoutBasketComman
     {
         var basket = await _basketRepository.GetBasketAsync(request.BuyerId, cancellationToken);
 
-        if (basket is null || basket.Items.Count == 0)
+        if (basket is null)
         {
-            return Result.Failure(Error.NotFound("Basket.NotFound", $"Basket for buyer '{request.BuyerId}' is empty or not found."));
+            return Result.Failure(Error.NotFound("Basket", request.BuyerId));
+        }
+
+        if (basket.Items.Count == 0)
+        {
+            return Result.Failure(Error.Validation("Basket.Empty", $"Basket for buyer '{request.BuyerId}' is empty."));
         }
 
         var integrationEvent = new BasketCheckoutIntegrationEvent
@@ -46,9 +51,10 @@ public sealed class CheckoutBasketHandler : ICommandHandler<CheckoutBasketComman
             }).ToList()
         };
 
+        // NOTE: Simplified for demo purposes. In production, Publish + Delete should be atomic
+        // via Outbox Pattern (Phase 2.6) to prevent duplicate events on retry/failure.
         await _publishEndpoint.Publish(integrationEvent, cancellationToken);
 
-        // Clear the basket after checkout
         await _basketRepository.DeleteBasketAsync(request.BuyerId, cancellationToken);
 
         return Result.Success();
