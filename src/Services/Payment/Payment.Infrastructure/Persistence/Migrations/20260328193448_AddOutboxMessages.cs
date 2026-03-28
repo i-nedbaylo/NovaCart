@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace NovaCart.Services.Ordering.Infrastructure.Persistence.Migrations
+namespace NovaCart.Services.Payment.Infrastructure.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class AddOutboxMessages : Migration
@@ -20,7 +20,8 @@ namespace NovaCart.Services.Ordering.Infrastructure.Persistence.Migrations
                     payload = table.Column<string>(type: "jsonb", nullable: false),
                     created_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     processed_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
-                    error = table.Column<string>(type: "character varying(2048)", maxLength: 2048, nullable: true)
+                    error = table.Column<string>(type: "character varying(2048)", maxLength: 2048, nullable: true),
+                    retry_count = table.Column<int>(type: "integer", nullable: false, defaultValue: 0)
                 },
                 constraints: table =>
                 {
@@ -30,7 +31,7 @@ namespace NovaCart.Services.Ordering.Infrastructure.Persistence.Migrations
             migrationBuilder.CreateIndex(
                 name: "ix_outbox_messages_unprocessed",
                 table: "outbox_messages",
-                column: "processed_at",
+                columns: new[] { "created_at", "id" },
                 filter: "processed_at IS NULL");
         }
 

@@ -18,6 +18,8 @@ public sealed class OutboxMessage
 
     public string? Error { get; private set; }
 
+    public int RetryCount { get; private set; }
+
     private OutboxMessage() { }
 
     public static OutboxMessage Create(string eventType, string payload)
@@ -40,6 +42,12 @@ public sealed class OutboxMessage
     public void MarkAsFailed(string error)
     {
         ProcessedAt = DateTimeOffset.UtcNow;
+        Error = error;
+    }
+
+    public void IncrementRetryCount(string error)
+    {
+        RetryCount++;
         Error = error;
     }
 }

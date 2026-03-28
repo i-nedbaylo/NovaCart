@@ -53,9 +53,15 @@ namespace NovaCart.Services.Payment.Infrastructure.Persistence.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("processed_at");
 
+                    b.Property<int>("RetryCount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("retry_count");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ProcessedAt")
+                    b.HasIndex("CreatedAt", "Id")
                         .HasDatabaseName("ix_outbox_messages_unprocessed")
                         .HasFilter("processed_at IS NULL");
 

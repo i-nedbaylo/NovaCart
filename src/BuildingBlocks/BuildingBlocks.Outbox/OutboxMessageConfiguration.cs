@@ -40,7 +40,12 @@ public sealed class OutboxMessageConfiguration : IEntityTypeConfiguration<Outbox
             .HasColumnName("error")
             .HasMaxLength(2048);
 
-        builder.HasIndex(x => x.ProcessedAt)
+        builder.Property(x => x.RetryCount)
+            .HasColumnName("retry_count")
+            .HasDefaultValue(0)
+            .IsRequired();
+
+        builder.HasIndex(x => new { x.CreatedAt, x.Id })
             .HasDatabaseName("ix_outbox_messages_unprocessed")
             .HasFilter("processed_at IS NULL");
     }
