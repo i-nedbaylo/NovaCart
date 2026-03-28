@@ -1,4 +1,5 @@
 using FluentAssertions;
+using MassTransit;
 using NSubstitute;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Ordering.Application.Commands;
@@ -12,13 +13,15 @@ public class CreateOrderHandlerTests
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IPublishEndpoint _publishEndpoint;
     private readonly CreateOrderHandler _handler;
 
     public CreateOrderHandlerTests()
     {
         _orderRepository = Substitute.For<IOrderRepository>();
         _unitOfWork = Substitute.For<IUnitOfWork>();
-        _handler = new CreateOrderHandler(_orderRepository, _unitOfWork);
+        _publishEndpoint = Substitute.For<IPublishEndpoint>();
+        _handler = new CreateOrderHandler(_orderRepository, _unitOfWork, _publishEndpoint);
     }
 
     [Fact]
