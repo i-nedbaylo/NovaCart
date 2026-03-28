@@ -8,7 +8,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ordering.Domain\NovaCart.Services.Ordering.Domain.csproj" />
+    <ProjectReference Include="..\Ordering.Contracts\NovaCart.Services.Ordering.Contracts.csproj" />
+    <ProjectReference Include="..\..\Basket\Basket.Contracts\NovaCart.Services.Basket.Contracts.csproj" />
+    <ProjectReference Include="..\..\Payment\Payment.Contracts\NovaCart.Services.Payment.Contracts.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.CQRS\NovaCart.BuildingBlocks.CQRS.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.EventBus\NovaCart.BuildingBlocks.EventBus.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.Persistence\NovaCart.BuildingBlocks.Persistence.csproj" />
   </ItemGroup>
 

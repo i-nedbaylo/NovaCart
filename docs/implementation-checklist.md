@@ -578,11 +578,11 @@
 
 ### 2.5 Integration Events — связать сервисы
 
-- [ ] Ordering Service: consumer для `BasketCheckoutIntegrationEvent` → создание Order
-- [ ] Ordering Service: consumer для `PaymentSucceededIntegrationEvent` → статус Paid
-- [ ] Ordering Service: consumer для `PaymentFailedIntegrationEvent` → статус Cancelled
-- [ ] Ordering Service: публикует `OrderCreatedIntegrationEvent` при создании заказа
-- [ ] Ordering.Contracts: добавить `OrderCreatedIntegrationEvent`
+- [x] Ordering Service: consumer для `BasketCheckoutIntegrationEvent` → создание Order
+- [x] Ordering Service: consumer для `PaymentSucceededIntegrationEvent` → статус Paid
+- [x] Ordering Service: consumer для `PaymentFailedIntegrationEvent` → статус Cancelled
+- [x] Ordering Service: публикует `OrderCreatedIntegrationEvent` при создании заказа
+- [x] Ordering.Contracts: добавить `OrderCreatedIntegrationEvent`
 - [ ] Протестировать полный цикл: Basket Checkout → Order Created → Payment → Order Updated
 
 ### 2.6 Outbox Pattern

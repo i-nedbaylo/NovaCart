@@ -10,6 +10,7 @@
     <ProjectReference Include="..\Ordering.Application\NovaCart.Services.Ordering.Application.csproj" />
     <ProjectReference Include="..\Ordering.Infrastructure\NovaCart.Services.Ordering.Infrastructure.csproj" />
     <ProjectReference Include="..\..\..\..\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.EventBus\NovaCart.BuildingBlocks.EventBus.csproj" />
   </ItemGroup>
 
   <ItemGroup>

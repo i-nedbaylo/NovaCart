@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.ServiceDefaults;
 using NovaCart.Services.Ordering.API;
 using NovaCart.Services.Ordering.Application;
@@ -15,6 +16,8 @@ var connectionString = builder.Configuration.GetConnectionString("orderingdb")
     ?? throw new InvalidOperationException("Connection string 'orderingdb' not found.");
 
 builder.Services.AddOrderingInfrastructure(connectionString);
+
+builder.AddEventBus(typeof(NovaCart.Services.Ordering.Application.DependencyInjection).Assembly);
 
 builder.Services.AddOpenApi();
 
