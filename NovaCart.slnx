@@ -10,6 +10,13 @@
     <Project Path="src/BuildingBlocks/BuildingBlocks.Persistence/NovaCart.BuildingBlocks.Persistence.csproj" />
   </Folder>
   <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/Basket/">
+    <Project Path="src/Services/Basket/Basket.API/NovaCart.Services.Basket.API.csproj" />
+    <Project Path="src/Services/Basket/Basket.Application/NovaCart.Services.Basket.Application.csproj" />
+    <Project Path="src/Services/Basket/Basket.Contracts/NovaCart.Services.Basket.Contracts.csproj" />
+    <Project Path="src/Services/Basket/Basket.Domain/NovaCart.Services.Basket.Domain.csproj" />
+    <Project Path="src/Services/Basket/Basket.Infrastructure/NovaCart.Services.Basket.Infrastructure.csproj" />
+  </Folder>
   <Folder Name="/src/Services/Catalog/">
     <Project Path="src/Services/Catalog/Catalog.API/NovaCart.Services.Catalog.API.csproj" />
     <Project Path="src/Services/Catalog/Catalog.Application/NovaCart.Services.Catalog.Application.csproj" />

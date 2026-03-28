@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Basket.Application\NovaCart.Services.Basket.Application.csproj" />
+    <ProjectReference Include="..\Basket.Infrastructure\NovaCart.Services.Basket.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\..\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.EventBus\NovaCart.BuildingBlocks.EventBus.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

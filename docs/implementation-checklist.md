@@ -509,35 +509,40 @@
 
 #### 2.3.1 Basket.Domain
 
-- [ ] Создать проект `NovaCart.Services.Basket.Domain`
-- [ ] Реализовать `Basket` entity (BuyerId, Items, TotalPrice)
-- [ ] Реализовать `BasketItem` (ProductId, ProductName, Price, Quantity)
-- [ ] Бизнес-методы: AddItem, RemoveItem, UpdateQuantity, Clear
+- [x] Создать проект `NovaCart.Services.Basket.Domain`
+- [x] Реализовать `ShoppingCart` entity (BuyerId, Items, TotalPrice)
+- [x] Реализовать `BasketItem` (ProductId, ProductName, Price, Quantity)
+- [x] Бизнес-методы: AddItem, RemoveItem, UpdateItemQuantity, Clear
+- [x] JSON-сериализация для Redis (JsonConstructor, JsonInclude)
 
 #### 2.3.2 Basket.Application
 
-- [ ] Создать проект `NovaCart.Services.Basket.Application`
-- [ ] Реализовать `GetBasketQuery`, Handler
-- [ ] Реализовать `UpdateBasketCommand`, Handler
-- [ ] Реализовать `DeleteBasketCommand`, Handler
-- [ ] Реализовать `CheckoutBasketCommand`, Handler → публикует `BasketCheckoutIntegrationEvent`
+- [x] Создать проект `NovaCart.Services.Basket.Application`
+- [x] Реализовать `GetBasketQuery`, Handler
+- [x] Реализовать `UpdateBasketCommand`, Handler, Validator
+- [x] Реализовать `DeleteBasketCommand`, Handler, Validator
+- [x] Реализовать `CheckoutBasketCommand`, Handler, Validator → публикует `BasketCheckoutIntegrationEvent`
+- [x] Реализовать DTOs: `BasketDto`, `BasketItemDto`, `UpdateBasketRequest`
+- [x] Настроить DI-регистрацию: `AddBasketApplication`
 
 #### 2.3.3 Basket.Infrastructure
 
-- [ ] Создать проект `NovaCart.Services.Basket.Infrastructure`
-- [ ] Реализовать `BasketRepository` — Redis (JSON serialization)
-- [ ] Настроить TTL для корзины
+- [x] Создать проект `NovaCart.Services.Basket.Infrastructure`
+- [x] Реализовать `RedisBasketRepository` — Redis (IDistributedCache, JSON serialization)
+- [x] Настроить TTL для корзины (30-day sliding expiration)
+- [x] Настроить DI-регистрацию: `AddBasketInfrastructure`
 
 #### 2.3.4 Basket.Contracts
 
-- [ ] Создать проект `NovaCart.Services.Basket.Contracts`
-- [ ] Реализовать `BasketCheckoutIntegrationEvent`
+- [x] Создать проект `NovaCart.Services.Basket.Contracts`
+- [x] Реализовать `BasketCheckoutIntegrationEvent`
 
 #### 2.3.5 Basket.API
 
-- [ ] Создать проект `NovaCart.Services.Basket.API`
-- [ ] Эндпоинты: GET, PUT, DELETE `/api/v1/baskets/{buyerId}`, POST `/api/v1/baskets/checkout`
-- [ ] Зарегистрировать в Aspire AppHost с Redis и RabbitMQ
+- [x] Создать проект `NovaCart.Services.Basket.API`
+- [x] Эндпоинты: GET, PUT, DELETE `/api/v1/baskets/{buyerId}`, POST `/api/v1/baskets/checkout`
+- [x] Зарегистрировать в Aspire AppHost с Redis и RabbitMQ
+- [x] Добавить маршрут в YARP Gateway
 
 ### 2.4 Payment Service
 
