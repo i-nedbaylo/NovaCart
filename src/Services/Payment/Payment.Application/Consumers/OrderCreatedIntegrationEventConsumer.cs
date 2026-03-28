@@ -48,10 +48,14 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
         {
             if (!existingPayment.Status.Equals(PaymentStatus.Pending))
             {
-                // Already fully processed (Succeeded or Failed) — truly idempotent skip
+                // Already processed (Succeeded or Failed).
+                // Re-publish the corresponding integration event to handle crash-recovery
+                // where SaveChanges succeeded but Publish did not. Subscribers must be idempotent.
                 _logger.LogInformation(
-                    "Payment {PaymentId} already processed for Order {OrderId} with status {Status}. Skipping.",
+                    "Payment {PaymentId} already processed for Order {OrderId} with status {Status}. Re-publishing event.",
                     existingPayment.Id, message.OrderId, existingPayment.Status);
+
+                await RepublishEventForProcessedPaymentAsync(existingPayment, message, context.CancellationToken);
                 return;
             }
 
@@ -108,6 +112,36 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
                 Reason = reason,
                 CorrelationId = message.CorrelationId
             }, context.CancellationToken);
+        }
+    }
+
+    private async Task RepublishEventForProcessedPaymentAsync(
+        PaymentRecord payment,
+        OrderCreatedIntegrationEvent message,
+        CancellationToken cancellationToken)
+    {
+        if (payment.Status.Equals(PaymentStatus.Succeeded))
+        {
+            await _publishEndpoint.Publish(new PaymentSucceededIntegrationEvent
+            {
+                OrderId = payment.OrderId,
+                PaymentId = payment.Id,
+                Amount = payment.Amount,
+                Currency = payment.Currency,
+                CorrelationId = message.CorrelationId
+            }, cancellationToken);
+        }
+        else if (payment.Status.Equals(PaymentStatus.Failed))
+        {
+            await _publishEndpoint.Publish(new PaymentFailedIntegrationEvent
+            {
+                OrderId = payment.OrderId,
+                PaymentId = payment.Id,
+                Amount = payment.Amount,
+                Currency = payment.Currency,
+                Reason = payment.FailureReason ?? "Unknown failure reason (recovered publish).",
+                CorrelationId = message.CorrelationId
+            }, cancellationToken);
         }
     }
 }

@@ -54,5 +54,11 @@ public sealed class PaymentRecordConfiguration : IEntityTypeConfiguration<Paymen
 
         builder.Property(p => p.UpdatedAt)
             .HasColumnName("updated_at");
+
+        // Optimistic concurrency via PostgreSQL xmin system column.
+        // Prevents concurrent consumers from both transitioning a Pending payment.
+        builder.Property<uint>("xmin")
+            .HasColumnType("xid")
+            .IsRowVersion();
     }
 }
