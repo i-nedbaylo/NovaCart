@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NovaCart.Services.Payment.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(PaymentDbContext))]
-    [Migration("20260328154104_InitialPaymentSchema")]
+    [Migration("20260328174409_InitialPaymentSchema")]
     partial class InitialPaymentSchema
     {
         /// <inheritdoc />
