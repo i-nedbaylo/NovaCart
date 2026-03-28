@@ -7,7 +7,6 @@ var orderingDb = postgres.AddDatabase("orderingdb");
 var identityDb = postgres.AddDatabase("identitydb");
 
 var rabbitmq = builder.AddRabbitMQ("rabbitmq");
-// NOTE: Redis is pre-provisioned for the upcoming Basket service (Phase 2.3).
 var redis = builder.AddRedis("redis");
 
 // Services
@@ -29,11 +28,18 @@ var identityApi = builder.AddProject<Projects.NovaCart_Services_Identity_API>("i
     .WaitFor(identityDb)
     .WaitFor(rabbitmq);
 
+var basketApi = builder.AddProject<Projects.NovaCart_Services_Basket_API>("basket-api")
+    .WithReference(redis)
+    .WithReference(rabbitmq)
+    .WaitFor(redis)
+    .WaitFor(rabbitmq);
+
 // API Gateway
 var gateway = builder.AddProject<Projects.NovaCart_ApiGateway_Yarp>("gateway")
     .WithReference(catalogApi)
     .WithReference(orderingApi)
-    .WithReference(identityApi);
+    .WithReference(identityApi)
+    .WithReference(basketApi);
 
 // Web (BFF)
 builder.AddProject<Projects.NovaCart_Web>("web")
