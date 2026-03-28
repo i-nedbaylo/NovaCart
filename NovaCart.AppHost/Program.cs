@@ -5,6 +5,7 @@ var postgres = builder.AddPostgres("postgres");
 var catalogDb = postgres.AddDatabase("catalogdb");
 var orderingDb = postgres.AddDatabase("orderingdb");
 var identityDb = postgres.AddDatabase("identitydb");
+var paymentDb = postgres.AddDatabase("paymentdb");
 
 var rabbitmq = builder.AddRabbitMQ("rabbitmq");
 var redis = builder.AddRedis("redis");
@@ -32,6 +33,12 @@ var basketApi = builder.AddProject<Projects.NovaCart_Services_Basket_API>("baske
     .WithReference(redis)
     .WithReference(rabbitmq)
     .WaitFor(redis)
+    .WaitFor(rabbitmq);
+
+var paymentApi = builder.AddProject<Projects.NovaCart_Services_Payment_API>("payment-api")
+    .WithReference(paymentDb)
+    .WithReference(rabbitmq)
+    .WaitFor(paymentDb)
     .WaitFor(rabbitmq);
 
 // API Gateway

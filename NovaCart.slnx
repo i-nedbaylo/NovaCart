@@ -38,6 +38,13 @@
     <Project Path="src/Services/Ordering/Ordering.Domain/NovaCart.Services.Ordering.Domain.csproj" />
     <Project Path="src/Services/Ordering/Ordering.Infrastructure/NovaCart.Services.Ordering.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/src/Services/Payment/">
+    <Project Path="src/Services/Payment/Payment.API/NovaCart.Services.Payment.API.csproj" />
+    <Project Path="src/Services/Payment/Payment.Application/NovaCart.Services.Payment.Application.csproj" />
+    <Project Path="src/Services/Payment/Payment.Contracts/NovaCart.Services.Payment.Contracts.csproj" />
+    <Project Path="src/Services/Payment/Payment.Domain/NovaCart.Services.Payment.Domain.csproj" />
+    <Project Path="src/Services/Payment/Payment.Infrastructure/NovaCart.Services.Payment.Infrastructure.csproj" />
+  </Folder>
   <Folder Name="/src/Web/">
     <Project Path="src/Web/NovaCart.Web.Client/NovaCart.Web.Client.csproj" />
     <Project Path="src/Web/NovaCart.Web/NovaCart.Web.csproj" />

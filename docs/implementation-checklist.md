@@ -548,33 +548,33 @@
 
 #### 2.4.1 Payment.Domain
 
-- [ ] Создать проект `NovaCart.Services.Payment.Domain`
-- [ ] Реализовать `Payment` entity (OrderId, Amount, Status, ProcessedAt)
-- [ ] Реализовать `PaymentStatus` (Pending, Succeeded, Failed)
+- [x] Создать проект `NovaCart.Services.Payment.Domain`
+- [x] Реализовать `Payment` entity (OrderId, Amount, Status, ProcessedAt)
+- [x] Реализовать `PaymentStatus` (Pending, Succeeded, Failed)
 
 #### 2.4.2 Payment.Application
 
-- [ ] Создать проект `NovaCart.Services.Payment.Application`
-- [ ] Реализовать consumer `OrderCreatedIntegrationEventHandler`
-- [ ] Реализовать симуляцию оплаты (random success/failure)
-- [ ] Публикация `PaymentSucceededIntegrationEvent` / `PaymentFailedIntegrationEvent`
+- [x] Создать проект `NovaCart.Services.Payment.Application`
+- [x] Реализовать consumer `OrderCreatedIntegrationEventHandler`
+- [x] Реализовать симуляцию оплаты (random success/failure)
+- [x] Публикация `PaymentSucceededIntegrationEvent` / `PaymentFailedIntegrationEvent`
 
 #### 2.4.3 Payment.Infrastructure
 
-- [ ] Создать проект `NovaCart.Services.Payment.Infrastructure`
-- [ ] `PaymentDbContext` + PostgreSQL (paymentdb)
-- [ ] Реализовать `PaymentRepository`
+- [x] Создать проект `NovaCart.Services.Payment.Infrastructure`
+- [x] `PaymentDbContext` + PostgreSQL (paymentdb)
+- [x] Реализовать `PaymentRepository`
 
 #### 2.4.4 Payment.Contracts
 
-- [ ] Создать проект `NovaCart.Services.Payment.Contracts`
-- [ ] `PaymentSucceededIntegrationEvent`
-- [ ] `PaymentFailedIntegrationEvent`
+- [x] Создать проект `NovaCart.Services.Payment.Contracts`
+- [x] `PaymentSucceededIntegrationEvent`
+- [x] `PaymentFailedIntegrationEvent`
 
 #### 2.4.5 Payment.API
 
-- [ ] Создать проект `NovaCart.Services.Payment.API`
-- [ ] Зарегистрировать в Aspire AppHost
+- [x] Создать проект `NovaCart.Services.Payment.API`
+- [x] Зарегистрировать в Aspire AppHost
 
 ### 2.5 Integration Events — связать сервисы
 

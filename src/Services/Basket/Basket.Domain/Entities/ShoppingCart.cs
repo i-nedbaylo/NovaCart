@@ -8,6 +8,7 @@ namespace NovaCart.Services.Basket.Domain.Entities;
 /// </summary>
 public sealed class ShoppingCart
 {
+    [JsonInclude]
     public string BuyerId { get; private set; } = null!;
 
     [JsonInclude]
