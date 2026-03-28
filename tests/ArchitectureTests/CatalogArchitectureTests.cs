@@ -7,7 +7,6 @@ namespace NovaCart.Tests.ArchitectureTests;
 
 public class CatalogArchitectureTests
 {
-    private const string DomainNamespace = "NovaCart.Services.Catalog.Domain";
     private const string ApplicationNamespace = "NovaCart.Services.Catalog.Application";
     private const string InfrastructureNamespace = "NovaCart.Services.Catalog.Infrastructure";
     private const string ApiNamespace = "NovaCart.Services.Catalog.API";
