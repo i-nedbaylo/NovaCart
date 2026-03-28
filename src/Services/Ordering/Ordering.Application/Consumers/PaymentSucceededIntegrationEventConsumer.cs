@@ -39,10 +39,19 @@ public sealed class PaymentSucceededIntegrationEventConsumer : IConsumer<Payment
             return;
         }
 
-        // Idempotency: skip if already paid
+        // Idempotency: skip if already paid or in post-payment status
         if (order.Status == OrderStatus.Paid)
         {
             _logger.LogInformation("Order {OrderId} is already paid. Skipping.", message.OrderId);
+            return;
+        }
+
+        // Guard against terminal or post-payment statuses where marking as paid is invalid
+        if (order.Status is OrderStatus.Cancelled or OrderStatus.Shipped or OrderStatus.Delivered)
+        {
+            _logger.LogWarning(
+                "Received payment succeeded for Order {OrderId} in status {Status}. Skipping.",
+                message.OrderId, order.Status);
             return;
         }
 

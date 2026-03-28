@@ -46,6 +46,17 @@ public sealed class PaymentFailedIntegrationEventConsumer : IConsumer<PaymentFai
             return;
         }
 
+        // Do not cancel orders that have already been paid, shipped, or delivered.
+        // PaymentFailed arriving late (e.g., duplicate/redelivery) should not revert progress.
+        if (order.Status is OrderStatus.Paid or OrderStatus.Shipped or OrderStatus.Delivered)
+        {
+            _logger.LogWarning(
+                "Received payment failed for Order {OrderId} in status {Status}. " +
+                "Order has already progressed past payment, skipping cancellation.",
+                message.OrderId, order.Status);
+            return;
+        }
+
         order.Cancel();
 
         _orderRepository.Update(order);

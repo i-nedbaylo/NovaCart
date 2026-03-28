@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using NovaCart.BuildingBlocks.Outbox;
 using NovaCart.Services.Payment.Domain.Entities;
 
 namespace NovaCart.Services.Payment.Infrastructure.Persistence;
@@ -14,5 +15,6 @@ public sealed class PaymentDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(PaymentDbContext).Assembly);
+        modelBuilder.ApplyOutboxConfiguration();
     }
 }

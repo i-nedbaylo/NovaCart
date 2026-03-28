@@ -1,5 +1,6 @@
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
 using NovaCart.Services.Payment.Contracts.IntegrationEvents;
@@ -13,7 +14,7 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
 {
     private readonly IPaymentRepository _paymentRepository;
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IPublishEndpoint _publishEndpoint;
+    private readonly IOutboxEventCollector _outboxEventCollector;
     private readonly ILogger<OrderCreatedIntegrationEventConsumer> _logger;
 
     // NOTE: Simplified for demo purposes. In production, use a real payment gateway
@@ -22,12 +23,12 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
     public OrderCreatedIntegrationEventConsumer(
         IPaymentRepository paymentRepository,
         IUnitOfWork unitOfWork,
-        IPublishEndpoint publishEndpoint,
+        IOutboxEventCollector outboxEventCollector,
         ILogger<OrderCreatedIntegrationEventConsumer> logger)
     {
         _paymentRepository = paymentRepository;
         _unitOfWork = unitOfWork;
-        _publishEndpoint = publishEndpoint;
+        _outboxEventCollector = outboxEventCollector;
         _logger = logger;
     }
 
@@ -49,10 +50,6 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
             if (!existingPayment.Status.Equals(PaymentStatus.Pending))
             {
                 // Already fully processed (Succeeded or Failed) — idempotent skip.
-                // NOTE: Simplified for demo purposes. If a crash occurs between SaveChanges
-                // (status update) and Publish (integration event), the event will be lost.
-                // In production, the Outbox Pattern (Phase 2.6) ensures atomic persistence
-                // and publication of events, eliminating this window.
                 _logger.LogInformation(
                     "Payment {PaymentId} already processed for Order {OrderId} with status {Status}. Skipping.",
                     existingPayment.Id, message.OrderId, existingPayment.Status);
@@ -82,28 +79,26 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
         if (isSuccessful)
         {
             payment.MarkAsSucceeded();
-            await _unitOfWork.SaveChangesAsync(context.CancellationToken);
 
-            _logger.LogInformation("Payment {PaymentId} succeeded for Order {OrderId}", payment.Id, message.OrderId);
-
-            await _publishEndpoint.Publish(new PaymentSucceededIntegrationEvent
+            _outboxEventCollector.Add(new PaymentSucceededIntegrationEvent
             {
                 OrderId = message.OrderId,
                 PaymentId = payment.Id,
                 Amount = payment.Amount,
                 Currency = payment.Currency,
                 CorrelationId = message.CorrelationId
-            }, context.CancellationToken);
+            });
+
+            await _unitOfWork.SaveChangesAsync(context.CancellationToken);
+
+            _logger.LogInformation("Payment {PaymentId} succeeded for Order {OrderId}", payment.Id, message.OrderId);
         }
         else
         {
             const string reason = "Payment declined by the payment provider (simulated failure).";
             payment.MarkAsFailed(reason);
-            await _unitOfWork.SaveChangesAsync(context.CancellationToken);
 
-            _logger.LogWarning("Payment {PaymentId} failed for Order {OrderId}: {Reason}", payment.Id, message.OrderId, reason);
-
-            await _publishEndpoint.Publish(new PaymentFailedIntegrationEvent
+            _outboxEventCollector.Add(new PaymentFailedIntegrationEvent
             {
                 OrderId = message.OrderId,
                 PaymentId = payment.Id,
@@ -111,7 +106,11 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
                 Currency = payment.Currency,
                 Reason = reason,
                 CorrelationId = message.CorrelationId
-            }, context.CancellationToken);
+            });
+
+            await _unitOfWork.SaveChangesAsync(context.CancellationToken);
+
+            _logger.LogWarning("Payment {PaymentId} failed for Order {OrderId}: {Reason}", payment.Id, message.OrderId, reason);
         }
     }
 }

@@ -1,5 +1,6 @@
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Basket.Contracts.IntegrationEvents;
 using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
@@ -13,18 +14,18 @@ public sealed class BasketCheckoutIntegrationEventConsumer : IConsumer<BasketChe
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IPublishEndpoint _publishEndpoint;
+    private readonly IOutboxEventCollector _outboxEventCollector;
     private readonly ILogger<BasketCheckoutIntegrationEventConsumer> _logger;
 
     public BasketCheckoutIntegrationEventConsumer(
         IOrderRepository orderRepository,
         IUnitOfWork unitOfWork,
-        IPublishEndpoint publishEndpoint,
+        IOutboxEventCollector outboxEventCollector,
         ILogger<BasketCheckoutIntegrationEventConsumer> logger)
     {
         _orderRepository = orderRepository;
         _unitOfWork = unitOfWork;
-        _publishEndpoint = publishEndpoint;
+        _outboxEventCollector = outboxEventCollector;
         _logger = logger;
     }
 
@@ -60,18 +61,17 @@ public sealed class BasketCheckoutIntegrationEventConsumer : IConsumer<BasketChe
         order.Confirm();
 
         _orderRepository.Add(order);
-        await _unitOfWork.SaveChangesAsync(context.CancellationToken);
 
-        // NOTE: Simplified for demo purposes. There is a window between SaveChanges and Publish
-        // where a crash would lose the event. In production, the Outbox Pattern (Phase 2.6)
-        // ensures atomic persistence and publication.
-        await _publishEndpoint.Publish(new OrderCreatedIntegrationEvent
+        _outboxEventCollector.Add(new OrderCreatedIntegrationEvent
         {
             OrderId = order.Id,
             BuyerId = buyerId,
             TotalAmount = order.TotalAmount,
-            Currency = "USD"
-        }, context.CancellationToken);
+            Currency = "USD",
+            CorrelationId = message.CorrelationId
+        });
+
+        await _unitOfWork.SaveChangesAsync(context.CancellationToken);
 
         _logger.LogInformation(
             "Order {OrderId} created and confirmed from basket checkout for Buyer {BuyerId}",

@@ -1,6 +1,6 @@
-using MassTransit;
 using NovaCart.BuildingBlocks.Common;
 using NovaCart.BuildingBlocks.CQRS;
+using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
 using NovaCart.Services.Ordering.Domain.Entities;
@@ -13,16 +13,16 @@ public sealed class CreateOrderHandler : ICommandHandler<CreateOrderCommand, Gui
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IPublishEndpoint _publishEndpoint;
+    private readonly IOutboxEventCollector _outboxEventCollector;
 
     public CreateOrderHandler(
         IOrderRepository orderRepository,
         IUnitOfWork unitOfWork,
-        IPublishEndpoint publishEndpoint)
+        IOutboxEventCollector outboxEventCollector)
     {
         _orderRepository = orderRepository;
         _unitOfWork = unitOfWork;
-        _publishEndpoint = publishEndpoint;
+        _outboxEventCollector = outboxEventCollector;
     }
 
     public async Task<Result<Guid>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
@@ -42,18 +42,17 @@ public sealed class CreateOrderHandler : ICommandHandler<CreateOrderCommand, Gui
         }
 
         _orderRepository.Add(order);
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        // NOTE: Simplified for demo purposes. There is a window between SaveChanges and Publish
-        // where a crash would lose the event. In production, the Outbox Pattern (Phase 2.6)
-        // ensures atomic persistence and publication.
-        await _publishEndpoint.Publish(new OrderCreatedIntegrationEvent
+        _outboxEventCollector.Add(new OrderCreatedIntegrationEvent
         {
             OrderId = order.Id,
             BuyerId = order.BuyerId,
             TotalAmount = order.TotalAmount,
-            Currency = "USD"
-        }, cancellationToken);
+            Currency = "USD",
+            CorrelationId = order.Id
+        });
+
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return order.Id;
     }
