@@ -27,13 +27,11 @@ public static class EventBusExtensions
 
             config.UsingRabbitMq((context, cfg) =>
             {
-                var connectionString = builder.Configuration.GetConnectionString("rabbitmq");
+                var connectionString = builder.Configuration.GetConnectionString("rabbitmq")
+                    ?? throw new InvalidOperationException(
+                        "RabbitMQ connection string is missing. Please configure 'ConnectionStrings:rabbitmq' in application settings.");
 
-                if (!string.IsNullOrWhiteSpace(connectionString))
-                {
-                    cfg.Host(new Uri(connectionString));
-                }
-
+                cfg.Host(new Uri(connectionString));
                 cfg.ConfigureEndpoints(context);
             });
         });

@@ -7,6 +7,7 @@ var orderingDb = postgres.AddDatabase("orderingdb");
 var identityDb = postgres.AddDatabase("identitydb");
 
 var rabbitmq = builder.AddRabbitMQ("rabbitmq");
+// NOTE: Redis is pre-provisioned for the upcoming Basket service (Phase 2.3).
 var redis = builder.AddRedis("redis");
 
 // Services
