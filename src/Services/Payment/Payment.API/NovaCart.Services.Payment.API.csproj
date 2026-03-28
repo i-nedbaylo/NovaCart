@@ -7,6 +7,10 @@
     <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.EventBus\NovaCart.BuildingBlocks.EventBus.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
