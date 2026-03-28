@@ -6,6 +6,7 @@
   <Folder Name="/src/BuildingBlocks/">
     <Project Path="src/BuildingBlocks/BuildingBlocks.Common/NovaCart.BuildingBlocks.Common.csproj" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.CQRS/NovaCart.BuildingBlocks.CQRS.csproj" />
+    <Project Path="src/BuildingBlocks/BuildingBlocks.EventBus/NovaCart.BuildingBlocks.EventBus.csproj" />
     <Project Path="src/BuildingBlocks/BuildingBlocks.Persistence/NovaCart.BuildingBlocks.Persistence.csproj" />
   </Folder>
   <Folder Name="/src/Services/" />

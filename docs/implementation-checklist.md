@@ -492,18 +492,18 @@
 
 ### 2.1 BuildingBlocks.EventBus
 
-- [ ] Создать проект `NovaCart.BuildingBlocks.EventBus` (Class Library, .NET 10)
-- [ ] Добавить в `NovaCart.slnx`
-- [ ] Добавить NuGet: `MassTransit`, `MassTransit.RabbitMQ`
-- [ ] Реализовать `IntegrationEvent` (базовый класс: Id, CreatedAt, CorrelationId)
-- [ ] Реализовать extension method `AddEventBus` (настройка MassTransit + RabbitMQ)
-- [ ] Убедиться, что проект собирается
+- [x] Создать проект `NovaCart.BuildingBlocks.EventBus` (Class Library, .NET 10)
+- [x] Добавить в `NovaCart.slnx`
+- [x] Добавить NuGet: `MassTransit`, `MassTransit.RabbitMQ`
+- [x] Реализовать `IntegrationEvent` (базовый класс: Id, CreatedAt, CorrelationId)
+- [x] Реализовать extension method `AddEventBus` (настройка MassTransit + RabbitMQ)
+- [x] Убедиться, что проект собирается
 
 ### 2.2 Aspire — добавить RabbitMQ и Redis
 
-- [ ] Добавить `builder.AddRabbitMQ("rabbitmq")` в AppHost
-- [ ] Добавить `builder.AddRedis("redis")` в AppHost
-- [ ] Подключить rabbitmq ко всем API-сервисам
+- [x] Добавить `builder.AddRabbitMQ("rabbitmq")` в AppHost
+- [x] Добавить `builder.AddRedis("redis")` в AppHost
+- [x] Подключить rabbitmq ко всем API-сервисам
 
 ### 2.3 Basket Service
 

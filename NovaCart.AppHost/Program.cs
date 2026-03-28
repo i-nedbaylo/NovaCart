@@ -6,18 +6,27 @@ var catalogDb = postgres.AddDatabase("catalogdb");
 var orderingDb = postgres.AddDatabase("orderingdb");
 var identityDb = postgres.AddDatabase("identitydb");
 
+var rabbitmq = builder.AddRabbitMQ("rabbitmq");
+var redis = builder.AddRedis("redis");
+
 // Services
 var catalogApi = builder.AddProject<Projects.NovaCart_Services_Catalog_API>("catalog-api")
     .WithReference(catalogDb)
-    .WaitFor(catalogDb);
+    .WithReference(rabbitmq)
+    .WaitFor(catalogDb)
+    .WaitFor(rabbitmq);
 
 var orderingApi = builder.AddProject<Projects.NovaCart_Services_Ordering_API>("ordering-api")
     .WithReference(orderingDb)
-    .WaitFor(orderingDb);
+    .WithReference(rabbitmq)
+    .WaitFor(orderingDb)
+    .WaitFor(rabbitmq);
 
 var identityApi = builder.AddProject<Projects.NovaCart_Services_Identity_API>("identity-api")
     .WithReference(identityDb)
-    .WaitFor(identityDb);
+    .WithReference(rabbitmq)
+    .WaitFor(identityDb)
+    .WaitFor(rabbitmq);
 
 // API Gateway
 var gateway = builder.AddProject<Projects.NovaCart_ApiGateway_Yarp>("gateway")
