@@ -1,0 +1,153 @@
+@page "/checkout"
+@rendermode InteractiveAuto
+@using NovaCart.Web.Client.Models
+@using NovaCart.Web.Client.Services
+@inject BasketClientService BasketService
+@inject NavigationManager Navigation
+
+<PageTitle>NovaCart — Checkout</PageTitle>
+
+<MudText Typo="Typo.h4" GutterBottom="true">Checkout</MudText>
+
+@if (_loading)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (_basket is null || _basket.Items.Count == 0)
+{
+    <MudAlert Severity="Severity.Info" Class="mb-4">Your cart is empty. Add items before checkout.</MudAlert>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/catalog">
+        Browse Catalog
+    </MudButton>
+}
+else if (_orderPlaced)
+{
+    <MudAlert Severity="Severity.Success" Class="mb-4">
+        Your order has been placed! You can track it on the Orders page.
+    </MudAlert>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/orders">
+        View My Orders
+    </MudButton>
+}
+else
+{
+    <MudGrid>
+        <MudItem xs="12" md="7">
+            <MudPaper Class="pa-4">
+                <MudText Typo="Typo.h6" GutterBottom="true">Shipping Address</MudText>
+                <EditForm Model="_checkout" OnValidSubmit="PlaceOrderAsync">
+                    <DataAnnotationsValidator />
+
+                    <MudTextField @bind-Value="_checkout.Street" Label="Street"
+                                  Required="true" RequiredError="Street is required"
+                                  Variant="Variant.Outlined" Class="mb-3" />
+                    <MudTextField @bind-Value="_checkout.City" Label="City"
+                                  Required="true" RequiredError="City is required"
+                                  Variant="Variant.Outlined" Class="mb-3" />
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudTextField @bind-Value="_checkout.State" Label="State"
+                                          Required="true" RequiredError="State is required"
+                                          Variant="Variant.Outlined" Class="mb-3" />
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudTextField @bind-Value="_checkout.ZipCode" Label="ZIP Code"
+                                          Required="true" RequiredError="ZIP Code is required"
+                                          Variant="Variant.Outlined" Class="mb-3" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudTextField @bind-Value="_checkout.Country" Label="Country"
+                                  Required="true" RequiredError="Country is required"
+                                  Variant="Variant.Outlined" Class="mb-3" />
+
+                    @if (!string.IsNullOrEmpty(_error))
+                    {
+                        <MudAlert Severity="Severity.Error" Class="mb-3">@_error</MudAlert>
+                    }
+
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled"
+                               Color="Color.Primary" FullWidth="true"
+                               StartIcon="@Icons.Material.Filled.Payment"
+                               Disabled="_submitting">
+                        @if (_submitting)
+                        {
+                            <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                        }
+                        Place Order
+                    </MudButton>
+                </EditForm>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" md="5">
+            <MudPaper Class="pa-4">
+                <MudText Typo="Typo.h6" GutterBottom="true">Order Summary</MudText>
+                <MudList T="BasketItemModel" Dense="true">
+                    @foreach (var item in _basket.Items)
+                    {
+                        <MudListItem T="BasketItemModel">
+                            <div class="d-flex justify-space-between">
+                                <MudText>@item.ProductName × @item.Quantity</MudText>
+                                <MudText>@((item.Price * item.Quantity).ToString("C2"))</MudText>
+                            </div>
+                        </MudListItem>
+                    }
+                </MudList>
+                <MudDivider Class="my-2" />
+                <div class="d-flex justify-space-between">
+                    <MudText Typo="Typo.h6">Total</MudText>
+                    <MudText Typo="Typo.h6" Color="Color.Primary">
+                        @_basket.Items.Sum(i => i.Price * i.Quantity).ToString("C2")
+                    </MudText>
+                </div>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+}
+
+@code {
+    private BasketModel? _basket;
+    private CheckoutModel _checkout = new() { BuyerId = BasketClientService.DemoBuyerId };
+    private bool _loading = true;
+    private bool _submitting;
+    private bool _orderPlaced;
+    private string? _error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+
+        try
+        {
+            _basket = await BasketService.GetBasketAsync(BasketClientService.DemoBuyerId);
+        }
+        catch
+        {
+            _basket = null;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private async Task PlaceOrderAsync()
+    {
+        _submitting = true;
+        _error = null;
+
+        try
+        {
+            await BasketService.CheckoutAsync(_checkout);
+            _orderPlaced = true;
+        }
+        catch (Exception ex)
+        {
+            _error = $"Failed to place order: {ex.Message}";
+        }
+        finally
+        {
+            _submitting = false;
+        }
+    }
+}

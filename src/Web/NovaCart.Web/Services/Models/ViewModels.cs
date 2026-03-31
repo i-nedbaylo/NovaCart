@@ -62,3 +62,18 @@ public sealed class PagedResult<T>
     public int PageNumber { get; set; }
     public int PageSize { get; set; }
 }
+
+public sealed class BasketViewModel
+{
+    public string BuyerId { get; set; } = string.Empty;
+    public List<BasketItemViewModel> Items { get; set; } = [];
+    public decimal TotalPrice { get; set; }
+}
+
+public sealed class BasketItemViewModel
+{
+    public Guid ProductId { get; set; }
+    public string ProductName { get; set; } = string.Empty;
+    public decimal Price { get; set; }
+    public int Quantity { get; set; }
+}
