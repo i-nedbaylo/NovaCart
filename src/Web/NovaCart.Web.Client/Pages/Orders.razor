@@ -1,0 +1,157 @@
+@page "/orders"
+@rendermode InteractiveAuto
+@using NovaCart.Web.Client.Models
+@using NovaCart.Web.Client.Services
+@inject OrderClientService OrderService
+
+<PageTitle>NovaCart — My Orders</PageTitle>
+
+<MudText Typo="Typo.h4" GutterBottom="true">My Orders</MudText>
+
+@if (_loading)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (_orders is null || _orders.Items.Count == 0)
+{
+    <MudAlert Severity="Severity.Info" Class="mb-4">You have no orders yet.</MudAlert>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/catalog">
+        Browse Catalog
+    </MudButton>
+}
+else
+{
+    <MudTable Items="_orders.Items" Hover="true" Breakpoint="Breakpoint.Sm" Dense="true"
+              CurrentPage="@(_page - 1)" RowsPerPage="_pageSize"
+              ServerData="LoadOrdersAsync">
+        <HeaderContent>
+            <MudTh>Order ID</MudTh>
+            <MudTh>Date</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Items</MudTh>
+            <MudTh>Total</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Order ID">
+                <MudText Typo="Typo.body2" Style="font-family: monospace">
+                    @context.Id.ToString()[..8]…
+                </MudText>
+            </MudTd>
+            <MudTd DataLabel="Date">@context.OrderDate.LocalDateTime.ToString("g")</MudTd>
+            <MudTd DataLabel="Status">
+                <MudChip T="string" Color="@GetStatusColor(context.Status)" Size="Size.Small">
+                    @context.Status
+                </MudChip>
+            </MudTd>
+            <MudTd DataLabel="Items">@context.Items.Count</MudTd>
+            <MudTd DataLabel="Total">@context.TotalAmount.ToString("C2")</MudTd>
+        </RowTemplate>
+        <ChildRowContent>
+            <MudTr>
+                <td colspan="5">
+                    <MudCard Elevation="0" Class="ma-2">
+                        <MudCardContent>
+                            @if (context.ShippingAddress is not null)
+                            {
+                                <MudText Typo="Typo.caption" GutterBottom="true">
+                                    <b>Shipping:</b> @context.ShippingAddress.Street,
+                                    @context.ShippingAddress.City, @context.ShippingAddress.State
+                                    @context.ShippingAddress.ZipCode, @context.ShippingAddress.Country
+                                </MudText>
+                            }
+                            <MudSimpleTable Dense="true" Hover="true" Bordered="true">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Unit Price</th>
+                                        <th>Qty</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in context.Items)
+                                    {
+                                        <tr>
+                                            <td>@item.ProductName</td>
+                                            <td>@item.UnitPrice.ToString("C2")</td>
+                                            <td>@item.Quantity</td>
+                                            <td>@((item.UnitPrice * item.Quantity).ToString("C2"))</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </MudSimpleTable>
+                        </MudCardContent>
+                    </MudCard>
+                </td>
+            </MudTr>
+        </ChildRowContent>
+        <PagerContent>
+            <MudTablePager />
+        </PagerContent>
+    </MudTable>
+}
+
+@code {
+    private PagedResultModel<OrderModel>? _orders;
+    private bool _loading = true;
+    private int _page = 1;
+    private int _pageSize = 10;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadInitialAsync();
+    }
+
+    private async Task LoadInitialAsync()
+    {
+        _loading = true;
+
+        try
+        {
+            _orders = await OrderService.GetOrdersAsync(page: _page, pageSize: _pageSize);
+        }
+        catch
+        {
+            _orders = null;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private async Task<TableData<OrderModel>> LoadOrdersAsync(TableState state, CancellationToken ct)
+    {
+        _page = state.Page + 1;
+        _pageSize = state.PageSize;
+
+        try
+        {
+            var result = await OrderService.GetOrdersAsync(
+                page: _page, pageSize: _pageSize, ct: ct);
+
+            _orders = result;
+
+            return new TableData<OrderModel>
+            {
+                Items = result?.Items ?? [],
+                TotalItems = result?.TotalCount ?? 0
+            };
+        }
+        catch
+        {
+            return new TableData<OrderModel> { Items = [], TotalItems = 0 };
+        }
+    }
+
+    private static Color GetStatusColor(string status) => status switch
+    {
+        "Created" => Color.Info,
+        "Confirmed" => Color.Primary,
+        "Paid" => Color.Success,
+        "Shipped" => Color.Warning,
+        "Delivered" => Color.Success,
+        "Cancelled" => Color.Error,
+        _ => Color.Default
+    };
+}

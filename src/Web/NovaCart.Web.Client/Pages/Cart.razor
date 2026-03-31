@@ -1,0 +1,141 @@
+@page "/cart"
+@rendermode InteractiveAuto
+@using NovaCart.Web.Client.Models
+@using NovaCart.Web.Client.Services
+@inject BasketClientService BasketService
+@inject NavigationManager Navigation
+
+<PageTitle>NovaCart — Cart</PageTitle>
+
+<MudText Typo="Typo.h4" GutterBottom="true">Shopping Cart</MudText>
+
+@if (_loading)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (_basket is null || _basket.Items.Count == 0)
+{
+    <MudAlert Severity="Severity.Info" Class="mb-4">Your cart is empty.</MudAlert>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/catalog">
+        Browse Catalog
+    </MudButton>
+}
+else
+{
+    <MudTable Items="_basket.Items" Hover="true" Breakpoint="Breakpoint.Sm" Dense="true">
+        <HeaderContent>
+            <MudTh>Product</MudTh>
+            <MudTh>Price</MudTh>
+            <MudTh Style="width: 160px">Quantity</MudTh>
+            <MudTh>Subtotal</MudTh>
+            <MudTh Style="width: 60px"></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Product">@context.ProductName</MudTd>
+            <MudTd DataLabel="Price">@context.Price.ToString("C2")</MudTd>
+            <MudTd DataLabel="Quantity">
+                <MudNumericField T="int" @bind-Value="context.Quantity" Min="1" Max="99"
+                                 Variant="Variant.Outlined" Margin="Margin.Dense"
+                                 Immediate="true" />
+            </MudTd>
+            <MudTd DataLabel="Subtotal">@((context.Price * context.Quantity).ToString("C2"))</MudTd>
+            <MudTd>
+                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" Size="Size.Small"
+                               OnClick="() => RemoveItem(context)" />
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+
+    <MudGrid Class="mt-4" Justify="Justify.SpaceBetween">
+        <MudItem xs="12" sm="6">
+            <MudButton Variant="Variant.Outlined" Color="Color.Error"
+                       OnClick="ClearCartAsync" Disabled="_saving">
+                Clear Cart
+            </MudButton>
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" Class="ml-2"
+                       OnClick="UpdateCartAsync" Disabled="_saving">
+                @if (_saving)
+                {
+                    <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                }
+                Update Cart
+            </MudButton>
+        </MudItem>
+        <MudItem xs="12" sm="6" Class="d-flex justify-end align-center">
+            <MudText Typo="Typo.h6" Class="mr-4">
+                Total: @_basket.Items.Sum(i => i.Price * i.Quantity).ToString("C2")
+            </MudText>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                       StartIcon="@Icons.Material.Filled.Payment"
+                       Href="/checkout">
+                Proceed to Checkout
+            </MudButton>
+        </MudItem>
+    </MudGrid>
+}
+
+@code {
+    private BasketModel? _basket;
+    private bool _loading = true;
+    private bool _saving;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadBasketAsync();
+    }
+
+    private async Task LoadBasketAsync()
+    {
+        _loading = true;
+
+        try
+        {
+            _basket = await BasketService.GetBasketAsync(BasketClientService.DemoBuyerId);
+        }
+        catch
+        {
+            _basket = null;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private void RemoveItem(BasketItemModel item)
+    {
+        _basket?.Items.Remove(item);
+    }
+
+    private async Task UpdateCartAsync()
+    {
+        if (_basket is null) return;
+
+        _saving = true;
+
+        try
+        {
+            _basket = await BasketService.UpdateBasketAsync(
+                BasketClientService.DemoBuyerId, _basket.Items);
+        }
+        finally
+        {
+            _saving = false;
+        }
+    }
+
+    private async Task ClearCartAsync()
+    {
+        _saving = true;
+
+        try
+        {
+            await BasketService.DeleteBasketAsync(BasketClientService.DemoBuyerId);
+            _basket = null;
+        }
+        finally
+        {
+            _saving = false;
+        }
+    }
+}

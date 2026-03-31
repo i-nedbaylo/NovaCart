@@ -597,16 +597,16 @@
 
 ### 2.7 Resilience
 
-- [ ] Настроить Polly retry + circuit breaker в ServiceDefaults для всех HttpClient
-- [ ] Добавить timeout-ы
-- [ ] Проверить поведение при недоступности сервиса
+- [x] Настроить Polly retry + circuit breaker в ServiceDefaults для всех HttpClient
+- [x] Добавить timeout-ы
+- [x] Проверить поведение при недоступности сервиса
 
 ### 2.8 Blazor Web App — расширение
 
-- [ ] Страница корзины (`@rendermode InteractiveAuto`)
-- [ ] Страница оформления заказа
-- [ ] Страница "Мои заказы"
-- [ ] BFF-сервисы для Basket и Orders
+- [x] Страница корзины (`@rendermode InteractiveAuto`)
+- [x] Страница оформления заказа
+- [x] Страница "Мои заказы"
+- [x] BFF-сервисы для Basket и Orders
 
 ### 2.9 Тесты Phase 2
 

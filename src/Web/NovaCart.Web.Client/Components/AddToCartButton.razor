@@ -1,0 +1,79 @@
+@rendermode InteractiveAuto
+@using NovaCart.Web.Client.Models
+@using NovaCart.Web.Client.Services
+@inject BasketClientService BasketService
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary"
+           StartIcon="@Icons.Material.Filled.ShoppingCart" Size="Size.Large"
+           Disabled="_adding"
+           OnClick="AddToCartAsync">
+    @if (_adding)
+    {
+        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+        @:Adding...
+    }
+    else if (_added)
+    {
+        <MudIcon Icon="@Icons.Material.Filled.Check" Class="mr-1" />
+        @:Added!
+    }
+    else
+    {
+        @:Add to Cart
+    }
+</MudButton>
+
+@code {
+    [Parameter, EditorRequired]
+    public Guid ProductId { get; set; }
+
+    [Parameter, EditorRequired]
+    public string ProductName { get; set; } = string.Empty;
+
+    [Parameter, EditorRequired]
+    public decimal Price { get; set; }
+
+    private bool _adding;
+    private bool _added;
+
+    private async Task AddToCartAsync()
+    {
+        _adding = true;
+        _added = false;
+
+        try
+        {
+            var basket = await BasketService.GetBasketAsync(BasketClientService.DemoBuyerId);
+
+            var items = basket?.Items ?? [];
+
+            var existing = items.Find(i => i.ProductId == ProductId);
+
+            if (existing is not null)
+            {
+                existing.Quantity++;
+            }
+            else
+            {
+                items.Add(new BasketItemModel
+                {
+                    ProductId = ProductId,
+                    ProductName = ProductName,
+                    Price = Price,
+                    Quantity = 1
+                });
+            }
+
+            await BasketService.UpdateBasketAsync(BasketClientService.DemoBuyerId, items);
+            _added = true;
+        }
+        catch
+        {
+            // NOTE: Simplified for demo purposes. In production, show a proper error notification.
+        }
+        finally
+        {
+            _adding = false;
+        }
+    }
+}

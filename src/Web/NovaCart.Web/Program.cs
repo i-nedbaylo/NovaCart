@@ -1,6 +1,8 @@
 using MudBlazor.Services;
 using NovaCart.ServiceDefaults;
+using NovaCart.Web;
 using NovaCart.Web.Client.Pages;
+using NovaCart.Web.Client.Services;
 using NovaCart.Web.Components;
 using NovaCart.Web.Services;
 
@@ -29,6 +31,29 @@ builder.Services.AddHttpClient<AuthService>(client =>
     client.BaseAddress = new Uri("https+http://gateway");
 });
 
+builder.Services.AddHttpClient<BasketService>(client =>
+{
+    client.BaseAddress = new Uri("https+http://gateway");
+});
+
+// Client services registered with Gateway for Server-side InteractiveAuto rendering.
+// When running on WASM, these same services use origin HttpClient via BFF proxy.
+builder.Services.AddHttpClient<BasketClientService>(client =>
+{
+    client.BaseAddress = new Uri("https+http://gateway");
+});
+
+builder.Services.AddHttpClient<OrderClientService>(client =>
+{
+    client.BaseAddress = new Uri("https+http://gateway");
+});
+
+// Named HttpClient for BFF proxy — forwards WASM /api/* requests to Gateway
+builder.Services.AddHttpClient("Gateway", client =>
+{
+    client.BaseAddress = new Uri("https+http://gateway");
+});
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
@@ -47,6 +72,9 @@ app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages:
 app.UseHttpsRedirection();
 
 app.UseAntiforgery();
+
+// BFF proxy: forwards /api/* requests from WASM components to Gateway
+app.MapBffApiProxy();
 
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
