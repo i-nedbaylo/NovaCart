@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NovaCart.Services.Ordering.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(OrderingDbContext))]
-    [Migration("20260328184434_AddOutboxMessages")]
+    [Migration("20260328193422_AddOutboxMessages")]
     partial class AddOutboxMessages
     {
         /// <inheritdoc />
@@ -56,9 +56,15 @@ namespace NovaCart.Services.Ordering.Infrastructure.Persistence.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("processed_at");
 
+                    b.Property<int>("RetryCount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("retry_count");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ProcessedAt")
+                    b.HasIndex("CreatedAt", "Id")
                         .HasDatabaseName("ix_outbox_messages_unprocessed")
                         .HasFilter("processed_at IS NULL");
 

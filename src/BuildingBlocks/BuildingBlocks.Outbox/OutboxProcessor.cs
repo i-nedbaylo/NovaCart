@@ -22,6 +22,7 @@ public sealed class OutboxProcessor<TDbContext>(
     where TDbContext : DbContext
 {
     private const int BatchSize = 20;
+    private const int MaxRetries = 5;
     private static readonly TimeSpan PollingInterval = TimeSpan.FromSeconds(5);
 
     private static readonly JsonSerializerOptions JsonOptions = new()
@@ -109,10 +110,21 @@ public sealed class OutboxProcessor<TDbContext>(
             }
             catch (Exception ex)
             {
-                // Transient errors (e.g., broker unavailable) — do NOT mark as failed.
-                // The message stays unprocessed and will be retried on the next cycle.
-                logger.LogError(ex, "Failed to publish outbox message {MessageId}. Will retry on next cycle",
-                    message.Id);
+                message.IncrementRetryCount(ex.Message);
+
+                if (message.RetryCount >= MaxRetries)
+                {
+                    logger.LogError(ex,
+                        "Outbox message {MessageId} exceeded max retries ({MaxRetries}). Marking as failed",
+                        message.Id, MaxRetries);
+                    message.MarkAsFailed($"Exceeded max retries ({MaxRetries}). Last error: {ex.Message}");
+                }
+                else
+                {
+                    logger.LogWarning(ex,
+                        "Failed to publish outbox message {MessageId} (attempt {RetryCount}/{MaxRetries}). Will retry",
+                        message.Id, message.RetryCount, MaxRetries);
+                }
             }
         }
 
