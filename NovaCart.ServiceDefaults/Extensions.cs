@@ -21,6 +21,11 @@ public static class Extensions
 
         builder.Services.ConfigureHttpClientDefaults(http =>
         {
+            // Standard resilience pipeline includes:
+            // - Total request timeout (30s)
+            // - Retry with exponential backoff + jitter (3 attempts)
+            // - Circuit breaker (failure ratio 10%, 30s sampling)
+            // - Per-attempt timeout (2s)
             http.AddStandardResilienceHandler();
             http.AddServiceDiscovery();
         });
