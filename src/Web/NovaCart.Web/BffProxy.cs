@@ -63,6 +63,13 @@ public static class BffProxy
             CopyResponseHeaders(response.Headers, context.Response.Headers);
             CopyResponseHeaders(response.Content.Headers, context.Response.Headers);
 
+            // Content-Type is excluded from generic header copying (handled separately for requests)
+            // but must be set explicitly on the response for correct content negotiation
+            if (response.Content.Headers.ContentType is not null)
+            {
+                context.Response.ContentType = response.Content.Headers.ContentType.ToString();
+            }
+
             await response.Content.CopyToAsync(context.Response.Body, context.RequestAborted);
         });
 
