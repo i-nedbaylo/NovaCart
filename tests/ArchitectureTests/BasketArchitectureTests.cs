@@ -1,6 +1,7 @@
 using NetArchTest.Rules;
-using NovaCart.Services.Basket.Domain.Entities;
 using NovaCart.Services.Basket.Application.Commands;
+using NovaCart.Services.Basket.Domain.Entities;
+using NovaCart.Services.Basket.Infrastructure;
 
 namespace NovaCart.Tests.ArchitectureTests;
 
@@ -75,9 +76,24 @@ public class BasketArchitectureTests
             $"Basket.Application has forbidden dependency on API: {FormatFailingTypes(result)}");
     }
 
+    [Fact]
+    public void Infrastructure_Should_NotDependOn_Api()
+    {
+        var result = Types
+            .InAssembly(typeof(DependencyInjection).Assembly)
+            .ShouldNot()
+            .HaveDependencyOn(ApiNamespace)
+            .GetResult();
+
+        Assert.True(result.IsSuccessful,
+            $"Basket.Infrastructure has forbidden dependency on API: {FormatFailingTypes(result)}");
+    }
+
     private static string FormatFailingTypes(TestResult result)
     {
-        if (result.FailingTypes is null) return "none";
+        if (result.FailingTypes is null || !result.FailingTypes.Any())
+            return "none";
+
         return string.Join(", ", result.FailingTypes.Select(t => t.FullName));
     }
 }

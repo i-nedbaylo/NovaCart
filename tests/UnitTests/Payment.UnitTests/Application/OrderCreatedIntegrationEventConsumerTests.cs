@@ -1,11 +1,13 @@
 using FluentAssertions;
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using NSubstitute;
 using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
 using NovaCart.Services.Payment.Application.Consumers;
+using NovaCart.Services.Payment.Application.Options;
 using NovaCart.Services.Payment.Contracts.IntegrationEvents;
 using NovaCart.Services.Payment.Domain.Entities;
 using NovaCart.Services.Payment.Domain.Repositories;
@@ -27,8 +29,15 @@ public class OrderCreatedIntegrationEventConsumerTests
         _unitOfWork = Substitute.For<IUnitOfWork>();
         _outboxEventCollector = Substitute.For<IOutboxEventCollector>();
         _logger = Substitute.For<ILogger<OrderCreatedIntegrationEventConsumer>>();
+
+        var options = Options.Create(new PaymentSimulationOptions
+        {
+            ProcessingDelay = TimeSpan.Zero,
+            SuccessRatePercent = 80
+        });
+
         _consumer = new OrderCreatedIntegrationEventConsumer(
-            _paymentRepository, _unitOfWork, _outboxEventCollector, _logger);
+            _paymentRepository, _unitOfWork, _outboxEventCollector, _logger, options);
     }
 
     [Fact]
