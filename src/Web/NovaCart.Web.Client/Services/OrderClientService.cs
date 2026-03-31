@@ -11,16 +11,16 @@ namespace NovaCart.Web.Client.Services;
 public sealed class OrderClientService(HttpClient httpClient)
 {
     public async Task<PagedResultModel<OrderModel>?> GetOrdersAsync(
-        string? buyerId = null,
+        Guid? buyerId = null,
         int page = 1,
         int pageSize = 10,
         CancellationToken ct = default)
     {
         var url = $"/api/v1/orders?pageNumber={page}&pageSize={pageSize}";
 
-        if (!string.IsNullOrWhiteSpace(buyerId))
+        if (buyerId.HasValue)
         {
-            url += $"&buyerId={buyerId}";
+            url += $"&buyerId={buyerId.Value}";
         }
 
         return await httpClient.GetFromJsonAsync<PagedResultModel<OrderModel>>(url, ct);
