@@ -21,9 +21,17 @@ public static class OutboxExtensions
     /// });
     /// </code>
     /// </summary>
-    public static IServiceCollection AddOutbox<TDbContext>(this IServiceCollection services)
+    /// <param name="services">The service collection.</param>
+    /// <param name="configure">Optional delegate to override default <see cref="OutboxOptions"/>.</param>
+    public static IServiceCollection AddOutbox<TDbContext>(
+        this IServiceCollection services,
+        Action<OutboxOptions>? configure = null)
         where TDbContext : DbContext
     {
+        var options = new OutboxOptions();
+        configure?.Invoke(options);
+        services.AddSingleton(Microsoft.Extensions.Options.Options.Create(options));
+
         services.AddScoped<IOutboxEventCollector, OutboxEventCollector>();
         services.AddScoped<OutboxInterceptor>();
         services.AddHostedService<OutboxProcessor<TDbContext>>();

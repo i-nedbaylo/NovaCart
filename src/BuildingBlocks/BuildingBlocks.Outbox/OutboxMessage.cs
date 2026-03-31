@@ -42,12 +42,22 @@ public sealed class OutboxMessage
     public void MarkAsFailed(string error)
     {
         ProcessedAt = DateTimeOffset.UtcNow;
-        Error = error;
+        Error = Truncate(error);
     }
 
     public void IncrementRetryCount(string error)
     {
         RetryCount++;
-        Error = error;
+        Error = Truncate(error);
+    }
+
+    /// <summary>
+    /// Truncates the error string to fit the database column constraint (2048 chars).
+    /// </summary>
+    private static string Truncate(string? value)
+    {
+        const int maxLength = 2048;
+        if (value is null) return string.Empty;
+        return value.Length > maxLength ? value[..maxLength] : value;
     }
 }

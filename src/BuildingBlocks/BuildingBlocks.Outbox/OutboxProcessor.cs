@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace NovaCart.BuildingBlocks.Outbox;
 
@@ -18,12 +19,11 @@ namespace NovaCart.BuildingBlocks.Outbox;
 /// </remarks>
 public sealed class OutboxProcessor<TDbContext>(
     IServiceScopeFactory scopeFactory,
+    IOptions<OutboxOptions> outboxOptions,
     ILogger<OutboxProcessor<TDbContext>> logger) : BackgroundService
     where TDbContext : DbContext
 {
-    private const int BatchSize = 20;
-    private const int MaxRetries = 5;
-    private static readonly TimeSpan PollingInterval = TimeSpan.FromSeconds(5);
+    private readonly OutboxOptions _options = outboxOptions.Value;
 
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
@@ -49,7 +49,7 @@ public sealed class OutboxProcessor<TDbContext>(
                 logger.LogError(ex, "Error processing outbox messages");
             }
 
-            await Task.Delay(PollingInterval, stoppingToken);
+            await Task.Delay(_options.PollingInterval, stoppingToken);
         }
 
         logger.LogInformation("OutboxProcessor<{DbContext}> stopped", typeof(TDbContext).Name);
@@ -70,7 +70,7 @@ public sealed class OutboxProcessor<TDbContext>(
                 SELECT * FROM outbox_messages
                 WHERE processed_at IS NULL
                 ORDER BY created_at
-                LIMIT {BatchSize}
+                LIMIT {_options.BatchSize}
                 FOR UPDATE SKIP LOCKED
                 """)
             .ToListAsync(ct);
@@ -108,22 +108,26 @@ public sealed class OutboxProcessor<TDbContext>(
                 logger.LogDebug("Published outbox message {MessageId} of type {EventType}",
                     message.Id, message.EventType);
             }
+            catch (OperationCanceledException) when (ct.IsCancellationRequested)
+            {
+                throw;
+            }
             catch (Exception ex)
             {
                 message.IncrementRetryCount(ex.Message);
 
-                if (message.RetryCount >= MaxRetries)
+                if (message.RetryCount >= _options.MaxRetries)
                 {
                     logger.LogError(ex,
                         "Outbox message {MessageId} exceeded max retries ({MaxRetries}). Marking as failed",
-                        message.Id, MaxRetries);
-                    message.MarkAsFailed($"Exceeded max retries ({MaxRetries}). Last error: {ex.Message}");
+                        message.Id, _options.MaxRetries);
+                    message.MarkAsFailed($"Exceeded max retries ({_options.MaxRetries}). Last error: {ex.Message}");
                 }
                 else
                 {
                     logger.LogWarning(ex,
                         "Failed to publish outbox message {MessageId} (attempt {RetryCount}/{MaxRetries}). Will retry",
-                        message.Id, message.RetryCount, MaxRetries);
+                        message.Id, message.RetryCount, _options.MaxRetries);
                 }
             }
         }
