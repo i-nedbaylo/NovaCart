@@ -141,9 +141,18 @@ else
             await BasketService.CheckoutAsync(_checkout);
             _orderPlaced = true;
         }
-        catch (Exception ex)
+        catch (HttpRequestException ex) when (ex.StatusCode is not null)
         {
-            _error = $"Failed to place order: {ex.Message}";
+            _error = ex.StatusCode switch
+            {
+                System.Net.HttpStatusCode.BadRequest => "Invalid order data. Please check your shipping address.",
+                System.Net.HttpStatusCode.NotFound => "Your cart was not found. Please add items and try again.",
+                _ => "An unexpected error occurred. Please try again later."
+            };
+        }
+        catch
+        {
+            _error = "Unable to place your order. Please check your connection and try again.";
         }
         finally
         {

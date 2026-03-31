@@ -12,7 +12,7 @@ namespace NovaCart.Web.Client.Services;
 public sealed class BasketClientService(HttpClient httpClient)
 {
     // NOTE: Simplified for demo purposes. In production, buyer ID comes from authenticated user context.
-    public const string DemoBuyerId = "demo-user";
+    public const string DemoBuyerId = "00000000-0000-0000-0000-000000000001";
 
     public async Task<BasketModel?> GetBasketAsync(string buyerId, CancellationToken ct = default)
     {
