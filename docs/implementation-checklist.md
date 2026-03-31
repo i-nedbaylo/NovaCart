@@ -611,8 +611,9 @@
 ### 2.9 Тесты Phase 2
 
 - [ ] Integration-тесты с Testcontainers (PostgreSQL, RabbitMQ, Redis)
-- [ ] Unit-тесты для Basket, Payment сервисов
+- [x] Unit-тесты для Basket, Payment сервисов
 - [ ] Тест полного цикла заказа
+- [x] Architecture-тесты для Basket и Payment сервисов
 
 ### 2.10 Финальная валидация Phase 2
 

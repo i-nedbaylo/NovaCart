@@ -28,6 +28,14 @@
     <ProjectReference Include="..\..\src\Services\Ordering\Ordering.Application\NovaCart.Services.Ordering.Application.csproj" />
     <ProjectReference Include="..\..\src\Services\Ordering\Ordering.Infrastructure\NovaCart.Services.Ordering.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj" />
+    <ProjectReference Include="..\..\src\Services\Basket\Basket.Domain\NovaCart.Services.Basket.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Services\Basket\Basket.Application\NovaCart.Services.Basket.Application.csproj" />
+    <ProjectReference Include="..\..\src\Services\Basket\Basket.Infrastructure\NovaCart.Services.Basket.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj" />
+    <ProjectReference Include="..\..\src\Services\Payment\Payment.Domain\NovaCart.Services.Payment.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Services\Payment\Payment.Application\NovaCart.Services.Payment.Application.csproj" />
+    <ProjectReference Include="..\..\src\Services\Payment\Payment.Infrastructure\NovaCart.Services.Payment.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\Services\Payment\Payment.API\NovaCart.Services.Payment.API.csproj" />
   </ItemGroup>
 
 </Project>
