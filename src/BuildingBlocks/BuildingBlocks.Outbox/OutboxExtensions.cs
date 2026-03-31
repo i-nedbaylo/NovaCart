@@ -30,6 +30,11 @@ public static class OutboxExtensions
     {
         var options = new OutboxOptions();
         configure?.Invoke(options);
+
+        ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(options.BatchSize, 0, nameof(options.BatchSize));
+        ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(options.MaxRetries, 0, nameof(options.MaxRetries));
+        ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(options.PollingInterval, TimeSpan.Zero, nameof(options.PollingInterval));
+
         services.AddSingleton(Microsoft.Extensions.Options.Options.Create(options));
 
         services.AddScoped<IOutboxEventCollector, OutboxEventCollector>();

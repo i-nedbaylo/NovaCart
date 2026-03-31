@@ -39,6 +39,7 @@ public sealed class OutboxProcessor<TDbContext>(
             try
             {
                 await ProcessBatchAsync(stoppingToken);
+                await Task.Delay(_options.PollingInterval, stoppingToken);
             }
             catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
             {
@@ -48,8 +49,6 @@ public sealed class OutboxProcessor<TDbContext>(
             {
                 logger.LogError(ex, "Error processing outbox messages");
             }
-
-            await Task.Delay(_options.PollingInterval, stoppingToken);
         }
 
         logger.LogInformation("OutboxProcessor<{DbContext}> stopped", typeof(TDbContext).Name);
