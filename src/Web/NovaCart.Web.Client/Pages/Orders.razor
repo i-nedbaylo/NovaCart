@@ -3,6 +3,7 @@
 @using NovaCart.Web.Client.Models
 @using NovaCart.Web.Client.Services
 @inject OrderClientService OrderService
+@inject IUserService UserService
 
 <PageTitle>NovaCart — My Orders</PageTitle>
 
@@ -11,6 +12,11 @@
 @if (_loading)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (!_signedIn)
+{
+    <MudAlert Severity="Severity.Info" Class="mb-4">Please sign in to view your orders.</MudAlert>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/login">Sign In</MudButton>
 }
 else if (_orders is null || _orders.Items.Count == 0)
 {
@@ -93,12 +99,23 @@ else
 
 @code {
     private PagedResultModel<OrderModel>? _orders;
+    private bool _signedIn;
     private bool _loading = true;
     private int _page = 1;
     private int _pageSize = 10;
 
     protected override async Task OnInitializedAsync()
     {
+        var user = await UserService.GetCurrentUserAsync();
+
+        if (user is null)
+        {
+            _signedIn = false;
+            _loading = false;
+            return;
+        }
+
+        _signedIn = true;
         await LoadInitialAsync();
     }
 
@@ -108,6 +125,7 @@ else
 
         try
         {
+            // Orders are scoped to the authenticated user by the API (via the token).
             _orders = await OrderService.GetOrdersAsync(page: _page, pageSize: _pageSize);
         }
         catch

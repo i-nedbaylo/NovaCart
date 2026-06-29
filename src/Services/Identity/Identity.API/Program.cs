@@ -1,13 +1,9 @@
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using NovaCart.ServiceDefaults;
 using NovaCart.Services.Identity.API;
 using NovaCart.Services.Identity.Application;
 using NovaCart.Services.Identity.Infrastructure;
 using NovaCart.Services.Identity.Infrastructure.Persistence;
-using NovaCart.Services.Identity.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,29 +16,7 @@ var connectionString = builder.Configuration.GetConnectionString("identitydb")
 
 builder.Services.AddIdentityInfrastructure(connectionString, builder.Configuration);
 
-var jwtSettings = builder.Configuration.GetSection(JwtSettings.SectionName).Get<JwtSettings>()
-    ?? throw new InvalidOperationException("JWT settings not configured.");
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtSettings.Issuer,
-        ValidAudience = jwtSettings.Audience,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Secret))
-    };
-});
-
-builder.Services.AddAuthorization();
+builder.AddJwtAuthentication();
 
 builder.Services.AddOpenApi();
 

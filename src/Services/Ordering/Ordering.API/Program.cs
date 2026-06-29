@@ -9,6 +9,7 @@ using NovaCart.Services.Ordering.Infrastructure.Persistence;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.AddJwtAuthentication();
 
 builder.Services.AddOrderingApplication();
 
@@ -49,6 +50,9 @@ app.UseExceptionHandler(exceptionHandlerApp =>
         });
     });
 });
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapOrderingEndpoints();
 
