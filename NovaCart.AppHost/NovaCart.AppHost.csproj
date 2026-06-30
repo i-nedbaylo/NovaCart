@@ -10,6 +10,15 @@
     <IsAspireHost>true</IsAspireHost>
   </PropertyGroup>
 
+  <!--
+    NOTE: The Aspire 9.3.0 SDK pulls in transitive packages with known advisories
+    (MessagePack 2.5.192 — high; KubernetesClient 16.0.7 — moderate). These live ONLY in the
+    local dev-time orchestrator (AppHost is never deployed and not part of any service image),
+    so the runtime exposure is nil. The correct fix is a coordinated Aspire SDK upgrade
+    (9.3.0 → 13.x), which carries breaking API/dashboard changes and must be done and tested
+    as its own task. Force-overriding MessagePack to 3.x here would risk breaking the Aspire
+    dashboard/SignalR serialization, so it is intentionally left to the SDK upgrade.
+  -->
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="9.3.0" />
     <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.3.0" />

@@ -3,6 +3,7 @@
 @using NovaCart.Web.Client.Models
 @using NovaCart.Web.Client.Services
 @inject BasketClientService BasketService
+@inject IUserService UserService
 @inject NavigationManager Navigation
 
 <PageTitle>NovaCart — Cart</PageTitle>
@@ -12,6 +13,11 @@
 @if (_loading)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (!_signedIn)
+{
+    <MudAlert Severity="Severity.Info" Class="mb-4">Please sign in to view your cart.</MudAlert>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/login">Sign In</MudButton>
 }
 else if (_basket is null || _basket.Items.Count == 0)
 {
@@ -76,11 +82,24 @@ else
 
 @code {
     private BasketModel? _basket;
+    private string? _buyerId;
+    private bool _signedIn;
     private bool _loading = true;
     private bool _saving;
 
     protected override async Task OnInitializedAsync()
     {
+        var user = await UserService.GetCurrentUserAsync();
+
+        if (user is null)
+        {
+            _signedIn = false;
+            _loading = false;
+            return;
+        }
+
+        _buyerId = user.Id;
+        _signedIn = true;
         await LoadBasketAsync();
     }
 
@@ -90,7 +109,7 @@ else
 
         try
         {
-            _basket = await BasketService.GetBasketAsync(BasketClientService.DemoBuyerId);
+            _basket = await BasketService.GetBasketAsync(_buyerId!);
         }
         catch
         {
@@ -109,14 +128,13 @@ else
 
     private async Task UpdateCartAsync()
     {
-        if (_basket is null) return;
+        if (_basket is null || _buyerId is null) return;
 
         _saving = true;
 
         try
         {
-            _basket = await BasketService.UpdateBasketAsync(
-                BasketClientService.DemoBuyerId, _basket.Items);
+            _basket = await BasketService.UpdateBasketAsync(_buyerId, _basket.Items);
         }
         finally
         {
@@ -126,11 +144,13 @@ else
 
     private async Task ClearCartAsync()
     {
+        if (_buyerId is null) return;
+
         _saving = true;
 
         try
         {
-            await BasketService.DeleteBasketAsync(BasketClientService.DemoBuyerId);
+            await BasketService.DeleteBasketAsync(_buyerId);
             _basket = null;
         }
         finally

@@ -1,8 +1,10 @@
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
+using NovaCart.Services.Payment.Application.Options;
 using NovaCart.Services.Payment.Contracts.IntegrationEvents;
 using NovaCart.Services.Payment.Domain.Entities;
 using NovaCart.Services.Payment.Domain.Repositories;
@@ -16,6 +18,7 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
     private readonly IUnitOfWork _unitOfWork;
     private readonly IOutboxEventCollector _outboxEventCollector;
     private readonly ILogger<OrderCreatedIntegrationEventConsumer> _logger;
+    private readonly PaymentSimulationOptions _simulationOptions;
 
     // NOTE: Simplified for demo purposes. In production, use a real payment gateway
     // (Stripe, PayPal, etc.) instead of random simulation.
@@ -24,12 +27,14 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
         IPaymentRepository paymentRepository,
         IUnitOfWork unitOfWork,
         IOutboxEventCollector outboxEventCollector,
-        ILogger<OrderCreatedIntegrationEventConsumer> logger)
+        ILogger<OrderCreatedIntegrationEventConsumer> logger,
+        IOptions<PaymentSimulationOptions> simulationOptions)
     {
         _paymentRepository = paymentRepository;
         _unitOfWork = unitOfWork;
         _outboxEventCollector = outboxEventCollector;
         _logger = logger;
+        _simulationOptions = simulationOptions.Value;
     }
 
     public async Task Consume(ConsumeContext<OrderCreatedIntegrationEvent> context)
@@ -71,10 +76,13 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
         }
 
         // Simulate payment processing delay
-        await Task.Delay(TimeSpan.FromSeconds(1), context.CancellationToken);
+        if (_simulationOptions.ProcessingDelay > TimeSpan.Zero)
+        {
+            await Task.Delay(_simulationOptions.ProcessingDelay, context.CancellationToken);
+        }
 
-        // Simulate 80% success rate
-        var isSuccessful = Random.Shared.Next(100) < 80;
+        // Simulate success/failure based on configured rate
+        var isSuccessful = Random.Shared.Next(100) < _simulationOptions.SuccessRatePercent;
 
         if (isSuccessful)
         {

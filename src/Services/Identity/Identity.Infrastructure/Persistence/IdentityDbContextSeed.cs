@@ -11,6 +11,14 @@ public static class IdentityDbContextSeed
     public static readonly string AdminRoleId = "a1b2c3d4-0002-0001-0001-000000000001";
     public static readonly string CustomerRoleId = "a1b2c3d4-0002-0001-0001-000000000002";
 
+    // Fixed concurrency stamps. IdentityRole's constructor assigns a random Guid to
+    // ConcurrencyStamp, so omitting it makes the seeded model differ from the migration snapshot
+    // on every build — EF Core then reports pending model changes and MigrateAsync() throws
+    // PendingModelChangesWarning, crashing the service against a fresh database. These values
+    // must match the InitialCreate migration / snapshot.
+    private const string AdminRoleConcurrencyStamp = "5d2315cd-bafe-42f7-8007-d8b2111fac53";
+    private const string CustomerRoleConcurrencyStamp = "c893fd48-756b-411b-9453-b588a77d608c";
+
     public static void Seed(ModelBuilder modelBuilder)
     {
         SeedRoles(modelBuilder);
@@ -23,13 +31,15 @@ public static class IdentityDbContextSeed
             {
                 Id = AdminRoleId,
                 Name = UserRoles.Admin,
-                NormalizedName = UserRoles.Admin.ToUpperInvariant()
+                NormalizedName = UserRoles.Admin.ToUpperInvariant(),
+                ConcurrencyStamp = AdminRoleConcurrencyStamp
             },
             new IdentityRole
             {
                 Id = CustomerRoleId,
                 Name = UserRoles.Customer,
-                NormalizedName = UserRoles.Customer.ToUpperInvariant()
+                NormalizedName = UserRoles.Customer.ToUpperInvariant(),
+                ConcurrencyStamp = CustomerRoleConcurrencyStamp
             });
     }
 

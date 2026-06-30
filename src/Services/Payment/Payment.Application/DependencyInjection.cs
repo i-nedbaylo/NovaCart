@@ -2,6 +2,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NovaCart.BuildingBlocks.CQRS;
+using NovaCart.Services.Payment.Application.Options;
 
 namespace NovaCart.Services.Payment.Application;
 
@@ -18,6 +19,8 @@ public static class DependencyInjection
         });
 
         services.AddValidatorsFromAssembly(assembly);
+
+        services.Configure<PaymentSimulationOptions>(_ => { });
 
         return services;
     }

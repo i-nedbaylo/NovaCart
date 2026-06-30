@@ -27,7 +27,7 @@ public class CancelOrderHandlerTests
     {
         // Arrange
         var order = Order.Create(Guid.NewGuid(), Address.Create("St", "City", "State", "US", "12345"));
-        var command = new CancelOrderCommand(order.Id);
+        var command = new CancelOrderCommand(order.Id, order.BuyerId);
 
         _orderRepository.GetByIdAsync(order.Id, Arg.Any<CancellationToken>())
             .Returns(order);
@@ -46,7 +46,7 @@ public class CancelOrderHandlerTests
     public async Task Handle_Should_ReturnNotFound_When_OrderDoesNotExist()
     {
         // Arrange
-        var command = new CancelOrderCommand(Guid.NewGuid());
+        var command = new CancelOrderCommand(Guid.NewGuid(), Guid.NewGuid());
 
         _orderRepository.GetByIdAsync(command.OrderId, Arg.Any<CancellationToken>())
             .Returns((Order?)null);
@@ -64,7 +64,7 @@ public class CancelOrderHandlerTests
     {
         // Arrange
         var order = CreateDeliveredOrder();
-        var command = new CancelOrderCommand(order.Id);
+        var command = new CancelOrderCommand(order.Id, order.BuyerId);
 
         _orderRepository.GetByIdAsync(order.Id, Arg.Any<CancellationToken>())
             .Returns(order);
@@ -75,6 +75,25 @@ public class CancelOrderHandlerTests
         // Assert
         result.IsSuccess.Should().BeFalse();
         result.Error.Type.Should().Be(ErrorType.Validation);
+    }
+
+    [Fact]
+    public async Task Handle_Should_ReturnNotFound_When_OrderBelongsToAnotherBuyer()
+    {
+        // Arrange
+        var order = Order.Create(Guid.NewGuid(), Address.Create("St", "City", "State", "US", "12345"));
+        var command = new CancelOrderCommand(order.Id, Guid.NewGuid()); // different buyer
+
+        _orderRepository.GetByIdAsync(order.Id, Arg.Any<CancellationToken>())
+            .Returns(order);
+
+        // Act
+        var result = await _handler.Handle(command, CancellationToken.None);
+
+        // Assert
+        result.IsSuccess.Should().BeFalse();
+        result.Error.Type.Should().Be(ErrorType.NotFound);
+        _orderRepository.DidNotReceive().Update(Arg.Any<Order>());
     }
 
     private static Order CreateDeliveredOrder()

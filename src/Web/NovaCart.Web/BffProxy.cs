@@ -54,6 +54,15 @@ public static class BffProxy
                 }
             }
 
+            // Attach the BFF-held access token (from the auth cookie) so downstream services
+            // authenticate the user. The token is never sent to the browser, so WASM components
+            // cannot supply it themselves.
+            var accessToken = context.User.FindFirst(BffAuth.AccessTokenClaim)?.Value;
+            if (!string.IsNullOrEmpty(accessToken))
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            }
+
             using var response = await client.SendAsync(
                 request, HttpCompletionOption.ResponseHeadersRead, context.RequestAborted);
 

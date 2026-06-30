@@ -12,6 +12,8 @@ builder.Services.AddScoped(sp => new HttpClient
     BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
 });
 
+builder.Services.AddScoped<IUserService, ClientUserService>();
+builder.Services.AddScoped<IAccessTokenAccessor, ClientAccessTokenAccessor>();
 builder.Services.AddScoped<BasketClientService>();
 builder.Services.AddScoped<OrderClientService>();
 

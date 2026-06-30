@@ -2,6 +2,8 @@
 @using NovaCart.Web.Client.Models
 @using NovaCart.Web.Client.Services
 @inject BasketClientService BasketService
+@inject IUserService UserService
+@inject NavigationManager Navigation
 
 <MudButton Variant="Variant.Filled" Color="Color.Primary"
            StartIcon="@Icons.Material.Filled.ShoppingCart" Size="Size.Large"
@@ -43,7 +45,15 @@
 
         try
         {
-            var basket = await BasketService.GetBasketAsync(BasketClientService.DemoBuyerId);
+            var user = await UserService.GetCurrentUserAsync();
+            if (user is null)
+            {
+                // A basket is owned by an authenticated buyer; send the user to sign in first.
+                Navigation.NavigateTo("/login");
+                return;
+            }
+
+            var basket = await BasketService.GetBasketAsync(user.Id);
 
             var items = basket?.Items ?? [];
 
@@ -64,7 +74,7 @@
                 });
             }
 
-            await BasketService.UpdateBasketAsync(BasketClientService.DemoBuyerId, items);
+            await BasketService.UpdateBasketAsync(user.Id, items);
             _added = true;
         }
         catch

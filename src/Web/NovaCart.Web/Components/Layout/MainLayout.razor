@@ -11,7 +11,19 @@
         <MudText Typo="Typo.h5" Class="ml-3">NovaCart</MudText>
         <MudSpacer />
         <MudIconButton Icon="@Icons.Material.Filled.ShoppingCart" Color="Color.Inherit" Href="/cart" />
-        <MudIconButton Icon="@Icons.Material.Filled.Person" Color="Color.Inherit" Href="/login" />
+        <AuthorizeView>
+            <Authorized>
+                <MudText Typo="Typo.body2" Class="mr-2 d-none d-sm-flex">@context.User.Identity?.Name</MudText>
+                <form method="post" action="/bff/logout" style="display:inline">
+                    <MudButton ButtonType="ButtonType.Submit" Color="Color.Inherit"
+                               StartIcon="@Icons.Material.Filled.Logout">Logout</MudButton>
+                </form>
+            </Authorized>
+            <NotAuthorized>
+                <MudButton Href="/login" Color="Color.Inherit"
+                           StartIcon="@Icons.Material.Filled.Person">Sign In</MudButton>
+            </NotAuthorized>
+        </AuthorizeView>
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="2" ClipMode="DrawerClipMode.Always">
         <NavMenu />

@@ -10,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
+builder.Services.AddBffAuthentication();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<NovaCart.Web.Client.Services.IUserService, ServerUserService>();
+builder.Services.AddScoped<NovaCart.Web.Client.Services.IAccessTokenAccessor, ServerAccessTokenAccessor>();
+
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
@@ -71,9 +76,15 @@ else
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseAntiforgery();
 
-// BFF proxy: forwards /api/* requests from WASM components to Gateway
+// BFF auth endpoints (/bff/logout, /bff/user)
+app.MapBffAuthEndpoints();
+
+// BFF proxy: forwards /api/* requests from WASM components to Gateway (attaching the access token)
 app.MapBffApiProxy();
 
 app.MapStaticAssets();

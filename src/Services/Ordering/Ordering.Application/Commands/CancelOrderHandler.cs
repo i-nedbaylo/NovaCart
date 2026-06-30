@@ -19,7 +19,9 @@ public sealed class CancelOrderHandler : ICommandHandler<CancelOrderCommand>
     public async Task<Result> Handle(CancelOrderCommand request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(request.OrderId, cancellationToken);
-        if (order is null)
+
+        // Treat "not yours" the same as "not found" so order existence isn't leaked across buyers.
+        if (order is null || order.BuyerId != request.BuyerId)
             return Result.Failure(Error.NotFound("Order", request.OrderId));
 
         try

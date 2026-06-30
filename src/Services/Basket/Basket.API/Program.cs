@@ -7,6 +7,7 @@ using NovaCart.Services.Basket.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.AddJwtAuthentication();
 
 builder.Services.AddBasketApplication();
 builder.Services.AddBasketInfrastructure();
@@ -47,6 +48,9 @@ app.UseExceptionHandler(exceptionHandlerApp =>
         });
     });
 });
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapBasketEndpoints();
 

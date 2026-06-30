@@ -58,9 +58,10 @@ public class CheckoutBasketHandlerTests
             .Returns(cart);
 
         BasketCheckoutIntegrationEvent? capturedEvent = null;
-        await _publishEndpoint.Publish(
-            Arg.Do<BasketCheckoutIntegrationEvent>(e => capturedEvent = e),
-            Arg.Any<CancellationToken>());
+        _publishEndpoint.When(x => x.Publish(
+                Arg.Any<BasketCheckoutIntegrationEvent>(),
+                Arg.Any<CancellationToken>()))
+            .Do(ci => capturedEvent = ci.Arg<BasketCheckoutIntegrationEvent>());
 
         var command = new CheckoutBasketCommand(buyerId, "123 Main St", "Springfield", "IL", "US", "62704");
 

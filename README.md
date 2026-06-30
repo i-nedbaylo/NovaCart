@@ -5,28 +5,40 @@
 ## Архитектура
 
 ```
-┌──────────────────────────────────────┐
-│         Blazor Web App               │
-│  (SSR + Interactive Auto per page)   │
-│         ┌──────────┐                 │
-│         │   BFF    │ (серверная часть)│
-│         └────┬─────┘                 │
-└──────────────┼───────────────────────┘
-               │
-       ┌───────▼────────┐
-       │  YARP Gateway   │
-       └───────┬────────┘
-               │
-    ┌──────────┼──────────────┐
-    │          │              │
-┌───▼───┐ ┌───▼────┐ ┌───────▼──┐
-│Catalog│ │Ordering│ │ Identity │
-│  API  │ │  API   │ │   API    │
-└───────┘ └────────┘ └──────────┘
+┌────────────────────────────────────────────┐
+│             Blazor Web App                  │
+│      (SSR + Interactive Auto per page)      │
+│   ┌──────────────────────────────────────┐ │
+│   │  BFF (серверная часть)               │ │
+│   │  HttpOnly-cookie хранит JWT,         │ │
+│   │  пробрасывает Bearer вниз (ADR-008)  │ │
+│   └──────────────┬───────────────────────┘ │
+└──────────────────┼──────────────────────────┘
+                   │
+           ┌───────▼────────┐
+           │  YARP Gateway   │ (тонкий pass-through, форвардит Authorization)
+           └───────┬────────┘
+                   │
+   ┌──────────┬────┴─────┬───────────┬───────────┐
+   │          │          │           │           │
+┌──▼───┐ ┌───▼────┐ ┌───▼────┐ ┌────▼────┐ ┌────▼────┐
+│Catalog│ │Ordering│ │Identity│ │ Basket  │ │ Payment │
+│  API  │ │  API   │ │  API   │ │  API    │ │  API    │
+└──┬────┘ └───┬────┘ └────────┘ └────┬────┘ └────┬────┘
+   │          │                      │           │
+PostgreSQL  PostgreSQL            Redis      PostgreSQL
+(catalogdb) (orderingdb)        (корзина)   (paymentdb)
+   │          │                      │           │
+   └──────────┴───── RabbitMQ (MassTransit, Integration Events) ──────┘
+                        + Outbox Pattern (гарантия доставки)
 
-            Aspire Dashboard
-         (logs, traces, metrics)
+            Aspire Dashboard (logs, traces, metrics)
 ```
+
+Каждый сервис валидирует JWT самостоятельно (общий `AddJwtAuthentication` в ServiceDefaults);
+данные привязываются к пользователю из токена (`sub`), а не из клиентского ввода. Полный
+событийный цикл заказа: `BasketCheckout → OrderCreated → Payment(Succeeded/Failed) → Order
+статус Paid/Cancelled`.
 
 ## Технологический стек
 
@@ -57,7 +69,7 @@ Aspire Dashboard будет доступен по адресу, указанно
 ```
 NovaCart/
 ├── src/
-│   ├── Services/           # Микросервисы (Catalog, Ordering, Identity)
+│   ├── Services/           # Микросервисы (Catalog, Ordering, Identity, Basket, Payment)
 │   ├── BuildingBlocks/     # Переиспользуемые библиотеки
 │   ├── ApiGateway/         # YARP Reverse Proxy
 │   └── Web/                # Blazor Web App (BFF + WASM client)
@@ -71,7 +83,19 @@ NovaCart/
 └── NovaCart.slnx
 ```
 
+## Аутентификация
+
+- Регистрация/вход — SSR-страницы `/register` и `/login`. Сервер (BFF) получает JWT от Identity
+  и кладёт его в **HttpOnly-cookie**; токен не попадает в браузер.
+- Все вызовы к корзине и заказам идут с `Authorization: Bearer` (через серверный
+  `IAccessTokenAccessor` для серверного рендеринга и через BFF-прокси для WASM). Сервисы
+  валидируют токен и берут `buyerId` из него.
+- Seed-админ: `admin@novacart.com` (см. `IdentityDbContextSeed`).
+
+Подробнее — [ADR-008: BFF cookie authentication](docs/architecture/decisions/0008-bff-cookie-authentication.md).
+
 ## Документация
 
 - [Чек-лист реализации](docs/implementation-checklist.md)
+- [Архитектурные решения (ADR)](docs/architecture/decisions/)
 - [Copilot Instructions](.github/copilot-instructions.md)

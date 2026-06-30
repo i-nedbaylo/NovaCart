@@ -3,6 +3,7 @@
 @using NovaCart.Web.Client.Models
 @using NovaCart.Web.Client.Services
 @inject BasketClientService BasketService
+@inject IUserService UserService
 @inject NavigationManager Navigation
 
 <PageTitle>NovaCart — Checkout</PageTitle>
@@ -12,6 +13,11 @@
 @if (_loading)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else if (!_signedIn)
+{
+    <MudAlert Severity="Severity.Info" Class="mb-4">Please sign in to check out.</MudAlert>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/login">Sign In</MudButton>
 }
 else if (_basket is null || _basket.Items.Count == 0)
 {
@@ -107,7 +113,9 @@ else
 
 @code {
     private BasketModel? _basket;
-    private CheckoutModel _checkout = new() { BuyerId = BasketClientService.DemoBuyerId };
+    private CheckoutModel _checkout = new();
+    private string? _buyerId;
+    private bool _signedIn;
     private bool _loading = true;
     private bool _submitting;
     private bool _orderPlaced;
@@ -115,11 +123,22 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _loading = true;
+        var user = await UserService.GetCurrentUserAsync();
+
+        if (user is null)
+        {
+            _signedIn = false;
+            _loading = false;
+            return;
+        }
+
+        _buyerId = user.Id;
+        _checkout.BuyerId = user.Id;
+        _signedIn = true;
 
         try
         {
-            _basket = await BasketService.GetBasketAsync(BasketClientService.DemoBuyerId);
+            _basket = await BasketService.GetBasketAsync(_buyerId);
         }
         catch
         {
@@ -138,6 +157,7 @@ else
 
         try
         {
+            // The buyer is taken from the auth token on the server; the body value is ignored.
             await BasketService.CheckoutAsync(_checkout);
             _orderPlaced = true;
         }
@@ -147,6 +167,7 @@ else
             {
                 System.Net.HttpStatusCode.BadRequest => "Invalid order data. Please check your shipping address.",
                 System.Net.HttpStatusCode.NotFound => "Your cart was not found. Please add items and try again.",
+                System.Net.HttpStatusCode.Unauthorized => "Your session has expired. Please sign in again.",
                 _ => "An unexpected error occurred. Please try again later."
             };
         }

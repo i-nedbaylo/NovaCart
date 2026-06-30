@@ -15,7 +15,11 @@ public sealed class AuthService
     public async Task<TokenResponse?> LoginAsync(LoginModel model, CancellationToken cancellationToken = default)
     {
         var response = await _httpClient.PostAsJsonAsync("/api/v1/auth/login", model, cancellationToken);
-        response.EnsureSuccessStatusCode();
+
+        // Invalid credentials (and similar) surface as a null result rather than an exception.
+        if (!response.IsSuccessStatusCode)
+            return null;
+
         return await response.Content.ReadFromJsonAsync<TokenResponse>(cancellationToken);
     }
 

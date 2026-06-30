@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using MediatR;
 using NovaCart.BuildingBlocks.Common;
+using NovaCart.ServiceDefaults;
 using NovaCart.Services.Ordering.Application.Commands;
 using NovaCart.Services.Ordering.Application.Dtos;
 using NovaCart.Services.Ordering.Application.Queries;
@@ -11,14 +13,21 @@ public static class OrderingEndpoints
     public static WebApplication MapOrderingEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("/api/v1/orders")
-            .WithTags("Orders");
+            .WithTags("Orders")
+            .RequireAuthorization();
 
+        // Orders are always scoped to the authenticated buyer (taken from the token,
+        // never from client input) so a user can only ever see or affect their own orders.
         group.MapGet("/", async (
             ISender sender,
+            ClaimsPrincipal user,
             int? pageNumber,
-            int? pageSize,
-            Guid? buyerId) =>
+            int? pageSize) =>
         {
+            var buyerId = user.GetUserId();
+            if (buyerId is null)
+                return Results.Unauthorized();
+
             var query = new GetOrdersQuery(
                 pageNumber ?? 1,
                 pageSize ?? 10,
@@ -31,19 +40,27 @@ public static class OrderingEndpoints
                 : MapError(result.Error);
         });
 
-        group.MapGet("/{id:guid}", async (Guid id, ISender sender) =>
+        group.MapGet("/{id:guid}", async (Guid id, ISender sender, ClaimsPrincipal user) =>
         {
-            var result = await sender.Send(new GetOrderByIdQuery(id));
+            var buyerId = user.GetUserId();
+            if (buyerId is null)
+                return Results.Unauthorized();
+
+            var result = await sender.Send(new GetOrderByIdQuery(id, buyerId.Value));
 
             return result.IsSuccess
                 ? Results.Ok(result.Value)
                 : MapError(result.Error);
         });
 
-        group.MapPost("/", async (CreateOrderRequest request, ISender sender) =>
+        group.MapPost("/", async (CreateOrderRequest request, ISender sender, ClaimsPrincipal user) =>
         {
+            var buyerId = user.GetUserId();
+            if (buyerId is null)
+                return Results.Unauthorized();
+
             var command = new CreateOrderCommand(
-                request.BuyerId,
+                buyerId.Value,
                 request.ShippingAddress,
                 request.Items);
 
@@ -54,9 +71,13 @@ public static class OrderingEndpoints
                 : MapError(result.Error);
         });
 
-        group.MapPut("/{id:guid}/cancel", async (Guid id, ISender sender) =>
+        group.MapPut("/{id:guid}/cancel", async (Guid id, ISender sender, ClaimsPrincipal user) =>
         {
-            var result = await sender.Send(new CancelOrderCommand(id));
+            var buyerId = user.GetUserId();
+            if (buyerId is null)
+                return Results.Unauthorized();
+
+            var result = await sender.Send(new CancelOrderCommand(id, buyerId.Value));
 
             return result.IsSuccess
                 ? Results.NoContent()

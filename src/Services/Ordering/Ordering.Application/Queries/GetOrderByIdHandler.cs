@@ -18,7 +18,9 @@ public sealed class GetOrderByIdHandler : IQueryHandler<GetOrderByIdQuery, Order
     public async Task<Result<OrderDto>> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(request.Id, cancellationToken);
-        if (order is null)
+
+        // Treat "not yours" the same as "not found" so order existence isn't leaked across buyers.
+        if (order is null || order.BuyerId != request.BuyerId)
             return Result.Failure<OrderDto>(Error.NotFound("Order", request.Id));
 
         return order.ToDto();

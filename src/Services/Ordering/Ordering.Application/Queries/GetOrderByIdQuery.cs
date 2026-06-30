@@ -3,4 +3,4 @@ using NovaCart.Services.Ordering.Application.Dtos;
 
 namespace NovaCart.Services.Ordering.Application.Queries;
 
-public sealed record GetOrderByIdQuery(Guid Id) : IQuery<OrderDto>;
+public sealed record GetOrderByIdQuery(Guid Id, Guid BuyerId) : IQuery<OrderDto>;
