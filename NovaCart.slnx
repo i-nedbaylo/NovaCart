@@ -61,6 +61,9 @@
     <Project Path="tests/UnitTests/Ordering.UnitTests/NovaCart.Tests.Ordering.UnitTests.csproj" />
     <Project Path="tests/UnitTests/Payment.UnitTests/NovaCart.Tests.Payment.UnitTests.csproj" />
   </Folder>
+  <Folder Name="/tests/IntegrationTests/">
+    <Project Path="tests/IntegrationTests/Catalog.IntegrationTests/NovaCart.Tests.Catalog.IntegrationTests.csproj" />
+  </Folder>
   <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
   <Project Path="NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj" />
 </Solution>

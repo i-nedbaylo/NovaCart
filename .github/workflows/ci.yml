@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-test:
-    name: Build & Test
+    name: Build & Unit/Architecture Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -26,11 +26,38 @@ jobs:
       - name: Build
         run: dotnet build NovaCart.slnx --configuration Release --no-restore
 
-      # Runs unit and architecture tests. Integration tests (Testcontainers) require a
-      # Docker daemon; the GitHub-hosted ubuntu runners provide one when those tests are added.
-      - name: Test
+      # Excludes integration tests (they need Docker and run in the job below).
+      - name: Unit & architecture tests
         run: >-
           dotnet test NovaCart.slnx
           --configuration Release
           --no-build
-          --verbosity normal
+          --filter "FullyQualifiedName!~Integration"
+
+  integration-tests:
+    name: Integration Tests (Testcontainers PostgreSQL)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore NovaCart.slnx
+
+      - name: Build
+        run: dotnet build NovaCart.slnx --configuration Release --no-restore
+
+      # ubuntu-latest ships a running Docker engine; Testcontainers uses it to start
+      # PostgreSQL automatically. Tests self-skip if Docker is ever unavailable.
+      - name: Integration tests
+        run: >-
+          dotnet test NovaCart.slnx
+          --configuration Release
+          --no-build
+          --filter "FullyQualifiedName~Integration"
