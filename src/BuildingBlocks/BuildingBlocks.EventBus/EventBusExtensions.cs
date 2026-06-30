@@ -32,6 +32,17 @@ public static class EventBusExtensions
                         "RabbitMQ connection string is missing. Please configure 'ConnectionStrings:rabbitmq' in application settings.");
 
                 cfg.Host(new Uri(connectionString));
+
+                // Resilience: retry a consumer in-process on transient failures (e.g. a brief
+                // database or network hiccup) before the message is moved to the _error queue.
+                // The Outbox guarantees delivery on the publish side; this hardens the consume
+                // side. Consumers are idempotent (terminal-status guards / existing-record
+                // checks), so re-running them on retry is safe.
+                cfg.UseMessageRetry(retry => retry.Intervals(
+                    TimeSpan.FromSeconds(1),
+                    TimeSpan.FromSeconds(5),
+                    TimeSpan.FromSeconds(15)));
+
                 cfg.ConfigureEndpoints(context);
             });
         });
