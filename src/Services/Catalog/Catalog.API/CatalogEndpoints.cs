@@ -57,6 +57,17 @@ public static class CatalogEndpoints
                 : MapError(result.Error);
         });
 
+        // Batch pricing lookup for internal callers (Basket/Ordering server-side re-pricing).
+        // Read-only and public, like the product GETs.
+        group.MapPost("/pricing", async (ProductPricingRequest request, ISender sender) =>
+        {
+            var result = await sender.Send(new GetProductsByIdsQuery(request.ProductIds));
+
+            return result.IsSuccess
+                ? Results.Ok(result.Value)
+                : MapError(result.Error);
+        });
+
         group.MapPost("/", async (CreateProductRequest request, ISender sender) =>
         {
             var command = new CreateProductCommand(
@@ -167,3 +178,5 @@ public sealed record UpdateCategoryRequest(
     string Description,
     string Slug,
     Guid? ParentCategoryId = null);
+
+public sealed record ProductPricingRequest(List<Guid> ProductIds);

@@ -1,13 +1,12 @@
-using System.Net;
 using System.Net.Http.Json;
 using NovaCart.Services.Ordering.Application.Abstractions;
 
 namespace NovaCart.Services.Ordering.Infrastructure.Catalog;
 
 /// <summary>
-/// HTTP-based <see cref="ICatalogProductReader"/>. Calls the Catalog service directly via Aspire
-/// service discovery (not the public gateway). The shared resilience handler from ServiceDefaults
-/// supplies retry/circuit-breaker/timeout.
+/// HTTP-based <see cref="ICatalogProductReader"/>. Resolves all requested products in a single
+/// batch call to Catalog (via Aspire service discovery, not the public gateway). The shared
+/// resilience handler from ServiceDefaults supplies retry/circuit-breaker/timeout.
 /// </summary>
 public sealed class CatalogProductReader(HttpClient httpClient) : ICatalogProductReader
 {
@@ -15,38 +14,28 @@ public sealed class CatalogProductReader(HttpClient httpClient) : ICatalogProduc
         IReadOnlyCollection<Guid> productIds,
         CancellationToken cancellationToken = default)
     {
-        var lookups = productIds
-            .Distinct()
-            .Select(id => FetchAsync(id, cancellationToken));
+        var distinctIds = productIds.Distinct().ToList();
+        if (distinctIds.Count == 0)
+            return new Dictionary<Guid, CatalogProduct>();
 
-        var products = await Task.WhenAll(lookups);
+        var response = await httpClient.PostAsJsonAsync(
+            "/api/v1/products/pricing",
+            new ProductPricingRequest(distinctIds),
+            cancellationToken);
+
+        response.EnsureSuccessStatusCode();
+
+        var products = await response.Content.ReadFromJsonAsync<List<CatalogProductResponse>>(cancellationToken)
+            ?? [];
 
         return products
-            .OfType<CatalogProduct>()
-            .ToDictionary(p => p.Id);
+            .Where(p => string.Equals(p.Status, "Active", StringComparison.OrdinalIgnoreCase))
+            .ToDictionary(
+                p => p.Id,
+                p => new CatalogProduct(p.Id, p.Name, p.PriceAmount, p.PriceCurrency));
     }
 
-    private async Task<CatalogProduct?> FetchAsync(Guid id, CancellationToken cancellationToken)
-    {
-        CatalogProductResponse? product;
-        try
-        {
-            product = await httpClient.GetFromJsonAsync<CatalogProductResponse>(
-                $"/api/v1/products/{id}", cancellationToken);
-        }
-        catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
-        {
-            return null;
-        }
-
-        if (product is null
-            || !string.Equals(product.Status, "Active", StringComparison.OrdinalIgnoreCase))
-        {
-            return null;
-        }
-
-        return new CatalogProduct(product.Id, product.Name, product.PriceAmount, product.PriceCurrency);
-    }
+    private sealed record ProductPricingRequest(List<Guid> ProductIds);
 
     private sealed record CatalogProductResponse(
         Guid Id,

@@ -4,6 +4,8 @@ namespace NovaCart.Services.Ordering.Application.Commands;
 
 public sealed class CreateOrderValidator : AbstractValidator<CreateOrderCommand>
 {
+    private const int MaxItems = 100;
+
     public CreateOrderValidator()
     {
         RuleFor(x => x.BuyerId)
@@ -33,7 +35,9 @@ public sealed class CreateOrderValidator : AbstractValidator<CreateOrderCommand>
             .When(x => x.ShippingAddress is not null);
 
         RuleFor(x => x.Items)
-            .NotEmpty().WithMessage("Order must contain at least one item.");
+            .NotEmpty().WithMessage("Order must contain at least one item.")
+            .Must(items => items.Count <= MaxItems)
+            .WithMessage($"An order cannot contain more than {MaxItems} items.");
 
         RuleForEach(x => x.Items).ChildRules(item =>
         {

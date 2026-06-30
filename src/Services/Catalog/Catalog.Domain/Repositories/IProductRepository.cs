@@ -6,6 +6,7 @@ namespace NovaCart.Services.Catalog.Domain.Repositories;
 public interface IProductRepository : IRepository<Product>
 {
     Task<Product?> GetBySlugAsync(string slug, CancellationToken cancellationToken = default);
+    Task<List<Product>> GetByIdsAsync(IReadOnlyCollection<Guid> ids, CancellationToken cancellationToken = default);
     Task<List<Product>> GetByCategoryIdAsync(Guid categoryId, CancellationToken cancellationToken = default);
     Task<(List<Product> Items, int TotalCount)> GetPagedAsync(
         int pageNumber,
