@@ -20,6 +20,15 @@ public sealed class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasColumnName("buyer_id")
             .IsRequired();
 
+        builder.Property(o => o.SourceMessageId)
+            .HasColumnName("source_message_id");
+
+        // Idempotency for event-driven order creation: a redelivered checkout event must not
+        // create a second order. Filtered so API-created orders (null source) never collide.
+        builder.HasIndex(o => o.SourceMessageId)
+            .IsUnique()
+            .HasFilter("source_message_id IS NOT NULL");
+
         builder.Property(o => o.OrderDate)
             .HasColumnName("order_date")
             .IsRequired();

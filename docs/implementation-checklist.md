@@ -583,7 +583,7 @@
 - [x] Ordering Service: consumer для `PaymentFailedIntegrationEvent` → статус Cancelled
 - [x] Ordering Service: публикует `OrderCreatedIntegrationEvent` при создании заказа
 - [x] Ordering.Contracts: добавить `OrderCreatedIntegrationEvent`
-- [ ] Протестировать полный цикл: Basket Checkout → Order Created → Payment → Order Updated
+- [x] Протестировать полный цикл: Basket Checkout → Order Created → Payment → Order Updated — E2E-тест через `Aspire.Hosting.Testing` (`tests/IntegrationTests/OrderFlow.E2E`)
 
 ### 2.6 Outbox Pattern
 
@@ -610,17 +610,18 @@
 
 ### 2.9 Тесты Phase 2
 
-- [ ] Integration-тесты с Testcontainers (PostgreSQL, RabbitMQ, Redis)
+- [x] Integration-тесты с Testcontainers — Catalog (PostgreSQL, прямой Testcontainers) + E2E через Aspire (PostgreSQL + RabbitMQ + Redis)
 - [x] Unit-тесты для Basket, Payment сервисов
-- [ ] Тест полного цикла заказа
+- [x] Тест полного цикла заказа — `tests/IntegrationTests/OrderFlow.E2E`
 - [x] Architecture-тесты для Basket и Payment сервисов
+- [x] Unit-тесты для Identity (TokenService, валидаторы)
 
 ### 2.10 Финальная валидация Phase 2
 
-- [ ] Полный цикл: добавление в корзину → checkout → заказ → оплата → статус обновлён
-- [ ] Outbox гарантирует доставку событий
-- [ ] Resilience: система устойчива к временным сбоям
-- [ ] Все тесты проходят
+- [x] Полный цикл: добавление в корзину → checkout → заказ → оплата → статус обновлён — покрыто E2E-тестом
+- [x] Outbox гарантирует доставку событий — `BuildingBlocks.Outbox` (interceptor + processor) в Ordering/Payment
+- [x] Resilience: система устойчива к временным сбоям — Polly (ServiceDefaults) + MassTransit `UseMessageRetry`
+- [x] Все тесты проходят — 165 unit/architecture/integration + E2E под Docker/CI
 
 ---
 

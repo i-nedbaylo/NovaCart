@@ -53,6 +53,12 @@ public sealed class OrderRepository : IOrderRepository
             .ToListAsync(cancellationToken);
     }
 
+    public async Task<bool> ExistsBySourceMessageIdAsync(Guid sourceMessageId, CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Orders
+            .AnyAsync(o => o.SourceMessageId == sourceMessageId, cancellationToken);
+    }
+
     public async Task<(List<Order> Items, int TotalCount)> GetPagedAsync(
         int pageNumber,
         int pageSize,

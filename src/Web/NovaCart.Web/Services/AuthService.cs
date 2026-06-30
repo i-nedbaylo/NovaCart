@@ -30,8 +30,19 @@ public sealed class AuthService
 
     public async Task<TokenResponse?> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default)
     {
-        var response = await _httpClient.PostAsJsonAsync("/api/v1/auth/refresh", new { RefreshToken = refreshToken }, cancellationToken);
-        response.EnsureSuccessStatusCode();
-        return await response.Content.ReadFromJsonAsync<TokenResponse>(cancellationToken);
+        try
+        {
+            var response = await _httpClient.PostAsJsonAsync("/api/v1/auth/refresh", new { RefreshToken = refreshToken }, cancellationToken);
+
+            // A rejected refresh token (4xx) or a transient gateway/service failure (5xx, connection
+            // error) both surface as null; the caller decides whether to end the session.
+            return response.IsSuccessStatusCode
+                ? await response.Content.ReadFromJsonAsync<TokenResponse>(cancellationToken)
+                : null;
+        }
+        catch (HttpRequestException)
+        {
+            return null;
+        }
     }
 }

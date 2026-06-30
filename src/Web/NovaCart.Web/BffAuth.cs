@@ -1,7 +1,10 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.JsonWebTokens;
+using NovaCart.Web.Services;
 using NovaCart.Web.Services.Models;
 
 namespace NovaCart.Web;
@@ -15,6 +18,11 @@ public static class BffAuth
 {
     public const string AccessTokenClaim = "access_token";
     public const string RefreshTokenClaim = "refresh_token";
+    public const string ExpiresAtClaim = "exp_at";
+
+    // Refresh the access token this long before it expires so downstream calls never use an
+    // already-expired token.
+    private static readonly TimeSpan RefreshThreshold = TimeSpan.FromMinutes(5);
 
     public static IServiceCollection AddBffAuthentication(this IServiceCollection services)
     {
@@ -24,13 +32,18 @@ public static class BffAuth
             {
                 options.LoginPath = "/login";
                 options.AccessDeniedPath = "/login";
-                // NOTE: Simplified for demo purposes. Aligned to the access-token lifetime;
-                // refresh-token rotation is not wired into the BFF yet.
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                 options.SlidingExpiration = true;
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SameSite = SameSiteMode.Lax;
                 options.Cookie.Name = "NovaCart.Auth";
+
+                // Silently refresh the access token before it expires, so an active session
+                // outlives the 60-minute access-token lifetime (up to the 7-day refresh window).
+                options.Events = new CookieAuthenticationEvents
+                {
+                    OnValidatePrincipal = RefreshAccessTokenAsync
+                };
             });
 
         services.AddAuthorization();
@@ -61,7 +74,8 @@ public static class BffAuth
             new(ClaimTypes.Email, email),
             new(ClaimTypes.Name, name),
             new(AccessTokenClaim, token.AccessToken),
-            new(RefreshTokenClaim, token.RefreshToken)
+            new(RefreshTokenClaim, token.RefreshToken),
+            new(ExpiresAtClaim, token.ExpiresAt.ToUnixTimeSeconds().ToString())
         };
 
         claims.AddRange(jwt.Claims
@@ -75,6 +89,65 @@ public static class BffAuth
             ClaimTypes.Role);
 
         return new ClaimsPrincipal(identity);
+    }
+
+    // Cookie validation hook: when the access token is near (or past) expiry, exchange the
+    // rotating refresh token for a fresh pair via Identity and re-issue the cookie.
+    private static async Task RefreshAccessTokenAsync(CookieValidatePrincipalContext context)
+    {
+        var expiresAt = GetAccessTokenExpiry(context.Principal);
+        if (expiresAt is null)
+            return;
+
+        var now = DateTimeOffset.UtcNow;
+        if (now < expiresAt.Value - RefreshThreshold)
+            return; // access token still fresh
+
+        var refreshToken = context.Principal?.FindFirst(RefreshTokenClaim)?.Value;
+        if (!string.IsNullOrEmpty(refreshToken) && await TryRefreshAsync(context, refreshToken))
+            return;
+
+        // Refresh unavailable, rejected, or failed — only end the session once the token is
+        // actually expired, so a transient failure (or a rotation race with a concurrent
+        // request) never signs the user out prematurely.
+        if (now >= expiresAt.Value)
+        {
+            context.RejectPrincipal();
+            await context.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        }
+    }
+
+    private static async Task<bool> TryRefreshAsync(CookieValidatePrincipalContext context, string refreshToken)
+    {
+        try
+        {
+            var authService = context.HttpContext.RequestServices.GetRequiredService<AuthService>();
+            var refreshed = await authService.RefreshTokenAsync(refreshToken);
+            if (refreshed is null)
+                return false;
+
+            context.ReplacePrincipal(BuildPrincipal(refreshed));
+            context.ShouldRenew = true;
+            return true;
+        }
+        catch (Exception ex)
+        {
+            // A malformed refresh response (bad JSON, invalid/empty token) must never fault the
+            // request from inside the cookie validation event — treat it as a failed refresh.
+            context.HttpContext.RequestServices
+                .GetService<ILoggerFactory>()?
+                .CreateLogger(typeof(BffAuth).FullName!)
+                .LogWarning(ex, "BFF access-token refresh failed; treating as not refreshed.");
+            return false;
+        }
+    }
+
+    private static DateTimeOffset? GetAccessTokenExpiry(ClaimsPrincipal? principal)
+    {
+        var value = principal?.FindFirst(ExpiresAtClaim)?.Value;
+        return long.TryParse(value, out var unixSeconds)
+            ? DateTimeOffset.FromUnixTimeSeconds(unixSeconds)
+            : null;
     }
 
     public static WebApplication MapBffAuthEndpoints(this WebApplication app)

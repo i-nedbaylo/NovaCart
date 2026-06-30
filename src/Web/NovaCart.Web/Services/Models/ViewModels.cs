@@ -19,29 +19,6 @@ public sealed record CategoryViewModel(
     string Slug,
     Guid? ParentCategoryId);
 
-public sealed record OrderViewModel(
-    Guid Id,
-    string BuyerId,
-    DateTimeOffset OrderDate,
-    string Status,
-    OrderAddressViewModel? ShippingAddress,
-    List<OrderItemViewModel> Items,
-    decimal TotalAmount);
-
-public sealed record OrderAddressViewModel(
-    string Street,
-    string City,
-    string State,
-    string Country,
-    string ZipCode);
-
-public sealed record OrderItemViewModel(
-    Guid Id,
-    Guid ProductId,
-    string ProductName,
-    decimal UnitPrice,
-    int Quantity);
-
 public sealed record TokenResponse(
     string AccessToken,
     string RefreshToken,
@@ -61,19 +38,4 @@ public sealed class PagedResult<T>
     public int TotalCount { get; set; }
     public int PageNumber { get; set; }
     public int PageSize { get; set; }
-}
-
-public sealed class BasketViewModel
-{
-    public string BuyerId { get; set; } = string.Empty;
-    public List<BasketItemViewModel> Items { get; set; } = [];
-    public decimal TotalPrice { get; set; }
-}
-
-public sealed class BasketItemViewModel
-{
-    public Guid ProductId { get; set; }
-    public string ProductName { get; set; } = string.Empty;
-    public decimal Price { get; set; }
-    public int Quantity { get; set; }
 }
