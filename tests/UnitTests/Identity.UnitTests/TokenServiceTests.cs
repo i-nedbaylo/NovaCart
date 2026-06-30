@@ -13,7 +13,7 @@ public class TokenServiceTests
 {
     private static readonly JwtSettings Settings = new()
     {
-        Secret = "NovaCart-Super-Secret-Key-For-Development-Only-Min-32-Chars!",
+        Secret = "test-only-signing-key-not-used-by-any-running-service-0123456789",
         Issuer = "NovaCart.Identity",
         Audience = "NovaCart.Client",
         ExpirationInMinutes = 60

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NovaCart.Services.Identity.Domain;
 using NovaCart.Services.Identity.Domain.Entities;
@@ -43,14 +44,20 @@ public static class IdentityDbContextSeed
             });
     }
 
-    // NOTE: Simplified for demo purposes. In production, admin user credentials should come
-    // from a secure configuration provider (e.g., Azure Key Vault, environment variables).
+    // Admin credentials come from configuration, not source: the AppHost injects the password
+    // (env var AdminUser__Password); it is never hardcoded here. Run the service standalone by
+    // setting AdminUser:Password via user-secrets or an environment variable.
     public static async Task SeedAdminUserAsync(IServiceProvider serviceProvider)
     {
         using var scope = serviceProvider.CreateScope();
         var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
 
-        const string adminEmail = "admin@novacart.com";
+        var adminEmail = configuration["AdminUser:Email"] ?? "admin@novacart.com";
+        var adminPassword = configuration["AdminUser:Password"]
+            ?? throw new InvalidOperationException(
+                "Admin seed password is not configured. Set 'AdminUser:Password' (the AppHost injects it).");
+
         var existingAdmin = await userManager.FindByEmailAsync(adminEmail);
 
         if (existingAdmin is not null)
@@ -59,7 +66,7 @@ public static class IdentityDbContextSeed
         }
 
         var adminUser = ApplicationUser.Create(adminEmail, "Admin", "NovaCart");
-        var result = await userManager.CreateAsync(adminUser, "Admin123!");
+        var result = await userManager.CreateAsync(adminUser, adminPassword);
 
         if (result.Succeeded)
         {

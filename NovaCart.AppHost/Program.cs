@@ -1,4 +1,13 @@
+using System.Security.Cryptography;
+
 var builder = DistributedApplication.CreateBuilder(args);
+
+// Secrets are injected from AppHost configuration (env vars / user-secrets), never committed to
+// service appsettings. The JWT signing key is generated per run when not provided, so no working
+// secret lives in the repo; the admin seed password keeps a demo default but stays overridable.
+var jwtSecret = builder.Configuration["Jwt:Secret"]
+    ?? Convert.ToBase64String(RandomNumberGenerator.GetBytes(48));
+var adminPassword = builder.Configuration["AdminUser:Password"] ?? "Admin123!";
 
 // Infrastructure
 var postgres = builder.AddPostgres("postgres");
@@ -56,5 +65,12 @@ var gateway = builder.AddProject<Projects.NovaCart_ApiGateway_Yarp>("gateway")
 builder.AddProject<Projects.NovaCart_Web>("web")
     .WithExternalHttpEndpoints()
     .WithReference(gateway);
+
+// Inject the shared JWT signing key into every token-validating service (Identity also signs).
+foreach (var service in new[] { catalogApi, orderingApi, identityApi, basketApi })
+    service.WithEnvironment("Jwt__Secret", jwtSecret);
+
+// Identity seeds the demo admin user with this (overridable) password.
+identityApi.WithEnvironment("AdminUser__Password", adminPassword);
 
 builder.Build().Run();
