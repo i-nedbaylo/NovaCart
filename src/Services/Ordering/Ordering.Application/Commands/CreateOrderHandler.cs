@@ -2,6 +2,7 @@ using NovaCart.BuildingBlocks.Common;
 using NovaCart.BuildingBlocks.CQRS;
 using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.BuildingBlocks.Persistence;
+using NovaCart.Services.Ordering.Application.Abstractions;
 using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
 using NovaCart.Services.Ordering.Domain.Entities;
 using NovaCart.Services.Ordering.Domain.Repositories;
@@ -14,19 +15,25 @@ public sealed class CreateOrderHandler : ICommandHandler<CreateOrderCommand, Gui
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IOutboxEventCollector _outboxEventCollector;
+    private readonly ICatalogProductReader _catalog;
 
     public CreateOrderHandler(
         IOrderRepository orderRepository,
         IUnitOfWork unitOfWork,
-        IOutboxEventCollector outboxEventCollector)
+        IOutboxEventCollector outboxEventCollector,
+        ICatalogProductReader catalog)
     {
         _orderRepository = orderRepository;
         _unitOfWork = unitOfWork;
         _outboxEventCollector = outboxEventCollector;
+        _catalog = catalog;
     }
 
     public async Task<Result<Guid>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
+        var productIds = request.Items.Select(i => i.ProductId).ToList();
+        var products = await _catalog.GetActiveProductsAsync(productIds, cancellationToken);
+
         var address = Address.Create(
             request.ShippingAddress.Street,
             request.ShippingAddress.City,
@@ -38,7 +45,15 @@ public sealed class CreateOrderHandler : ICommandHandler<CreateOrderCommand, Gui
 
         foreach (var item in request.Items)
         {
-            order.AddItem(item.ProductId, item.ProductName, item.UnitPrice, item.Quantity);
+            if (!products.TryGetValue(item.ProductId, out var product))
+            {
+                return Result<Guid>.Failure(Error.Validation(
+                    "Order.UnknownProduct",
+                    $"Product '{item.ProductId}' was not found or is not available."));
+            }
+
+            // Name and price are authoritative from Catalog, never from the client request.
+            order.AddItem(item.ProductId, product.Name, product.Price, item.Quantity);
         }
 
         _orderRepository.Add(order);

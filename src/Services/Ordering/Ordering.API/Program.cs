@@ -3,7 +3,9 @@ using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.ServiceDefaults;
 using NovaCart.Services.Ordering.API;
 using NovaCart.Services.Ordering.Application;
+using NovaCart.Services.Ordering.Application.Abstractions;
 using NovaCart.Services.Ordering.Infrastructure;
+using NovaCart.Services.Ordering.Infrastructure.Catalog;
 using NovaCart.Services.Ordering.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +19,13 @@ var connectionString = builder.Configuration.GetConnectionString("orderingdb")
     ?? throw new InvalidOperationException("Connection string 'orderingdb' not found.");
 
 builder.Services.AddOrderingInfrastructure(connectionString);
+
+// Server-side pricing: resolve product name/price from Catalog directly (service discovery),
+// so order items created via the API are never priced from client input.
+builder.Services.AddHttpClient<ICatalogProductReader, CatalogProductReader>(client =>
+{
+    client.BaseAddress = new Uri("https+http://catalog-api");
+});
 
 builder.AddEventBus(typeof(NovaCart.Services.Ordering.Application.DependencyInjection).Assembly);
 

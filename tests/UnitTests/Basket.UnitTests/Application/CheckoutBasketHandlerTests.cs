@@ -71,7 +71,6 @@ public class CheckoutBasketHandlerTests
         // Assert
         capturedEvent.Should().NotBeNull();
         capturedEvent!.BuyerId.Should().Be(buyerId);
-        capturedEvent.TotalPrice.Should().Be(999.99m * 2);
         capturedEvent.Street.Should().Be("123 Main St");
         capturedEvent.City.Should().Be("Springfield");
         capturedEvent.Items.Should().ContainSingle();

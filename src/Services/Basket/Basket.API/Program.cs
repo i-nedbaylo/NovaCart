@@ -2,7 +2,9 @@ using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.ServiceDefaults;
 using NovaCart.Services.Basket.API;
 using NovaCart.Services.Basket.Application;
+using NovaCart.Services.Basket.Application.Abstractions;
 using NovaCart.Services.Basket.Infrastructure;
+using NovaCart.Services.Basket.Infrastructure.Catalog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,13 @@ builder.AddJwtAuthentication();
 
 builder.Services.AddBasketApplication();
 builder.Services.AddBasketInfrastructure();
+
+// Server-side pricing: resolve product name/price from Catalog directly (service discovery),
+// so basket items are never priced from client input.
+builder.Services.AddHttpClient<ICatalogProductReader, CatalogProductReader>(client =>
+{
+    client.BaseAddress = new Uri("https+http://catalog-api");
+});
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {

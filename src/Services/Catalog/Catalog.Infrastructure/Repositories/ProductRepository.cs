@@ -21,6 +21,14 @@ public sealed class ProductRepository : IProductRepository
             .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
     }
 
+    public async Task<List<Product>> GetByIdsAsync(IReadOnlyCollection<Guid> ids, CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Products
+            .Include(p => p.Category)
+            .Where(p => ids.Contains(p.Id))
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<List<Product>> GetAllAsync(CancellationToken cancellationToken = default)
     {
         return await _dbContext.Products

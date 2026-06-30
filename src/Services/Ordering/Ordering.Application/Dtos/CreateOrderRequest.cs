@@ -6,8 +6,8 @@ public sealed record CreateOrderRequest(
     AddressDto ShippingAddress,
     List<CreateOrderItemRequest> Items);
 
+// Name and unit price are intentionally omitted: they are resolved server-side from Catalog so a
+// client cannot order at an arbitrary price (see CreateOrderHandler).
 public sealed record CreateOrderItemRequest(
     Guid ProductId,
-    string ProductName,
-    decimal UnitPrice,
     int Quantity);

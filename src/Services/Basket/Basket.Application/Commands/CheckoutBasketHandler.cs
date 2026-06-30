@@ -36,17 +36,15 @@ public sealed class CheckoutBasketHandler : ICommandHandler<CheckoutBasketComman
         var integrationEvent = new BasketCheckoutIntegrationEvent
         {
             BuyerId = request.BuyerId,
-            TotalPrice = basket.TotalPrice,
             Street = request.Street,
             City = request.City,
             State = request.State,
             Country = request.Country,
             ZipCode = request.ZipCode,
+            // Carry only product id + quantity; Ordering re-prices from Catalog.
             Items = basket.Items.Select(i => new BasketCheckoutItem
             {
                 ProductId = i.ProductId,
-                ProductName = i.ProductName,
-                Price = i.Price,
                 Quantity = i.Quantity
             }).ToList()
         };
