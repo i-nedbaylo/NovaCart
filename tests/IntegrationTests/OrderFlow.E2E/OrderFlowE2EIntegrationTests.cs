@@ -28,7 +28,7 @@ public sealed class OrderFlowE2EIntegrationTests
         "Install/start Docker Desktop; the test then boots the whole AppHost automatically.";
 
     private static readonly string[] RequiredResources =
-        ["identity-api", "basket-api", "ordering-api", "payment-api", "gateway"];
+        ["identity-api", "catalog-api", "basket-api", "ordering-api", "payment-api", "gateway"];
 
     private static readonly TimeSpan RetryWindow = TimeSpan.FromSeconds(60);
 
@@ -48,8 +48,11 @@ public sealed class OrderFlowE2EIntegrationTests
         var notifications = app!.Services.GetRequiredService<ResourceNotificationService>();
         using (var startupCts = new CancellationTokenSource(TimeSpan.FromMinutes(3)))
         {
+            // Wait for Healthy (not just Running): Running means the process launched, but the
+            // service may not be accepting HTTP yet. Healthy means its /health endpoint passes,
+            // so the first request below won't race a still-starting service into a 504.
             foreach (var resource in RequiredResources)
-                await notifications.WaitForResourceAsync(resource, KnownResourceStates.Running, startupCts.Token);
+                await notifications.WaitForResourceHealthyAsync(resource, startupCts.Token);
         }
 
         using var client = app.CreateHttpClient("gateway", "http");
