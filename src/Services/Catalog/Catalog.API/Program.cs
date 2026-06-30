@@ -8,6 +8,11 @@ using NovaCart.Services.Catalog.Infrastructure.Persistence;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.AddJwtAuthentication();
+
+// Catalog reads are public; mutations require an authenticated Admin.
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("Admin", policy => policy.RequireRole("Admin"));
 
 builder.Services.AddCatalogApplication();
 
@@ -46,6 +51,9 @@ app.UseExceptionHandler(exceptionHandlerApp =>
         });
     });
 });
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapCatalogEndpoints();
 
