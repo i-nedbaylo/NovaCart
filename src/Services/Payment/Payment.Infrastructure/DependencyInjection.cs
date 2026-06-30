@@ -20,6 +20,11 @@ public static class DependencyInjection
             options.AddInterceptors(sp.GetRequiredService<OutboxInterceptor>());
         });
 
+        // Readiness: report Unhealthy until the database is reachable, so the orchestrator and
+        // dependents (WaitFor) gate on it instead of racing a not-yet-ready service.
+        services.AddHealthChecks()
+            .AddDbContextCheck<PaymentDbContext>("paymentdb");
+
         services.AddScoped<IPaymentRepository, PaymentRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
