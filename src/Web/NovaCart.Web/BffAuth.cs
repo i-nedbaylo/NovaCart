@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.JsonWebTokens;
 using NovaCart.Web.Services;
 using NovaCart.Web.Services.Models;
@@ -103,25 +104,41 @@ public static class BffAuth
             return; // access token still fresh
 
         var refreshToken = context.Principal?.FindFirst(RefreshTokenClaim)?.Value;
-        if (!string.IsNullOrEmpty(refreshToken))
-        {
-            var authService = context.HttpContext.RequestServices.GetRequiredService<AuthService>();
-            var refreshed = await authService.RefreshTokenAsync(refreshToken);
-            if (refreshed is not null)
-            {
-                context.ReplacePrincipal(BuildPrincipal(refreshed));
-                context.ShouldRenew = true;
-                return;
-            }
-        }
+        if (!string.IsNullOrEmpty(refreshToken) && await TryRefreshAsync(context, refreshToken))
+            return;
 
-        // Refresh unavailable or rejected — only end the session once the token is actually
-        // expired, so a transient failure (or a rotation race with a concurrent request) never
-        // signs the user out prematurely.
+        // Refresh unavailable, rejected, or failed — only end the session once the token is
+        // actually expired, so a transient failure (or a rotation race with a concurrent
+        // request) never signs the user out prematurely.
         if (now >= expiresAt.Value)
         {
             context.RejectPrincipal();
             await context.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        }
+    }
+
+    private static async Task<bool> TryRefreshAsync(CookieValidatePrincipalContext context, string refreshToken)
+    {
+        try
+        {
+            var authService = context.HttpContext.RequestServices.GetRequiredService<AuthService>();
+            var refreshed = await authService.RefreshTokenAsync(refreshToken);
+            if (refreshed is null)
+                return false;
+
+            context.ReplacePrincipal(BuildPrincipal(refreshed));
+            context.ShouldRenew = true;
+            return true;
+        }
+        catch (Exception ex)
+        {
+            // A malformed refresh response (bad JSON, invalid/empty token) must never fault the
+            // request from inside the cookie validation event — treat it as a failed refresh.
+            context.HttpContext.RequestServices
+                .GetService<ILoggerFactory>()?
+                .CreateLogger(typeof(BffAuth).FullName!)
+                .LogWarning(ex, "BFF access-token refresh failed; treating as not refreshed.");
+            return false;
         }
     }
 
