@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.BuildingBlocks.Persistence;
 using NovaCart.Services.Basket.Contracts.IntegrationEvents;
+using NovaCart.Services.Ordering.Application.Abstractions;
 using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
 using NovaCart.Services.Ordering.Domain.Entities;
 using NovaCart.Services.Ordering.Domain.Repositories;
@@ -15,17 +16,20 @@ public sealed class BasketCheckoutIntegrationEventConsumer : IConsumer<BasketChe
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IOutboxEventCollector _outboxEventCollector;
+    private readonly ICatalogProductReader _catalog;
     private readonly ILogger<BasketCheckoutIntegrationEventConsumer> _logger;
 
     public BasketCheckoutIntegrationEventConsumer(
         IOrderRepository orderRepository,
         IUnitOfWork unitOfWork,
         IOutboxEventCollector outboxEventCollector,
+        ICatalogProductReader catalog,
         ILogger<BasketCheckoutIntegrationEventConsumer> logger)
     {
         _orderRepository = orderRepository;
         _unitOfWork = unitOfWork;
         _outboxEventCollector = outboxEventCollector;
+        _catalog = catalog;
         _logger = logger;
     }
 
@@ -33,9 +37,7 @@ public sealed class BasketCheckoutIntegrationEventConsumer : IConsumer<BasketChe
     {
         var message = context.Message;
 
-        _logger.LogInformation(
-            "Processing basket checkout for Buyer {BuyerId}, TotalPrice: {TotalPrice}",
-            message.BuyerId, message.TotalPrice);
+        _logger.LogInformation("Processing basket checkout for Buyer {BuyerId}", message.BuyerId);
 
         if (!Guid.TryParse(message.BuyerId, out var buyerId))
         {
@@ -53,6 +55,11 @@ public sealed class BasketCheckoutIntegrationEventConsumer : IConsumer<BasketChe
             return;
         }
 
+        // Authoritative pricing: re-price every item from Catalog. The event carries only
+        // product id + quantity, so a stale or tampered basket cannot influence the charge.
+        var products = await _catalog.GetActiveProductsAsync(
+            message.Items.Select(i => i.ProductId).ToList(), context.CancellationToken);
+
         var address = Address.Create(
             message.Street,
             message.City,
@@ -64,7 +71,15 @@ public sealed class BasketCheckoutIntegrationEventConsumer : IConsumer<BasketChe
 
         foreach (var item in message.Items)
         {
-            order.AddItem(item.ProductId, item.ProductName, item.Price, item.Quantity);
+            if (!products.TryGetValue(item.ProductId, out var product))
+            {
+                _logger.LogError(
+                    "Cannot create order from checkout {MessageId}: product {ProductId} not found or unavailable.",
+                    message.Id, item.ProductId);
+                return;
+            }
+
+            order.AddItem(item.ProductId, product.Name, product.Price, item.Quantity);
         }
 
         // Auto-confirm: user has explicitly checked out
