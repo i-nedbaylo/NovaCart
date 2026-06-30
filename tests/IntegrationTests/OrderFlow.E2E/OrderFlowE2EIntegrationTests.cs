@@ -21,6 +21,7 @@ namespace NovaCart.Tests.OrderFlow.E2E;
 /// the transient gateway timeouts that happen while the stack is still warming up under load.
 /// The test self-skips when Docker / the Aspire orchestrator is unavailable.
 /// </summary>
+[Trait("Category", "Integration")]
 public sealed class OrderFlowE2EIntegrationTests
 {
     public const string InfrastructureUnavailableSkipReason =

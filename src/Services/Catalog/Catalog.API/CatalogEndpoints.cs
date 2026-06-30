@@ -84,7 +84,7 @@ public static class CatalogEndpoints
             return result.IsSuccess
                 ? Results.Created($"/api/v1/products/{result.Value}", new { id = result.Value })
                 : MapError(result.Error);
-        });
+        }).RequireAuthorization("Admin");
 
         group.MapPut("/{id:guid}", async (Guid id, UpdateProductRequest request, ISender sender) =>
         {
@@ -103,7 +103,7 @@ public static class CatalogEndpoints
             return result.IsSuccess
                 ? Results.NoContent()
                 : MapError(result.Error);
-        });
+        }).RequireAuthorization("Admin");
 
         group.MapDelete("/{id:guid}", async (Guid id, ISender sender) =>
         {
@@ -112,7 +112,7 @@ public static class CatalogEndpoints
             return result.IsSuccess
                 ? Results.NoContent()
                 : MapError(result.Error);
-        });
+        }).RequireAuthorization("Admin");
     }
 
     private static void MapCategoryEndpoints(this WebApplication app)
@@ -145,7 +145,7 @@ public static class CatalogEndpoints
             return result.IsSuccess
                 ? Results.Created($"/api/v1/categories/{result.Value}", new { id = result.Value })
                 : MapError(result.Error);
-        });
+        }).RequireAuthorization("Admin");
 
         group.MapPut("/{id:guid}", async (Guid id, UpdateCategoryRequest request, ISender sender) =>
         {
@@ -161,7 +161,7 @@ public static class CatalogEndpoints
             return result.IsSuccess
                 ? Results.NoContent()
                 : MapError(result.Error);
-        });
+        }).RequireAuthorization("Admin");
     }
 
     private static IResult MapError(Error error) => error.Type switch

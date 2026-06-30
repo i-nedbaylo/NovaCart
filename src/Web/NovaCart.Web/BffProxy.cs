@@ -9,12 +9,17 @@ namespace NovaCart.Web;
 /// </summary>
 public static class BffProxy
 {
+    // Headers that are never forwarded to the gateway: hop-by-hop headers, plus the browser's
+    // own credentials. The auth cookie is consumed by the BFF and must not leak downstream, and
+    // a client-supplied Authorization is dropped — the access token is attached afterwards from
+    // the server-side cookie principal only.
     private static readonly HashSet<string> HopByHopHeaders = new(StringComparer.OrdinalIgnoreCase)
     {
         "Host", "Connection", "Proxy-Connection", "Keep-Alive",
         "Transfer-Encoding", "TE", "Trailer", "Upgrade",
         "Proxy-Authorization", "Proxy-Authenticate",
-        "Content-Length", "Content-Type"
+        "Content-Length", "Content-Type",
+        "Cookie", "Authorization"
     };
 
     public static WebApplication MapBffApiProxy(this WebApplication app)
