@@ -32,6 +32,12 @@ public sealed class OrderFlowE2EIntegrationTests
 
     private static readonly TimeSpan RetryWindow = TimeSpan.FromSeconds(60);
 
+    // A real seeded catalog product ("Wireless Bluetooth Headphones", $79.99). Pricing is now
+    // resolved server-side from Catalog, so the basket/order must reference an existing product.
+    private static readonly Guid SeededProductId = Guid.Parse("a1b2c3d4-0002-0001-0001-000000000001");
+    private const decimal SeededProductPrice = 79.99m;
+    private const int Quantity = 2;
+
     [SkippableFact]
     public async Task BasketCheckout_Should_Create_Order_And_Reach_Terminal_Payment_Status()
     {
@@ -73,12 +79,13 @@ public sealed class OrderFlowE2EIntegrationTests
         var token = await login.Content.ReadFromJsonAsync<TokenResponse>();
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token!.AccessToken);
 
-        // 3. Fill the basket. The route buyer id must match the token subject (enforced by the API).
+        // 3. Fill the basket with a real catalog product. The client sends only id + quantity;
+        // the server prices it from Catalog. The route buyer id must match the token subject.
         var putBasket = await SendWithRetryAsync(() => client.PutAsJsonAsync($"/api/v1/baskets/{buyerId}", new
         {
             Items = new[]
             {
-                new { ProductId = Guid.NewGuid(), ProductName = "E2E Widget", Price = 19.99m, Quantity = 2 }
+                new { ProductId = SeededProductId, Quantity = Quantity }
             }
         }));
         putBasket.EnsureSuccessStatusCode();
@@ -100,7 +107,7 @@ public sealed class OrderFlowE2EIntegrationTests
 
         order.Should().NotBeNull("checkout should produce an order through the RabbitMQ event chain");
         order!.Items.Should().ContainSingle();
-        order.TotalAmount.Should().Be(39.98m);
+        order.TotalAmount.Should().Be(SeededProductPrice * Quantity);
         order.Status.Should().BeOneOf("Paid", "Cancelled");
     }
 
