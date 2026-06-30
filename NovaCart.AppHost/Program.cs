@@ -20,6 +20,7 @@ var catalogApi = builder.AddProject<Projects.NovaCart_Services_Catalog_API>("cat
 var orderingApi = builder.AddProject<Projects.NovaCart_Services_Ordering_API>("ordering-api")
     .WithReference(orderingDb)
     .WithReference(rabbitmq)
+    .WithReference(catalogApi)
     .WaitFor(orderingDb)
     .WaitFor(rabbitmq);
 
@@ -32,6 +33,7 @@ var identityApi = builder.AddProject<Projects.NovaCart_Services_Identity_API>("i
 var basketApi = builder.AddProject<Projects.NovaCart_Services_Basket_API>("basket-api")
     .WithReference(redis)
     .WithReference(rabbitmq)
+    .WithReference(catalogApi)
     .WaitFor(redis)
     .WaitFor(rabbitmq);
 
