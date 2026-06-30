@@ -26,17 +26,7 @@ builder.Services.AddHttpClient<CatalogService>(client =>
     client.BaseAddress = new Uri("https+http://gateway");
 });
 
-builder.Services.AddHttpClient<OrderService>(client =>
-{
-    client.BaseAddress = new Uri("https+http://gateway");
-});
-
 builder.Services.AddHttpClient<AuthService>(client =>
-{
-    client.BaseAddress = new Uri("https+http://gateway");
-});
-
-builder.Services.AddHttpClient<BasketService>(client =>
 {
     client.BaseAddress = new Uri("https+http://gateway");
 });
