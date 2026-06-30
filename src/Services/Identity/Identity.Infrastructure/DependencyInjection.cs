@@ -20,6 +20,11 @@ public static class DependencyInjection
         services.AddDbContext<IdentityAppDbContext>(options =>
             options.UseNpgsql(connectionString));
 
+        // Readiness: report Unhealthy until the database is reachable, so the orchestrator and
+        // dependents (WaitFor) gate on it instead of racing a not-yet-ready service.
+        services.AddHealthChecks()
+            .AddDbContextCheck<IdentityAppDbContext>("identitydb");
+
         services.AddIdentityCore<ApplicationUser>(options =>
         {
             options.Password.RequireDigit = true;

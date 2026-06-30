@@ -29,6 +29,10 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.Configuration = connectionString;
 });
 
+// Readiness: basket can't serve a cart without Redis, so gate health on a real round-trip.
+builder.Services.AddHealthChecks()
+    .AddCheck<RedisHealthCheck>("redis");
+
 builder.AddEventBus(typeof(Program).Assembly);
 
 builder.Services.AddOpenApi();
