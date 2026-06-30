@@ -6,6 +6,7 @@ namespace NovaCart.Services.Ordering.Domain.Repositories;
 public interface IOrderRepository : IRepository<Order>
 {
     Task<List<Order>> GetByBuyerIdAsync(Guid buyerId, CancellationToken cancellationToken = default);
+    Task<bool> ExistsBySourceMessageIdAsync(Guid sourceMessageId, CancellationToken cancellationToken = default);
     Task<(List<Order> Items, int TotalCount)> GetPagedAsync(
         int pageNumber,
         int pageSize,

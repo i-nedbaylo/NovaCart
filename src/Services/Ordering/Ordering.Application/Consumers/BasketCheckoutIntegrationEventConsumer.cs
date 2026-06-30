@@ -43,6 +43,16 @@ public sealed class BasketCheckoutIntegrationEventConsumer : IConsumer<BasketChe
             return;
         }
 
+        // Idempotency: delivery is at-least-once, so this checkout event can be redelivered.
+        // Skip if we've already turned it into an order. (The unique index on source_message_id
+        // is the backstop for a concurrent-delivery race.)
+        if (await _orderRepository.ExistsBySourceMessageIdAsync(message.Id, context.CancellationToken))
+        {
+            _logger.LogInformation(
+                "Basket checkout {MessageId} already processed; skipping duplicate.", message.Id);
+            return;
+        }
+
         var address = Address.Create(
             message.Street,
             message.City,
@@ -50,7 +60,7 @@ public sealed class BasketCheckoutIntegrationEventConsumer : IConsumer<BasketChe
             message.Country,
             message.ZipCode);
 
-        var order = Order.Create(buyerId, address);
+        var order = Order.Create(buyerId, address, message.Id);
 
         foreach (var item in message.Items)
         {

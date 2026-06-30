@@ -7,6 +7,11 @@ namespace NovaCart.Services.Ordering.Domain.Entities;
 public sealed class Order : AggregateRoot
 {
     public Guid BuyerId { get; private set; }
+
+    // Dedup key: the id of the integration event that created this order (null for orders
+    // created directly via the API). Lets the checkout consumer ignore redelivered events.
+    public Guid? SourceMessageId { get; private set; }
+
     public DateTimeOffset OrderDate { get; private set; }
     public OrderStatus Status { get; private set; }
     public Address ShippingAddress { get; private set; } = null!;
@@ -18,7 +23,7 @@ public sealed class Order : AggregateRoot
 
     private Order() { }
 
-    public static Order Create(Guid buyerId, Address shippingAddress)
+    public static Order Create(Guid buyerId, Address shippingAddress, Guid? sourceMessageId = null)
     {
         if (buyerId == Guid.Empty)
             throw new ArgumentException("Buyer ID cannot be empty.", nameof(buyerId));
@@ -28,7 +33,8 @@ public sealed class Order : AggregateRoot
             BuyerId = buyerId,
             OrderDate = DateTimeOffset.UtcNow,
             Status = OrderStatus.Created,
-            ShippingAddress = shippingAddress
+            ShippingAddress = shippingAddress,
+            SourceMessageId = sourceMessageId
         };
 
         order.RaiseDomainEvent(new OrderCreatedDomainEvent(order.Id));
