@@ -26,15 +26,16 @@ jobs:
       - name: Build
         run: dotnet build NovaCart.slnx --configuration Release --no-restore
 
-      # Runs everything except tests tagged [Trait("Category", "Integration")] — those need
-      # Docker and run in the job below. (Filtering by trait, not by name, so unit tests for
-      # the *IntegrationEvent* consumers are not excluded by accident.)
+      # Runs everything except Testcontainers integration tests ([Trait("Category","Integration")],
+      # run in the job below) and the full-stack E2E ([Trait("Category","E2E")], too heavy/flaky for
+      # shared runners — run it locally). Filtering by trait, not by name, so unit tests for the
+      # *IntegrationEvent* consumers are not excluded by accident.
       - name: Unit & architecture tests
         run: >-
           dotnet test NovaCart.slnx
           --configuration Release
           --no-build
-          --filter "Category!=Integration"
+          --filter "Category!=Integration&Category!=E2E"
 
   integration-tests:
     name: Integration Tests (Testcontainers PostgreSQL)
