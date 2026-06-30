@@ -63,6 +63,7 @@
   </Folder>
   <Folder Name="/tests/IntegrationTests/">
     <Project Path="tests/IntegrationTests/Catalog.IntegrationTests/NovaCart.Tests.Catalog.IntegrationTests.csproj" />
+    <Project Path="tests/IntegrationTests/OrderFlow.E2E/NovaCart.Tests.OrderFlow.E2E.csproj" />
   </Folder>
   <Project Path="NovaCart.AppHost/NovaCart.AppHost.csproj" />
   <Project Path="NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj" />
