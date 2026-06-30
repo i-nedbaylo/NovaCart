@@ -28,10 +28,14 @@ circuit) или в браузере (WebAssembly). Нужно, чтобы:
   кладёт его в cookie-принципал (claims `access_token`/`refresh_token` — серверные, наружу не
   отдаются).
 - **Проброс токена вниз** — токен добавляется как `Authorization: Bearer` в двух точках:
-  - `BffTokenHandler` (`DelegatingHandler`) — для вызовов, выполняемых на сервере
-    (SSR/Interactive Server), читает токен из `AuthenticationStateProvider`.
+  - `IAccessTokenAccessor` (серверная реализация `ServerAccessTokenAccessor`) — для вызовов,
+    выполняемых на сервере (SSR/Interactive Server). Инжектится **в клиентские сервисы**
+    (`BasketClientService`/`OrderClientService`), которые резолвятся в scope компонента/цепочки,
+    поэтому видит `AuthenticationStateProvider` текущего пользователя. Намеренно НЕ
+    `DelegatingHandler`: `IHttpClientFactory` резолвит message handlers в отдельном долгоживущем
+    scope, который не несёт auth-состояние цепочки, и токен молча не прикрепляется.
   - `BffProxy` (`/api/{**path}`) — для вызовов из WASM: токен берётся из cookie-принципала
-    запроса. Браузер токен не видит и не передаёт.
+    запроса. Браузер токен не видит и не передаёт (WASM-реализация аксессора возвращает null).
 - **Личность для WASM** — `IUserService` с двумя реализациями (паттерн location-specific
   service для Auto-режима): `ServerUserService` (из `AuthenticationStateProvider`) и
   `ClientUserService` (через `GET /bff/user`). Компоненты получают `buyerId` единообразно, не
@@ -44,7 +48,7 @@ circuit) или в браузере (WebAssembly). Нужно, чтобы:
 ```
 Браузер ──cookie──▶ BFF (NovaCart.Web)
                       │  access_token (HttpOnly cookie, server-only)
-                      ├─ BffTokenHandler / BffProxy → Bearer
+                      ├─ IAccessTokenAccessor / BffProxy → Bearer
                       ▼
                    YARP Gateway ──Authorization──▶ Basket / Ordering API ──validate JWT──▶ buyerId = sub
 ```

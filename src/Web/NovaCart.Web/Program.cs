@@ -12,8 +12,8 @@ builder.AddServiceDefaults();
 
 builder.Services.AddBffAuthentication();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddTransient<BffTokenHandler>();
 builder.Services.AddScoped<NovaCart.Web.Client.Services.IUserService, ServerUserService>();
+builder.Services.AddScoped<NovaCart.Web.Client.Services.IAccessTokenAccessor, ServerAccessTokenAccessor>();
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
@@ -29,7 +29,7 @@ builder.Services.AddHttpClient<CatalogService>(client =>
 builder.Services.AddHttpClient<OrderService>(client =>
 {
     client.BaseAddress = new Uri("https+http://gateway");
-}).AddHttpMessageHandler<BffTokenHandler>();
+});
 
 builder.Services.AddHttpClient<AuthService>(client =>
 {
@@ -39,19 +39,19 @@ builder.Services.AddHttpClient<AuthService>(client =>
 builder.Services.AddHttpClient<BasketService>(client =>
 {
     client.BaseAddress = new Uri("https+http://gateway");
-}).AddHttpMessageHandler<BffTokenHandler>();
+});
 
 // Client services registered with Gateway for Server-side InteractiveAuto rendering.
 // When running on WASM, these same services use origin HttpClient via BFF proxy.
 builder.Services.AddHttpClient<BasketClientService>(client =>
 {
     client.BaseAddress = new Uri("https+http://gateway");
-}).AddHttpMessageHandler<BffTokenHandler>();
+});
 
 builder.Services.AddHttpClient<OrderClientService>(client =>
 {
     client.BaseAddress = new Uri("https+http://gateway");
-}).AddHttpMessageHandler<BffTokenHandler>();
+});
 
 // Named HttpClient for BFF proxy — forwards WASM /api/* requests to Gateway
 builder.Services.AddHttpClient("Gateway", client =>

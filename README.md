@@ -87,9 +87,9 @@ NovaCart/
 
 - Регистрация/вход — SSR-страницы `/register` и `/login`. Сервер (BFF) получает JWT от Identity
   и кладёт его в **HttpOnly-cookie**; токен не попадает в браузер.
-- Все вызовы к корзине и заказам идут с `Authorization: Bearer` (через `BffTokenHandler` для
-  серверного рендеринга и через BFF-прокси для WASM). Сервисы валидируют токен и берут
-  `buyerId` из него.
+- Все вызовы к корзине и заказам идут с `Authorization: Bearer` (через серверный
+  `IAccessTokenAccessor` для серверного рендеринга и через BFF-прокси для WASM). Сервисы
+  валидируют токен и берут `buyerId` из него.
 - Seed-админ: `admin@novacart.com` (см. `IdentityDbContextSeed`).
 
 Подробнее — [ADR-008: BFF cookie authentication](docs/architecture/decisions/0008-bff-cookie-authentication.md).
