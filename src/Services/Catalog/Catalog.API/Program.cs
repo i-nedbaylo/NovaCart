@@ -59,3 +59,6 @@ app.MapCatalogEndpoints();
 
 app.Run();
 
+// Exposes the implicit Program class to WebApplicationFactory for in-memory integration tests.
+public partial class Program;
+

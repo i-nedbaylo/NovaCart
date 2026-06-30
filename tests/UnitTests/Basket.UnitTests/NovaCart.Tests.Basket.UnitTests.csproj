@@ -20,9 +20,16 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <!-- Needed to reference the RedisHealthCheck (IHealthCheck/IDistributedCache live in the
+       ASP.NET Core shared framework) defined in Basket.API. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Services\Basket\Basket.Domain\NovaCart.Services.Basket.Domain.csproj" />
     <ProjectReference Include="..\..\..\src\Services\Basket\Basket.Application\NovaCart.Services.Basket.Application.csproj" />
+    <ProjectReference Include="..\..\..\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj" />
   </ItemGroup>
 
 </Project>
