@@ -56,11 +56,19 @@ var gateway = builder.AddProject<Projects.NovaCart_ApiGateway_Yarp>("gateway")
     .WithReference(orderingApi)
     .WithReference(identityApi)
     .WithReference(basketApi)
+    // The gateway's own /health is only a self-check (YARP doesn't aggregate upstream health),
+    // so gate its startup on the upstreams being healthy — otherwise it could route before they
+    // are ready and return proxy 5xx.
+    .WaitFor(catalogApi)
+    .WaitFor(orderingApi)
+    .WaitFor(identityApi)
+    .WaitFor(basketApi)
     .WithHttpHealthCheck("/health");
 
 // Web (BFF)
 builder.AddProject<Projects.NovaCart_Web>("web")
     .WithExternalHttpEndpoints()
-    .WithReference(gateway);
+    .WithReference(gateway)
+    .WaitFor(gateway);
 
 builder.Build().Run();
