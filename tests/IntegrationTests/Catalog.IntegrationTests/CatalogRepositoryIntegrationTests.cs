@@ -11,6 +11,7 @@ namespace NovaCart.Tests.Catalog.IntegrationTests;
 /// tables, the owned <c>Price</c> value object, seed data, and the write path — which in-memory
 /// unit tests cannot validate.
 /// </summary>
+[Trait("Category", "Integration")]
 [Collection(CatalogPostgresCollection.CollectionName)]
 public sealed class CatalogRepositoryIntegrationTests
 {
