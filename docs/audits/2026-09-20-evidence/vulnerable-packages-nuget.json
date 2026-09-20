@@ -1,0 +1,616 @@
+{
+  "version": 1,
+  "parameters": "--vulnerable --include-transitive",
+  "sources": [
+    "https://api.nuget.org/v3/index.json"
+  ],
+  "projects": [
+    {
+      "path": "D:/Repos/NovaCart/NovaCart.AppHost/NovaCart.AppHost.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "KubernetesClient",
+              "resolvedVersion": "16.0.7",
+              "vulnerabilities": [
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-w7r3-mgwf-4mqq"
+                }
+              ]
+            },
+            {
+              "id": "MessagePack",
+              "resolvedVersion": "2.5.192",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-hv8m-jj95-wg3x"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-vh6j-jc39-fggf"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-2f33-pr97-265q"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-v72x-2h86-7f8m"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-2x83-8g95-xh59"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cj9g-3mj2-g8vv"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-wfr3-xj75-pfwh"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-w567-gjr2-hm5j"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cxmj-83gh-fp49"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-q2h6-ghwm-5qm8"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-qhmf-xw27-6rqr"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/ApiGateway/Gateway.Yarp/NovaCart.ApiGateway.Yarp.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.Common/NovaCart.BuildingBlocks.Common.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.CQRS/NovaCart.BuildingBlocks.CQRS.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.EventBus/NovaCart.BuildingBlocks.EventBus.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.Outbox/NovaCart.BuildingBlocks.Outbox.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.Persistence/NovaCart.BuildingBlocks.Persistence.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.API/NovaCart.Services.Basket.API.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "Microsoft.OpenApi",
+              "resolvedVersion": "2.0.0",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-v5pm-xwqc-g5wc"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.Application/NovaCart.Services.Basket.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.Contracts/NovaCart.Services.Basket.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.Domain/NovaCart.Services.Basket.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.Infrastructure/NovaCart.Services.Basket.Infrastructure.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.API/NovaCart.Services.Catalog.API.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "Microsoft.OpenApi",
+              "resolvedVersion": "2.0.0",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-v5pm-xwqc-g5wc"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.Application/NovaCart.Services.Catalog.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.Contracts/NovaCart.Services.Catalog.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.Domain/NovaCart.Services.Catalog.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.Infrastructure/NovaCart.Services.Catalog.Infrastructure.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "topLevelPackages": [
+            {
+              "id": "System.Security.Cryptography.Xml",
+              "requestedVersion": "10.0.9",
+              "resolvedVersion": "10.0.9",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cvvh-rhrc-wg4q"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-g8r8-53c2-pm3f"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-23rf-6693-g89p"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-8q5v-6pqq-x66h"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-mmjf-rqrv-855v"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.API/NovaCart.Services.Identity.API.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "Microsoft.OpenApi",
+              "resolvedVersion": "2.0.0",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-v5pm-xwqc-g5wc"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.Application/NovaCart.Services.Identity.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.Contracts/NovaCart.Services.Identity.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.Domain/NovaCart.Services.Identity.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.Infrastructure/NovaCart.Services.Identity.Infrastructure.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "topLevelPackages": [
+            {
+              "id": "System.Security.Cryptography.Xml",
+              "requestedVersion": "10.0.9",
+              "resolvedVersion": "10.0.9",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cvvh-rhrc-wg4q"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-g8r8-53c2-pm3f"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-23rf-6693-g89p"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-8q5v-6pqq-x66h"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-mmjf-rqrv-855v"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.API/NovaCart.Services.Ordering.API.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "Microsoft.OpenApi",
+              "resolvedVersion": "2.0.0",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-v5pm-xwqc-g5wc"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.Application/NovaCart.Services.Ordering.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.Contracts/NovaCart.Services.Ordering.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.Domain/NovaCart.Services.Ordering.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.Infrastructure/NovaCart.Services.Ordering.Infrastructure.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "topLevelPackages": [
+            {
+              "id": "System.Security.Cryptography.Xml",
+              "requestedVersion": "10.0.9",
+              "resolvedVersion": "10.0.9",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cvvh-rhrc-wg4q"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-g8r8-53c2-pm3f"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-23rf-6693-g89p"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-8q5v-6pqq-x66h"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-mmjf-rqrv-855v"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.API/NovaCart.Services.Payment.API.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "Microsoft.OpenApi",
+              "resolvedVersion": "2.0.0",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-v5pm-xwqc-g5wc"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.Application/NovaCart.Services.Payment.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.Contracts/NovaCart.Services.Payment.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.Domain/NovaCart.Services.Payment.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.Infrastructure/NovaCart.Services.Payment.Infrastructure.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "topLevelPackages": [
+            {
+              "id": "System.Security.Cryptography.Xml",
+              "requestedVersion": "10.0.9",
+              "resolvedVersion": "10.0.9",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cvvh-rhrc-wg4q"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-g8r8-53c2-pm3f"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-23rf-6693-g89p"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-8q5v-6pqq-x66h"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-mmjf-rqrv-855v"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Web/NovaCart.Web.Client/NovaCart.Web.Client.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Web/NovaCart.Web/NovaCart.Web.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/ArchitectureTests/NovaCart.Tests.ArchitectureTests.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "Microsoft.OpenApi",
+              "resolvedVersion": "2.0.0",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-v5pm-xwqc-g5wc"
+                }
+              ]
+            },
+            {
+              "id": "System.Security.Cryptography.Xml",
+              "resolvedVersion": "10.0.9",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cvvh-rhrc-wg4q"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-g8r8-53c2-pm3f"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-23rf-6693-g89p"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-8q5v-6pqq-x66h"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-mmjf-rqrv-855v"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/IntegrationTests/Catalog.IntegrationTests/NovaCart.Tests.Catalog.IntegrationTests.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "SSH.NET",
+              "resolvedVersion": "2025.1.0",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-q939-rpr3-3284"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-mggc-4xg6-vcxf"
+                }
+              ]
+            },
+            {
+              "id": "System.Security.Cryptography.Xml",
+              "resolvedVersion": "10.0.9",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cvvh-rhrc-wg4q"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-g8r8-53c2-pm3f"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-23rf-6693-g89p"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-8q5v-6pqq-x66h"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-mmjf-rqrv-855v"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/IntegrationTests/OrderFlow.E2E/NovaCart.Tests.OrderFlow.E2E.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "KubernetesClient",
+              "resolvedVersion": "16.0.7",
+              "vulnerabilities": [
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-w7r3-mgwf-4mqq"
+                }
+              ]
+            },
+            {
+              "id": "MessagePack",
+              "resolvedVersion": "2.5.192",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-hv8m-jj95-wg3x"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-vh6j-jc39-fggf"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-2f33-pr97-265q"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-v72x-2h86-7f8m"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-2x83-8g95-xh59"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cj9g-3mj2-g8vv"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-wfr3-xj75-pfwh"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-w567-gjr2-hm5j"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cxmj-83gh-fp49"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-q2h6-ghwm-5qm8"
+                },
+                {
+                  "severity": "Moderate",
+                  "advisoryurl": "https://github.com/advisories/GHSA-qhmf-xw27-6rqr"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Basket.UnitTests/NovaCart.Tests.Basket.UnitTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Catalog.UnitTests/NovaCart.Tests.Catalog.UnitTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Identity.UnitTests/NovaCart.Tests.Identity.UnitTests.csproj",
+      "frameworks": [
+        {
+          "framework": "net10.0",
+          "transitivePackages": [
+            {
+              "id": "System.Security.Cryptography.Xml",
+              "resolvedVersion": "10.0.9",
+              "vulnerabilities": [
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-cvvh-rhrc-wg4q"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-g8r8-53c2-pm3f"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-23rf-6693-g89p"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-8q5v-6pqq-x66h"
+                },
+                {
+                  "severity": "High",
+                  "advisoryurl": "https://github.com/advisories/GHSA-mmjf-rqrv-855v"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Ordering.UnitTests/NovaCart.Tests.Ordering.UnitTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Payment.UnitTests/NovaCart.Tests.Payment.UnitTests.csproj"
+    }
+  ]
+}

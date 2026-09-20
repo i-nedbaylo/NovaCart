@@ -1,125 +1,84 @@
 using FluentAssertions;
-using MassTransit;
 using NSubstitute;
+using NovaCart.Services.Basket.Application.Abstractions;
 using NovaCart.Services.Basket.Application.Commands;
 using NovaCart.Services.Basket.Contracts.IntegrationEvents;
 using NovaCart.Services.Basket.Domain.Entities;
 using NovaCart.Services.Basket.Domain.Repositories;
-
 namespace NovaCart.Tests.Basket.UnitTests.Application;
 
 public class CheckoutBasketHandlerTests
 {
-    private readonly IBasketRepository _basketRepository;
-    private readonly IPublishEndpoint _publishEndpoint;
-    private readonly CheckoutBasketHandler _handler;
-
+    private readonly IBasketRepository baskets = Substitute.For<IBasketRepository>();
+    private readonly ICatalogProductReader catalog = Substitute.For<ICatalogProductReader>();
+    private readonly ICheckoutStore store = Substitute.For<ICheckoutStore>();
+    private readonly ShoppingCart cart = ShoppingCart.Create("buyer-1", "EUR");
+    private CheckoutBasketCommand Command => new(cart.BuyerId, "Street", "City", "State", "Country", "12345", cart.Revision);
     public CheckoutBasketHandlerTests()
     {
-        _basketRepository = Substitute.For<IBasketRepository>();
-        _publishEndpoint = Substitute.For<IPublishEndpoint>();
-        _handler = new CheckoutBasketHandler(_basketRepository, _publishEndpoint);
+        cart.AddItem(Guid.NewGuid(), "Product", 10m, 2);
+        baskets.GetBasketAsync(cart.BuyerId, Arg.Any<CancellationToken>()).Returns(cart);
+        SetCatalog(10m);
+        store.TryAcceptAsync(cart, Arg.Any<BasketCheckoutIntegrationEvent>(), Arg.Any<CancellationToken>()).Returns(true);
     }
+    private void SetCatalog(decimal price)
+    {
+        IReadOnlyDictionary<Guid, CatalogProduct> map = new Dictionary<Guid, CatalogProduct> {
+            [cart.Items[0].ProductId] = new(cart.Items[0].ProductId, "Product", price, "EUR")
+        };
+        catalog.GetActiveProductsAsync(Arg.Any<IReadOnlyCollection<Guid>>(), Arg.Any<CancellationToken>()).Returns(map);
+    }
+    private CheckoutBasketHandler Handler => new(baskets, catalog, store);
 
     [Fact]
-    public async Task Handle_Should_ReturnSuccess_When_ValidCheckout()
+    public async Task Checkout_PersistsTrustedQuoteWithStableId()
     {
-        // Arrange
-        var buyerId = "buyer-1";
-        var cart = ShoppingCart.Create(buyerId);
-        cart.AddItem(Guid.NewGuid(), "Laptop", 999.99m, 1);
-
-        _basketRepository.GetBasketAsync(buyerId, Arg.Any<CancellationToken>())
-            .Returns(cart);
-
-        var command = new CheckoutBasketCommand(buyerId, "123 Main St", "Springfield", "IL", "US", "62704");
-
-        // Act
-        var result = await _handler.Handle(command, CancellationToken.None);
-
-        // Assert
+        var result = await Handler.Handle(Command, default);
         result.IsSuccess.Should().BeTrue();
-        await _publishEndpoint.Received(1).Publish(
-            Arg.Any<BasketCheckoutIntegrationEvent>(),
-            Arg.Any<CancellationToken>());
-        await _basketRepository.Received(1).DeleteBasketAsync(buyerId, Arg.Any<CancellationToken>());
+        await store.Received(1).TryAcceptAsync(cart, Arg.Is<BasketCheckoutIntegrationEvent>(e =>
+            e.Id == cart.Revision && e.Currency == "EUR" && e.PricingVersion == 1 &&
+            e.Items[0].UnitPrice == 10m && e.Items[0].Quantity == 2), Arg.Any<CancellationToken>());
+        await baskets.DidNotReceive().DeleteBasketAsync(Arg.Any<string>(), Arg.Any<CancellationToken>());
     }
-
     [Fact]
-    public async Task Handle_Should_PublishEventWithCorrectData_When_ValidCheckout()
+    public async Task ChangedPrice_RequiresConsentAndPreservesBasket()
     {
-        // Arrange
-        var buyerId = "buyer-1";
-        var productId = Guid.NewGuid();
-        var cart = ShoppingCart.Create(buyerId);
-        cart.AddItem(productId, "Laptop", 999.99m, 2);
-
-        _basketRepository.GetBasketAsync(buyerId, Arg.Any<CancellationToken>())
-            .Returns(cart);
-
-        BasketCheckoutIntegrationEvent? capturedEvent = null;
-        _publishEndpoint.When(x => x.Publish(
-                Arg.Any<BasketCheckoutIntegrationEvent>(),
-                Arg.Any<CancellationToken>()))
-            .Do(ci => capturedEvent = ci.Arg<BasketCheckoutIntegrationEvent>());
-
-        var command = new CheckoutBasketCommand(buyerId, "123 Main St", "Springfield", "IL", "US", "62704");
-
-        // Act
-        await _handler.Handle(command, CancellationToken.None);
-
-        // Assert
-        capturedEvent.Should().NotBeNull();
-        capturedEvent!.BuyerId.Should().Be(buyerId);
-        capturedEvent.Street.Should().Be("123 Main St");
-        capturedEvent.City.Should().Be("Springfield");
-        capturedEvent.Items.Should().ContainSingle();
-        capturedEvent.Items[0].ProductId.Should().Be(productId);
-        capturedEvent.Items[0].Quantity.Should().Be(2);
+        SetCatalog(100m);
+        var result = await Handler.Handle(Command, default);
+        result.Error.Code.Should().Be("Basket.Changed");
+        await store.DidNotReceive().TryAcceptAsync(Arg.Any<ShoppingCart>(), Arg.Any<BasketCheckoutIntegrationEvent>(), Arg.Any<CancellationToken>());
     }
-
     [Fact]
-    public async Task Handle_Should_ReturnNotFound_When_BasketNotExists()
+    public async Task RemovedProduct_IsRejectedBeforeAccepting()
     {
-        // Arrange
-        var buyerId = "buyer-1";
-
-        _basketRepository.GetBasketAsync(buyerId, Arg.Any<CancellationToken>())
-            .Returns((ShoppingCart?)null);
-
-        var command = new CheckoutBasketCommand(buyerId, "123 Main St", "Springfield", "IL", "US", "62704");
-
-        // Act
-        var result = await _handler.Handle(command, CancellationToken.None);
-
-        // Assert
-        result.IsSuccess.Should().BeFalse();
-        result.Error.Code.Should().Contain("NotFound");
-        await _publishEndpoint.DidNotReceive().Publish(
-            Arg.Any<BasketCheckoutIntegrationEvent>(),
-            Arg.Any<CancellationToken>());
+        catalog.GetActiveProductsAsync(Arg.Any<IReadOnlyCollection<Guid>>(), Arg.Any<CancellationToken>())
+            .Returns(new Dictionary<Guid, CatalogProduct>());
+        var result = await Handler.Handle(Command, default);
+        result.Error.Code.Should().Be("Basket.UnavailableProduct");
+        await store.DidNotReceive().TryAcceptAsync(Arg.Any<ShoppingCart>(), Arg.Any<BasketCheckoutIntegrationEvent>(), Arg.Any<CancellationToken>());
     }
-
     [Fact]
-    public async Task Handle_Should_ReturnFailure_When_BasketIsEmpty()
+    public async Task RetryAfterAcceptance_DoesNotNeedBasketOrCatalog()
     {
-        // Arrange
-        var buyerId = "buyer-1";
-        var cart = ShoppingCart.Create(buyerId);
-
-        _basketRepository.GetBasketAsync(buyerId, Arg.Any<CancellationToken>())
-            .Returns(cart);
-
-        var command = new CheckoutBasketCommand(buyerId, "123 Main St", "Springfield", "IL", "US", "62704");
-
-        // Act
-        var result = await _handler.Handle(command, CancellationToken.None);
-
-        // Assert
-        result.IsSuccess.Should().BeFalse();
-        result.Error.Code.Should().Contain("Empty");
-        await _publishEndpoint.DidNotReceive().Publish(
-            Arg.Any<BasketCheckoutIntegrationEvent>(),
-            Arg.Any<CancellationToken>());
+        store.IsAcceptedAsync(cart.BuyerId, cart.Revision, Arg.Any<CancellationToken>()).Returns(true);
+        (await Handler.Handle(Command, default)).IsSuccess.Should().BeTrue();
+        await baskets.DidNotReceive().GetBasketAsync(Arg.Any<string>(), Arg.Any<CancellationToken>());
+    }
+    [Fact]
+    public async Task ChangedRevision_CannotConsumeNewBasket()
+    {
+        (await Handler.Handle(Command with { BasketRevision = Guid.NewGuid() }, default)).Error.Code.Should().Be("Basket.Changed");
+        await store.DidNotReceive().TryAcceptAsync(Arg.Any<ShoppingCart>(), Arg.Any<BasketCheckoutIntegrationEvent>(), Arg.Any<CancellationToken>());
+    }
+    [Fact]
+    public async Task ConcurrentUpdateDuringPricing_ReturnsConflict()
+    {
+        store.TryAcceptAsync(cart, Arg.Any<BasketCheckoutIntegrationEvent>(), Arg.Any<CancellationToken>()).Returns(false);
+        (await Handler.Handle(Command, default)).Error.Code.Should().Be("Basket.Changed");
+    }
+    [Fact]
+    public async Task MissingRevision_IsRejected()
+    {
+        (await Handler.Handle(Command with { BasketRevision = Guid.Empty }, default)).Error.Code.Should().Be("Basket.RevisionRequired");
     }
 }

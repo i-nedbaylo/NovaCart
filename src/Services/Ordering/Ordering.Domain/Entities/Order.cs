@@ -7,6 +7,7 @@ namespace NovaCart.Services.Ordering.Domain.Entities;
 public sealed class Order : AggregateRoot
 {
     public Guid BuyerId { get; private set; }
+    public string Currency { get; private set; } = "USD";
 
     // Dedup key: the id of the integration event that created this order (null for orders
     // created directly via the API). Lets the checkout consumer ignore redelivered events.
@@ -23,14 +24,18 @@ public sealed class Order : AggregateRoot
 
     private Order() { }
 
-    public static Order Create(Guid buyerId, Address shippingAddress, Guid? sourceMessageId = null)
+    public static Order Create(Guid buyerId, Address shippingAddress, Guid? sourceMessageId = null, string currency = "USD")
     {
         if (buyerId == Guid.Empty)
             throw new ArgumentException("Buyer ID cannot be empty.", nameof(buyerId));
 
+        if (currency.Length != 3 || !currency.All(char.IsAsciiLetterUpper))
+            throw new ArgumentException("Currency must be an uppercase 3-letter code.", nameof(currency));
+
         var order = new Order
         {
             BuyerId = buyerId,
+            Currency = currency,
             OrderDate = DateTimeOffset.UtcNow,
             Status = OrderStatus.Created,
             ShippingAddress = shippingAddress,
@@ -68,9 +73,18 @@ public sealed class Order : AggregateRoot
         }
     }
 
+    public void RequestCancellation()
+    {
+        if (Status is OrderStatus.Cancelled or OrderStatus.CancellationPending) return;
+        if (Status is OrderStatus.Shipped or OrderStatus.Delivered)
+            throw new InvalidOperationException("A shipped order cannot be cancelled.");
+        Status = OrderStatus.CancellationPending;
+        UpdatedAt = DateTimeOffset.UtcNow;
+    }
+
     public void Cancel()
     {
-        if (Status == OrderStatus.Delivered)
+        if (Status is OrderStatus.Delivered or OrderStatus.Shipped or OrderStatus.Paid)
             throw new InvalidOperationException("Cannot cancel a delivered order.");
 
         if (Status == OrderStatus.Cancelled)

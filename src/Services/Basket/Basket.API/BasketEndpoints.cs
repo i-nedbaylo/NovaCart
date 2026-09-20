@@ -68,7 +68,7 @@ public static class BasketEndpoints
                 request.City,
                 request.State,
                 request.Country,
-                request.ZipCode);
+                request.ZipCode, request.BasketRevision);
 
             var result = await sender.Send(command);
 
@@ -106,4 +106,4 @@ public sealed record CheckoutBasketRequest(
     string City,
     string State,
     string Country,
-    string ZipCode);
+    string ZipCode, Guid BasketRevision);

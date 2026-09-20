@@ -1,0 +1,6 @@
+Аудит NovaCart: воспроизведение дефектов настоящими обработчиками.
+Репозитории, каталог, UnitOfWork и транспорт заменены NSubstitute; БД и брокер не запускаются.
+ВОСПРОИЗВЕДЕНО: Catalog=100 EUR; OrderCreated=100 USD; Payment=100 USD.
+ВОСПРОИЗВЕДЕНО: заказ на 0 сохранён в статусе Created; Payment consumer: Amount must be greater than zero. (Parameter 'amount'); результат оплаты не создан.
+ВОСПРОИЗВЕДЕНО: CancelOrderHandler принял Paid -> Cancelled; запись Payment осталась Succeeded.
+ИТОГО: 3 сценария воспроизведены. Это подтверждение дефектов на уровне обработчиков, не сквозная проверка PostgreSQL/RabbitMQ.

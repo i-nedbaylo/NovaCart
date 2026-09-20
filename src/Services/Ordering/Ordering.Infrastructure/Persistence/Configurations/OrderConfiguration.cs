@@ -12,6 +12,8 @@ public sealed class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.ToTable("orders");
 
         builder.HasKey(o => o.Id);
+        builder.Property(o => o.Currency).HasColumnName("currency").HasMaxLength(3).HasDefaultValue("USD").IsRequired();
+        builder.Property<uint>("xmin").HasColumnType("xid").IsRowVersion();
 
         builder.Property(o => o.Id)
             .HasColumnName("id");

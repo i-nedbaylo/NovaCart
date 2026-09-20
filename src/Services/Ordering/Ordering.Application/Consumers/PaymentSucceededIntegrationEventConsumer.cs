@@ -47,7 +47,7 @@ public sealed class PaymentSucceededIntegrationEventConsumer : IConsumer<Payment
         }
 
         // Guard against terminal or post-payment statuses where marking as paid is invalid
-        if (order.Status is OrderStatus.Cancelled or OrderStatus.Shipped or OrderStatus.Delivered)
+        if (order.Status is OrderStatus.Cancelled or OrderStatus.CancellationPending or OrderStatus.Shipped or OrderStatus.Delivered)
         {
             _logger.LogWarning(
                 "Received payment succeeded for Order {OrderId} in status {Status}. Skipping.",

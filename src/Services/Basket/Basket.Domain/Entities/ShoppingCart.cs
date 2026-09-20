@@ -9,6 +9,10 @@ namespace NovaCart.Services.Basket.Domain.Entities;
 public sealed class ShoppingCart
 {
     [JsonInclude]
+    public Guid Revision { get; private set; }
+    [JsonInclude]
+    public string Currency { get; private set; } = "USD";
+    [JsonInclude]
     public string BuyerId { get; private set; } = null!;
 
     [JsonInclude]
@@ -19,13 +23,13 @@ public sealed class ShoppingCart
     [JsonConstructor]
     private ShoppingCart() { }
 
-    public static ShoppingCart Create(string buyerId)
+    public static ShoppingCart Create(string buyerId, string currency = "USD")
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(buyerId);
 
         return new ShoppingCart
         {
-            BuyerId = buyerId
+            BuyerId = buyerId, Revision = Guid.NewGuid(), Currency = currency
         };
     }
 

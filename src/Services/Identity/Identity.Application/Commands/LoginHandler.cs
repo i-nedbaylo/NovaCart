@@ -26,11 +26,19 @@ public sealed class LoginHandler : ICommandHandler<LoginCommand, TokenResponse>
             return Result<TokenResponse>.Failure(Error.Validation("Auth.InvalidCredentials", "Invalid email or password."));
         }
 
+        if (await _userManager.IsLockedOutAsync(user))
+            return Result<TokenResponse>.Failure(Error.Validation("Auth.InvalidCredentials", "Invalid email or password."));
+
         var isPasswordValid = await _userManager.CheckPasswordAsync(user, request.Password);
         if (!isPasswordValid)
         {
+            await _userManager.AccessFailedAsync(user);
             return Result<TokenResponse>.Failure(Error.Validation("Auth.InvalidCredentials", "Invalid email or password."));
         }
+
+        var reset = await _userManager.ResetAccessFailedCountAsync(user);
+        if (!reset.Succeeded)
+            return Result<TokenResponse>.Failure(Error.Conflict("Auth.ConcurrentUpdate", "Please retry signing in."));
 
         var roles = await _userManager.GetRolesAsync(user);
 
@@ -39,7 +47,9 @@ public sealed class LoginHandler : ICommandHandler<LoginCommand, TokenResponse>
         var expiresAt = _tokenService.GetAccessTokenExpiration();
 
         user.UpdateRefreshToken(refreshToken, expiresAt.AddDays(7));
-        await _userManager.UpdateAsync(user);
+        var saved = await _userManager.UpdateAsync(user);
+        if (!saved.Succeeded)
+            return Result<TokenResponse>.Failure(Error.Conflict("Auth.ConcurrentUpdate", "Please retry signing in."));
 
         return Result<TokenResponse>.Success(new TokenResponse(accessToken, refreshToken, expiresAt));
     }

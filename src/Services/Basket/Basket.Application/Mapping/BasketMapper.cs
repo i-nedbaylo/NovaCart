@@ -14,6 +14,6 @@ internal static class BasketMapper
                 i.ProductName,
                 i.Price,
                 i.Quantity)).ToList(),
-            cart.TotalPrice);
+            cart.TotalPrice, cart.Revision, cart.Currency);
     }
 }

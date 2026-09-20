@@ -12,7 +12,7 @@ public sealed class OutboxOptions
     public int BatchSize { get; set; } = 20;
 
     /// <summary>
-    /// Maximum number of publish retries before marking a message as permanently failed.
+    /// Number of failed publishes before logging an error; transient failures remain retryable.
     /// Default: 5.
     /// </summary>
     public int MaxRetries { get; set; } = 5;

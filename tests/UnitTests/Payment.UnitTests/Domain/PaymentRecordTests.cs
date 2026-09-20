@@ -48,7 +48,6 @@ public class PaymentRecordTests
     }
 
     [Theory]
-    [InlineData(0)]
     [InlineData(-1)]
     [InlineData(-999.99)]
     public void Create_Should_ThrowArgumentException_When_InvalidAmount(decimal amount)

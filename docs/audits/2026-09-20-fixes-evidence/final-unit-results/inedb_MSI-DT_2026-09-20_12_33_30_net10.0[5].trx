@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="68499b3c-f106-4f79-9a70-80d706b1f09c" name="inedb@MSI-DT 2026-09-20 12:33:30" runUser="MSI-DT\inedb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T12:33:30.6116094+03:00" queuing="2026-09-20T12:33:30.6116099+03:00" start="2026-09-20T12:33:29.5662166+03:00" finish="2026-09-20T12:33:30.6750832+03:00" />
+  <TestSettings name="default" id="e32005dd-518d-4626-b907-a85e590b1169">
+    <Deployment runDeploymentRoot="inedb_MSI-DT_2026-09-20_12_33_30" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="fbf8ac1f-1c0a-4de7-9f83-f5bcb2b0f6b7" testId="5b1d4955-498f-753f-14ae-a3c646eb544a" testName="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Domain_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0844208" startTime="2026-09-20T12:33:30.3724619+03:00" endTime="2026-09-20T12:33:30.4711834+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fbf8ac1f-1c0a-4de7-9f83-f5bcb2b0f6b7" />
+    <UnitTestResult executionId="38722242-8216-49ef-95d3-8816af1d1987" testId="0bf2f3a5-d5a0-5ef2-0a28-c65e1db95f98" testName="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Application_Should_NotDependOn_Infrastructure" computerName="MSI-DT" duration="00:00:00.0076519" startTime="2026-09-20T12:33:30.5737029+03:00" endTime="2026-09-20T12:33:30.5804776+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38722242-8216-49ef-95d3-8816af1d1987" />
+    <UnitTestResult executionId="0bc4760c-ebd0-409a-a627-6f8d2db8bfc0" testId="eb06f477-58da-2475-5810-c0d66b368319" testName="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Domain_Should_NotDependOn_Application" computerName="MSI-DT" duration="00:00:00.0835589" startTime="2026-09-20T12:33:30.3726062+03:00" endTime="2026-09-20T12:33:30.4632924+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0bc4760c-ebd0-409a-a627-6f8d2db8bfc0" />
+    <UnitTestResult executionId="cac12e2c-408d-4447-b6e0-6151f448dade" testId="dbf9c721-ace1-e3e0-100c-d59c64a4c388" testName="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Domain_Should_NotDependOn_Infrastructure" computerName="MSI-DT" duration="00:00:00.0188972" startTime="2026-09-20T12:33:30.5722821+03:00" endTime="2026-09-20T12:33:30.5729903+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cac12e2c-408d-4447-b6e0-6151f448dade" />
+    <UnitTestResult executionId="94315f55-f648-46ba-8018-06008cd4142f" testId="7ad13c6e-b394-7158-ed12-acad970fcf0e" testName="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Domain_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0037439" startTime="2026-09-20T12:33:30.5799444+03:00" endTime="2026-09-20T12:33:30.5803398+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="94315f55-f648-46ba-8018-06008cd4142f" />
+    <UnitTestResult executionId="281cd539-d098-4ed2-8775-7166eb9151c9" testId="1508575a-7667-d96f-0880-e0b53c3e37ea" testName="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Infrastructure_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0240061" startTime="2026-09-20T12:33:30.5018079+03:00" endTime="2026-09-20T12:33:30.5724034+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="281cd539-d098-4ed2-8775-7166eb9151c9" />
+    <UnitTestResult executionId="5710e3ab-e66e-43dc-9278-d7d7a8bf4695" testId="af996a6c-0f1d-31ea-39ee-129450e180fc" testName="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Infrastructure_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0157361" startTime="2026-09-20T12:33:30.5820208+03:00" endTime="2026-09-20T12:33:30.5828712+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5710e3ab-e66e-43dc-9278-d7d7a8bf4695" />
+    <UnitTestResult executionId="c368f526-9b6b-4ea3-8351-019b2cba324e" testId="6ca4adb0-d7fb-09aa-ae3e-b3d09a0e8a50" testName="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Application_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0061494" startTime="2026-09-20T12:33:30.5801554+03:00" endTime="2026-09-20T12:33:30.5805374+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c368f526-9b6b-4ea3-8351-019b2cba324e" />
+    <UnitTestResult executionId="af64b30c-a481-4fa5-a447-4c1daa185a59" testId="8e1549b9-3f60-74a1-fb01-da53fd96ae37" testName="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Application_Should_NotDependOn_Infrastructure" computerName="MSI-DT" duration="00:00:00.0103181" startTime="2026-09-20T12:33:30.5803003+03:00" endTime="2026-09-20T12:33:30.5818678+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af64b30c-a481-4fa5-a447-4c1daa185a59" />
+    <UnitTestResult executionId="a1a05f85-a320-4178-90c5-0674321cb3e9" testId="aeca759a-9a9b-5617-5d21-22044112ab61" testName="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Domain_Should_NotDependOn_Infrastructure" computerName="MSI-DT" duration="00:00:00.0009652" startTime="2026-09-20T12:33:30.5012676+03:00" endTime="2026-09-20T12:33:30.5013479+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1a05f85-a320-4178-90c5-0674321cb3e9" />
+    <UnitTestResult executionId="77c63c1a-4dbd-4d32-babf-6c8c5a290ab8" testId="776eaeb3-5a6f-4d4f-d025-4236e59da2d4" testName="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Infrastructure_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0047151" startTime="2026-09-20T12:33:30.5015597+03:00" endTime="2026-09-20T12:33:30.5018842+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="77c63c1a-4dbd-4d32-babf-6c8c5a290ab8" />
+    <UnitTestResult executionId="820c519f-75e8-4ed8-963e-780e691ed449" testId="ea29a29c-0a92-c06c-5881-c6bc4cbcf7ce" testName="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Domain_Should_NotDependOn_Infrastructure" computerName="MSI-DT" duration="00:00:00.0011610" startTime="2026-09-20T12:33:30.5740317+03:00" endTime="2026-09-20T12:33:30.5800063+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="820c519f-75e8-4ed8-963e-780e691ed449" />
+    <UnitTestResult executionId="ef842619-8699-40d8-a74d-5e9b276cb7bb" testId="d28d3ada-b74e-0160-1610-7f440669b4c8" testName="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Domain_Should_NotDependOn_Infrastructure" computerName="MSI-DT" duration="00:00:00.0036065" startTime="2026-09-20T12:33:30.5859786+03:00" endTime="2026-09-20T12:33:30.5860375+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ef842619-8699-40d8-a74d-5e9b276cb7bb" />
+    <UnitTestResult executionId="6e928db0-b1e2-4a62-980a-6be7f0790afa" testId="eb23aaee-0874-8afc-253d-0733dc5a4729" testName="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Domain_Should_NotDependOn_Application" computerName="MSI-DT" duration="00:00:00.0066685" startTime="2026-09-20T12:33:30.5861635+03:00" endTime="2026-09-20T12:33:30.5861996+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6e928db0-b1e2-4a62-980a-6be7f0790afa" />
+    <UnitTestResult executionId="bb60ca4b-8a34-41a0-af73-5598df8979b7" testId="2ef29618-f276-d509-9165-74b6ce77cada" testName="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Application_Should_NotDependOn_Infrastructure" computerName="MSI-DT" duration="00:00:00.0385495" startTime="2026-09-20T12:33:30.5804403+03:00" endTime="2026-09-20T12:33:30.5846415+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb60ca4b-8a34-41a0-af73-5598df8979b7" />
+    <UnitTestResult executionId="69611c9b-4211-4aed-9507-7a4c8bce8901" testId="110466e6-ff48-fabc-8177-b7d753b4b01e" testName="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Domain_Should_NotDependOn_Application" computerName="MSI-DT" duration="00:00:00.0021398" startTime="2026-09-20T12:33:30.5729104+03:00" endTime="2026-09-20T12:33:30.5738229+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="69611c9b-4211-4aed-9507-7a4c8bce8901" />
+    <UnitTestResult executionId="61d8fa23-afcb-48c2-bcb4-36634e344ea3" testId="b40715b2-2eec-3430-6690-36f0f7123335" testName="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Domain_Should_NotDependOn_Application" computerName="MSI-DT" duration="00:00:00.0015419" startTime="2026-09-20T12:33:30.5732223+03:00" endTime="2026-09-20T12:33:30.5733007+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="61d8fa23-afcb-48c2-bcb4-36634e344ea3" />
+    <UnitTestResult executionId="3cd7e3ec-40cb-43b1-be19-8bc790137244" testId="2a87b21c-bb5f-8538-71d7-25a385fde934" testName="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Domain_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0023018" startTime="2026-09-20T12:33:30.5736675+03:00" endTime="2026-09-20T12:33:30.5801939+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3cd7e3ec-40cb-43b1-be19-8bc790137244" />
+    <UnitTestResult executionId="2f51e7c3-3a62-463f-8172-2dec441658ee" testId="4a497066-d68e-b196-b227-0d8c4d20f139" testName="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Application_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0218238" startTime="2026-09-20T12:33:30.5020978+03:00" endTime="2026-09-20T12:33:30.5733429+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2f51e7c3-3a62-463f-8172-2dec441658ee" />
+    <UnitTestResult executionId="a151cae1-71b7-4383-ad78-5739b82549a9" testId="16c340ba-2664-636a-f701-93f081694bd0" testName="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Application_Should_NotDependOn_Infrastructure" computerName="MSI-DT" duration="00:00:00.0306633" startTime="2026-09-20T12:33:30.5806232+03:00" endTime="2026-09-20T12:33:30.5845186+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a151cae1-71b7-4383-ad78-5739b82549a9" />
+    <UnitTestResult executionId="88cbd1c1-3d7d-43ed-84ff-8dd9c96fd522" testId="253ffc5b-844d-cb76-fa28-7a500d0d10c1" testName="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Infrastructure_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.1173572" startTime="2026-09-20T12:33:30.3698150+03:00" endTime="2026-09-20T12:33:30.5751960+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="88cbd1c1-3d7d-43ed-84ff-8dd9c96fd522" />
+    <UnitTestResult executionId="00b7e0c0-17a9-4788-992a-4396816aa862" testId="a3c02fab-709d-ce82-540d-1635dafbbb23" testName="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Application_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0067741" startTime="2026-09-20T12:33:30.5862951+03:00" endTime="2026-09-20T12:33:30.5863287+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="00b7e0c0-17a9-4788-992a-4396816aa862" />
+    <UnitTestResult executionId="a07cb889-6a17-418f-97c2-0c5ebffc9cf2" testId="ae971996-a39d-7d8d-b812-56a566328d69" testName="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Domain_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0009871" startTime="2026-09-20T12:33:30.5002329+03:00" endTime="2026-09-20T12:33:30.5003144+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a07cb889-6a17-418f-97c2-0c5ebffc9cf2" />
+    <UnitTestResult executionId="52b07b70-402a-416e-9c47-743967911d24" testId="4fb5dd8b-166b-ebd4-0284-4a31baabfac1" testName="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Application_Should_NotDependOn_Api" computerName="MSI-DT" duration="00:00:00.0952916" startTime="2026-09-20T12:33:30.3725463+03:00" endTime="2026-09-20T12:33:30.5021763+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="52b07b70-402a-416e-9c47-743967911d24" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Domain_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="7ad13c6e-b394-7158-ed12-acad970fcf0e">
+      <Execution id="94315f55-f648-46ba-8018-06008cd4142f" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests" name="Domain_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Infrastructure_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="af996a6c-0f1d-31ea-39ee-129450e180fc">
+      <Execution id="5710e3ab-e66e-43dc-9278-d7d7a8bf4695" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests" name="Infrastructure_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Domain_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="ae971996-a39d-7d8d-b812-56a566328d69">
+      <Execution id="a07cb889-6a17-418f-97c2-0c5ebffc9cf2" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests" name="Domain_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Application_Should_NotDependOn_Infrastructure" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="0bf2f3a5-d5a0-5ef2-0a28-c65e1db95f98">
+      <Execution id="38722242-8216-49ef-95d3-8816af1d1987" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests" name="Application_Should_NotDependOn_Infrastructure" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Domain_Should_NotDependOn_Infrastructure" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="d28d3ada-b74e-0160-1610-7f440669b4c8">
+      <Execution id="ef842619-8699-40d8-a74d-5e9b276cb7bb" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests" name="Domain_Should_NotDependOn_Infrastructure" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Domain_Should_NotDependOn_Infrastructure" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="dbf9c721-ace1-e3e0-100c-d59c64a4c388">
+      <Execution id="cac12e2c-408d-4447-b6e0-6151f448dade" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests" name="Domain_Should_NotDependOn_Infrastructure" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Infrastructure_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="253ffc5b-844d-cb76-fa28-7a500d0d10c1">
+      <Execution id="88cbd1c1-3d7d-43ed-84ff-8dd9c96fd522" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests" name="Infrastructure_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Infrastructure_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="776eaeb3-5a6f-4d4f-d025-4236e59da2d4">
+      <Execution id="77c63c1a-4dbd-4d32-babf-6c8c5a290ab8" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests" name="Infrastructure_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Infrastructure_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="1508575a-7667-d96f-0880-e0b53c3e37ea">
+      <Execution id="281cd539-d098-4ed2-8775-7166eb9151c9" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests" name="Infrastructure_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Application_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="6ca4adb0-d7fb-09aa-ae3e-b3d09a0e8a50">
+      <Execution id="c368f526-9b6b-4ea3-8351-019b2cba324e" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests" name="Application_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Domain_Should_NotDependOn_Infrastructure" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="aeca759a-9a9b-5617-5d21-22044112ab61">
+      <Execution id="a1a05f85-a320-4178-90c5-0674321cb3e9" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests" name="Domain_Should_NotDependOn_Infrastructure" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Application_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="4a497066-d68e-b196-b227-0d8c4d20f139">
+      <Execution id="2f51e7c3-3a62-463f-8172-2dec441658ee" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests" name="Application_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Domain_Should_NotDependOn_Application" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="eb23aaee-0874-8afc-253d-0733dc5a4729">
+      <Execution id="6e928db0-b1e2-4a62-980a-6be7f0790afa" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests" name="Domain_Should_NotDependOn_Application" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Domain_Should_NotDependOn_Application" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="110466e6-ff48-fabc-8177-b7d753b4b01e">
+      <Execution id="69611c9b-4211-4aed-9507-7a4c8bce8901" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests" name="Domain_Should_NotDependOn_Application" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Domain_Should_NotDependOn_Infrastructure" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="ea29a29c-0a92-c06c-5881-c6bc4cbcf7ce">
+      <Execution id="820c519f-75e8-4ed8-963e-780e691ed449" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests" name="Domain_Should_NotDependOn_Infrastructure" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Domain_Should_NotDependOn_Application" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="b40715b2-2eec-3430-6690-36f0f7123335">
+      <Execution id="61d8fa23-afcb-48c2-bcb4-36634e344ea3" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests" name="Domain_Should_NotDependOn_Application" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Application_Should_NotDependOn_Infrastructure" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="2ef29618-f276-d509-9165-74b6ce77cada">
+      <Execution id="bb60ca4b-8a34-41a0-af73-5598df8979b7" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests" name="Application_Should_NotDependOn_Infrastructure" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Domain_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="2a87b21c-bb5f-8538-71d7-25a385fde934">
+      <Execution id="3cd7e3ec-40cb-43b1-be19-8bc790137244" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests" name="Domain_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Application_Should_NotDependOn_Infrastructure" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="16c340ba-2664-636a-f701-93f081694bd0">
+      <Execution id="a151cae1-71b7-4383-ad78-5739b82549a9" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests" name="Application_Should_NotDependOn_Infrastructure" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests.Application_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="a3c02fab-709d-ce82-540d-1635dafbbb23">
+      <Execution id="00b7e0c0-17a9-4788-992a-4396816aa862" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.OrderingArchitectureTests" name="Application_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Application_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="4fb5dd8b-166b-ebd4-0284-4a31baabfac1">
+      <Execution id="52b07b70-402a-416e-9c47-743967911d24" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests" name="Application_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests.Application_Should_NotDependOn_Infrastructure" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="8e1549b9-3f60-74a1-fb01-da53fd96ae37">
+      <Execution id="af64b30c-a481-4fa5-a447-4c1daa185a59" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.CatalogArchitectureTests" name="Application_Should_NotDependOn_Infrastructure" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests.Domain_Should_NotDependOn_Api" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="5b1d4955-498f-753f-14ae-a3c646eb544a">
+      <Execution id="fbf8ac1f-1c0a-4de7-9f83-f5bcb2b0f6b7" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.PaymentArchitectureTests" name="Domain_Should_NotDependOn_Api" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests.Domain_Should_NotDependOn_Application" storage="d:\repos\novacart\tests\architecturetests\bin\release\net10.0\novacart.tests.architecturetests.dll" id="eb06f477-58da-2475-5810-c0d66b368319">
+      <Execution id="0bc4760c-ebd0-409a-a627-6f8d2db8bfc0" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.ArchitectureTests.BasketArchitectureTests" name="Domain_Should_NotDependOn_Application" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="5b1d4955-498f-753f-14ae-a3c646eb544a" executionId="fbf8ac1f-1c0a-4de7-9f83-f5bcb2b0f6b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0bf2f3a5-d5a0-5ef2-0a28-c65e1db95f98" executionId="38722242-8216-49ef-95d3-8816af1d1987" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eb06f477-58da-2475-5810-c0d66b368319" executionId="0bc4760c-ebd0-409a-a627-6f8d2db8bfc0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dbf9c721-ace1-e3e0-100c-d59c64a4c388" executionId="cac12e2c-408d-4447-b6e0-6151f448dade" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ad13c6e-b394-7158-ed12-acad970fcf0e" executionId="94315f55-f648-46ba-8018-06008cd4142f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1508575a-7667-d96f-0880-e0b53c3e37ea" executionId="281cd539-d098-4ed2-8775-7166eb9151c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af996a6c-0f1d-31ea-39ee-129450e180fc" executionId="5710e3ab-e66e-43dc-9278-d7d7a8bf4695" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6ca4adb0-d7fb-09aa-ae3e-b3d09a0e8a50" executionId="c368f526-9b6b-4ea3-8351-019b2cba324e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8e1549b9-3f60-74a1-fb01-da53fd96ae37" executionId="af64b30c-a481-4fa5-a447-4c1daa185a59" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aeca759a-9a9b-5617-5d21-22044112ab61" executionId="a1a05f85-a320-4178-90c5-0674321cb3e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="776eaeb3-5a6f-4d4f-d025-4236e59da2d4" executionId="77c63c1a-4dbd-4d32-babf-6c8c5a290ab8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ea29a29c-0a92-c06c-5881-c6bc4cbcf7ce" executionId="820c519f-75e8-4ed8-963e-780e691ed449" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d28d3ada-b74e-0160-1610-7f440669b4c8" executionId="ef842619-8699-40d8-a74d-5e9b276cb7bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eb23aaee-0874-8afc-253d-0733dc5a4729" executionId="6e928db0-b1e2-4a62-980a-6be7f0790afa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2ef29618-f276-d509-9165-74b6ce77cada" executionId="bb60ca4b-8a34-41a0-af73-5598df8979b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="110466e6-ff48-fabc-8177-b7d753b4b01e" executionId="69611c9b-4211-4aed-9507-7a4c8bce8901" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b40715b2-2eec-3430-6690-36f0f7123335" executionId="61d8fa23-afcb-48c2-bcb4-36634e344ea3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2a87b21c-bb5f-8538-71d7-25a385fde934" executionId="3cd7e3ec-40cb-43b1-be19-8bc790137244" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a497066-d68e-b196-b227-0d8c4d20f139" executionId="2f51e7c3-3a62-463f-8172-2dec441658ee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="16c340ba-2664-636a-f701-93f081694bd0" executionId="a151cae1-71b7-4383-ad78-5739b82549a9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="253ffc5b-844d-cb76-fa28-7a500d0d10c1" executionId="88cbd1c1-3d7d-43ed-84ff-8dd9c96fd522" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a3c02fab-709d-ce82-540d-1635dafbbb23" executionId="00b7e0c0-17a9-4788-992a-4396816aa862" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae971996-a39d-7d8d-b812-56a566328d69" executionId="a07cb889-6a17-418f-97c2-0c5ebffc9cf2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4fb5dd8b-166b-ebd4-0284-4a31baabfac1" executionId="52b07b70-402a-416e-9c47-743967911d24" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Список результатов" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="24" executed="24" passed="24" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.12)&#xD;
+[xUnit.net 00:00:00.10]   Discovering: NovaCart.Tests.ArchitectureTests&#xD;
+[xUnit.net 00:00:00.15]   Discovered:  NovaCart.Tests.ArchitectureTests&#xD;
+[xUnit.net 00:00:00.18]   Starting:    NovaCart.Tests.ArchitectureTests&#xD;
+[xUnit.net 00:00:00.43]   Finished:    NovaCart.Tests.ArchitectureTests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

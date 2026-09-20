@@ -27,6 +27,6 @@ internal static class OrderDtoMapper
                 i.Quantity,
                 i.TotalPrice)).ToList(),
             order.CreatedAt,
-            order.UpdatedAt);
+            order.UpdatedAt, order.Currency);
     }
 }

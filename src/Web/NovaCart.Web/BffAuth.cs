@@ -16,6 +16,7 @@ namespace NovaCart.Web;
 /// </summary>
 public static class BffAuth
 {
+    public const string SessionIdClaim = "session_id";
     public const string AccessTokenClaim = "access_token";
     public const string RefreshTokenClaim = "refresh_token";
     public const string ExpiresAtClaim = "exp_at";
@@ -32,7 +33,7 @@ public static class BffAuth
             {
                 options.LoginPath = "/login";
                 options.AccessDeniedPath = "/login";
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                options.ExpireTimeSpan = TimeSpan.FromDays(7);
                 options.SlidingExpiration = true;
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SameSite = SameSiteMode.Lax;
@@ -46,6 +47,9 @@ public static class BffAuth
                 };
             });
 
+        services.AddMemoryCache();
+        services.AddSingleton(TimeProvider.System);
+        services.AddSingleton<BffTokenSessionStore>();
         services.AddAuthorization();
         services.AddCascadingAuthenticationState();
 
@@ -57,7 +61,7 @@ public static class BffAuth
     /// from the token; the raw access/refresh tokens are kept as server-only claims so the BFF
     /// can attach them to downstream calls. These token claims are never sent to the browser.
     /// </summary>
-    public static ClaimsPrincipal BuildPrincipal(TokenResponse token)
+    public static ClaimsPrincipal BuildPrincipal(TokenResponse token, string? sessionId = null)
     {
         var jwt = new JsonWebToken(token.AccessToken);
 
@@ -70,6 +74,7 @@ public static class BffAuth
 
         var claims = new List<Claim>
         {
+            new(SessionIdClaim, sessionId ?? Guid.NewGuid().ToString("N")),
             new(ClaimTypes.NameIdentifier, userId),
             new(ClaimTypes.Email, email),
             new(ClaimTypes.Name, name),
@@ -121,12 +126,12 @@ public static class BffAuth
     {
         try
         {
-            var authService = context.HttpContext.RequestServices.GetRequiredService<AuthService>();
-            var refreshed = await authService.RefreshTokenAsync(refreshToken);
+            var sessions = context.HttpContext.RequestServices.GetRequiredService<BffTokenSessionStore>();
+            var refreshed = await sessions.GetAsync(context.Principal!, context.HttpContext.RequestAborted);
             if (refreshed is null)
                 return false;
 
-            context.ReplacePrincipal(BuildPrincipal(refreshed));
+            context.ReplacePrincipal(BuildPrincipal(refreshed, BffTokenSessionStore.SessionId(context.Principal!)));
             context.ShouldRenew = true;
             return true;
         }
@@ -156,6 +161,7 @@ public static class BffAuth
 
         group.MapPost("/logout", async (HttpContext http) =>
         {
+            await http.RequestServices.GetRequiredService<BffTokenSessionStore>().RevokeAsync(http.User);
             await http.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Results.LocalRedirect("/");
         }).DisableAntiforgery();

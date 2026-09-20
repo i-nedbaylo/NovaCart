@@ -50,7 +50,7 @@ else
                 </MudChip>
             </MudTd>
             <MudTd DataLabel="Items">@context.Items.Count</MudTd>
-            <MudTd DataLabel="Total">@context.TotalAmount.ToString("C2")</MudTd>
+            <MudTd DataLabel="Total">@context.TotalAmount.ToString("N2") @context.Currency</MudTd>
         </RowTemplate>
         <ChildRowContent>
             <MudTr>
@@ -79,9 +79,9 @@ else
                                     {
                                         <tr>
                                             <td>@item.ProductName</td>
-                                            <td>@item.UnitPrice.ToString("C2")</td>
+                                            <td>@item.UnitPrice.ToString("N2")</td>
                                             <td>@item.Quantity</td>
-                                            <td>@((item.UnitPrice * item.Quantity).ToString("C2"))</td>
+                                            <td>@((item.UnitPrice * item.Quantity).ToString("N2"))</td>
                                         </tr>
                                     }
                                 </tbody>

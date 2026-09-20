@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="1107ca07-bd4e-4594-a68d-920a4a44bd34" name="inedb@MSI-DT 2026-09-20 12:33:30" runUser="MSI-DT\inedb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T12:33:30.3918620+03:00" queuing="2026-09-20T12:33:30.3918624+03:00" start="2026-09-20T12:33:29.5434884+03:00" finish="2026-09-20T12:33:30.3923755+03:00" />
+  <TestSettings name="default" id="a2d75e4e-0473-4517-aaae-5bab96f3e6e7">
+    <Deployment runDeploymentRoot="inedb_MSI-DT_2026-09-20_12_33_30" />
+  </TestSettings>
+  <TestLists>
+    <TestList name="Список результатов" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="0" executed="0" passed="0" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.12)&#xD;
+[xUnit.net 00:00:00.10]   Discovering: NovaCart.Tests.Catalog.IntegrationTests&#xD;
+[xUnit.net 00:00:00.17]   Discovered:  NovaCart.Tests.Catalog.IntegrationTests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="MSI-DT" outcome="Warning" timestamp="2026-09-20T12:33:30.3122692+03:00">
+        <Text>Нет тестов, соответствующих указанному фильтру тестовых случаев "Category!=Integration" в D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

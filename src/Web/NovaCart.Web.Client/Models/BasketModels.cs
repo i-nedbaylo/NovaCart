@@ -2,6 +2,8 @@ namespace NovaCart.Web.Client.Models;
 
 public sealed class BasketModel
 {
+    public Guid Revision { get; set; }
+    public string Currency { get; set; } = "USD";
     public string BuyerId { get; set; } = string.Empty;
     public List<BasketItemModel> Items { get; set; } = [];
     public decimal TotalPrice { get; set; }
@@ -17,6 +19,7 @@ public sealed class BasketItemModel
 
 public sealed class CheckoutModel
 {
+    public Guid BasketRevision { get; set; }
     public string BuyerId { get; set; } = string.Empty;
     public string Street { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;

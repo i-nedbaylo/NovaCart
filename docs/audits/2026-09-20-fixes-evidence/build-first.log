@@ -1,0 +1,16 @@
+D:\Repos\NovaCart\NovaCart.ServiceDefaults\Extensions.cs(30,72): error CS1061: "HttpRetryStrategyOptions" не содержит определения "DisableForUnsafeHttpMethods", и не удалось найти доступный метод расширения "DisableForUnsafeHttpMethods", принимающий тип "HttpRetryStrategyOptions" в качестве первого аргумента (возможно, пропущена директива using или ссылка на сборку). [D:\Repos\NovaCart\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj]
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.Services.Identity.Domain -> D:\Repos\NovaCart\src\Services\Identity\Identity.Domain\bin\Debug\net10.0\NovaCart.Services.Identity.Domain.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Identity.Application -> D:\Repos\NovaCart\src\Services\Identity\Identity.Application\bin\Debug\net10.0\NovaCart.Services.Identity.Application.dll
+  NovaCart.Services.Identity.Infrastructure -> D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Identity.Infrastructure.dll
+  NovaCart.Web.Client -> D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\bin\Debug\net10.0\NovaCart.Web.Client.dll
+  NovaCart.Web.Client (Blazor output) -> D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\bin\Debug\net10.0\wwwroot
+
+Ошибка сборки.
+
+D:\Repos\NovaCart\NovaCart.ServiceDefaults\Extensions.cs(30,72): error CS1061: "HttpRetryStrategyOptions" не содержит определения "DisableForUnsafeHttpMethods", и не удалось найти доступный метод расширения "DisableForUnsafeHttpMethods", принимающий тип "HttpRetryStrategyOptions" в качестве первого аргумента (возможно, пропущена директива using или ссылка на сборку). [D:\Repos\NovaCart\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj]
+    Предупреждений: 0
+    Ошибок: 1
+
+Прошло времени 00:00:05.06

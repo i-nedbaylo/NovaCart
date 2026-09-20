@@ -1,60 +1,50 @@
-using MassTransit;
 using NovaCart.BuildingBlocks.Common;
 using NovaCart.BuildingBlocks.CQRS;
+using NovaCart.Services.Basket.Application.Abstractions;
 using NovaCart.Services.Basket.Contracts.IntegrationEvents;
 using NovaCart.Services.Basket.Domain.Repositories;
-
 namespace NovaCart.Services.Basket.Application.Commands;
 
-public sealed class CheckoutBasketHandler : ICommandHandler<CheckoutBasketCommand>
+public sealed class CheckoutBasketHandler(IBasketRepository baskets, ICatalogProductReader catalog, ICheckoutStore checkouts)
+    : ICommandHandler<CheckoutBasketCommand>
 {
-    private readonly IBasketRepository _basketRepository;
-    private readonly IPublishEndpoint _publishEndpoint;
-
-    public CheckoutBasketHandler(
-        IBasketRepository basketRepository,
-        IPublishEndpoint publishEndpoint)
-    {
-        _basketRepository = basketRepository;
-        _publishEndpoint = publishEndpoint;
-    }
-
     public async Task<Result> Handle(CheckoutBasketCommand request, CancellationToken cancellationToken)
     {
-        var basket = await _basketRepository.GetBasketAsync(request.BuyerId, cancellationToken);
-
-        if (basket is null)
+        if (request.BasketRevision == Guid.Empty)
+            return Result.Failure(Error.Validation("Basket.RevisionRequired", "Update your cart before checkout."));
+        if (await checkouts.IsAcceptedAsync(request.BuyerId, request.BasketRevision, cancellationToken))
+            return Result.Success();
+        var basket = await baskets.GetBasketAsync(request.BuyerId, cancellationToken);
+        if (basket is null || basket.Revision != request.BasketRevision)
         {
-            return Result.Failure(Error.NotFound("Basket", request.BuyerId));
+            // Another request may have accepted the revision after our first receipt lookup.
+            if (await checkouts.IsAcceptedAsync(request.BuyerId, request.BasketRevision, cancellationToken))
+                return Result.Success();
+            return basket is null ? Result.Failure(Error.NotFound("Basket", request.BuyerId)) : Changed();
         }
-
         if (basket.Items.Count == 0)
-        {
-            return Result.Failure(Error.Validation("Basket.Empty", $"Basket for buyer '{request.BuyerId}' is empty."));
-        }
+            return Result.Failure(Error.Validation("Basket.Empty", "Your cart is empty."));
 
-        var integrationEvent = new BasketCheckoutIntegrationEvent
+        var products = await catalog.GetActiveProductsAsync(basket.Items.Select(i => i.ProductId).ToArray(), cancellationToken);
+        foreach (var item in basket.Items)
         {
-            BuyerId = request.BuyerId,
-            Street = request.Street,
-            City = request.City,
-            State = request.State,
-            Country = request.Country,
-            ZipCode = request.ZipCode,
-            // Carry only product id + quantity; Ordering re-prices from Catalog.
-            Items = basket.Items.Select(i => new BasketCheckoutItem
-            {
-                ProductId = i.ProductId,
-                Quantity = i.Quantity
+            if (!products.TryGetValue(item.ProductId, out var product))
+                return Result.Failure(Error.Conflict("Basket.UnavailableProduct", "An item is no longer available. Review your cart."));
+            if (product.Price != item.Price || product.Currency != basket.Currency) return Changed();
+        }
+        var message = new BasketCheckoutIntegrationEvent
+        {
+            Id = basket.Revision, CorrelationId = basket.Revision,
+            BuyerId = request.BuyerId, Currency = basket.Currency, PricingVersion = 1,
+            Street = request.Street, City = request.City, State = request.State,
+            Country = request.Country, ZipCode = request.ZipCode,
+            Items = basket.Items.Select(i => new BasketCheckoutItem {
+                ProductId = i.ProductId, Quantity = i.Quantity,
+                ProductName = products[i.ProductId].Name, UnitPrice = i.Price
             }).ToList()
         };
-
-        // NOTE: Simplified for demo purposes. In production, Publish + Delete should be atomic
-        // via Outbox Pattern (Phase 2.6) to prevent duplicate events on retry/failure.
-        await _publishEndpoint.Publish(integrationEvent, cancellationToken);
-
-        await _basketRepository.DeleteBasketAsync(request.BuyerId, cancellationToken);
-
-        return Result.Success();
+        return await checkouts.TryAcceptAsync(basket, message, cancellationToken) ? Result.Success() : Changed();
     }
+    private static Result Changed() => Result.Failure(Error.Conflict("Basket.Changed",
+        "Your cart or its prices have changed. Update the cart and review the new total before checkout."));
 }

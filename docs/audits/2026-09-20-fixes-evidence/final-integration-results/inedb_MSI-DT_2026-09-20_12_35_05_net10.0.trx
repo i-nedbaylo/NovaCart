@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="647a32b7-d165-4774-8d40-0415daa06625" name="inedb@MSI-DT 2026-09-20 12:35:05" runUser="MSI-DT\inedb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T12:35:05.6773311+03:00" queuing="2026-09-20T12:35:05.6773315+03:00" start="2026-09-20T12:35:02.0426098+03:00" finish="2026-09-20T12:35:12.7130268+03:00" />
+  <TestSettings name="default" id="dbc9bd32-6792-4ec8-83d5-cbe20ff3acc2">
+    <Deployment runDeploymentRoot="inedb_MSI-DT_2026-09-20_12_35_05" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="42a22217-97d3-477a-8163-587e6062f433" testId="a9823323-3b65-a2a9-cb15-ca1a740fed7b" testName="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests.PostgreSql_RejectsPaymentOverwriteOfAcceptedCancellation_AndRetainsCurrency" computerName="MSI-DT" duration="00:00:03.2105612" startTime="2026-09-20T12:35:09.4310698+03:00" endTime="2026-09-20T12:35:12.6418696+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="42a22217-97d3-477a-8163-587e6062f433" />
+    <UnitTestResult executionId="7aca515b-8fc7-4688-9a3f-8f39723fd18f" testId="61b30e59-27ec-8de9-bfe7-82176f62523d" testName="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests.GetPagedAsync_Should_Return_Seeded_Products_With_Category" computerName="MSI-DT" duration="00:00:00.1114804" startTime="2026-09-20T12:35:08.5917095+03:00" endTime="2026-09-20T12:35:08.7022540+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7aca515b-8fc7-4688-9a3f-8f39723fd18f" />
+    <UnitTestResult executionId="a78e6712-18ee-4962-9f3a-9dae75397fc3" testId="aab46c42-9d07-c39e-3445-1d0677f96d64" testName="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests.Outbox_RecoversAfterMoreThanFivePublishFailures" computerName="MSI-DT" duration="00:00:03.7881713" startTime="2026-09-20T12:35:05.6610640+03:00" endTime="2026-09-20T12:35:09.4308905+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a78e6712-18ee-4962-9f3a-9dae75397fc3" />
+    <UnitTestResult executionId="1cfda2f9-e6f4-4f93-866d-5de9cc54c24e" testId="bb1b9f74-61c6-dec2-7ed1-da7196e351c7" testName="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests.GetBySlugAsync_Should_Map_Owned_Price_Value_Object" computerName="MSI-DT" duration="00:00:00.0140979" startTime="2026-09-20T12:35:08.7025752+03:00" endTime="2026-09-20T12:35:08.7167144+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1cfda2f9-e6f4-4f93-866d-5de9cc54c24e" />
+    <UnitTestResult executionId="9f1fefe3-0749-433d-ba2a-1d6c283ed8ff" testId="e4f715f0-7933-081d-dac1-bbc8b1575373" testName="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests.RedisCheckout_IsAtomicIdempotent_AndDoesNotDeleteANewerCart" computerName="MSI-DT" duration="00:00:02.8773512" startTime="2026-09-20T12:35:02.7526779+03:00" endTime="2026-09-20T12:35:05.6406173+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f1fefe3-0749-433d-ba2a-1d6c283ed8ff" />
+    <UnitTestResult executionId="77a62183-77c1-4cc7-bd66-a028897b27a6" testId="28a2d7a1-640c-f2e0-8143-f8cf8b0eef18" testName="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests.Add_Then_GetById_Should_RoundTrip_Product_With_Owned_Price" computerName="MSI-DT" duration="00:00:00.4691312" startTime="2026-09-20T12:35:08.1207877+03:00" endTime="2026-09-20T12:35:08.5896068+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="77a62183-77c1-4cc7-bd66-a028897b27a6" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests.Add_Then_GetById_Should_RoundTrip_Product_With_Owned_Price" storage="d:\repos\novacart\tests\integrationtests\catalog.integrationtests\bin\release\net10.0\novacart.tests.catalog.integrationtests.dll" id="28a2d7a1-640c-f2e0-8143-f8cf8b0eef18">
+      <Execution id="77a62183-77c1-4cc7-bd66-a028897b27a6" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests" name="Add_Then_GetById_Should_RoundTrip_Product_With_Owned_Price" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests.RedisCheckout_IsAtomicIdempotent_AndDoesNotDeleteANewerCart" storage="d:\repos\novacart\tests\integrationtests\catalog.integrationtests\bin\release\net10.0\novacart.tests.catalog.integrationtests.dll" id="e4f715f0-7933-081d-dac1-bbc8b1575373">
+      <Execution id="9f1fefe3-0749-433d-ba2a-1d6c283ed8ff" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests" name="RedisCheckout_IsAtomicIdempotent_AndDoesNotDeleteANewerCart" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests.Outbox_RecoversAfterMoreThanFivePublishFailures" storage="d:\repos\novacart\tests\integrationtests\catalog.integrationtests\bin\release\net10.0\novacart.tests.catalog.integrationtests.dll" id="aab46c42-9d07-c39e-3445-1d0677f96d64">
+      <Execution id="a78e6712-18ee-4962-9f3a-9dae75397fc3" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests" name="Outbox_RecoversAfterMoreThanFivePublishFailures" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests.PostgreSql_RejectsPaymentOverwriteOfAcceptedCancellation_AndRetainsCurrency" storage="d:\repos\novacart\tests\integrationtests\catalog.integrationtests\bin\release\net10.0\novacart.tests.catalog.integrationtests.dll" id="a9823323-3b65-a2a9-cb15-ca1a740fed7b">
+      <Execution id="42a22217-97d3-477a-8163-587e6062f433" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.IntegrationTests.ReliabilityIntegrationTests" name="PostgreSql_RejectsPaymentOverwriteOfAcceptedCancellation_AndRetainsCurrency" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests.GetBySlugAsync_Should_Map_Owned_Price_Value_Object" storage="d:\repos\novacart\tests\integrationtests\catalog.integrationtests\bin\release\net10.0\novacart.tests.catalog.integrationtests.dll" id="bb1b9f74-61c6-dec2-7ed1-da7196e351c7">
+      <Execution id="1cfda2f9-e6f4-4f93-866d-5de9cc54c24e" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests" name="GetBySlugAsync_Should_Map_Owned_Price_Value_Object" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests.GetPagedAsync_Should_Return_Seeded_Products_With_Category" storage="d:\repos\novacart\tests\integrationtests\catalog.integrationtests\bin\release\net10.0\novacart.tests.catalog.integrationtests.dll" id="61b30e59-27ec-8de9-bfe7-82176f62523d">
+      <Execution id="7aca515b-8fc7-4688-9a3f-8f39723fd18f" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.IntegrationTests.CatalogRepositoryIntegrationTests" name="GetPagedAsync_Should_Return_Seeded_Products_With_Category" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="a9823323-3b65-a2a9-cb15-ca1a740fed7b" executionId="42a22217-97d3-477a-8163-587e6062f433" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="61b30e59-27ec-8de9-bfe7-82176f62523d" executionId="7aca515b-8fc7-4688-9a3f-8f39723fd18f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aab46c42-9d07-c39e-3445-1d0677f96d64" executionId="a78e6712-18ee-4962-9f3a-9dae75397fc3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bb1b9f74-61c6-dec2-7ed1-da7196e351c7" executionId="1cfda2f9-e6f4-4f93-866d-5de9cc54c24e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e4f715f0-7933-081d-dac1-bbc8b1575373" executionId="9f1fefe3-0749-433d-ba2a-1d6c283ed8ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="28a2d7a1-640c-f2e0-8143-f8cf8b0eef18" executionId="77a62183-77c1-4cc7-bd66-a028897b27a6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Список результатов" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="6" executed="6" passed="6" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.12)&#xD;
+[xUnit.net 00:00:00.09]   Discovering: NovaCart.Tests.Catalog.IntegrationTests&#xD;
+[xUnit.net 00:00:00.15]   Discovered:  NovaCart.Tests.Catalog.IntegrationTests&#xD;
+[xUnit.net 00:00:00.18]   Starting:    NovaCart.Tests.Catalog.IntegrationTests&#xD;
+[testcontainers.org 00:00:00.09] Connected to Docker:&#xD;
+  Host: npipe://./pipe/docker_engine&#xD;
+  Server Version: 28.4.0&#xD;
+  Kernel Version: 6.6.87.2-microsoft-standard-WSL2&#xD;
+  API Version: 1.51&#xD;
+  Operating System: Docker Desktop&#xD;
+  Total Memory: 31.26 GB&#xD;
+  Labels: &#xD;
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli&#xD;
+[testcontainers.org 00:00:00.30] Docker container ff6b6b1707f5 created&#xD;
+[testcontainers.org 00:00:00.35] Start Docker container ff6b6b1707f5&#xD;
+[testcontainers.org 00:00:00.56] Wait for Docker container ff6b6b1707f5 to complete readiness checks&#xD;
+[testcontainers.org 00:00:01.61] Docker container ff6b6b1707f5 ready&#xD;
+[testcontainers.org 00:00:01.78] Docker container 7c093a22ab00 created&#xD;
+[testcontainers.org 00:00:01.78] Docker container 80b0c92d1a7a created&#xD;
+[testcontainers.org 00:00:01.79] Start Docker container 7c093a22ab00&#xD;
+[testcontainers.org 00:00:01.81] Start Docker container 80b0c92d1a7a&#xD;
+[testcontainers.org 00:00:02.06] Wait for Docker container 7c093a22ab00 to complete readiness checks&#xD;
+[testcontainers.org 00:00:02.07] Execute "pg_isready --host localhost --dbname catalog_integration --username postgres" at Docker container 7c093a22ab00&#xD;
+[testcontainers.org 00:00:02.11] Wait for Docker container 80b0c92d1a7a to complete readiness checks&#xD;
+[testcontainers.org 00:00:02.12] Execute "/bin/sh -c true &amp;&amp; (grep -i ':0*18EB' /proc/net/tcp* || nc -vz -w 1 localhost 6379 || /bin/bash -c '&lt;/dev/tcp/localhost/6379')" at Docker container 80b0c92d1a7a&#xD;
+[testcontainers.org 00:00:02.16] Docker container 80b0c92d1a7a ready&#xD;
+     Warning:&#xD;
+     The component "Fluent Assertions" is governed by the rules defined in the Xceed License Agreement and&#xD;
+     the Xceed Fluent Assertions Community License. You may use Fluent Assertions free of charge for&#xD;
+     non-commercial use only. An active subscription is required to use Fluent Assertions for commercial use.&#xD;
+     Please contact Xceed Sales mailto:sales@xceed.com to acquire a subscription at a very low cost.&#xD;
+     A paid commercial license supports the development and continued increasing support of&#xD;
+     Fluent Assertions users under both commercial and community licenses. Help us&#xD;
+     keep Fluent Assertions at the forefront of unit testing.&#xD;
+     For more information, visit https://xceed.com/products/unit-testing/fluent-assertions/&#xD;
+[testcontainers.org 00:00:02.36] Delete Docker container 80b0c92d1a7a&#xD;
+[testcontainers.org 00:00:02.97] Docker container a782c646507f created&#xD;
+[testcontainers.org 00:00:02.98] Start Docker container a782c646507f&#xD;
+[testcontainers.org 00:00:03.16] Execute "pg_isready --host localhost --dbname catalog_integration --username postgres" at Docker container 7c093a22ab00&#xD;
+[testcontainers.org 00:00:03.25] Wait for Docker container a782c646507f to complete readiness checks&#xD;
+[testcontainers.org 00:00:03.26] Execute "pg_isready --host localhost --dbname postgres --username postgres" at Docker container a782c646507f&#xD;
+[testcontainers.org 00:00:04.24] Execute "pg_isready --host localhost --dbname catalog_integration --username postgres" at Docker container 7c093a22ab00&#xD;
+[testcontainers.org 00:00:04.31] Docker container 7c093a22ab00 ready&#xD;
+[testcontainers.org 00:00:04.36] Execute "pg_isready --host localhost --dbname postgres --username postgres" at Docker container a782c646507f&#xD;
+[testcontainers.org 00:00:05.43] Execute "pg_isready --host localhost --dbname postgres --username postgres" at Docker container a782c646507f&#xD;
+[testcontainers.org 00:00:05.51] Docker container a782c646507f ready&#xD;
+[testcontainers.org 00:00:05.85] Delete Docker container 7c093a22ab00&#xD;
+[testcontainers.org 00:00:06.07] Delete Docker container a782c646507f&#xD;
+[testcontainers.org 00:00:06.72] Docker container 830d538c76b1 created&#xD;
+[testcontainers.org 00:00:06.74] Start Docker container 830d538c76b1&#xD;
+[testcontainers.org 00:00:06.95] Wait for Docker container 830d538c76b1 to complete readiness checks&#xD;
+[testcontainers.org 00:00:06.96] Execute "pg_isready --host localhost --dbname postgres --username postgres" at Docker container 830d538c76b1&#xD;
+[testcontainers.org 00:00:08.04] Execute "pg_isready --host localhost --dbname postgres --username postgres" at Docker container 830d538c76b1&#xD;
+[testcontainers.org 00:00:09.11] Execute "pg_isready --host localhost --dbname postgres --username postgres" at Docker container 830d538c76b1&#xD;
+[testcontainers.org 00:00:09.21] Docker container 830d538c76b1 ready&#xD;
+[testcontainers.org 00:00:09.39] Delete Docker container 830d538c76b1&#xD;
+[xUnit.net 00:00:10.10]   Finished:    NovaCart.Tests.Catalog.IntegrationTests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

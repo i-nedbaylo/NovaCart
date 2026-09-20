@@ -1,0 +1,15 @@
+  NovaCart.BuildingBlocks.EventBus -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\bin\Debug\net10.0\NovaCart.BuildingBlocks.EventBus.dll
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.BuildingBlocks.Persistence -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\bin\Debug\net10.0\NovaCart.BuildingBlocks.Persistence.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Ordering.Contracts -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Contracts\bin\Debug\net10.0\NovaCart.Services.Ordering.Contracts.dll
+  NovaCart.Services.Basket.Contracts -> D:\Repos\NovaCart\src\Services\Basket\Basket.Contracts\bin\Debug\net10.0\NovaCart.Services.Basket.Contracts.dll
+  NovaCart.Services.Payment.Contracts -> D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\bin\Debug\net10.0\NovaCart.Services.Payment.Contracts.dll
+  NovaCart.Services.Ordering.Domain -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Domain\bin\Debug\net10.0\NovaCart.Services.Ordering.Domain.dll
+  NovaCart.Services.Ordering.Application -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Application\bin\Debug\net10.0\NovaCart.Services.Ordering.Application.dll
+  NovaCart.Tests.Ordering.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Ordering.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Ordering.UnitTests.dll
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Ordering.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Ordering.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\unit-final-results\inedb_MSI-DT_2026-09-20_12_05_14_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    40, пропущено     0, всего    40, длительность 119 ms. - NovaCart.Tests.Ordering.UnitTests.dll (net10.0)

@@ -41,7 +41,10 @@ public sealed class CreateOrderHandler : ICommandHandler<CreateOrderCommand, Gui
             request.ShippingAddress.Country,
             request.ShippingAddress.ZipCode);
 
-        var order = Order.Create(request.BuyerId, address);
+        var currencies = products.Values.Select(p => p.Currency).Distinct().ToList();
+        if (currencies.Count > 1)
+            return Result<Guid>.Failure(Error.Validation("Order.MixedCurrency", "All items must use the same currency."));
+        var order = Order.Create(request.BuyerId, address, currency: currencies.FirstOrDefault() ?? "USD");
 
         foreach (var item in request.Items)
         {
@@ -63,7 +66,7 @@ public sealed class CreateOrderHandler : ICommandHandler<CreateOrderCommand, Gui
             OrderId = order.Id,
             BuyerId = order.BuyerId,
             TotalAmount = order.TotalAmount,
-            Currency = "USD",
+            Currency = order.Currency,
             CorrelationId = order.Id
         });
 

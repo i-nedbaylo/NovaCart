@@ -1,0 +1,92 @@
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.BuildingBlocks.Persistence -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\bin\Debug\net10.0\NovaCart.BuildingBlocks.Persistence.dll
+  NovaCart.Services.Basket.Domain -> D:\Repos\NovaCart\src\Services\Basket\Basket.Domain\bin\Debug\net10.0\NovaCart.Services.Basket.Domain.dll
+  NovaCart.Services.Catalog.Domain -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Domain\bin\Debug\net10.0\NovaCart.Services.Catalog.Domain.dll
+  NovaCart.Services.Payment.Domain -> D:\Repos\NovaCart\src\Services\Payment\Payment.Domain\bin\Debug\net10.0\NovaCart.Services.Payment.Domain.dll
+  NovaCart.Services.Ordering.Domain -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Domain\bin\Debug\net10.0\NovaCart.Services.Ordering.Domain.dll
+  NovaCart.BuildingBlocks.EventBus -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\bin\Debug\net10.0\NovaCart.BuildingBlocks.EventBus.dll
+  NovaCart.BuildingBlocks.Outbox -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Outbox\bin\Debug\net10.0\NovaCart.BuildingBlocks.Outbox.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Basket.Contracts -> D:\Repos\NovaCart\src\Services\Basket\Basket.Contracts\bin\Debug\net10.0\NovaCart.Services.Basket.Contracts.dll
+  NovaCart.Services.Ordering.Contracts -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Contracts\bin\Debug\net10.0\NovaCart.Services.Ordering.Contracts.dll
+  NovaCart.Services.Payment.Contracts -> D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\bin\Debug\net10.0\NovaCart.Services.Payment.Contracts.dll
+  NovaCart.Services.Catalog.Application -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Application\bin\Debug\net10.0\NovaCart.Services.Catalog.Application.dll
+  NovaCart.Services.Basket.Application -> D:\Repos\NovaCart\src\Services\Basket\Basket.Application\bin\Debug\net10.0\NovaCart.Services.Basket.Application.dll
+  NovaCart.ServiceDefaults -> D:\Repos\NovaCart\NovaCart.ServiceDefaults\bin\Debug\net10.0\NovaCart.ServiceDefaults.dll
+  NovaCart.Services.Basket.Infrastructure -> D:\Repos\NovaCart\src\Services\Basket\Basket.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Basket.Infrastructure.dll
+  NovaCart.Services.Payment.Application -> D:\Repos\NovaCart\src\Services\Payment\Payment.Application\bin\Debug\net10.0\NovaCart.Services.Payment.Application.dll
+  NovaCart.Services.Ordering.Application -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Application\bin\Debug\net10.0\NovaCart.Services.Ordering.Application.dll
+  NovaCart.Services.Catalog.Infrastructure -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Catalog.Infrastructure.dll
+  NovaCart.Services.Payment.Infrastructure -> D:\Repos\NovaCart\src\Services\Payment\Payment.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Payment.Infrastructure.dll
+  NovaCart.Services.Ordering.Infrastructure -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Ordering.Infrastructure.dll
+  NovaCart.Services.Basket.API -> D:\Repos\NovaCart\src\Services\Basket\Basket.API\bin\Debug\net10.0\NovaCart.Services.Basket.API.dll
+  NovaCart.Services.Catalog.API -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\bin\Debug\net10.0\NovaCart.Services.Catalog.API.dll
+  NovaCart.Services.Payment.API -> D:\Repos\NovaCart\src\Services\Payment\Payment.API\bin\Debug\net10.0\NovaCart.Services.Payment.API.dll
+  NovaCart.Services.Ordering.API -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\bin\Debug\net10.0\NovaCart.Services.Ordering.API.dll
+  NovaCart.Tests.ArchitectureTests -> D:\Repos\NovaCart\tests\ArchitectureTests\bin\Debug\net10.0\NovaCart.Tests.ArchitectureTests.dll
+Тестовый запуск для D:\Repos\NovaCart\tests\ArchitectureTests\bin\Debug\net10.0\NovaCart.Tests.ArchitectureTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\unit-results\inedb_MSI-DT_2026-09-20_11_51_10_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    24, пропущено     0, всего    24, длительность 120 ms. - NovaCart.Tests.ArchitectureTests.dll (net10.0)
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.BuildingBlocks.EventBus -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\bin\Debug\net10.0\NovaCart.BuildingBlocks.EventBus.dll
+  NovaCart.Services.Basket.Contracts -> D:\Repos\NovaCart\src\Services\Basket\Basket.Contracts\bin\Debug\net10.0\NovaCart.Services.Basket.Contracts.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Basket.Domain -> D:\Repos\NovaCart\src\Services\Basket\Basket.Domain\bin\Debug\net10.0\NovaCart.Services.Basket.Domain.dll
+  NovaCart.Services.Basket.Application -> D:\Repos\NovaCart\src\Services\Basket\Basket.Application\bin\Debug\net10.0\NovaCart.Services.Basket.Application.dll
+  NovaCart.Tests.Basket.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Basket.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Basket.UnitTests.dll
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Basket.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Basket.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\unit-results\inedb_MSI-DT_2026-09-20_11_51_16_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    38, пропущено     0, всего    38, длительность 109 ms. - NovaCart.Tests.Basket.UnitTests.dll (net10.0)
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.BuildingBlocks.EventBus -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\bin\Debug\net10.0\NovaCart.BuildingBlocks.EventBus.dll
+  NovaCart.Services.Ordering.Contracts -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Contracts\bin\Debug\net10.0\NovaCart.Services.Ordering.Contracts.dll
+  NovaCart.Services.Payment.Contracts -> D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\bin\Debug\net10.0\NovaCart.Services.Payment.Contracts.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.BuildingBlocks.Persistence -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\bin\Debug\net10.0\NovaCart.BuildingBlocks.Persistence.dll
+  NovaCart.Services.Payment.Domain -> D:\Repos\NovaCart\src\Services\Payment\Payment.Domain\bin\Debug\net10.0\NovaCart.Services.Payment.Domain.dll
+  NovaCart.Services.Payment.Application -> D:\Repos\NovaCart\src\Services\Payment\Payment.Application\bin\Debug\net10.0\NovaCart.Services.Payment.Application.dll
+  NovaCart.Tests.Payment.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Payment.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Payment.UnitTests.dll
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Payment.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Payment.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\unit-results\inedb_MSI-DT_2026-09-20_11_51_21_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    38, пропущено     0, всего    38, длительность 121 ms. - NovaCart.Tests.Payment.UnitTests.dll (net10.0)
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.BuildingBlocks.EventBus -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\bin\Debug\net10.0\NovaCart.BuildingBlocks.EventBus.dll
+  NovaCart.Services.Ordering.Contracts -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Contracts\bin\Debug\net10.0\NovaCart.Services.Ordering.Contracts.dll
+  NovaCart.Services.Basket.Contracts -> D:\Repos\NovaCart\src\Services\Basket\Basket.Contracts\bin\Debug\net10.0\NovaCart.Services.Basket.Contracts.dll
+  NovaCart.Services.Payment.Contracts -> D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\bin\Debug\net10.0\NovaCart.Services.Payment.Contracts.dll
+  NovaCart.BuildingBlocks.Persistence -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\bin\Debug\net10.0\NovaCart.BuildingBlocks.Persistence.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Ordering.Domain -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Domain\bin\Debug\net10.0\NovaCart.Services.Ordering.Domain.dll
+  NovaCart.Services.Ordering.Application -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Application\bin\Debug\net10.0\NovaCart.Services.Ordering.Application.dll
+  NovaCart.Tests.Ordering.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Ordering.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Ordering.UnitTests.dll
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Ordering.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Ordering.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\unit-results\inedb_MSI-DT_2026-09-20_11_51_26_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    38, пропущено     0, всего    38, длительность 116 ms. - NovaCart.Tests.Ordering.UnitTests.dll (net10.0)
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.BuildingBlocks.Persistence -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\bin\Debug\net10.0\NovaCart.BuildingBlocks.Persistence.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Catalog.Domain -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Domain\bin\Debug\net10.0\NovaCart.Services.Catalog.Domain.dll
+  NovaCart.Services.Catalog.Application -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Application\bin\Debug\net10.0\NovaCart.Services.Catalog.Application.dll
+  NovaCart.Tests.Catalog.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Catalog.UnitTests.dll
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Catalog.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\unit-results\inedb_MSI-DT_2026-09-20_11_51_30_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    22, пропущено     0, всего    22, длительность 100 ms. - NovaCart.Tests.Catalog.UnitTests.dll (net10.0)
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.ServiceDefaults -> D:\Repos\NovaCart\NovaCart.ServiceDefaults\bin\Debug\net10.0\NovaCart.ServiceDefaults.dll
+  NovaCart.Services.Identity.Domain -> D:\Repos\NovaCart\src\Services\Identity\Identity.Domain\bin\Debug\net10.0\NovaCart.Services.Identity.Domain.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Identity.Application -> D:\Repos\NovaCart\src\Services\Identity\Identity.Application\bin\Debug\net10.0\NovaCart.Services.Identity.Application.dll
+  NovaCart.Services.Identity.Infrastructure -> D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Identity.Infrastructure.dll
+  NovaCart.Web.Client -> D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\bin\Debug\net10.0\NovaCart.Web.Client.dll
+  NovaCart.Web.Client (Blazor output) -> D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\bin\Debug\net10.0\wwwroot
+D:\Repos\NovaCart\src\Web\NovaCart.Web\Components\Pages\CatalogPage.razor(56,22): error RZ1016: The 'page' directive expects a string surrounded by double quotes. [D:\Repos\NovaCart\src\Web\NovaCart.Web\NovaCart.Web.csproj]

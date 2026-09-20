@@ -32,6 +32,9 @@ public sealed class RefreshTokenHandler : ICommandHandler<RefreshTokenCommand, T
             return Result<TokenResponse>.Failure(Error.Validation("Auth.InvalidRefreshToken", "Invalid or expired refresh token."));
         }
 
+        if (await _userManager.IsLockedOutAsync(user))
+            return Result<TokenResponse>.Failure(Error.Validation("Auth.InvalidRefreshToken", "Invalid or expired refresh token."));
+
         var roles = await _userManager.GetRolesAsync(user);
 
         var accessToken = _tokenService.GenerateAccessToken(user, roles);
@@ -39,7 +42,9 @@ public sealed class RefreshTokenHandler : ICommandHandler<RefreshTokenCommand, T
         var expiresAt = _tokenService.GetAccessTokenExpiration();
 
         user.UpdateRefreshToken(newRefreshToken, expiresAt.AddDays(7));
-        await _userManager.UpdateAsync(user);
+        var saved = await _userManager.UpdateAsync(user);
+        if (!saved.Succeeded)
+            return Result<TokenResponse>.Failure(Error.Conflict("Auth.ConcurrentUpdate", "Token rotation conflicted with another request."));
 
         return Result<TokenResponse>.Success(new TokenResponse(accessToken, newRefreshToken, expiresAt));
     }

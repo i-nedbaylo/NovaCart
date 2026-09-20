@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Web\NovaCart.Web\NovaCart.Web.csproj" />
     <ProjectReference Include="..\..\..\src\Services\Identity\Identity.Domain\NovaCart.Services.Identity.Domain.csproj" />
     <ProjectReference Include="..\..\..\src\Services\Identity\Identity.Application\NovaCart.Services.Identity.Application.csproj" />
     <ProjectReference Include="..\..\..\src\Services\Identity\Identity.Infrastructure\NovaCart.Services.Identity.Infrastructure.csproj" />

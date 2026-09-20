@@ -10,6 +10,30 @@ namespace NovaCart.Tests.Basket.UnitTests.Application;
 
 public class UpdateBasketHandlerTests
 {
+    [Fact]
+    public async Task Handle_PreservesCurrency_AndIssuesANewRevision()
+    {
+        var product = new CatalogProduct(Guid.NewGuid(), "Product", 12, "EUR");
+        SetupCatalog(product);
+        var request = new UpdateBasketCommand("buyer", [new UpdateBasketItemRequest(product.Id, 1)]);
+        var first = await _handler.Handle(request, default);
+        var second = await _handler.Handle(request, default);
+        first.Value.Currency.Should().Be("EUR");
+        first.Value.Revision.Should().NotBeEmpty().And.NotBe(second.Value.Revision);
+    }
+
+    [Fact]
+    public async Task Handle_RejectsMixedCurrenciesBeforeSaving()
+    {
+        var eur = new CatalogProduct(Guid.NewGuid(), "Euro", 12, "EUR");
+        var usd = new CatalogProduct(Guid.NewGuid(), "Dollar", 12, "USD");
+        SetupCatalog(eur, usd);
+        var result = await _handler.Handle(new UpdateBasketCommand("buyer",
+            [new UpdateBasketItemRequest(eur.Id, 1), new UpdateBasketItemRequest(usd.Id, 1)]), default);
+        result.Error.Code.Should().Be("Basket.MixedCurrency");
+        await _basketRepository.DidNotReceive().UpdateBasketAsync(Arg.Any<ShoppingCart>(), Arg.Any<CancellationToken>());
+    }
+
     private readonly IBasketRepository _basketRepository = Substitute.For<IBasketRepository>();
     private readonly ICatalogProductReader _catalog = Substitute.For<ICatalogProductReader>();
     private readonly UpdateBasketHandler _handler;

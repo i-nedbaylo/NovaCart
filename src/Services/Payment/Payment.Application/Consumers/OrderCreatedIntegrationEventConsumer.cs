@@ -82,7 +82,8 @@ public sealed class OrderCreatedIntegrationEventConsumer : IConsumer<OrderCreate
         }
 
         // Simulate success/failure based on configured rate
-        var isSuccessful = Random.Shared.Next(100) < _simulationOptions.SuccessRatePercent;
+        // A free order needs no provider authorization and cannot be randomly declined.
+        var isSuccessful = payment.Amount == 0 || Random.Shared.Next(100) < _simulationOptions.SuccessRatePercent;
 
         if (isSuccessful)
         {

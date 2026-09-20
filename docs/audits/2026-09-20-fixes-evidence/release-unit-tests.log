@@ -1,0 +1,40 @@
+Тестовый запуск для D:\Repos\NovaCart\tests\ArchitectureTests\bin\Release\net10.0\NovaCart.Tests.ArchitectureTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Ordering.UnitTests\bin\Release\net10.0\NovaCart.Tests.Ordering.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Payment.UnitTests\bin\Release\net10.0\NovaCart.Tests.Payment.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Basket.UnitTests\bin\Release\net10.0\NovaCart.Tests.Basket.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\bin\Release\net10.0\NovaCart.Tests.OrderFlow.E2E.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Release\net10.0\NovaCart.Tests.Identity.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Нет тестов, соответствующих указанному фильтру тестовых случаев "Category!=Integration" в D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\bin\Release\net10.0\NovaCart.Tests.OrderFlow.E2E.dll
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\release-unit-results\inedb_MSI-DT_2026-09-20_12_08_52_net10.0.trx
+
+Нет тестов, соответствующих указанному фильтру тестовых случаев "Category!=Integration" в D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Release\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\release-unit-results\inedb_MSI-DT_2026-09-20_12_08_54_net10.0.trx
+
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\release-unit-results\inedb_MSI-DT_2026-09-20_12_08_54_net10.0[1].trx
+
+Пройден!   : не пройдено     0, пройдено    22, пропущено     0, всего    22, длительность 175 ms. - NovaCart.Tests.Catalog.UnitTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\release-unit-results\inedb_MSI-DT_2026-09-20_12_08_54_net10.0[2].trx
+
+Пройден!   : не пройдено     0, пройдено    40, пропущено     0, всего    40, длительность 183 ms. - NovaCart.Tests.Ordering.UnitTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\release-unit-results\inedb_MSI-DT_2026-09-20_12_08_54_net10.0[3].trx
+
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\release-unit-results\inedb_MSI-DT_2026-09-20_12_08_54_net10.0[4].trx
+
+Пройден!   : не пройдено     0, пройдено    40, пропущено     0, всего    40, длительность 182 ms. - NovaCart.Tests.Basket.UnitTests.dll (net10.0)
+Пройден!   : не пройдено     0, пройдено    24, пропущено     0, всего    24, длительность 212 ms. - NovaCart.Tests.ArchitectureTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\release-unit-results\inedb_MSI-DT_2026-09-20_12_08_54_net10.0[5].trx
+
+Пройден!   : не пройдено     0, пройдено    38, пропущено     0, всего    38, длительность 215 ms. - NovaCart.Tests.Payment.UnitTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\release-unit-results\inedb_MSI-DT_2026-09-20_12_08_56_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    23, пропущено     0, всего    23, длительность 2 s. - NovaCart.Tests.Identity.UnitTests.dll (net10.0)

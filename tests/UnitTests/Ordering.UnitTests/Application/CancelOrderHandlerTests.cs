@@ -19,7 +19,7 @@ public class CancelOrderHandlerTests
     {
         _orderRepository = Substitute.For<IOrderRepository>();
         _unitOfWork = Substitute.For<IUnitOfWork>();
-        _handler = new CancelOrderHandler(_orderRepository, _unitOfWork);
+        _handler = new CancelOrderHandler(_orderRepository, _unitOfWork, Substitute.For<NovaCart.BuildingBlocks.EventBus.IOutboxEventCollector>());
     }
 
     [Fact]
@@ -37,7 +37,7 @@ public class CancelOrderHandlerTests
 
         // Assert
         result.IsSuccess.Should().BeTrue();
-        order.Status.Should().Be(OrderStatus.Cancelled);
+        order.Status.Should().Be(OrderStatus.CancellationPending);
         _orderRepository.Received(1).Update(order);
         await _unitOfWork.Received(1).SaveChangesAsync(Arg.Any<CancellationToken>());
     }

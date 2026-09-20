@@ -76,7 +76,7 @@ public sealed class OutboxProcessor<TDbContext>(
             .FromSql($"""
                 SELECT * FROM outbox_messages
                 WHERE processed_at IS NULL
-                ORDER BY created_at
+                ORDER BY retry_count, created_at
                 LIMIT {_options.BatchSize}
                 FOR UPDATE SKIP LOCKED
                 """)
@@ -97,7 +97,7 @@ public sealed class OutboxProcessor<TDbContext>(
                 {
                     logger.LogWarning("Cannot resolve type '{EventType}' for outbox message {MessageId}",
                         message.EventType, message.Id);
-                    message.MarkAsFailed($"Cannot resolve type: {message.EventType}");
+                    message.IncrementRetryCount($"Cannot resolve type: {message.EventType}");
                     continue;
                 }
 
@@ -105,7 +105,7 @@ public sealed class OutboxProcessor<TDbContext>(
                 if (@event is null)
                 {
                     logger.LogWarning("Failed to deserialize outbox message {MessageId}", message.Id);
-                    message.MarkAsFailed("Deserialization returned null");
+                    message.IncrementRetryCount("Deserialization returned null");
                     continue;
                 }
 
@@ -126,9 +126,10 @@ public sealed class OutboxProcessor<TDbContext>(
                 if (message.RetryCount >= _options.MaxRetries)
                 {
                     logger.LogError(ex,
-                        "Outbox message {MessageId} exceeded max retries ({MaxRetries}). Marking as failed",
+                        "Outbox message {MessageId} exceeded alert threshold ({MaxRetries}). Keeping pending",
                         message.Id, _options.MaxRetries);
-                    message.MarkAsFailed($"Exceeded max retries ({_options.MaxRetries}). Last error: {ex.Message}");
+                    // Keep transient failures pending even after the alert threshold. Recovery
+                    // of the broker must resume delivery without editing database rows.
                 }
                 else
                 {
@@ -142,5 +143,4 @@ public sealed class OutboxProcessor<TDbContext>(
         await dbContext.SaveChangesAsync(ct);
         await transaction.CommitAsync(ct);
     }
-
-    }
+}

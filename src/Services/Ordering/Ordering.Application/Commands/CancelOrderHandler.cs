@@ -1,41 +1,31 @@
 using NovaCart.BuildingBlocks.Common;
 using NovaCart.BuildingBlocks.CQRS;
+using NovaCart.BuildingBlocks.EventBus;
 using NovaCart.BuildingBlocks.Persistence;
+using NovaCart.Services.Ordering.Contracts.IntegrationEvents;
 using NovaCart.Services.Ordering.Domain.Repositories;
-
+using NovaCart.Services.Ordering.Domain.ValueObjects;
 namespace NovaCart.Services.Ordering.Application.Commands;
 
-public sealed class CancelOrderHandler : ICommandHandler<CancelOrderCommand>
+public sealed class CancelOrderHandler(IOrderRepository orders, IUnitOfWork unitOfWork, IOutboxEventCollector events)
+    : ICommandHandler<CancelOrderCommand>
 {
-    private readonly IOrderRepository _orderRepository;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CancelOrderHandler(IOrderRepository orderRepository, IUnitOfWork unitOfWork)
-    {
-        _orderRepository = orderRepository;
-        _unitOfWork = unitOfWork;
-    }
-
     public async Task<Result> Handle(CancelOrderCommand request, CancellationToken cancellationToken)
     {
-        var order = await _orderRepository.GetByIdAsync(request.OrderId, cancellationToken);
-
-        // Treat "not yours" the same as "not found" so order existence isn't leaked across buyers.
+        var order = await orders.GetByIdAsync(request.OrderId, cancellationToken);
         if (order is null || order.BuyerId != request.BuyerId)
             return Result.Failure(Error.NotFound("Order", request.OrderId));
-
-        try
-        {
-            order.Cancel();
-        }
+        if (order.Status is OrderStatus.Cancelled or OrderStatus.CancellationPending) return Result.Success();
+        try { order.RequestCancellation(); }
         catch (InvalidOperationException ex)
         {
             return Result.Failure(Error.Validation("Order.InvalidStatusTransition", ex.Message));
         }
-
-        _orderRepository.Update(order);
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
-
+        events.Add(new OrderCancellationRequestedIntegrationEvent {
+            OrderId = order.Id, Amount = order.TotalAmount, Currency = order.Currency, CorrelationId = order.Id
+        });
+        orders.Update(order);
+        await unitOfWork.SaveChangesAsync(cancellationToken);
         return Result.Success();
     }
 }
