@@ -10,23 +10,29 @@ var jwtSecret = builder.Configuration["Jwt:Secret"]
 var adminPassword = builder.Configuration["AdminUser:Password"] ?? "Admin123!";
 
 // Infrastructure
-var postgres = builder.AddPostgres("postgres");
+var postgres = builder.AddPostgres("postgres").WithImageTag("17.4");
 var catalogDb = postgres.AddDatabase("catalogdb");
 var orderingDb = postgres.AddDatabase("orderingdb");
 var identityDb = postgres.AddDatabase("identitydb");
 var paymentDb = postgres.AddDatabase("paymentdb");
 
-var rabbitmq = builder.AddRabbitMQ("rabbitmq");
-var redis = builder.AddRedis("redis");
+var rabbitmq = builder.AddRabbitMQ("rabbitmq").WithImageTag("4.1");
+var redis = builder.AddRedis("redis").WithImageTag("7.4")
+    .WithDataVolume()
+    .WithArgs("--appendonly", "yes", "--appendfsync", "always", "--maxmemory-policy", "noeviction");
 
 // Services
-var catalogApi = builder.AddProject<Projects.NovaCart_Services_Catalog_API>("catalog-api")
+var catalogApi = builder.AddProject<Projects.NovaCart_Services_Catalog_API>("catalog-api", launchProfileName: null)
+    .WithHttpEndpoint(name: "http")
+    .WithHttpHealthCheck("/health")
     .WithReference(catalogDb)
     .WithReference(rabbitmq)
     .WaitFor(catalogDb)
     .WaitFor(rabbitmq);
 
-var orderingApi = builder.AddProject<Projects.NovaCart_Services_Ordering_API>("ordering-api")
+var orderingApi = builder.AddProject<Projects.NovaCart_Services_Ordering_API>("ordering-api", launchProfileName: null)
+    .WithHttpEndpoint(name: "http")
+    .WithHttpHealthCheck("/health")
     .WithReference(orderingDb)
     .WithReference(rabbitmq)
     .WithReference(catalogApi)
@@ -34,13 +40,17 @@ var orderingApi = builder.AddProject<Projects.NovaCart_Services_Ordering_API>("o
     .WaitFor(rabbitmq)
     .WaitFor(catalogApi);
 
-var identityApi = builder.AddProject<Projects.NovaCart_Services_Identity_API>("identity-api")
+var identityApi = builder.AddProject<Projects.NovaCart_Services_Identity_API>("identity-api", launchProfileName: null)
+    .WithHttpEndpoint(name: "http")
+    .WithHttpHealthCheck("/health")
     .WithReference(identityDb)
     .WithReference(rabbitmq)
     .WaitFor(identityDb)
     .WaitFor(rabbitmq);
 
-var basketApi = builder.AddProject<Projects.NovaCart_Services_Basket_API>("basket-api")
+var basketApi = builder.AddProject<Projects.NovaCart_Services_Basket_API>("basket-api", launchProfileName: null)
+    .WithHttpEndpoint(name: "http")
+    .WithHttpHealthCheck("/health")
     .WithReference(redis)
     .WithReference(rabbitmq)
     .WithReference(catalogApi)
@@ -48,23 +58,34 @@ var basketApi = builder.AddProject<Projects.NovaCart_Services_Basket_API>("baske
     .WaitFor(rabbitmq)
     .WaitFor(catalogApi);
 
-var paymentApi = builder.AddProject<Projects.NovaCart_Services_Payment_API>("payment-api")
+var paymentApi = builder.AddProject<Projects.NovaCart_Services_Payment_API>("payment-api", launchProfileName: null)
+    .WithHttpEndpoint(name: "http")
+    .WithHttpHealthCheck("/health")
     .WithReference(paymentDb)
     .WithReference(rabbitmq)
     .WaitFor(paymentDb)
     .WaitFor(rabbitmq);
 
 // API Gateway
-var gateway = builder.AddProject<Projects.NovaCart_ApiGateway_Yarp>("gateway")
+var gateway = builder.AddProject<Projects.NovaCart_ApiGateway_Yarp>("gateway", launchProfileName: null)
+    .WithHttpEndpoint(name: "http")
+    .WithHttpHealthCheck("/health")
     .WithReference(catalogApi)
     .WithReference(orderingApi)
     .WithReference(identityApi)
     .WithReference(basketApi);
 
 // Web (BFF)
-builder.AddProject<Projects.NovaCart_Web>("web")
+var web = builder.AddProject<Projects.NovaCart_Web>("web", launchProfileName: null)
+    .WithHttpEndpoint(name: "http")
+    .WithHttpHealthCheck("/health")
     .WithExternalHttpEndpoints()
     .WithReference(gateway);
+
+// AppHost local runs must work without ignored per-project launchSettings.json files.
+if (builder.ExecutionContext.IsRunMode)
+    foreach (var service in new[] { catalogApi, orderingApi, identityApi, basketApi, paymentApi, gateway, web })
+        service.WithEnvironment("ASPNETCORE_ENVIRONMENT", "Development");
 
 // Inject the shared JWT signing key into every token-validating service (Identity also signs).
 foreach (var service in new[] { catalogApi, orderingApi, identityApi, basketApi })

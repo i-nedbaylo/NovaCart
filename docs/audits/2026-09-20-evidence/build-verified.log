@@ -1,0 +1,105 @@
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'KubernetesClient' 16.0.7 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w7r3-mgwf-4mqq
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2f33-pr97-265q
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2x83-8g95-xh59
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cj9g-3mj2-g8vv
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cxmj-83gh-fp49
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1903: Package 'MessagePack' 2.5.192 has a known high severity vulnerability, https://github.com/advisories/GHSA-hv8m-jj95-wg3x
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-q2h6-ghwm-5qm8
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-qhmf-xw27-6rqr
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v72x-2h86-7f8m
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1903: Package 'MessagePack' 2.5.192 has a known high severity vulnerability, https://github.com/advisories/GHSA-vh6j-jc39-fggf
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w567-gjr2-hm5j
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wfr3-xj75-pfwh
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'KubernetesClient' 16.0.7 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w7r3-mgwf-4mqq
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2f33-pr97-265q
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2x83-8g95-xh59
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cj9g-3mj2-g8vv
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cxmj-83gh-fp49
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1903: Package 'MessagePack' 2.5.192 has a known high severity vulnerability, https://github.com/advisories/GHSA-hv8m-jj95-wg3x
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-q2h6-ghwm-5qm8
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-qhmf-xw27-6rqr
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v72x-2h86-7f8m
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1903: Package 'MessagePack' 2.5.192 has a known high severity vulnerability, https://github.com/advisories/GHSA-vh6j-jc39-fggf
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w567-gjr2-hm5j
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wfr3-xj75-pfwh
+  NovaCart.Services.Identity.Contracts -> D:\Repos\NovaCart\src\Services\Identity\Identity.Contracts\bin\Debug\net10.0\NovaCart.Services.Identity.Contracts.dll
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.BuildingBlocks.EventBus -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\bin\Debug\net10.0\NovaCart.BuildingBlocks.EventBus.dll
+  NovaCart.Services.Identity.Domain -> D:\Repos\NovaCart\src\Services\Identity\Identity.Domain\bin\Debug\net10.0\NovaCart.Services.Identity.Domain.dll
+  NovaCart.Services.Catalog.Contracts -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Contracts\bin\Debug\net10.0\NovaCart.Services.Catalog.Contracts.dll
+  NovaCart.ServiceDefaults -> D:\Repos\NovaCart\NovaCart.ServiceDefaults\bin\Debug\net10.0\NovaCart.ServiceDefaults.dll
+  NovaCart.Services.Basket.Domain -> D:\Repos\NovaCart\src\Services\Basket\Basket.Domain\bin\Debug\net10.0\NovaCart.Services.Basket.Domain.dll
+  NovaCart.BuildingBlocks.Persistence -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\bin\Debug\net10.0\NovaCart.BuildingBlocks.Persistence.dll
+  NovaCart.Services.Payment.Contracts -> D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\bin\Debug\net10.0\NovaCart.Services.Payment.Contracts.dll
+  NovaCart.Services.Basket.Contracts -> D:\Repos\NovaCart\src\Services\Basket\Basket.Contracts\bin\Debug\net10.0\NovaCart.Services.Basket.Contracts.dll
+  NovaCart.BuildingBlocks.Outbox -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Outbox\bin\Debug\net10.0\NovaCart.BuildingBlocks.Outbox.dll
+  NovaCart.Services.Payment.Domain -> D:\Repos\NovaCart\src\Services\Payment\Payment.Domain\bin\Debug\net10.0\NovaCart.Services.Payment.Domain.dll
+  NovaCart.Services.Ordering.Domain -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Domain\bin\Debug\net10.0\NovaCart.Services.Ordering.Domain.dll
+  NovaCart.ApiGateway.Yarp -> D:\Repos\NovaCart\src\ApiGateway\Gateway.Yarp\bin\Debug\net10.0\NovaCart.ApiGateway.Yarp.dll
+  NovaCart.Web.Client -> D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\bin\Debug\net10.0\NovaCart.Web.Client.dll
+  NovaCart.Web.Client (Blazor output) -> D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\bin\Debug\net10.0\wwwroot
+  NovaCart.Services.Catalog.Domain -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Domain\bin\Debug\net10.0\NovaCart.Services.Catalog.Domain.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Ordering.Contracts -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Contracts\bin\Debug\net10.0\NovaCart.Services.Ordering.Contracts.dll
+  NovaCart.Services.Identity.Application -> D:\Repos\NovaCart\src\Services\Identity\Identity.Application\bin\Debug\net10.0\NovaCart.Services.Identity.Application.dll
+  NovaCart.Services.Ordering.Application -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Application\bin\Debug\net10.0\NovaCart.Services.Ordering.Application.dll
+  NovaCart.Services.Basket.Application -> D:\Repos\NovaCart\src\Services\Basket\Basket.Application\bin\Debug\net10.0\NovaCart.Services.Basket.Application.dll
+  NovaCart.Services.Payment.Application -> D:\Repos\NovaCart\src\Services\Payment\Payment.Application\bin\Debug\net10.0\NovaCart.Services.Payment.Application.dll
+  NovaCart.Services.Basket.Infrastructure -> D:\Repos\NovaCart\src\Services\Basket\Basket.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Basket.Infrastructure.dll
+  NovaCart.Services.Catalog.Application -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Application\bin\Debug\net10.0\NovaCart.Services.Catalog.Application.dll
+  NovaCart.Services.Ordering.Infrastructure -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Ordering.Infrastructure.dll
+  NovaCart.Services.Payment.Infrastructure -> D:\Repos\NovaCart\src\Services\Payment\Payment.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Payment.Infrastructure.dll
+D:\Repos\NovaCart\src\Web\NovaCart.Web\Components\Pages\Login.razor(57,29): warning BL0008: Property 'NovaCart.Web.Components.Pages.Login.Input' has [SupplyParameterFromForm] and a property initializer. This can be overwritten with null during form posts. [D:\Repos\NovaCart\src\Web\NovaCart.Web\NovaCart.Web.csproj]
+D:\Repos\NovaCart\src\Web\NovaCart.Web\Components\Pages\Register.razor(71,32): warning BL0008: Property 'NovaCart.Web.Components.Pages.Register.Input' has [SupplyParameterFromForm] and a property initializer. This can be overwritten with null during form posts. [D:\Repos\NovaCart\src\Web\NovaCart.Web\NovaCart.Web.csproj]
+  NovaCart.Services.Identity.Infrastructure -> D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Identity.Infrastructure.dll
+  NovaCart.Tests.Payment.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Payment.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Payment.UnitTests.dll
+  NovaCart.Tests.Ordering.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Ordering.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Ordering.UnitTests.dll
+  NovaCart.Tests.Basket.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Basket.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Basket.UnitTests.dll
+  NovaCart.Services.Catalog.Infrastructure -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Infrastructure\bin\Debug\net10.0\NovaCart.Services.Catalog.Infrastructure.dll
+  NovaCart.Services.Basket.API -> D:\Repos\NovaCart\src\Services\Basket\Basket.API\bin\Debug\net10.0\NovaCart.Services.Basket.API.dll
+  NovaCart.Tests.Catalog.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Catalog.UnitTests.dll
+  NovaCart.Services.Identity.API -> D:\Repos\NovaCart\src\Services\Identity\Identity.API\bin\Debug\net10.0\NovaCart.Services.Identity.API.dll
+  NovaCart.Tests.Identity.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll
+D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\CatalogPostgresFixture.cs(35,26): warning CS0618: "PostgreSqlBuilder.PostgreSqlBuilder()" является устаревшим: 'This parameterless constructor is obsolete and will be removed. Use the constructor with the image parameter instead: https://github.com/testcontainers/testcontainers-dotnet/discussions/1470#discussioncomment-15185721.' [D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\NovaCart.Tests.Catalog.IntegrationTests.csproj]
+  NovaCart.Tests.Catalog.IntegrationTests -> D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Debug\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll
+  NovaCart.Web -> D:\Repos\NovaCart\src\Web\NovaCart.Web\bin\Debug\net10.0\NovaCart.Web.dll
+  NovaCart.Services.Payment.API -> D:\Repos\NovaCart\src\Services\Payment\Payment.API\bin\Debug\net10.0\NovaCart.Services.Payment.API.dll
+  NovaCart.Services.Ordering.API -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\bin\Debug\net10.0\NovaCart.Services.Ordering.API.dll
+  NovaCart.Services.Catalog.API -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\bin\Debug\net10.0\NovaCart.Services.Catalog.API.dll
+  NovaCart.Tests.ArchitectureTests -> D:\Repos\NovaCart\tests\ArchitectureTests\bin\Debug\net10.0\NovaCart.Tests.ArchitectureTests.dll
+  NovaCart.AppHost -> D:\Repos\NovaCart\NovaCart.AppHost\bin\Debug\net10.0\NovaCart.AppHost.dll
+  NovaCart.Tests.OrderFlow.E2E -> D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\bin\Debug\net10.0\NovaCart.Tests.OrderFlow.E2E.dll
+
+Сборка успешно завершена.
+
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'KubernetesClient' 16.0.7 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w7r3-mgwf-4mqq
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2f33-pr97-265q
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2x83-8g95-xh59
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cj9g-3mj2-g8vv
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cxmj-83gh-fp49
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1903: Package 'MessagePack' 2.5.192 has a known high severity vulnerability, https://github.com/advisories/GHSA-hv8m-jj95-wg3x
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-q2h6-ghwm-5qm8
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-qhmf-xw27-6rqr
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v72x-2h86-7f8m
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1903: Package 'MessagePack' 2.5.192 has a known high severity vulnerability, https://github.com/advisories/GHSA-vh6j-jc39-fggf
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w567-gjr2-hm5j
+D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wfr3-xj75-pfwh
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'KubernetesClient' 16.0.7 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w7r3-mgwf-4mqq
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2f33-pr97-265q
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2x83-8g95-xh59
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cj9g-3mj2-g8vv
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cxmj-83gh-fp49
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1903: Package 'MessagePack' 2.5.192 has a known high severity vulnerability, https://github.com/advisories/GHSA-hv8m-jj95-wg3x
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-q2h6-ghwm-5qm8
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-qhmf-xw27-6rqr
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v72x-2h86-7f8m
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1903: Package 'MessagePack' 2.5.192 has a known high severity vulnerability, https://github.com/advisories/GHSA-vh6j-jc39-fggf
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-w567-gjr2-hm5j
+D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\NovaCart.Tests.OrderFlow.E2E.csproj : warning NU1902: Package 'MessagePack' 2.5.192 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wfr3-xj75-pfwh
+D:\Repos\NovaCart\src\Web\NovaCart.Web\Components\Pages\Login.razor(57,29): warning BL0008: Property 'NovaCart.Web.Components.Pages.Login.Input' has [SupplyParameterFromForm] and a property initializer. This can be overwritten with null during form posts. [D:\Repos\NovaCart\src\Web\NovaCart.Web\NovaCart.Web.csproj]
+D:\Repos\NovaCart\src\Web\NovaCart.Web\Components\Pages\Register.razor(71,32): warning BL0008: Property 'NovaCart.Web.Components.Pages.Register.Input' has [SupplyParameterFromForm] and a property initializer. This can be overwritten with null during form posts. [D:\Repos\NovaCart\src\Web\NovaCart.Web\NovaCart.Web.csproj]
+D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\CatalogPostgresFixture.cs(35,26): warning CS0618: "PostgreSqlBuilder.PostgreSqlBuilder()" является устаревшим: 'This parameterless constructor is obsolete and will be removed. Use the constructor with the image parameter instead: https://github.com/testcontainers/testcontainers-dotnet/discussions/1470#discussioncomment-15185721.' [D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\NovaCart.Tests.Catalog.IntegrationTests.csproj]
+    Предупреждений: 27
+    Ошибок: 0
+
+Прошло времени 00:00:14.77

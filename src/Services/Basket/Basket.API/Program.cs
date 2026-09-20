@@ -13,6 +13,9 @@ builder.AddJwtAuthentication();
 
 builder.Services.AddBasketApplication();
 builder.Services.AddBasketInfrastructure();
+builder.Services.AddSingleton<StackExchange.Redis.IConnectionMultiplexer>(_ =>
+    StackExchange.Redis.ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("redis")
+        ?? throw new InvalidOperationException("Connection string 'redis' not found.")));
 
 // Server-side pricing: resolve product name/price from Catalog directly (service discovery),
 // so basket items are never priced from client input.

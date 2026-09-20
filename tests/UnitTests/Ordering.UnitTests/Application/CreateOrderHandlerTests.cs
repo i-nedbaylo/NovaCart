@@ -13,6 +13,31 @@ namespace NovaCart.Tests.Ordering.UnitTests.Application;
 
 public class CreateOrderHandlerTests
 {
+    [Fact]
+    public async Task Handle_PreservesCurrencyInOrderAndPaymentEvent()
+    {
+        var product = new CatalogProduct(Guid.NewGuid(), "Product", 12, "EUR");
+        SetupCatalog(product);
+        var result = await _handler.Handle(new CreateOrderCommand(Guid.NewGuid(), Address,
+            [new CreateOrderItemRequest(product.Id, 1)]), default);
+        result.IsSuccess.Should().BeTrue();
+        _orderRepository.Received().Add(Arg.Is<Order>(o => o.Currency == "EUR"));
+        _outboxEventCollector.Received().Add(Arg.Is<OrderCreatedIntegrationEvent>(e => e.Currency == "EUR"));
+    }
+
+    [Fact]
+    public async Task Handle_RejectsMixedCurrenciesBeforeSaving()
+    {
+        var eur = new CatalogProduct(Guid.NewGuid(), "Euro", 12, "EUR");
+        var usd = new CatalogProduct(Guid.NewGuid(), "Dollar", 12, "USD");
+        SetupCatalog(eur, usd);
+        var result = await _handler.Handle(new CreateOrderCommand(Guid.NewGuid(), Address,
+            [new CreateOrderItemRequest(eur.Id, 1), new CreateOrderItemRequest(usd.Id, 1)]), default);
+        result.Error.Code.Should().Be("Order.MixedCurrency");
+        _orderRepository.DidNotReceive().Add(Arg.Any<Order>());
+        await _unitOfWork.DidNotReceive().SaveChangesAsync(Arg.Any<CancellationToken>());
+    }
+
     private static readonly AddressDto Address = new("123 Main St", "Springfield", "IL", "US", "62704");
 
     private readonly IOrderRepository _orderRepository = Substitute.For<IOrderRepository>();

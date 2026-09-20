@@ -9,7 +9,8 @@ public sealed record OrderDto(
     AddressDto ShippingAddress,
     List<OrderItemDto> Items,
     DateTimeOffset CreatedAt,
-    DateTimeOffset? UpdatedAt);
+    DateTimeOffset? UpdatedAt,
+    string Currency = "USD");
 
 public sealed record AddressDto(
     string Street,

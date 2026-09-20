@@ -49,13 +49,14 @@ app.UseExceptionHandler(exceptionHandlerApp =>
     exceptionHandlerApp.Run(async context =>
     {
         context.Response.ContentType = "application/problem+json";
-        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+        var conflict = context.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>()?.Error is DbUpdateConcurrencyException;
+        context.Response.StatusCode = conflict ? StatusCodes.Status409Conflict : StatusCodes.Status500InternalServerError;
 
         await context.Response.WriteAsJsonAsync(new
         {
             type = "https://tools.ietf.org/html/rfc9110#section-15.6.1",
-            title = "An error occurred while processing your request.",
-            status = 500
+            title = conflict ? "The order changed. Reload it and retry." : "An error occurred while processing your request.",
+            status = context.Response.StatusCode
         });
     });
 });

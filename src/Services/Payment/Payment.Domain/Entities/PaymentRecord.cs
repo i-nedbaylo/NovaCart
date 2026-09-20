@@ -19,8 +19,8 @@ public sealed class PaymentRecord : AggregateRoot
         if (orderId == Guid.Empty)
             throw new ArgumentException("Order ID cannot be empty.", nameof(orderId));
 
-        if (amount <= 0)
-            throw new ArgumentException("Amount must be greater than zero.", nameof(amount));
+        if (amount < 0)
+            throw new ArgumentException("Amount cannot be negative.", nameof(amount));
 
         if (string.IsNullOrWhiteSpace(currency))
             throw new ArgumentException("Currency cannot be empty.", nameof(currency));
@@ -36,6 +36,14 @@ public sealed class PaymentRecord : AggregateRoot
             Currency = normalizedCurrency,
             Status = PaymentStatus.Pending
         };
+    }
+
+    public void CancelOrRefund()
+    {
+        if (Status.Equals(PaymentStatus.Cancelled) || Status.Equals(PaymentStatus.Refunded)) return;
+        Status = Status.Equals(PaymentStatus.Succeeded) ? PaymentStatus.Refunded : PaymentStatus.Cancelled;
+        ProcessedAt = DateTimeOffset.UtcNow;
+        UpdatedAt = ProcessedAt;
     }
 
     public void MarkAsSucceeded()

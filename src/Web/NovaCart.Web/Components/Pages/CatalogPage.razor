@@ -35,7 +35,7 @@ else
                                 : product.Description)
                         </MudText>
                         <MudText Typo="Typo.h6" Color="Color.Primary">
-                            @product.PriceAmount.ToString("C2") @product.PriceCurrency
+                            @product.PriceAmount.ToString("N2") @product.PriceCurrency
                         </MudText>
                     </MudCardContent>
                     <MudCardActions>
@@ -49,23 +49,29 @@ else
         }
     </MudGrid>
 
-    <MudPagination Class="mt-4 d-flex justify-center"
-                   Count="@TotalPages"
-                   Selected="@_currentPage"
-                   SelectedChanged="OnPageChanged" />
+    <nav class="mt-4 d-flex justify-center" aria-label="Catalog pages">
+        @for (var pageNumber = 1; pageNumber <= TotalPages; pageNumber++)
+        {
+            <MudButton Href="@($"/catalog?page={pageNumber}")" Variant="@(pageNumber == _currentPage ? Variant.Filled : Variant.Text)">
+                @pageNumber
+            </MudButton>
+        }
+    </nav>
 }
 
 @code {
     private PagedResult<ProductViewModel>? _products;
     private bool _loading = true;
-    private int _currentPage = 1;
+    [SupplyParameterFromQuery(Name = "page")]
+    public int? Page { get; set; }
+    private int _currentPage => Math.Max(1, Page ?? 1);
     private const int PageSize = 12;
 
     private int TotalPages => _products is null || _products.TotalCount == 0
         ? 1
         : (int)Math.Ceiling((double)_products.TotalCount / PageSize);
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         await LoadProductsAsync();
     }
@@ -88,9 +94,4 @@ else
         }
     }
 
-    private async Task OnPageChanged(int page)
-    {
-        _currentPage = page;
-        await LoadProductsAsync();
-    }
 }

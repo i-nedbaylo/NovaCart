@@ -8,4 +8,4 @@ public sealed record CheckoutBasketCommand(
     string City,
     string State,
     string Country,
-    string ZipCode) : ICommand;
+    string ZipCode, Guid BasketRevision = default) : ICommand;

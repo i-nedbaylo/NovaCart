@@ -10,6 +10,11 @@
 
 <MudText Typo="Typo.h4" GutterBottom="true">Shopping Cart</MudText>
 
+@if (_error is not null)
+{
+    <MudAlert Severity="Severity.Error" Class="mb-4">@_error</MudAlert>
+}
+
 @if (_loading)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
@@ -31,23 +36,23 @@ else
     <MudTable Items="_basket.Items" Hover="true" Breakpoint="Breakpoint.Sm" Dense="true">
         <HeaderContent>
             <MudTh>Product</MudTh>
-            <MudTh>Price</MudTh>
+            <MudTh>Price (@_basket.Currency)</MudTh>
             <MudTh Style="width: 160px">Quantity</MudTh>
             <MudTh>Subtotal</MudTh>
             <MudTh Style="width: 60px"></MudTh>
         </HeaderContent>
         <RowTemplate>
             <MudTd DataLabel="Product">@context.ProductName</MudTd>
-            <MudTd DataLabel="Price">@context.Price.ToString("C2")</MudTd>
+            <MudTd DataLabel="Price">@context.Price.ToString("N2")</MudTd>
             <MudTd DataLabel="Quantity">
                 <MudNumericField T="int" @bind-Value="context.Quantity" Min="1" Max="99"
                                  Variant="Variant.Outlined" Margin="Margin.Dense"
                                  Immediate="true" />
             </MudTd>
-            <MudTd DataLabel="Subtotal">@((context.Price * context.Quantity).ToString("C2"))</MudTd>
+            <MudTd DataLabel="Subtotal">@((context.Price * context.Quantity).ToString("N2"))</MudTd>
             <MudTd>
                 <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" Size="Size.Small"
-                               OnClick="() => RemoveItem(context)" />
+                               OnClick="() => RemoveItemAsync(context)" Disabled="_saving" />
             </MudTd>
         </RowTemplate>
     </MudTable>
@@ -69,7 +74,7 @@ else
         </MudItem>
         <MudItem xs="12" sm="6" Class="d-flex justify-end align-center">
             <MudText Typo="Typo.h6" Class="mr-4">
-                Total: @_basket.Items.Sum(i => i.Price * i.Quantity).ToString("C2")
+                Total: @_basket.Items.Sum(i => i.Price * i.Quantity).ToString("N2") @_basket.Currency
             </MudText>
             <MudButton Variant="Variant.Filled" Color="Color.Primary"
                        StartIcon="@Icons.Material.Filled.Payment"
@@ -86,6 +91,7 @@ else
     private bool _signedIn;
     private bool _loading = true;
     private bool _saving;
+    private string? _error;
 
     protected override async Task OnInitializedAsync()
     {
@@ -121,9 +127,24 @@ else
         }
     }
 
-    private void RemoveItem(BasketItemModel item)
+    private async Task RemoveItemAsync(BasketItemModel item)
     {
-        _basket?.Items.Remove(item);
+        if (_basket is null || _buyerId is null || _saving) return;
+        _saving = true;
+        _error = null;
+        try
+        {
+            var remaining = _basket.Items.Where(i => i.ProductId != item.ProductId).ToList();
+            if (remaining.Count == 0)
+            {
+                await BasketService.DeleteBasketAsync(_buyerId);
+                _basket = null;
+            }
+            else
+                _basket = await BasketService.UpdateBasketAsync(_buyerId, remaining);
+        }
+        catch (HttpRequestException) { _error = "Could not remove the item. Please try again."; }
+        finally { _saving = false; }
     }
 
     private async Task UpdateCartAsync()

@@ -1,0 +1,40 @@
+Тестовый запуск для D:\Repos\NovaCart\tests\ArchitectureTests\bin\Debug\net10.0\NovaCart.Tests.ArchitectureTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Debug\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Catalog.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Basket.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Basket.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Payment.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Payment.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\bin\Debug\net10.0\NovaCart.Tests.OrderFlow.E2E.dll (.NETCoreApp,Version=v10.0)
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Ordering.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Ordering.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Нет тестов, соответствующих указанному фильтру тестовых случаев "Category!=Integration" в D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\bin\Debug\net10.0\NovaCart.Tests.Catalog.IntegrationTests.dll
+Нет тестов, соответствующих указанному фильтру тестовых случаев "Category!=Integration" в D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\bin\Debug\net10.0\NovaCart.Tests.OrderFlow.E2E.dll
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-evidence\test-results\inedb_MSI-DT_2026-09-20_10_56_41_net10.0.trx
+
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-evidence\test-results\inedb_MSI-DT_2026-09-20_10_56_41_net10.0[1].trx
+
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-evidence\test-results\inedb_MSI-DT_2026-09-20_10_56_41_net10.0[2].trx
+
+Пройден!   : не пройдено     0, пройдено    15, пропущено     0, всего    15, длительность 184 ms. - NovaCart.Tests.Identity.UnitTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-evidence\test-results\inedb_MSI-DT_2026-09-20_10_56_41_net10.0[3].trx
+
+Пройден!   : не пройдено     0, пройдено    35, пропущено     0, всего    35, длительность 193 ms. - NovaCart.Tests.Payment.UnitTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-evidence\test-results\inedb_MSI-DT_2026-09-20_10_56_41_net10.0[4].trx
+
+Пройден!   : не пройдено     0, пройдено    36, пропущено     0, всего    36, длительность 174 ms. - NovaCart.Tests.Ordering.UnitTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-evidence\test-results\inedb_MSI-DT_2026-09-20_10_56_42_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    24, пропущено     0, всего    24, длительность 153 ms. - NovaCart.Tests.ArchitectureTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-evidence\test-results\inedb_MSI-DT_2026-09-20_10_56_43_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    35, пропущено     0, всего    35, длительность 135 ms. - NovaCart.Tests.Basket.UnitTests.dll (net10.0)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-evidence\test-results\inedb_MSI-DT_2026-09-20_10_56_44_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    22, пропущено     0, всего    22, длительность 115 ms. - NovaCart.Tests.Catalog.UnitTests.dll (net10.0)

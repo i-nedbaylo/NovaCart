@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="c3b178d8-07ea-4017-b34f-9acf081b7928" name="inedb@MSI-DT 2026-09-20 11:52:41" runUser="MSI-DT\inedb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T11:52:41.2442583+03:00" queuing="2026-09-20T11:52:41.2442585+03:00" start="2026-09-20T11:52:36.5355549+03:00" finish="2026-09-20T11:52:43.4349719+03:00" />
+  <TestSettings name="default" id="f47ca619-6656-4d8d-ba9d-a09c5e20dba9">
+    <Deployment runDeploymentRoot="inedb_MSI-DT_2026-09-20_11_52_41" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="e639cdce-8758-4869-8cb0-073808fd2c9a" testId="23480d79-f17b-54a9-2a8d-578b469ac866" testName="NovaCart.Tests.Identity.UnitTests.TokenServiceTests.GenerateAccessToken_Should_Be_Valid_And_Carry_User_Claims_And_Roles" computerName="MSI-DT" duration="00:00:02.1000057" startTime="2026-09-20T11:52:41.2242992+03:00" endTime="2026-09-20T11:52:43.3149835+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e639cdce-8758-4869-8cb0-073808fd2c9a" />
+    <UnitTestResult executionId="2861bd52-124e-49fc-b516-2297aa8f5adc" testId="f90aa8b7-8746-d84a-05e4-37c02b5b5213" testName="NovaCart.Tests.Identity.UnitTests.TokenServiceTests.GenerateRefreshToken_Should_Return_Unique_64_Byte_Values" computerName="MSI-DT" duration="00:00:00.0300150" startTime="2026-09-20T11:52:41.2029037+03:00" endTime="2026-09-20T11:52:41.2123950+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2861bd52-124e-49fc-b516-2297aa8f5adc" />
+    <UnitTestResult executionId="0d2cfb16-c6f5-492d-b37b-d0412d44b653" testId="fb4eabb2-2406-ab56-9f16-59b8e736d490" testName="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Empty_LastName" computerName="MSI-DT" duration="00:00:00.0002461" startTime="2026-09-20T11:52:41.2329073+03:00" endTime="2026-09-20T11:52:41.2329404+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0d2cfb16-c6f5-492d-b37b-d0412d44b653" />
+    <UnitTestResult executionId="b879dfb8-5336-41b3-bd2b-5e6aa39a9f03" testId="34abd0aa-8346-5a47-aba5-889737024eca" testName="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Invalid_Email(email: &quot;not-an-email&quot;)" computerName="MSI-DT" duration="00:00:00.0004249" startTime="2026-09-20T11:52:41.2332057+03:00" endTime="2026-09-20T11:52:41.2332377+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b879dfb8-5336-41b3-bd2b-5e6aa39a9f03" />
+    <UnitTestResult executionId="a6040fbe-3e2e-4a3f-8378-1a16d01dc128" testId="c4c37ded-8768-dd32-59ee-5ca07497b674" testName="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests.Validate_Should_Fail_For_Invalid_Email(email: &quot;&quot;)" computerName="MSI-DT" duration="00:00:00.0002440" startTime="2026-09-20T11:52:41.2311068+03:00" endTime="2026-09-20T11:52:41.2311810+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a6040fbe-3e2e-4a3f-8378-1a16d01dc128" />
+    <UnitTestResult executionId="4fe1460d-3045-47c3-a901-bc8ba519a6e5" testId="b6795319-ff6e-e027-4c44-90b727cfdd75" testName="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests.Validate_Should_Pass_For_A_Valid_Command" computerName="MSI-DT" duration="00:00:00.0384141" startTime="2026-09-20T11:52:41.2007067+03:00" endTime="2026-09-20T11:52:41.2243484+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4fe1460d-3045-47c3-a901-bc8ba519a6e5" />
+    <UnitTestResult executionId="e0c67990-90cf-4640-827c-c7febac98dfc" testId="f5b89e72-470d-56c7-8305-c0d5af270a6e" testName="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Empty_Or_Too_Short_Password(password: &quot;&quot;)" computerName="MSI-DT" duration="00:00:00.0004796" startTime="2026-09-20T11:52:41.2327369+03:00" endTime="2026-09-20T11:52:41.2327785+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0c67990-90cf-4640-827c-c7febac98dfc" />
+    <UnitTestResult executionId="2c708b75-27d4-4f2b-8b7e-57dee3e8aced" testId="77dca54c-0046-19e5-a986-8166b0a081e7" testName="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests.Validate_Should_Fail_For_Empty_Password" computerName="MSI-DT" duration="00:00:00.0002409" startTime="2026-09-20T11:52:41.2313239+03:00" endTime="2026-09-20T11:52:41.2313559+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c708b75-27d4-4f2b-8b7e-57dee3e8aced" />
+    <UnitTestResult executionId="23cd17c2-e7c9-40ec-a799-462e82520f96" testId="df7c5832-1558-be25-eefe-049a6e5f7c22" testName="NovaCart.Tests.Identity.UnitTests.TokenServiceTests.GenerateAccessToken_Should_Be_Signed_So_A_Different_Key_Fails_Validation" computerName="MSI-DT" duration="00:00:00.0136228" startTime="2026-09-20T11:52:43.3152237+03:00" endTime="2026-09-20T11:52:43.3286587+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23cd17c2-e7c9-40ec-a799-462e82520f96" />
+    <UnitTestResult executionId="308470af-5b1e-4585-842e-9a87a084fb8f" testId="b23ccc6b-5504-5d84-06ee-9326c6d43960" testName="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.Refresh_DoesNotReturnUnpersistedTokens" computerName="MSI-DT" duration="00:00:00.0008599" startTime="2026-09-20T11:52:43.3756920+03:00" endTime="2026-09-20T11:52:43.3764839+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="308470af-5b1e-4585-842e-9a87a084fb8f" />
+    <UnitTestResult executionId="2b706db2-8446-4feb-b9a8-74839034590c" testId="60a4db16-9528-11b0-65c9-e112f073a2d5" testName="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.Login_DoesNotReturnUnpersistedTokens" computerName="MSI-DT" duration="00:00:00.0017339" startTime="2026-09-20T11:52:43.3738961+03:00" endTime="2026-09-20T11:52:43.3755498+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b706db2-8446-4feb-b9a8-74839034590c" />
+    <UnitTestResult executionId="f48d729d-4d8c-4281-8ca0-9c548c6d2edf" testId="0e4a618d-286b-4b6f-db96-893ed10c4109" testName="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.Login_RejectsLockedAccountBeforeCheckingPassword" computerName="MSI-DT" duration="00:00:02.1914184" startTime="2026-09-20T11:52:41.2028641+03:00" endTime="2026-09-20T11:52:43.3698045+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f48d729d-4d8c-4281-8ca0-9c548c6d2edf" />
+    <UnitTestResult executionId="8186e5ba-8da7-4e35-a3a5-0ac61abd2916" testId="caa7b56f-1301-f641-fea2-25db1a8ae3b2" testName="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests.ParallelHttpAndCircuitRequests_ShareOneRotation" computerName="MSI-DT" duration="00:00:00.0273200" startTime="2026-09-20T11:52:43.3006354+03:00" endTime="2026-09-20T11:52:43.3282060+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8186e5ba-8da7-4e35-a3a5-0ac61abd2916" />
+    <UnitTestResult executionId="a139082f-861c-491d-a393-8a506954245b" testId="a4a8d5ea-3a03-912c-33d9-f6378a083176" testName="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Empty_FirstName" computerName="MSI-DT" duration="00:00:00.0464755" startTime="2026-09-20T11:52:41.2026344+03:00" endTime="2026-09-20T11:52:41.2248350+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a139082f-861c-491d-a393-8a506954245b" />
+    <UnitTestResult executionId="7d3a220e-66ef-4b85-8f86-cea38f8e7661" testId="f34c74cb-bd17-f546-17d8-104145f80668" testName="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests.Validate_Should_Fail_For_Invalid_Email(email: &quot;not-an-email&quot;)" computerName="MSI-DT" duration="00:00:00.0079461" startTime="2026-09-20T11:52:41.2246791+03:00" endTime="2026-09-20T11:52:41.2248765+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d3a220e-66ef-4b85-8f86-cea38f8e7661" />
+    <UnitTestResult executionId="fc6dffd8-7c04-4b32-a778-4d4f78f896e1" testId="3f6070e4-3844-ff82-5aff-f469fa8897e0" testName="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests.ExistingCircuit_RenewsWithoutAnotherHttpCookieRequest" computerName="MSI-DT" duration="00:00:02.0835039" startTime="2026-09-20T11:52:41.2240690+03:00" endTime="2026-09-20T11:52:43.2992142+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc6dffd8-7c04-4b32-a778-4d4f78f896e1" />
+    <UnitTestResult executionId="192f38a0-afaf-4695-86b3-c82fafba91fb" testId="7812926f-8bcf-7d4a-0e8b-2ea7b93aca9e" testName="NovaCart.Tests.Identity.UnitTests.TokenServiceTests.GetAccessTokenExpiration_Should_Be_Close_To_Configured_Lifetime" computerName="MSI-DT" duration="00:00:00.0020176" startTime="2026-09-20T11:52:41.2240860+03:00" endTime="2026-09-20T11:52:41.2241613+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="192f38a0-afaf-4695-86b3-c82fafba91fb" />
+    <UnitTestResult executionId="19b49143-db08-42b0-b3d8-c2a924e73aa0" testId="f68afa47-4edd-2579-efb5-f82445e484be" testName="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Empty_Or_Too_Short_Password(password: &quot;short&quot;)" computerName="MSI-DT" duration="00:00:00.0036592" startTime="2026-09-20T11:52:41.2311355+03:00" endTime="2026-09-20T11:52:41.2325759+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="19b49143-db08-42b0-b3d8-c2a924e73aa0" />
+    <UnitTestResult executionId="1f4fc0a4-4acf-4b25-a7ea-e8dedb88f565" testId="b997a983-e8f7-ed11-61f8-8dd92cdee682" testName="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests.Logout_RevokesExistingCircuit" computerName="MSI-DT" duration="00:00:00.0288885" startTime="2026-09-20T11:52:41.2029316+03:00" endTime="2026-09-20T11:52:41.2168404+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f4fc0a4-4acf-4b25-a7ea-e8dedb88f565" />
+    <UnitTestResult executionId="481326a0-2a2b-4928-b736-ae3843da63a7" testId="ac8292ef-4ad7-bd7d-7336-be0c175ff4f0" testName="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.InvalidPassword_IsRegisteredWithIdentityLockout" computerName="MSI-DT" duration="00:00:00.0014790" startTime="2026-09-20T11:52:43.3766194+03:00" endTime="2026-09-20T11:52:43.3780239+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="481326a0-2a2b-4928-b736-ae3843da63a7" />
+    <UnitTestResult executionId="24771ea1-d995-490f-b4ad-2e38c27ba23e" testId="59fdf532-e691-c542-9077-d57be02a9f70" testName="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Invalid_Email(email: &quot;&quot;)" computerName="MSI-DT" duration="00:00:00.0005392" startTime="2026-09-20T11:52:41.2331273+03:00" endTime="2026-09-20T11:52:41.2331584+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="24771ea1-d995-490f-b4ad-2e38c27ba23e" />
+    <UnitTestResult executionId="cb3e5ff6-1b4b-4289-81e5-2f4ba985920e" testId="fbd79542-ff3c-19da-0896-a7e4cc584552" testName="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.Refresh_RejectsLockedAccount" computerName="MSI-DT" duration="00:00:00.0038560" startTime="2026-09-20T11:52:43.3699693+03:00" endTime="2026-09-20T11:52:43.3737468+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb3e5ff6-1b4b-4289-81e5-2f4ba985920e" />
+    <UnitTestResult executionId="ca04cdc9-082b-4836-a8c3-f6d76fbe1a87" testId="2dfc67ed-f034-d2fa-8dac-db649de34af0" testName="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Pass_For_A_Valid_Command" computerName="MSI-DT" duration="00:00:00.0001536" startTime="2026-09-20T11:52:41.2330227+03:00" endTime="2026-09-20T11:52:41.2330537+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca04cdc9-082b-4836-a8c3-f6d76fbe1a87" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests.ExistingCircuit_RenewsWithoutAnotherHttpCookieRequest" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="3f6070e4-3844-ff82-5aff-f469fa8897e0">
+      <Execution id="fc6dffd8-7c04-4b32-a778-4d4f78f896e1" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests" name="ExistingCircuit_RenewsWithoutAnotherHttpCookieRequest" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Empty_LastName" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="fb4eabb2-2406-ab56-9f16-59b8e736d490">
+      <Execution id="0d2cfb16-c6f5-492d-b37b-d0412d44b653" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests" name="Validate_Should_Fail_For_Empty_LastName" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.Login_DoesNotReturnUnpersistedTokens" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="60a4db16-9528-11b0-65c9-e112f073a2d5">
+      <Execution id="2b706db2-8446-4feb-b9a8-74839034590c" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests" name="Login_DoesNotReturnUnpersistedTokens" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.TokenServiceTests.GenerateAccessToken_Should_Be_Valid_And_Carry_User_Claims_And_Roles" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="23480d79-f17b-54a9-2a8d-578b469ac866">
+      <Execution id="e639cdce-8758-4869-8cb0-073808fd2c9a" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.TokenServiceTests" name="GenerateAccessToken_Should_Be_Valid_And_Carry_User_Claims_And_Roles" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.InvalidPassword_IsRegisteredWithIdentityLockout" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="ac8292ef-4ad7-bd7d-7336-be0c175ff4f0">
+      <Execution id="481326a0-2a2b-4928-b736-ae3843da63a7" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests" name="InvalidPassword_IsRegisteredWithIdentityLockout" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests.Validate_Should_Pass_For_A_Valid_Command" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="b6795319-ff6e-e027-4c44-90b727cfdd75">
+      <Execution id="4fe1460d-3045-47c3-a901-bc8ba519a6e5" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests" name="Validate_Should_Pass_For_A_Valid_Command" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Invalid_Email(email: &quot;not-an-email&quot;)" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="34abd0aa-8346-5a47-aba5-889737024eca">
+      <Execution id="b879dfb8-5336-41b3-bd2b-5e6aa39a9f03" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests" name="Validate_Should_Fail_For_Invalid_Email" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Empty_Or_Too_Short_Password(password: &quot;short&quot;)" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="f68afa47-4edd-2579-efb5-f82445e484be">
+      <Execution id="19b49143-db08-42b0-b3d8-c2a924e73aa0" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests" name="Validate_Should_Fail_For_Empty_Or_Too_Short_Password" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests.Validate_Should_Fail_For_Empty_Password" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="77dca54c-0046-19e5-a986-8166b0a081e7">
+      <Execution id="2c708b75-27d4-4f2b-8b7e-57dee3e8aced" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests" name="Validate_Should_Fail_For_Empty_Password" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Empty_Or_Too_Short_Password(password: &quot;&quot;)" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="f5b89e72-470d-56c7-8305-c0d5af270a6e">
+      <Execution id="e0c67990-90cf-4640-827c-c7febac98dfc" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests" name="Validate_Should_Fail_For_Empty_Or_Too_Short_Password" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests.Validate_Should_Fail_For_Invalid_Email(email: &quot;not-an-email&quot;)" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="f34c74cb-bd17-f546-17d8-104145f80668">
+      <Execution id="7d3a220e-66ef-4b85-8f86-cea38f8e7661" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests" name="Validate_Should_Fail_For_Invalid_Email" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.Refresh_DoesNotReturnUnpersistedTokens" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="b23ccc6b-5504-5d84-06ee-9326c6d43960">
+      <Execution id="308470af-5b1e-4585-842e-9a87a084fb8f" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests" name="Refresh_DoesNotReturnUnpersistedTokens" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.Refresh_RejectsLockedAccount" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="fbd79542-ff3c-19da-0896-a7e4cc584552">
+      <Execution id="cb3e5ff6-1b4b-4289-81e5-2f4ba985920e" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests" name="Refresh_RejectsLockedAccount" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Pass_For_A_Valid_Command" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="2dfc67ed-f034-d2fa-8dac-db649de34af0">
+      <Execution id="ca04cdc9-082b-4836-a8c3-f6d76fbe1a87" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests" name="Validate_Should_Pass_For_A_Valid_Command" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests.Login_RejectsLockedAccountBeforeCheckingPassword" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="0e4a618d-286b-4b6f-db96-893ed10c4109">
+      <Execution id="f48d729d-4d8c-4281-8ca0-9c548c6d2edf" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.AuthenticationHandlerTests" name="Login_RejectsLockedAccountBeforeCheckingPassword" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.TokenServiceTests.GenerateRefreshToken_Should_Return_Unique_64_Byte_Values" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="f90aa8b7-8746-d84a-05e4-37c02b5b5213">
+      <Execution id="2861bd52-124e-49fc-b516-2297aa8f5adc" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.TokenServiceTests" name="GenerateRefreshToken_Should_Return_Unique_64_Byte_Values" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Invalid_Email(email: &quot;&quot;)" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="59fdf532-e691-c542-9077-d57be02a9f70">
+      <Execution id="24771ea1-d995-490f-b4ad-2e38c27ba23e" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests" name="Validate_Should_Fail_For_Invalid_Email" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests.Validate_Should_Fail_For_Empty_FirstName" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="a4a8d5ea-3a03-912c-33d9-f6378a083176">
+      <Execution id="a139082f-861c-491d-a393-8a506954245b" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.RegisterValidatorTests" name="Validate_Should_Fail_For_Empty_FirstName" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.TokenServiceTests.GenerateAccessToken_Should_Be_Signed_So_A_Different_Key_Fails_Validation" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="df7c5832-1558-be25-eefe-049a6e5f7c22">
+      <Execution id="23cd17c2-e7c9-40ec-a799-462e82520f96" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.TokenServiceTests" name="GenerateAccessToken_Should_Be_Signed_So_A_Different_Key_Fails_Validation" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests.Validate_Should_Fail_For_Invalid_Email(email: &quot;&quot;)" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="c4c37ded-8768-dd32-59ee-5ca07497b674">
+      <Execution id="a6040fbe-3e2e-4a3f-8378-1a16d01dc128" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.LoginValidatorTests" name="Validate_Should_Fail_For_Invalid_Email" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests.Logout_RevokesExistingCircuit" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="b997a983-e8f7-ed11-61f8-8dd92cdee682">
+      <Execution id="1f4fc0a4-4acf-4b25-a7ea-e8dedb88f565" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests" name="Logout_RevokesExistingCircuit" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.TokenServiceTests.GetAccessTokenExpiration_Should_Be_Close_To_Configured_Lifetime" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="7812926f-8bcf-7d4a-0e8b-2ea7b93aca9e">
+      <Execution id="192f38a0-afaf-4695-86b3-c82fafba91fb" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.TokenServiceTests" name="GetAccessTokenExpiration_Should_Be_Close_To_Configured_Lifetime" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests.ParallelHttpAndCircuitRequests_ShareOneRotation" storage="d:\repos\novacart\tests\unittests\identity.unittests\bin\debug\net10.0\novacart.tests.identity.unittests.dll" id="caa7b56f-1301-f641-fea2-25db1a8ae3b2">
+      <Execution id="8186e5ba-8da7-4e35-a3a5-0ac61abd2916" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Identity.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Identity.UnitTests.BffTokenSessionTests" name="ParallelHttpAndCircuitRequests_ShareOneRotation" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="23480d79-f17b-54a9-2a8d-578b469ac866" executionId="e639cdce-8758-4869-8cb0-073808fd2c9a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f90aa8b7-8746-d84a-05e4-37c02b5b5213" executionId="2861bd52-124e-49fc-b516-2297aa8f5adc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fb4eabb2-2406-ab56-9f16-59b8e736d490" executionId="0d2cfb16-c6f5-492d-b37b-d0412d44b653" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="34abd0aa-8346-5a47-aba5-889737024eca" executionId="b879dfb8-5336-41b3-bd2b-5e6aa39a9f03" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c4c37ded-8768-dd32-59ee-5ca07497b674" executionId="a6040fbe-3e2e-4a3f-8378-1a16d01dc128" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6795319-ff6e-e027-4c44-90b727cfdd75" executionId="4fe1460d-3045-47c3-a901-bc8ba519a6e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f5b89e72-470d-56c7-8305-c0d5af270a6e" executionId="e0c67990-90cf-4640-827c-c7febac98dfc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77dca54c-0046-19e5-a986-8166b0a081e7" executionId="2c708b75-27d4-4f2b-8b7e-57dee3e8aced" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="df7c5832-1558-be25-eefe-049a6e5f7c22" executionId="23cd17c2-e7c9-40ec-a799-462e82520f96" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b23ccc6b-5504-5d84-06ee-9326c6d43960" executionId="308470af-5b1e-4585-842e-9a87a084fb8f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60a4db16-9528-11b0-65c9-e112f073a2d5" executionId="2b706db2-8446-4feb-b9a8-74839034590c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0e4a618d-286b-4b6f-db96-893ed10c4109" executionId="f48d729d-4d8c-4281-8ca0-9c548c6d2edf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="caa7b56f-1301-f641-fea2-25db1a8ae3b2" executionId="8186e5ba-8da7-4e35-a3a5-0ac61abd2916" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a4a8d5ea-3a03-912c-33d9-f6378a083176" executionId="a139082f-861c-491d-a393-8a506954245b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f34c74cb-bd17-f546-17d8-104145f80668" executionId="7d3a220e-66ef-4b85-8f86-cea38f8e7661" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3f6070e4-3844-ff82-5aff-f469fa8897e0" executionId="fc6dffd8-7c04-4b32-a778-4d4f78f896e1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7812926f-8bcf-7d4a-0e8b-2ea7b93aca9e" executionId="192f38a0-afaf-4695-86b3-c82fafba91fb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f68afa47-4edd-2579-efb5-f82445e484be" executionId="19b49143-db08-42b0-b3d8-c2a924e73aa0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b997a983-e8f7-ed11-61f8-8dd92cdee682" executionId="1f4fc0a4-4acf-4b25-a7ea-e8dedb88f565" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ac8292ef-4ad7-bd7d-7336-be0c175ff4f0" executionId="481326a0-2a2b-4928-b736-ae3843da63a7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="59fdf532-e691-c542-9077-d57be02a9f70" executionId="24771ea1-d995-490f-b4ad-2e38c27ba23e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fbd79542-ff3c-19da-0896-a7e4cc584552" executionId="cb3e5ff6-1b4b-4289-81e5-2f4ba985920e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2dfc67ed-f034-d2fa-8dac-db649de34af0" executionId="ca04cdc9-082b-4836-a8c3-f6d76fbe1a87" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Список результатов" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="23" executed="23" passed="23" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.12)&#xD;
+[xUnit.net 00:00:04.14]   Discovering: NovaCart.Tests.Identity.UnitTests&#xD;
+[xUnit.net 00:00:04.19]   Discovered:  NovaCart.Tests.Identity.UnitTests&#xD;
+[xUnit.net 00:00:04.21]   Starting:    NovaCart.Tests.Identity.UnitTests&#xD;
+     Warning:&#xD;
+     The component "Fluent Assertions" is governed by the rules defined in the Xceed License Agreement and&#xD;
+     the Xceed Fluent Assertions Community License. You may use Fluent Assertions free of charge for&#xD;
+     non-commercial use only. An active subscription is required to use Fluent Assertions for commercial use.&#xD;
+     Please contact Xceed Sales mailto:sales@xceed.com to acquire a subscription at a very low cost.&#xD;
+     A paid commercial license supports the development and continued increasing support of&#xD;
+     Fluent Assertions users under both commercial and community licenses. Help us&#xD;
+     keep Fluent Assertions at the forefront of unit testing.&#xD;
+     For more information, visit https://xceed.com/products/unit-testing/fluent-assertions/&#xD;
+[xUnit.net 00:00:06.44]   Finished:    NovaCart.Tests.Identity.UnitTests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

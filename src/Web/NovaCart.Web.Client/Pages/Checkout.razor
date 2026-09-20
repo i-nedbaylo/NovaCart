@@ -94,7 +94,7 @@ else
                         <MudListItem T="BasketItemModel">
                             <div class="d-flex justify-space-between">
                                 <MudText>@item.ProductName × @item.Quantity</MudText>
-                                <MudText>@((item.Price * item.Quantity).ToString("C2"))</MudText>
+                                <MudText>@((item.Price * item.Quantity).ToString("N2"))</MudText>
                             </div>
                         </MudListItem>
                     }
@@ -103,7 +103,7 @@ else
                 <div class="d-flex justify-space-between">
                     <MudText Typo="Typo.h6">Total</MudText>
                     <MudText Typo="Typo.h6" Color="Color.Primary">
-                        @_basket.Items.Sum(i => i.Price * i.Quantity).ToString("C2")
+                        @_basket.Items.Sum(i => i.Price * i.Quantity).ToString("N2") @_basket.Currency
                     </MudText>
                 </div>
             </MudPaper>
@@ -158,6 +158,8 @@ else
         try
         {
             // The buyer is taken from the auth token on the server; the body value is ignored.
+            if (_basket is null) return;
+            _checkout.BasketRevision = _basket.Revision;
             await BasketService.CheckoutAsync(_checkout);
             _orderPlaced = true;
         }
@@ -165,6 +167,7 @@ else
         {
             _error = ex.StatusCode switch
             {
+                System.Net.HttpStatusCode.Conflict => "Your cart or prices have changed. Update your cart and review the new total before checkout.",
                 System.Net.HttpStatusCode.BadRequest => "Invalid order data. Please check your shipping address.",
                 System.Net.HttpStatusCode.NotFound => "Your cart was not found. Please add items and try again.",
                 System.Net.HttpStatusCode.Unauthorized => "Your session has expired. Please sign in again.",

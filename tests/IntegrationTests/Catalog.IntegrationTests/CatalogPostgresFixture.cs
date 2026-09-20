@@ -6,9 +6,8 @@ namespace NovaCart.Tests.Catalog.IntegrationTests;
 
 /// <summary>
 /// Spins up a real PostgreSQL instance in a throwaway Docker container (via Testcontainers),
-/// applies the Catalog migrations, and shares it across the test collection. If Docker is not
-/// available the fixture degrades gracefully — <see cref="IsAvailable"/> becomes false and the
-/// tests skip instead of failing, so the suite stays green on machines without Docker.
+/// applies the Catalog migrations, and shares it across the test collection. Infrastructure
+/// and migration failures fail the test run; no implicit skip is allowed.
 /// </summary>
 public sealed class CatalogPostgresFixture : IAsyncLifetime
 {
@@ -30,28 +29,14 @@ public sealed class CatalogPostgresFixture : IAsyncLifetime
 
     public async Task InitializeAsync()
     {
-        try
-        {
-            _container = new PostgreSqlBuilder()
-                .WithImage(GetContainerImage())
-                // A dedicated application database (not the default maintenance DB) so the schema
-                // can be recreated independently.
-                .WithDatabase("catalog_integration")
-                .WithCleanUp(true)
-                .Build();
+        _container = new PostgreSqlBuilder(GetContainerImage())
+            // A dedicated application database so the schema can be recreated independently.
+            .WithDatabase("catalog_integration")
+            .WithCleanUp(true)
+            .Build();
 
-            await _container.StartAsync();
-            ConnectionString = _container.GetConnectionString();
-        }
-        catch (Exception ex)
-        {
-            // Docker not installed/running, image pull blocked, daemon timeout, etc.
-            // Record the reason and let dependent tests skip rather than fail the run.
-            UnavailableReason = $"{DockerUnavailableSkipReason} (reason: {ex.Message})";
-            ConnectionString = null;
-            _container = null;
-            return;
-        }
+        await _container.StartAsync();
+        ConnectionString = _container.GetConnectionString();
 
         await using var dbContext = CreateDbContext();
         await dbContext.Database.MigrateAsync();

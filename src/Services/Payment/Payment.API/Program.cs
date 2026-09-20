@@ -10,6 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
 builder.Services.AddPaymentApplication();
+builder.Services.AddOptions<NovaCart.Services.Payment.Application.Options.PaymentSimulationOptions>()
+    .BindConfiguration("PaymentSimulation")
+    .Validate(o => o.SuccessRatePercent is >= 0 and <= 100 && o.ProcessingDelay >= TimeSpan.Zero)
+    .ValidateOnStart();
 
 var connectionString = builder.Configuration.GetConnectionString("paymentdb")
     ?? throw new InvalidOperationException("Connection string 'paymentdb' not found.");

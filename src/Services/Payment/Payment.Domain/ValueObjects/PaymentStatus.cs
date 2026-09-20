@@ -5,6 +5,8 @@ public sealed class PaymentStatus
     public static readonly PaymentStatus Pending = new("Pending");
     public static readonly PaymentStatus Succeeded = new("Succeeded");
     public static readonly PaymentStatus Failed = new("Failed");
+    public static readonly PaymentStatus Cancelled = new("Cancelled");
+    public static readonly PaymentStatus Refunded = new("Refunded");
 
     public string Value { get; }
 
@@ -17,6 +19,8 @@ public sealed class PaymentStatus
             "Pending" => Pending,
             "Succeeded" => Succeeded,
             "Failed" => Failed,
+            "Cancelled" => Cancelled,
+            "Refunded" => Refunded,
             _ => throw new ArgumentException($"Invalid payment status: {value}", nameof(value))
         };
     }

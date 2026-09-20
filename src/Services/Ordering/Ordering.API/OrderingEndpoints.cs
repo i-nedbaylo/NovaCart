@@ -80,7 +80,7 @@ public static class OrderingEndpoints
             var result = await sender.Send(new CancelOrderCommand(id, buyerId.Value));
 
             return result.IsSuccess
-                ? Results.NoContent()
+                ? Results.Accepted($"/api/v1/orders/{id}")
                 : MapError(result.Error);
         });
 

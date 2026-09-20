@@ -1,0 +1,57 @@
+  Определение проектов для восстановления...
+  Восстановлен D:\Repos\NovaCart\src\Services\Identity\Identity.Contracts\NovaCart.Services.Identity.Contracts.csproj (за 165 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Catalog\Catalog.Domain\NovaCart.Services.Catalog.Domain.csproj (за 186 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Ordering\Ordering.Domain\NovaCart.Services.Ordering.Domain.csproj (за 177 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\NovaCart.Services.Payment.Contracts.csproj (за 360 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Basket\Basket.Contracts\NovaCart.Services.Basket.Contracts.csproj (за 361 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Ordering\Ordering.Contracts\NovaCart.Services.Ordering.Contracts.csproj (за 367 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Catalog\Catalog.Application\NovaCart.Services.Catalog.Application.csproj (за 366 мс).
+  Восстановлен D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Outbox\NovaCart.BuildingBlocks.Outbox.csproj (за 362 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Basket\Basket.Infrastructure\NovaCart.Services.Basket.Infrastructure.csproj (за 364 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Ordering\Ordering.Application\NovaCart.Services.Ordering.Application.csproj (за 369 мс).
+  Восстановлен D:\Repos\NovaCart\src\ApiGateway\Gateway.Yarp\NovaCart.ApiGateway.Yarp.csproj (за 368 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Catalog\Catalog.Contracts\NovaCart.Services.Catalog.Contracts.csproj (за 2 мс).
+  Восстановлен D:\Repos\NovaCart\tests\UnitTests\Identity.UnitTests\NovaCart.Tests.Identity.UnitTests.csproj (за 380 мс).
+  Восстановлен D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\NovaCart.BuildingBlocks.Persistence.csproj (за 3 мс).
+D:\Repos\NovaCart\src\Services\Identity\Identity.API\NovaCart.Services.Identity.API.csproj : error NU1605: Предупреждение как ошибка: Обнаружено понижение версии пакета Microsoft.OpenApi с 2.12.0 на 2.7.5. Чтобы выбрать другую версию, создайте ссылку на пакет напрямую из проекта.  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Identity\Identity.API\NovaCart.Services.Identity.API.csproj : error NU1605:  NovaCart.Services.Identity.API -> Microsoft.AspNetCore.OpenApi 10.0.12 -> Microsoft.OpenApi (>= 2.12.0 && < 3.0.0)  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Identity\Identity.API\NovaCart.Services.Identity.API.csproj : error NU1605:  NovaCart.Services.Identity.API -> Microsoft.OpenApi (>= 2.7.5) [D:\Repos\NovaCart\NovaCart.slnx]
+  Восстановлен D:\Repos\NovaCart\src\Services\Identity\Identity.Domain\NovaCart.Services.Identity.Domain.csproj (за 128 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Identity\Identity.Application\NovaCart.Services.Identity.Application.csproj (за 151 мс).
+D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj : error NU1605: Предупреждение как ошибка: Обнаружено понижение версии пакета Microsoft.OpenApi с 2.12.0 на 2.7.5. Чтобы выбрать другую версию, создайте ссылку на пакет напрямую из проекта.  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj : error NU1605:  NovaCart.Services.Ordering.API -> Microsoft.AspNetCore.OpenApi 10.0.12 -> Microsoft.OpenApi (>= 2.12.0 && < 3.0.0)  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj : error NU1605:  NovaCart.Services.Ordering.API -> Microsoft.OpenApi (>= 2.7.5) [D:\Repos\NovaCart\NovaCart.slnx]
+  Восстановлен D:\Repos\NovaCart\tests\UnitTests\Payment.UnitTests\NovaCart.Tests.Payment.UnitTests.csproj (за 395 мс).
+  Восстановлен D:\Repos\NovaCart\tests\UnitTests\Ordering.UnitTests\NovaCart.Tests.Ordering.UnitTests.csproj (за 402 мс).
+  Восстановлен D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\NovaCart.Tests.Catalog.UnitTests.csproj (за 26 мс).
+D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj : error NU1605: Предупреждение как ошибка: Обнаружено понижение версии пакета Microsoft.OpenApi с 2.12.0 на 2.7.5. Чтобы выбрать другую версию, создайте ссылку на пакет напрямую из проекта.  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj : error NU1605:  NovaCart.Services.Catalog.API -> Microsoft.AspNetCore.OpenApi 10.0.12 -> Microsoft.OpenApi (>= 2.12.0 && < 3.0.0)  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj : error NU1605:  NovaCart.Services.Catalog.API -> Microsoft.OpenApi (>= 2.7.5) [D:\Repos\NovaCart\NovaCart.slnx]
+  Восстановлен D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\NovaCart.BuildingBlocks.EventBus.csproj (за 16 мс).
+  Восстановлен D:\Repos\NovaCart\tests\UnitTests\Basket.UnitTests\NovaCart.Tests.Basket.UnitTests.csproj (за 27 мс).
+  Восстановлен D:\Repos\NovaCart\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj (за 10 мс).
+  Восстановлен D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\NovaCart.BuildingBlocks.CQRS.csproj (за 25 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Payment\Payment.Domain\NovaCart.Services.Payment.Domain.csproj (за 17 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Catalog\Catalog.Infrastructure\NovaCart.Services.Catalog.Infrastructure.csproj (за 46 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\NovaCart.Services.Identity.Infrastructure.csproj (за 440 мс).
+  Восстановлен D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\NovaCart.BuildingBlocks.Common.csproj (за 21 мс).
+D:\Repos\NovaCart\src\Services\Payment\Payment.API\NovaCart.Services.Payment.API.csproj : error NU1605: Предупреждение как ошибка: Обнаружено понижение версии пакета Microsoft.OpenApi с 2.12.0 на 2.7.5. Чтобы выбрать другую версию, создайте ссылку на пакет напрямую из проекта.  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Payment\Payment.API\NovaCart.Services.Payment.API.csproj : error NU1605:  NovaCart.Services.Payment.API -> Microsoft.AspNetCore.OpenApi 10.0.12 -> Microsoft.OpenApi (>= 2.12.0 && < 3.0.0)  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Payment\Payment.API\NovaCart.Services.Payment.API.csproj : error NU1605:  NovaCart.Services.Payment.API -> Microsoft.OpenApi (>= 2.7.5) [D:\Repos\NovaCart\NovaCart.slnx]
+  Не удалось восстановить D:\Repos\NovaCart\src\Services\Identity\Identity.API\NovaCart.Services.Identity.API.csproj (за 38 мс).
+  Восстановлен D:\Repos\NovaCart\src\Web\NovaCart.Web\NovaCart.Web.csproj (за 47 мс).
+  Не удалось восстановить D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj (за 170 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Basket\Basket.Application\NovaCart.Services.Basket.Application.csproj (за 7 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Basket\Basket.Domain\NovaCart.Services.Basket.Domain.csproj (за 4 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Payment\Payment.Infrastructure\NovaCart.Services.Payment.Infrastructure.csproj (за 46 мс).
+  Не удалось восстановить D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj (за 21 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Ordering\Ordering.Infrastructure\NovaCart.Services.Ordering.Infrastructure.csproj (за 535 мс).
+  Восстановлен D:\Repos\NovaCart\src\Services\Payment\Payment.Application\NovaCart.Services.Payment.Application.csproj (за 10 мс).
+  Не удалось восстановить D:\Repos\NovaCart\src\Services\Payment\Payment.API\NovaCart.Services.Payment.API.csproj (за 65 мс).
+D:\Repos\NovaCart\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj : error NU1605: Предупреждение как ошибка: Обнаружено понижение версии пакета Microsoft.OpenApi с 2.12.0 на 2.7.5. Чтобы выбрать другую версию, создайте ссылку на пакет напрямую из проекта.  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj : error NU1605:  NovaCart.Services.Basket.API -> Microsoft.AspNetCore.OpenApi 10.0.12 -> Microsoft.OpenApi (>= 2.12.0 && < 3.0.0)  [D:\Repos\NovaCart\NovaCart.slnx]
+D:\Repos\NovaCart\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj : error NU1605:  NovaCart.Services.Basket.API -> Microsoft.OpenApi (>= 2.7.5) [D:\Repos\NovaCart\NovaCart.slnx]
+  Восстановлен D:\Repos\NovaCart\tests\IntegrationTests\Catalog.IntegrationTests\NovaCart.Tests.Catalog.IntegrationTests.csproj (за 130 мс).
+  Не удалось восстановить D:\Repos\NovaCart\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj (за 27 мс).
+  Восстановлен D:\Repos\NovaCart\tests\ArchitectureTests\NovaCart.Tests.ArchitectureTests.csproj (за 146 мс).
+  Восстановлен D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\NovaCart.Web.Client.csproj (за 32.9 с).

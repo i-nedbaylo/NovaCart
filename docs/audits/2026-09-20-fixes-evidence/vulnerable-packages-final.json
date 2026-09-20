@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "parameters": "--vulnerable --include-transitive",
+  "sources": [
+    "https://api.nuget.org/v3/index.json"
+  ],
+  "projects": [
+    {
+      "path": "D:/Repos/NovaCart/NovaCart.AppHost/NovaCart.AppHost.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/NovaCart.ServiceDefaults/NovaCart.ServiceDefaults.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/ApiGateway/Gateway.Yarp/NovaCart.ApiGateway.Yarp.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.Common/NovaCart.BuildingBlocks.Common.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.CQRS/NovaCart.BuildingBlocks.CQRS.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.EventBus/NovaCart.BuildingBlocks.EventBus.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.Outbox/NovaCart.BuildingBlocks.Outbox.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/BuildingBlocks/BuildingBlocks.Persistence/NovaCart.BuildingBlocks.Persistence.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.API/NovaCart.Services.Basket.API.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.Application/NovaCart.Services.Basket.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.Contracts/NovaCart.Services.Basket.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.Domain/NovaCart.Services.Basket.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Basket/Basket.Infrastructure/NovaCart.Services.Basket.Infrastructure.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.API/NovaCart.Services.Catalog.API.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.Application/NovaCart.Services.Catalog.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.Contracts/NovaCart.Services.Catalog.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.Domain/NovaCart.Services.Catalog.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Catalog/Catalog.Infrastructure/NovaCart.Services.Catalog.Infrastructure.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.API/NovaCart.Services.Identity.API.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.Application/NovaCart.Services.Identity.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.Contracts/NovaCart.Services.Identity.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.Domain/NovaCart.Services.Identity.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Identity/Identity.Infrastructure/NovaCart.Services.Identity.Infrastructure.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.API/NovaCart.Services.Ordering.API.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.Application/NovaCart.Services.Ordering.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.Contracts/NovaCart.Services.Ordering.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.Domain/NovaCart.Services.Ordering.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Ordering/Ordering.Infrastructure/NovaCart.Services.Ordering.Infrastructure.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.API/NovaCart.Services.Payment.API.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.Application/NovaCart.Services.Payment.Application.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.Contracts/NovaCart.Services.Payment.Contracts.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.Domain/NovaCart.Services.Payment.Domain.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Services/Payment/Payment.Infrastructure/NovaCart.Services.Payment.Infrastructure.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Web/NovaCart.Web.Client/NovaCart.Web.Client.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/src/Web/NovaCart.Web/NovaCart.Web.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/ArchitectureTests/NovaCart.Tests.ArchitectureTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/IntegrationTests/Catalog.IntegrationTests/NovaCart.Tests.Catalog.IntegrationTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/IntegrationTests/OrderFlow.E2E/NovaCart.Tests.OrderFlow.E2E.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Basket.UnitTests/NovaCart.Tests.Basket.UnitTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Catalog.UnitTests/NovaCart.Tests.Catalog.UnitTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Identity.UnitTests/NovaCart.Tests.Identity.UnitTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Ordering.UnitTests/NovaCart.Tests.Ordering.UnitTests.csproj"
+    },
+    {
+      "path": "D:/Repos/NovaCart/tests/UnitTests/Payment.UnitTests/NovaCart.Tests.Payment.UnitTests.csproj"
+    }
+  ]
+}

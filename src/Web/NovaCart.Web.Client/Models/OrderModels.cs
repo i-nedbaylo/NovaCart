@@ -2,6 +2,7 @@ namespace NovaCart.Web.Client.Models;
 
 public sealed class OrderModel
 {
+    public string Currency { get; set; } = "USD";
     public Guid Id { get; set; }
     public string BuyerId { get; set; } = string.Empty;
     public DateTimeOffset OrderDate { get; set; }

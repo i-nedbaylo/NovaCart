@@ -5,6 +5,8 @@ namespace NovaCart.Services.Basket.Contracts.IntegrationEvents;
 public sealed record BasketCheckoutIntegrationEvent : IntegrationEvent
 {
     public string BuyerId { get; init; } = null!;
+    public string Currency { get; init; } = "USD";
+    public int PricingVersion { get; init; }
 
     // Shipping address
     public string Street { get; init; } = null!;
@@ -16,10 +18,11 @@ public sealed record BasketCheckoutIntegrationEvent : IntegrationEvent
     public List<BasketCheckoutItem> Items { get; init; } = [];
 }
 
-// Only the product id and quantity travel in the event. The Ordering service re-prices each
-// item from Catalog, so a stale or tampered basket cannot influence the charged amount.
+// Trusted server quote validated by Basket, never prices from the public request.
 public sealed record BasketCheckoutItem
 {
     public Guid ProductId { get; init; }
     public int Quantity { get; init; }
+    public string ProductName { get; init; } = string.Empty;
+    public decimal UnitPrice { get; init; }
 }

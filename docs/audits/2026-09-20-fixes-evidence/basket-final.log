@@ -1,0 +1,12 @@
+  NovaCart.BuildingBlocks.EventBus -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\bin\Debug\net10.0\NovaCart.BuildingBlocks.EventBus.dll
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Debug\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.Services.Basket.Domain -> D:\Repos\NovaCart\src\Services\Basket\Basket.Domain\bin\Debug\net10.0\NovaCart.Services.Basket.Domain.dll
+  NovaCart.Services.Basket.Contracts -> D:\Repos\NovaCart\src\Services\Basket\Basket.Contracts\bin\Debug\net10.0\NovaCart.Services.Basket.Contracts.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Debug\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.Services.Basket.Application -> D:\Repos\NovaCart\src\Services\Basket\Basket.Application\bin\Debug\net10.0\NovaCart.Services.Basket.Application.dll
+  NovaCart.Tests.Basket.UnitTests -> D:\Repos\NovaCart\tests\UnitTests\Basket.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Basket.UnitTests.dll
+Тестовый запуск для D:\Repos\NovaCart\tests\UnitTests\Basket.UnitTests\bin\Debug\net10.0\NovaCart.Tests.Basket.UnitTests.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\unit-final-results\inedb_MSI-DT_2026-09-20_12_05_09_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено    40, пропущено     0, всего    40, длительность 112 ms. - NovaCart.Tests.Basket.UnitTests.dll (net10.0)

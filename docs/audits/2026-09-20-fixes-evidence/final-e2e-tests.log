@@ -1,0 +1,41 @@
+C:\Users\inedb\.nuget\packages\aspire.hosting.apphost\13.5.4\build\Aspire.Hosting.AppHost.targets(157,5): warning ASPIRE010: NovaCart.AppHost is configured with AspireUseCliBundle=false. Some Aspire features require the Aspire CLI bundle. Set AspireUseCliBundle=true to enable those features, or suppress ASPIRE010 to continue without the bundle. See https://aka.ms/aspire/diagnostics/aspire010 for more information. [D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj]
+  NovaCart.BuildingBlocks.Common -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Common\bin\Release\net10.0\NovaCart.BuildingBlocks.Common.dll
+  NovaCart.ServiceDefaults -> D:\Repos\NovaCart\NovaCart.ServiceDefaults\bin\Release\net10.0\NovaCart.ServiceDefaults.dll
+  NovaCart.Services.Identity.Domain -> D:\Repos\NovaCart\src\Services\Identity\Identity.Domain\bin\Release\net10.0\NovaCart.Services.Identity.Domain.dll
+  NovaCart.BuildingBlocks.Persistence -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\bin\Release\net10.0\NovaCart.BuildingBlocks.Persistence.dll
+  NovaCart.BuildingBlocks.CQRS -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\bin\Release\net10.0\NovaCart.BuildingBlocks.CQRS.dll
+  NovaCart.BuildingBlocks.EventBus -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\bin\Release\net10.0\NovaCart.BuildingBlocks.EventBus.dll
+  NovaCart.Services.Basket.Contracts -> D:\Repos\NovaCart\src\Services\Basket\Basket.Contracts\bin\Release\net10.0\NovaCart.Services.Basket.Contracts.dll
+  NovaCart.Services.Payment.Contracts -> D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\bin\Release\net10.0\NovaCart.Services.Payment.Contracts.dll
+  NovaCart.Services.Basket.Domain -> D:\Repos\NovaCart\src\Services\Basket\Basket.Domain\bin\Release\net10.0\NovaCart.Services.Basket.Domain.dll
+  NovaCart.Services.Ordering.Contracts -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Contracts\bin\Release\net10.0\NovaCart.Services.Ordering.Contracts.dll
+  NovaCart.BuildingBlocks.Outbox -> D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Outbox\bin\Release\net10.0\NovaCart.BuildingBlocks.Outbox.dll
+  NovaCart.Services.Ordering.Domain -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Domain\bin\Release\net10.0\NovaCart.Services.Ordering.Domain.dll
+  NovaCart.Services.Catalog.Domain -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Domain\bin\Release\net10.0\NovaCart.Services.Catalog.Domain.dll
+  NovaCart.Services.Payment.Domain -> D:\Repos\NovaCart\src\Services\Payment\Payment.Domain\bin\Release\net10.0\NovaCart.Services.Payment.Domain.dll
+  NovaCart.ApiGateway.Yarp -> D:\Repos\NovaCart\src\ApiGateway\Gateway.Yarp\bin\Release\net10.0\NovaCart.ApiGateway.Yarp.dll
+  NovaCart.Services.Basket.Application -> D:\Repos\NovaCart\src\Services\Basket\Basket.Application\bin\Release\net10.0\NovaCart.Services.Basket.Application.dll
+  NovaCart.Services.Identity.Application -> D:\Repos\NovaCart\src\Services\Identity\Identity.Application\bin\Release\net10.0\NovaCart.Services.Identity.Application.dll
+  NovaCart.Services.Identity.Infrastructure -> D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\bin\Release\net10.0\NovaCart.Services.Identity.Infrastructure.dll
+  NovaCart.Services.Ordering.Application -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Application\bin\Release\net10.0\NovaCart.Services.Ordering.Application.dll
+  NovaCart.Services.Payment.Application -> D:\Repos\NovaCart\src\Services\Payment\Payment.Application\bin\Release\net10.0\NovaCart.Services.Payment.Application.dll
+  NovaCart.Services.Catalog.Application -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Application\bin\Release\net10.0\NovaCart.Services.Catalog.Application.dll
+  NovaCart.Services.Basket.Infrastructure -> D:\Repos\NovaCart\src\Services\Basket\Basket.Infrastructure\bin\Release\net10.0\NovaCart.Services.Basket.Infrastructure.dll
+  NovaCart.Services.Payment.Infrastructure -> D:\Repos\NovaCart\src\Services\Payment\Payment.Infrastructure\bin\Release\net10.0\NovaCart.Services.Payment.Infrastructure.dll
+  NovaCart.Services.Ordering.Infrastructure -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.Infrastructure\bin\Release\net10.0\NovaCart.Services.Ordering.Infrastructure.dll
+  NovaCart.Services.Payment.API -> D:\Repos\NovaCart\src\Services\Payment\Payment.API\bin\Release\net10.0\NovaCart.Services.Payment.API.dll
+  NovaCart.Services.Identity.API -> D:\Repos\NovaCart\src\Services\Identity\Identity.API\bin\Release\net10.0\NovaCart.Services.Identity.API.dll
+  NovaCart.Services.Basket.API -> D:\Repos\NovaCart\src\Services\Basket\Basket.API\bin\Release\net10.0\NovaCart.Services.Basket.API.dll
+  NovaCart.Services.Catalog.Infrastructure -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.Infrastructure\bin\Release\net10.0\NovaCart.Services.Catalog.Infrastructure.dll
+  NovaCart.Web.Client -> D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\bin\Release\net10.0\NovaCart.Web.Client.dll
+  NovaCart.Web.Client (Blazor output) -> D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\bin\Release\net10.0\wwwroot
+  NovaCart.Services.Catalog.API -> D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\bin\Release\net10.0\NovaCart.Services.Catalog.API.dll
+  NovaCart.Services.Ordering.API -> D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\bin\Release\net10.0\NovaCart.Services.Ordering.API.dll
+  NovaCart.Web -> D:\Repos\NovaCart\src\Web\NovaCart.Web\bin\Release\net10.0\NovaCart.Web.dll
+  NovaCart.AppHost -> D:\Repos\NovaCart\NovaCart.AppHost\bin\Release\net10.0\NovaCart.AppHost.dll
+  NovaCart.Tests.OrderFlow.E2E -> D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\bin\Release\net10.0\NovaCart.Tests.OrderFlow.E2E.dll
+Тестовый запуск для D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\bin\Release\net10.0\NovaCart.Tests.OrderFlow.E2E.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\final-e2e-results\inedb_MSI-DT_2026-09-20_12_37_37_net10.0.trx
+
+Пройден!   : не пройдено     0, пройдено     1, пропущено     0, всего     1, длительность 42 s. - NovaCart.Tests.OrderFlow.E2E.dll (net10.0)

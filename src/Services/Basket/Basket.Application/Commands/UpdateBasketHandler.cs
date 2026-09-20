@@ -24,7 +24,10 @@ public sealed class UpdateBasketHandler : ICommandHandler<UpdateBasketCommand, B
         var productIds = request.Items.Select(i => i.ProductId).ToList();
         var products = await _catalog.GetActiveProductsAsync(productIds, cancellationToken);
 
-        var basket = ShoppingCart.Create(request.BuyerId);
+        var currencies = products.Values.Select(p => p.Currency).Distinct().ToList();
+        if (currencies.Count > 1)
+            return Result<BasketDto>.Failure(Error.Validation("Basket.MixedCurrency", "All items must use the same currency."));
+        var basket = ShoppingCart.Create(request.BuyerId, currencies.FirstOrDefault() ?? "USD");
 
         foreach (var item in request.Items)
         {

@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MassTransit" Version="9.0.1" />
-    <PackageReference Include="MassTransit.RabbitMQ" Version="9.0.1" />
+    <!-- The demo uses the Apache-2.0 release; v9 requires a separately supplied license. -->
+    <PackageReference Include="MassTransit" Version="8.5.8" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.8" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.5" />
   </ItemGroup>
 

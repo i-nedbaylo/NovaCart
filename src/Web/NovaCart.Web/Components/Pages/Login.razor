@@ -54,7 +54,9 @@
     private HttpContext HttpContext { get; set; } = default!;
 
     [SupplyParameterFromForm]
-    private LoginInputModel Input { get; set; } = new();
+    private LoginInputModel Input { get; set; } = default!;
+
+    protected override void OnInitialized() => Input ??= new();
 
     private string? _errorMessage;
 

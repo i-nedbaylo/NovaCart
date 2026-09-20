@@ -6,6 +6,7 @@ using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Testing;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace NovaCart.Tests.OrderFlow.E2E;
 
@@ -15,21 +16,16 @@ namespace NovaCart.Tests.OrderFlow.E2E;
 /// test drives the public HTTP surface and asserts the RabbitMQ event chain completes:
 /// <c>BasketCheckout → OrderCreated → Payment → Order status updated</c>.
 ///
-/// Payment is a simulated 80%-success provider, so the test asserts the order reaches a
-/// *terminal* status (Paid or Cancelled) rather than a specific outcome — proving the chain
-/// runs end to end without depending on the random result. HTTP steps are retried to absorb
+/// Payment is configured for deterministic success, followed by a simulated refund.
+/// The test proves the chain runs end to end. HTTP steps are retried to absorb
 /// the transient gateway timeouts that happen while the stack is still warming up under load.
-/// The test self-skips when Docker / the Aspire orchestrator is unavailable.
+/// Missing infrastructure or startup failures fail the test.
 /// </summary>
 [Trait("Category", "Integration")]
 public sealed class OrderFlowE2EIntegrationTests
 {
-    public const string InfrastructureUnavailableSkipReason =
-        "End-to-end test requires Docker (Testcontainers) and the Aspire orchestrator (DCP). " +
-        "Install/start Docker Desktop; the test then boots the whole AppHost automatically.";
-
     private static readonly string[] RequiredResources =
-        ["identity-api", "catalog-api", "basket-api", "ordering-api", "payment-api", "gateway"];
+        ["identity-api", "catalog-api", "basket-api", "ordering-api", "payment-api", "gateway", "web"];
 
     private static readonly TimeSpan RetryWindow = TimeSpan.FromSeconds(60);
 
@@ -39,14 +35,13 @@ public sealed class OrderFlowE2EIntegrationTests
     private const decimal SeededProductPrice = 79.99m;
     private const int Quantity = 2;
 
-    [SkippableFact]
+    [Fact]
     public async Task BasketCheckout_Should_Create_Order_And_Reach_Terminal_Payment_Status()
     {
-        var (app, startupError) = await TryStartAppAsync();
+        var app = await StartAppAsync();
         await using var _ = app;
-        Skip.If(app is null, startupError ?? InfrastructureUnavailableSkipReason);
 
-        var notifications = app!.Services.GetRequiredService<ResourceNotificationService>();
+        var notifications = app.Services.GetRequiredService<ResourceNotificationService>();
         using (var startupCts = new CancellationTokenSource(TimeSpan.FromMinutes(3)))
         {
             // Wait for Healthy (not just Running): Running means the process launched, but the
@@ -58,6 +53,19 @@ public sealed class OrderFlowE2EIntegrationTests
 
         using var client = app.CreateHttpClient("gateway", "http");
         client.Timeout = TimeSpan.FromSeconds(30);
+
+        // Static SSR pagination must work as ordinary HTTP navigation without a live circuit.
+        using var web = app.CreateHttpClient("web", "http");
+        var firstPage = await web.GetStringAsync("/catalog?page=1");
+        var secondPage = await web.GetStringAsync("/catalog?page=2");
+        firstPage.Should().Contain("href=\"/catalog?page=2\"");
+        var firstLinks = System.Text.RegularExpressions.Regex.Matches(firstPage, "href=\"/catalog/([a-f0-9-]{36})\"")
+            .Select(m => m.Groups[1].Value).ToArray();
+        var secondLinks = System.Text.RegularExpressions.Regex.Matches(secondPage, "href=\"/catalog/([a-f0-9-]{36})\"")
+            .Select(m => m.Groups[1].Value).ToArray();
+        firstLinks.Should().HaveCount(12);
+        secondLinks.Should().ContainSingle();
+        secondLinks.Intersect(firstLinks).Should().BeEmpty();
 
         var email = $"e2e-{Guid.NewGuid():N}@novacart.test";
         const string password = "Passw0rd!";
@@ -93,18 +101,25 @@ public sealed class OrderFlowE2EIntegrationTests
             }
         }));
         putBasket.EnsureSuccessStatusCode();
+        var basket = (await putBasket.Content.ReadFromJsonAsync<BasketResponse>())!;
 
-        // 4. Checkout → publishes BasketCheckoutIntegrationEvent. This is NOT idempotent (it
-        // creates an order), so it is sent exactly once — never through the retry wrapper.
-        using var checkout = await client.PostAsJsonAsync("/api/v1/baskets/checkout", new
+        // Both requests refer to the same displayed basket revision and must create one order.
+        var checkoutRequest = new
         {
+            BasketRevision = basket.Revision,
             Street = "1 Test Street",
             City = "Testville",
             State = "TS",
             Country = "Testland",
             ZipCode = "12345"
-        });
-        checkout.StatusCode.Should().Be(HttpStatusCode.Accepted);
+        };
+        var checkouts = await Task.WhenAll(Enumerable.Range(0, 2).Select(_ =>
+            client.PostAsJsonAsync("/api/v1/baskets/checkout", checkoutRequest)));
+        foreach (var checkout in checkouts)
+        {
+            checkout.StatusCode.Should().Be(HttpStatusCode.Accepted);
+            checkout.Dispose();
+        }
 
         // 5. The event chain is eventually consistent — poll until the order is terminal.
         var order = await PollForTerminalOrderAsync(client, TimeSpan.FromSeconds(120));
@@ -112,7 +127,20 @@ public sealed class OrderFlowE2EIntegrationTests
         order.Should().NotBeNull("checkout should produce an order through the RabbitMQ event chain");
         order!.Items.Should().ContainSingle();
         order.TotalAmount.Should().Be(SeededProductPrice * Quantity);
-        order.Status.Should().BeOneOf("Paid", "Cancelled");
+        order.Status.Should().Be("Paid");
+        var orders = await client.GetFromJsonAsync<PagedResult<OrderDto>>("/api/v1/orders?pageNumber=1&pageSize=10");
+        orders!.TotalCount.Should().Be(1);
+
+        using var cancel = await client.PutAsync($"/api/v1/orders/{order.Id}/cancel", null);
+        cancel.StatusCode.Should().Be(HttpStatusCode.Accepted);
+        var deadline = DateTime.UtcNow.AddSeconds(60);
+        do
+        {
+            var current = await client.GetFromJsonAsync<OrderDto>($"/api/v1/orders/{order.Id}");
+            if (current!.Status == "Cancelled") return;
+            await Task.Delay(500);
+        } while (DateTime.UtcNow < deadline);
+        throw new TimeoutException("Payment cancellation did not complete.");
     }
 
     /// <summary>
@@ -172,27 +200,35 @@ public sealed class OrderFlowE2EIntegrationTests
         return null;
     }
 
-    private static async Task<(DistributedApplication? App, string? Error)> TryStartAppAsync()
+    private static async Task<DistributedApplication> StartAppAsync()
     {
         DistributedApplication? app = null;
         try
         {
             // Cold start pulls the PostgreSQL/RabbitMQ/Redis images and launches every service,
-            // so allow a generous window before giving up and skipping.
+            // so allow a generous window before failing the test.
             using var startupCts = new CancellationTokenSource(TimeSpan.FromMinutes(6));
             var builder = await DistributedApplicationTestingBuilder.CreateAsync<Projects.NovaCart_AppHost>(startupCts.Token);
+            // Isolate the orchestrator's TLS certificate from the developer's Windows store.
+            // DCP still uses TLS and validates its per-run certificate through kubeconfig.
+            builder.Configuration["ASPIRE_DCP_USE_DEVELOPER_CERTIFICATE"] = "false";
+            builder.Services.AddLogging(logging => logging.AddSimpleConsole().SetMinimumLevel(LogLevel.Warning));
+            builder.CreateResourceBuilder<ProjectResource>("payment-api")
+                .WithEnvironment("PaymentSimulation__SuccessRatePercent", "100");
             app = await builder.BuildAsync(startupCts.Token);
             await app.StartAsync(startupCts.Token);
-            return (app, null);
+            return app;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             if (app is not null)
                 await app.DisposeAsync();
 
-            return (null, $"{InfrastructureUnavailableSkipReason} (startup failed: {ex.GetType().Name}: {ex.Message})");
+            throw; // Configuration, build and startup failures must fail CI, never self-skip.
         }
     }
+
+    private sealed record BasketResponse(Guid Revision);
 
     private sealed record IdResponse(Guid Id);
 

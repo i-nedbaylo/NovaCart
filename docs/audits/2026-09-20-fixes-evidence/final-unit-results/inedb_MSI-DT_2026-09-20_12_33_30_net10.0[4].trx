@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="a40740da-adb6-4f99-ba12-c8048dcba928" name="inedb@MSI-DT 2026-09-20 12:33:30" runUser="MSI-DT\inedb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T12:33:30.5790644+03:00" queuing="2026-09-20T12:33:30.5790648+03:00" start="2026-09-20T12:33:29.5796568+03:00" finish="2026-09-20T12:33:30.6631704+03:00" />
+  <TestSettings name="default" id="097b0390-cf67-4954-8ef0-a5d595897584">
+    <Deployment runDeploymentRoot="inedb_MSI-DT_2026-09-20_12_33_30" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="112ee9de-b1cd-43fd-a8c1-9db9f8681eec" testId="ba9e31a7-130b-a649-99fe-28ace93f13f9" testName="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_ThrowArgumentException_When_EmptyName" computerName="MSI-DT" duration="00:00:00.0318230" startTime="2026-09-20T12:33:30.3892993+03:00" endTime="2026-09-20T12:33:30.4389508+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="112ee9de-b1cd-43fd-a8c1-9db9f8681eec" />
+    <UnitTestResult executionId="dd1d3414-fed7-4a7d-a7da-f2fa0c4b4912" testId="fbe2c7ac-2830-0ebf-b638-0bf971c28e17" testName="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_RaiseProductCreatedDomainEvent_When_Created" computerName="MSI-DT" duration="00:00:00.0084334" startTime="2026-09-20T12:33:30.4658510+03:00" endTime="2026-09-20T12:33:30.5435940+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd1d3414-fed7-4a7d-a7da-f2fa0c4b4912" />
+    <UnitTestResult executionId="de7341f0-c2f9-4ab0-b8fd-8486251d144f" testId="a16edcdf-748e-c83c-a49f-fefed5db8bae" testName="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Equality_Should_BeTrue_When_SameValues" computerName="MSI-DT" duration="00:00:00.0024005" startTime="2026-09-20T12:33:30.4654191+03:00" endTime="2026-09-20T12:33:30.4659538+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de7341f0-c2f9-4ab0-b8fd-8486251d144f" />
+    <UnitTestResult executionId="c481e57c-1f5f-4b8b-99b5-ef80b2ef9dbd" testId="8ae98c9d-f6fa-16db-3349-5fd24b53d136" testName="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_ReturnPrice_When_ValidData" computerName="MSI-DT" duration="00:00:00.0020929" startTime="2026-09-20T12:33:30.5433213+03:00" endTime="2026-09-20T12:33:30.5433740+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c481e57c-1f5f-4b8b-99b5-ef80b2ef9dbd" />
+    <UnitTestResult executionId="28cbdd5b-04e8-4308-bdbf-7a72e91ecd19" testId="40292d30-3745-f706-5fd6-9d5ec58f963f" testName="NovaCart.Tests.Catalog.UnitTests.Application.GetProductByIdHandlerTests.Handle_Should_ReturnNotFound_When_ProductDoesNotExist" computerName="MSI-DT" duration="00:00:00.1259969" startTime="2026-09-20T12:33:30.3865718+03:00" endTime="2026-09-20T12:33:30.5486427+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="28cbdd5b-04e8-4308-bdbf-7a72e91ecd19" />
+    <UnitTestResult executionId="74895d85-0027-4910-a08f-5b5480b2d3fe" testId="9cf69180-eed4-dbb3-279d-ef35786c8ab4" testName="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Discontinue_Should_SetStatusToDiscontinued" computerName="MSI-DT" duration="00:00:00.0003552" startTime="2026-09-20T12:33:30.5480122+03:00" endTime="2026-09-20T12:33:30.5480850+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="74895d85-0027-4910-a08f-5b5480b2d3fe" />
+    <UnitTestResult executionId="644fbfe2-2c6f-49b6-9825-22e2ab0f2e89" testId="380a63e6-2c0f-fd40-74b9-ceea97a9988f" testName="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_ThrowArgumentException_When_EmptyCurrency" computerName="MSI-DT" duration="00:00:00.0005978" startTime="2026-09-20T12:33:30.4665963+03:00" endTime="2026-09-20T12:33:30.4667062+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="644fbfe2-2c6f-49b6-9825-22e2ab0f2e89" />
+    <UnitTestResult executionId="a1fb1c83-2a28-4897-bc5e-2665954a426b" testId="35e1ee55-715b-1f8f-4d7a-ef7c13f996e2" testName="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests.Handle_Should_ReturnNotFound_When_CategoryDoesNotExist" computerName="MSI-DT" duration="00:00:00.1162375" startTime="2026-09-20T12:33:30.3959067+03:00" endTime="2026-09-20T12:33:30.5487795+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1fb1c83-2a28-4897-bc5e-2665954a426b" />
+    <UnitTestResult executionId="53042eda-9666-44d0-bb65-bf41ddfa7238" testId="8b3ac10d-bd56-db76-292e-7a00dea783ea" testName="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductValidatorTests.Validate_Should_HaveError_When_NameIsEmpty" computerName="MSI-DT" duration="00:00:00.0028850" startTime="2026-09-20T12:33:30.5484660+03:00" endTime="2026-09-20T12:33:30.5485191+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="53042eda-9666-44d0-bb65-bf41ddfa7238" />
+    <UnitTestResult executionId="e34e4b64-786f-465b-990d-97bcbf30704d" testId="2b681cb5-e024-b641-13f6-43b7bedd3dd4" testName="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Equality_Should_BeFalse_When_DifferentAmount" computerName="MSI-DT" duration="00:00:00.0002091" startTime="2026-09-20T12:33:30.5421940+03:00" endTime="2026-09-20T12:33:30.5422666+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e34e4b64-786f-465b-990d-97bcbf30704d" />
+    <UnitTestResult executionId="96f6790e-6f50-4d51-924c-e65a4745e1b5" testId="14cdee2f-f244-6f5a-f409-1965457d7007" testName="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_NormalizeSlugToLowerCase_When_UpperCaseSlug" computerName="MSI-DT" duration="00:00:00.0036813" startTime="2026-09-20T12:33:30.5436971+03:00" endTime="2026-09-20T12:33:30.5452691+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96f6790e-6f50-4d51-924c-e65a4745e1b5" />
+    <UnitTestResult executionId="bec4ee41-873c-42cb-bda2-225692f3c812" testId="0bb4dcf1-572f-6b74-a52c-ad7855b921d4" testName="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Equality_Should_BeFalse_When_DifferentCurrency" computerName="MSI-DT" duration="00:00:00.0004812" startTime="2026-09-20T12:33:30.4662458+03:00" endTime="2026-09-20T12:33:30.4663444+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bec4ee41-873c-42cb-bda2-225692f3c812" />
+    <UnitTestResult executionId="4bf69074-a9a8-41d7-a93b-5f0df415c91c" testId="f94e9c09-0fe7-c24a-d983-726f464fccab" testName="NovaCart.Tests.Catalog.UnitTests.Application.GetProductByIdHandlerTests.Handle_Should_ReturnProductDto_When_ProductExists" computerName="MSI-DT" duration="00:00:00.0019727" startTime="2026-09-20T12:33:30.5487520+03:00" endTime="2026-09-20T12:33:30.5490795+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4bf69074-a9a8-41d7-a93b-5f0df415c91c" />
+    <UnitTestResult executionId="5c4a8d11-049a-408f-9a24-6a00a6dbe0ec" testId="59be4f79-3462-8c36-2700-69a940aa7aed" testName="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_ReturnProduct_When_ValidData" computerName="MSI-DT" duration="00:00:00.0048598" startTime="2026-09-20T12:33:30.5454858+03:00" endTime="2026-09-20T12:33:30.5455379+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5c4a8d11-049a-408f-9a24-6a00a6dbe0ec" />
+    <UnitTestResult executionId="7bf24f19-b176-43c9-a55e-ae3e07525aa9" testId="eccc5259-2555-2275-6c14-76f9f1e60d82" testName="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_ThrowArgumentException_When_NegativeAmount" computerName="MSI-DT" duration="00:00:00.0323423" startTime="2026-09-20T12:33:30.3892505+03:00" endTime="2026-09-20T12:33:30.4292045+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7bf24f19-b176-43c9-a55e-ae3e07525aa9" />
+    <UnitTestResult executionId="0d7a1ae8-0709-430b-a7c5-e736cd599433" testId="420911a6-72be-2c0d-31d2-101b375c711e" testName="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_ThrowArgumentException_When_NegativePrice" computerName="MSI-DT" duration="00:00:00.0006353" startTime="2026-09-20T12:33:30.5456712+03:00" endTime="2026-09-20T12:33:30.5457218+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0d7a1ae8-0709-430b-a7c5-e736cd599433" />
+    <UnitTestResult executionId="e47b8a69-fc93-4000-a9b9-de1968a6f7db" testId="66c6378d-d732-bec4-a3cd-51bc7e043259" testName="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_NormalizeCurrencyToUpperCase" computerName="MSI-DT" duration="00:00:00.0023080" startTime="2026-09-20T12:33:30.5431092+03:00" endTime="2026-09-20T12:33:30.5431765+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e47b8a69-fc93-4000-a9b9-de1968a6f7db" />
+    <UnitTestResult executionId="2b9e4e18-b0f1-4e06-bdd2-4354cebd0ce6" testId="354fa394-e30e-1ae8-160d-8d5478d32196" testName="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests.Handle_Should_ReturnSuccessWithId_When_ValidCommand" computerName="MSI-DT" duration="00:00:00.0099805" startTime="2026-09-20T12:33:30.5490473+03:00" endTime="2026-09-20T12:33:30.5491817+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b9e4e18-b0f1-4e06-bdd2-4354cebd0ce6" />
+    <UnitTestResult executionId="96f94cd9-2683-4c90-b8a1-31e921f0ecba" testId="0886b8cb-9dea-a35c-984f-2fab0dc71fe8" testName="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests.Handle_Should_ReturnConflict_When_SlugAlreadyExists" computerName="MSI-DT" duration="00:00:00.0017739" startTime="2026-09-20T12:33:30.5489050+03:00" endTime="2026-09-20T12:33:30.5489471+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96f94cd9-2683-4c90-b8a1-31e921f0ecba" />
+    <UnitTestResult executionId="8deaa1ba-0424-4bfd-8b9d-2bdc0214cc3f" testId="63d42f18-99b9-b424-44d2-a7b7e0a10fd7" testName="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Update_Should_UpdateProperties_When_ValidData" computerName="MSI-DT" duration="00:00:00.0016971" startTime="2026-09-20T12:33:30.5458328+03:00" endTime="2026-09-20T12:33:30.5458776+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8deaa1ba-0424-4bfd-8b9d-2bdc0214cc3f" />
+    <UnitTestResult executionId="366c6dbd-e6a3-4916-970c-153ed24b113f" testId="370eece1-f38b-50d3-b3b8-3c3a04c1edf8" testName="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_AllowZeroAmount" computerName="MSI-DT" duration="00:00:00.0005285" startTime="2026-09-20T12:33:30.5434800+03:00" endTime="2026-09-20T12:33:30.5435236+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="366c6dbd-e6a3-4916-970c-153ed24b113f" />
+    <UnitTestResult executionId="cf66eb65-2c9a-4ee9-82db-6db46d1a4e50" testId="103621cf-f31a-bc6d-0770-77f908bfd093" testName="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductValidatorTests.Validate_Should_HaveError_When_PriceIsNegative" computerName="MSI-DT" duration="00:00:00.0726505" startTime="2026-09-20T12:33:30.3891608+03:00" endTime="2026-09-20T12:33:30.5483187+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf66eb65-2c9a-4ee9-82db-6db46d1a4e50" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_NormalizeSlugToLowerCase_When_UpperCaseSlug" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="14cdee2f-f244-6f5a-f409-1965457d7007">
+      <Execution id="96f6790e-6f50-4d51-924c-e65a4745e1b5" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests" name="Create_Should_NormalizeSlugToLowerCase_When_UpperCaseSlug" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_ThrowArgumentException_When_NegativeAmount" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="eccc5259-2555-2275-6c14-76f9f1e60d82">
+      <Execution id="7bf24f19-b176-43c9-a55e-ae3e07525aa9" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests" name="Create_Should_ThrowArgumentException_When_NegativeAmount" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductValidatorTests.Validate_Should_HaveError_When_NameIsEmpty" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="8b3ac10d-bd56-db76-292e-7a00dea783ea">
+      <Execution id="53042eda-9666-44d0-bb65-bf41ddfa7238" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductValidatorTests" name="Validate_Should_HaveError_When_NameIsEmpty" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_ThrowArgumentException_When_NegativePrice" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="420911a6-72be-2c0d-31d2-101b375c711e">
+      <Execution id="0d7a1ae8-0709-430b-a7c5-e736cd599433" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests" name="Create_Should_ThrowArgumentException_When_NegativePrice" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests.Handle_Should_ReturnConflict_When_SlugAlreadyExists" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="0886b8cb-9dea-a35c-984f-2fab0dc71fe8">
+      <Execution id="96f94cd9-2683-4c90-b8a1-31e921f0ecba" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests" name="Handle_Should_ReturnConflict_When_SlugAlreadyExists" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_RaiseProductCreatedDomainEvent_When_Created" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="fbe2c7ac-2830-0ebf-b638-0bf971c28e17">
+      <Execution id="dd1d3414-fed7-4a7d-a7da-f2fa0c4b4912" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests" name="Create_Should_RaiseProductCreatedDomainEvent_When_Created" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Equality_Should_BeFalse_When_DifferentCurrency" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="0bb4dcf1-572f-6b74-a52c-ad7855b921d4">
+      <Execution id="bec4ee41-873c-42cb-bda2-225692f3c812" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests" name="Equality_Should_BeFalse_When_DifferentCurrency" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductValidatorTests.Validate_Should_HaveError_When_PriceIsNegative" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="103621cf-f31a-bc6d-0770-77f908bfd093">
+      <Execution id="cf66eb65-2c9a-4ee9-82db-6db46d1a4e50" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductValidatorTests" name="Validate_Should_HaveError_When_PriceIsNegative" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_ReturnPrice_When_ValidData" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="8ae98c9d-f6fa-16db-3349-5fd24b53d136">
+      <Execution id="c481e57c-1f5f-4b8b-99b5-ef80b2ef9dbd" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests" name="Create_Should_ReturnPrice_When_ValidData" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_ThrowArgumentException_When_EmptyName" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="ba9e31a7-130b-a649-99fe-28ace93f13f9">
+      <Execution id="112ee9de-b1cd-43fd-a8c1-9db9f8681eec" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests" name="Create_Should_ThrowArgumentException_When_EmptyName" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Update_Should_UpdateProperties_When_ValidData" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="63d42f18-99b9-b424-44d2-a7b7e0a10fd7">
+      <Execution id="8deaa1ba-0424-4bfd-8b9d-2bdc0214cc3f" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests" name="Update_Should_UpdateProperties_When_ValidData" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_AllowZeroAmount" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="370eece1-f38b-50d3-b3b8-3c3a04c1edf8">
+      <Execution id="366c6dbd-e6a3-4916-970c-153ed24b113f" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests" name="Create_Should_AllowZeroAmount" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_ThrowArgumentException_When_EmptyCurrency" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="380a63e6-2c0f-fd40-74b9-ceea97a9988f">
+      <Execution id="644fbfe2-2c6f-49b6-9825-22e2ab0f2e89" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests" name="Create_Should_ThrowArgumentException_When_EmptyCurrency" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Create_Should_NormalizeCurrencyToUpperCase" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="66c6378d-d732-bec4-a3cd-51bc7e043259">
+      <Execution id="e47b8a69-fc93-4000-a9b9-de1968a6f7db" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests" name="Create_Should_NormalizeCurrencyToUpperCase" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Equality_Should_BeTrue_When_SameValues" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="a16edcdf-748e-c83c-a49f-fefed5db8bae">
+      <Execution id="de7341f0-c2f9-4ab0-b8fd-8486251d144f" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests" name="Equality_Should_BeTrue_When_SameValues" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests.Handle_Should_ReturnNotFound_When_CategoryDoesNotExist" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="35e1ee55-715b-1f8f-4d7a-ef7c13f996e2">
+      <Execution id="a1fb1c83-2a28-4897-bc5e-2665954a426b" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests" name="Handle_Should_ReturnNotFound_When_CategoryDoesNotExist" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests.Equality_Should_BeFalse_When_DifferentAmount" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="2b681cb5-e024-b641-13f6-43b7bedd3dd4">
+      <Execution id="e34e4b64-786f-465b-990d-97bcbf30704d" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.PriceTests" name="Equality_Should_BeFalse_When_DifferentAmount" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Create_Should_ReturnProduct_When_ValidData" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="59be4f79-3462-8c36-2700-69a940aa7aed">
+      <Execution id="5c4a8d11-049a-408f-9a24-6a00a6dbe0ec" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests" name="Create_Should_ReturnProduct_When_ValidData" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests.Handle_Should_ReturnSuccessWithId_When_ValidCommand" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="354fa394-e30e-1ae8-160d-8d5478d32196">
+      <Execution id="2b9e4e18-b0f1-4e06-bdd2-4354cebd0ce6" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Application.CreateProductHandlerTests" name="Handle_Should_ReturnSuccessWithId_When_ValidCommand" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Application.GetProductByIdHandlerTests.Handle_Should_ReturnProductDto_When_ProductExists" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="f94e9c09-0fe7-c24a-d983-726f464fccab">
+      <Execution id="4bf69074-a9a8-41d7-a93b-5f0df415c91c" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Application.GetProductByIdHandlerTests" name="Handle_Should_ReturnProductDto_When_ProductExists" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Application.GetProductByIdHandlerTests.Handle_Should_ReturnNotFound_When_ProductDoesNotExist" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="40292d30-3745-f706-5fd6-9d5ec58f963f">
+      <Execution id="28cbdd5b-04e8-4308-bdbf-7a72e91ecd19" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Application.GetProductByIdHandlerTests" name="Handle_Should_ReturnNotFound_When_ProductDoesNotExist" />
+    </UnitTest>
+    <UnitTest name="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests.Discontinue_Should_SetStatusToDiscontinued" storage="d:\repos\novacart\tests\unittests\catalog.unittests\bin\release\net10.0\novacart.tests.catalog.unittests.dll" id="9cf69180-eed4-dbb3-279d-ef35786c8ab4">
+      <Execution id="74895d85-0027-4910-a08f-5b5480b2d3fe" />
+      <TestMethod codeBase="D:\Repos\NovaCart\tests\UnitTests\Catalog.UnitTests\bin\Release\net10.0\NovaCart.Tests.Catalog.UnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="NovaCart.Tests.Catalog.UnitTests.Domain.ProductTests" name="Discontinue_Should_SetStatusToDiscontinued" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="ba9e31a7-130b-a649-99fe-28ace93f13f9" executionId="112ee9de-b1cd-43fd-a8c1-9db9f8681eec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fbe2c7ac-2830-0ebf-b638-0bf971c28e17" executionId="dd1d3414-fed7-4a7d-a7da-f2fa0c4b4912" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a16edcdf-748e-c83c-a49f-fefed5db8bae" executionId="de7341f0-c2f9-4ab0-b8fd-8486251d144f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8ae98c9d-f6fa-16db-3349-5fd24b53d136" executionId="c481e57c-1f5f-4b8b-99b5-ef80b2ef9dbd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="40292d30-3745-f706-5fd6-9d5ec58f963f" executionId="28cbdd5b-04e8-4308-bdbf-7a72e91ecd19" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9cf69180-eed4-dbb3-279d-ef35786c8ab4" executionId="74895d85-0027-4910-a08f-5b5480b2d3fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="380a63e6-2c0f-fd40-74b9-ceea97a9988f" executionId="644fbfe2-2c6f-49b6-9825-22e2ab0f2e89" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="35e1ee55-715b-1f8f-4d7a-ef7c13f996e2" executionId="a1fb1c83-2a28-4897-bc5e-2665954a426b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b3ac10d-bd56-db76-292e-7a00dea783ea" executionId="53042eda-9666-44d0-bb65-bf41ddfa7238" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2b681cb5-e024-b641-13f6-43b7bedd3dd4" executionId="e34e4b64-786f-465b-990d-97bcbf30704d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="14cdee2f-f244-6f5a-f409-1965457d7007" executionId="96f6790e-6f50-4d51-924c-e65a4745e1b5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0bb4dcf1-572f-6b74-a52c-ad7855b921d4" executionId="bec4ee41-873c-42cb-bda2-225692f3c812" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f94e9c09-0fe7-c24a-d983-726f464fccab" executionId="4bf69074-a9a8-41d7-a93b-5f0df415c91c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="59be4f79-3462-8c36-2700-69a940aa7aed" executionId="5c4a8d11-049a-408f-9a24-6a00a6dbe0ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eccc5259-2555-2275-6c14-76f9f1e60d82" executionId="7bf24f19-b176-43c9-a55e-ae3e07525aa9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="420911a6-72be-2c0d-31d2-101b375c711e" executionId="0d7a1ae8-0709-430b-a7c5-e736cd599433" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66c6378d-d732-bec4-a3cd-51bc7e043259" executionId="e47b8a69-fc93-4000-a9b9-de1968a6f7db" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="354fa394-e30e-1ae8-160d-8d5478d32196" executionId="2b9e4e18-b0f1-4e06-bdd2-4354cebd0ce6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0886b8cb-9dea-a35c-984f-2fab0dc71fe8" executionId="96f94cd9-2683-4c90-b8a1-31e921f0ecba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63d42f18-99b9-b424-44d2-a7b7e0a10fd7" executionId="8deaa1ba-0424-4bfd-8b9d-2bdc0214cc3f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="370eece1-f38b-50d3-b3b8-3c3a04c1edf8" executionId="366c6dbd-e6a3-4916-970c-153ed24b113f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="103621cf-f31a-bc6d-0770-77f908bfd093" executionId="cf66eb65-2c9a-4ee9-82db-6db46d1a4e50" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Список результатов" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="22" executed="22" passed="22" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.12)&#xD;
+[xUnit.net 00:00:00.10]   Discovering: NovaCart.Tests.Catalog.UnitTests&#xD;
+[xUnit.net 00:00:00.16]   Discovered:  NovaCart.Tests.Catalog.UnitTests&#xD;
+[xUnit.net 00:00:00.19]   Starting:    NovaCart.Tests.Catalog.UnitTests&#xD;
+     Warning:&#xD;
+     The component "Fluent Assertions" is governed by the rules defined in the Xceed License Agreement and&#xD;
+     the Xceed Fluent Assertions Community License. You may use Fluent Assertions free of charge for&#xD;
+     non-commercial use only. An active subscription is required to use Fluent Assertions for commercial use.&#xD;
+     Please contact Xceed Sales mailto:sales@xceed.com to acquire a subscription at a very low cost.&#xD;
+     A paid commercial license supports the development and continued increasing support of&#xD;
+     Fluent Assertions users under both commercial and community licenses. Help us&#xD;
+     keep Fluent Assertions at the forefront of unit testing.&#xD;
+     For more information, visit https://xceed.com/products/unit-testing/fluent-assertions/&#xD;
+[xUnit.net 00:00:00.39]   Finished:    NovaCart.Tests.Catalog.UnitTests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

@@ -1,0 +1,378 @@
+Сборка начата 9/20/2026 11:45:13 AM.
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" в узле 1 (целевые объекты Restore).
+     1>_GetAllRestoreProjectPathItems:
+         Определение проектов для восстановления...
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj" (2:4) в узле 1 (целевые объекты _GenerateProjectRestoreGraph).
+     2>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj" (15:10) в узле 8 (целевые объекты _GenerateProjectRestoreGraph).
+    15>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\NovaCart.BuildingBlocks.EventBus.csproj" (21:13) в узле 12 (целевые объекты _GenerateProjectRestoreGraph).
+    21>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+    15>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+    21>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\NovaCart.Services.Identity.Infrastructure.csproj" (28:4) в узле 14 (целевые объекты _GenerateProjectRestoreGraph).
+    28>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+    21>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj" (8:4) в узле 5 (целевые объекты _GenerateProjectRestoreGraph).
+     8>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Catalog\Catalog.Infrastructure\NovaCart.Services.Catalog.Infrastructure.csproj" (16:4) в узле 9 (целевые объекты _GenerateProjectRestoreGraph).
+    16>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+     8>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Identity\Identity.API\NovaCart.Services.Identity.API.csproj" (7:4) в узле 4 (целевые объекты _GenerateProjectRestoreGraph).
+     7>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+     8>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    16>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+     7>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    15>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\NovaCart.BuildingBlocks.CQRS.csproj" (18:8) в узле 11 (целевые объекты _GenerateProjectRestoreGraph).
+    18>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+     7>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Web\NovaCart.Web\NovaCart.Web.csproj" (5:4) в узле 3 (целевые объекты _GenerateProjectRestoreGraph).
+     5>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+    16>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+     7>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+     2>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     7>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+    21>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    15>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Basket\Basket.Infrastructure\NovaCart.Services.Basket.Infrastructure.csproj" (33:4) в узле 16 (целевые объекты _GenerateProjectRestoreGraph).
+    33>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+     7>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12
+    33>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Outbox\NovaCart.BuildingBlocks.Outbox.csproj" (32:5) в узле 15 (целевые объекты _GenerateProjectRestoreGraph).
+    32>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+     5>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\ApiGateway\Gateway.Yarp\NovaCart.ApiGateway.Yarp.csproj" (9:4) в узле 7 (целевые объекты _GenerateProjectRestoreGraph).
+     9>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+    32>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+     5>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+     7>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    33>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+    16>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    18>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+    33>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    18>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+     8>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    32>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+     2>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+     9>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+     2>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    18>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    32>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+     9>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+     5>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    16>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    15>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    33>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    32>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     9>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     5>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     9>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     2>Сборка проекта "D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\NovaCart.BuildingBlocks.Persistence.csproj" (19:11) в узле 10 (целевые объекты _GenerateProjectRestoreGraph).
+    19>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+     7>Сборка проекта "D:\Repos\NovaCart\src\Services\Identity\Identity.API\NovaCart.Services.Identity.API.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+    19>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+    15>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj" (10:4) в узле 6 (целевые объекты _GenerateProjectRestoreGraph).
+    10>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    15>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+     8>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Catalog\Catalog.Application\NovaCart.Services.Catalog.Application.csproj" (3:5) в узле 1 (целевые объекты _GenerateProjectRestoreGraph).
+     3>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Payment\Payment.Infrastructure\NovaCart.Services.Payment.Infrastructure.csproj" (26:4) в узле 13 (целевые объекты _GenerateProjectRestoreGraph).
+    26>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+     3>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    26>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+    10>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    28>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+    15>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12
+    26>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    28>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+    15>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    26>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    10>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+    28>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    10>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+    28>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    10>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     5>Сборка проекта "D:\Repos\NovaCart\src\Web\NovaCart.Web\NovaCart.Web.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     9>Сборка проекта "D:\Repos\NovaCart\src\ApiGateway\Gateway.Yarp\NovaCart.ApiGateway.Yarp.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     8>Сборка проекта "D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Identity\Identity.Application\NovaCart.Services.Identity.Application.csproj" (20:5) в узле 4 (целевые объекты _GenerateProjectRestoreGraph).
+    20>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Payment\Payment.API\NovaCart.Services.Payment.API.csproj" (6:4) в узле 2 (целевые объекты _GenerateProjectRestoreGraph).
+     6>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+    15>Сборка проекта "D:\Repos\NovaCart\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     6>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    21>Сборка проекта "D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.EventBus\NovaCart.BuildingBlocks.EventBus.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     6>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    10>Сборка проекта "D:\Repos\NovaCart\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     6>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12
+    28>Сборка проекта "D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\NovaCart.Services.Identity.Infrastructure.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     6>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    16>Сборка проекта "D:\Repos\NovaCart\src\Services\Catalog\Catalog.Infrastructure\NovaCart.Services.Catalog.Infrastructure.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+    20>Сборка проекта "D:\Repos\NovaCart\src\Services\Identity\Identity.Application\NovaCart.Services.Identity.Application.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     3>Сборка проекта "D:\Repos\NovaCart\src\Services\Catalog\Catalog.Application\NovaCart.Services.Catalog.Application.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+    18>Сборка проекта "D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.CQRS\NovaCart.BuildingBlocks.CQRS.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+    19>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    33>Сборка проекта "D:\Repos\NovaCart\src\Services\Basket\Basket.Infrastructure\NovaCart.Services.Basket.Infrastructure.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     6>Сборка проекта "D:\Repos\NovaCart\src\Services\Payment\Payment.API\NovaCart.Services.Payment.API.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Ordering\Ordering.Application\NovaCart.Services.Ordering.Application.csproj" (12:5) в узле 5 (целевые объекты _GenerateProjectRestoreGraph).
+    12>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\NovaCart.Web.Client.csproj" (14:4) в узле 3 (целевые объекты _GenerateProjectRestoreGraph).
+    14>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    32>Сборка проекта "D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Outbox\NovaCart.BuildingBlocks.Outbox.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Ordering\Ordering.Infrastructure\NovaCart.Services.Ordering.Infrastructure.csproj" (13:4) в узле 7 (целевые объекты _GenerateProjectRestoreGraph).
+    13>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+    19>Сборка проекта "D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\NovaCart.BuildingBlocks.Persistence.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Ordering\Ordering.Domain\NovaCart.Services.Ordering.Domain.csproj" (25:5) в узле 8 (целевые объекты _GenerateProjectRestoreGraph).
+    25>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+    13>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+    25>AddPrunePackageReferences:
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+    13>AddPrunePackageReferences:
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    25>AddPrunePackageReferences:
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    12>Сборка проекта "D:\Repos\NovaCart\src\Services\Ordering\Ordering.Application\NovaCart.Services.Ordering.Application.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+    14>Сборка проекта "D:\Repos\NovaCart\src\Web\NovaCart.Web.Client\NovaCart.Web.Client.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Basket\Basket.Application\NovaCart.Services.Basket.Application.csproj" (27:5) в узле 6 (целевые объекты _GenerateProjectRestoreGraph).
+    27>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    26>Сборка проекта "D:\Repos\NovaCart\src\Services\Payment\Payment.Infrastructure\NovaCart.Services.Payment.Infrastructure.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+    25>Сборка проекта "D:\Repos\NovaCart\src\Services\Ordering\Ordering.Domain\NovaCart.Services.Ordering.Domain.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     1>Проект "D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj" (1) выполняет сборку "D:\Repos\NovaCart\src\Services\Payment\Payment.Application\NovaCart.Services.Payment.Application.csproj" (17:5) в узле 2 (целевые объекты _GenerateProjectRestoreGraph).
+    17>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+    13>Сборка проекта "D:\Repos\NovaCart\src\Services\Ordering\Ordering.Infrastructure\NovaCart.Services.Ordering.Infrastructure.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+    17>AddPrunePackageReferences:
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.12\data\PackageOverrides.txt
+    27>Сборка проекта "D:\Repos\NovaCart\src\Services\Basket\Basket.Application\NovaCart.Services.Basket.Application.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+    17>Сборка проекта "D:\Repos\NovaCart\src\Services\Payment\Payment.Application\NovaCart.Services.Payment.Application.csproj" завершена (целевые объекты _GenerateProjectRestoreGraph).
+     1>Restore:
+         При проверке цепочки сертификатов X.509 будет использоваться хранилище доверия по умолчанию, выбранное .NET для подписывания кода.
+         При проверке цепочки сертификатов X.509 будет использоваться хранилище доверия по умолчанию, выбранное .NET для установки метки времени.
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Identity\Identity.Infrastructure\NovaCart.Services.Identity.Infrastructure.csproj (за 105 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Persistence\NovaCart.BuildingBlocks.Persistence.csproj (за 3 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Outbox\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\BuildingBlocks\BuildingBlocks.Outbox\NovaCart.BuildingBlocks.Outbox.csproj (за 3 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Identity\Identity.API\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Identity\Identity.API\NovaCart.Services.Identity.API.csproj (за 8 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Catalog\Catalog.Infrastructure\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Catalog\Catalog.Infrastructure\NovaCart.Services.Catalog.Infrastructure.csproj (за 4 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Catalog\Catalog.API\NovaCart.Services.Catalog.API.csproj (за 6 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Basket\Basket.Infrastructure\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Basket\Basket.Infrastructure\NovaCart.Services.Basket.Infrastructure.csproj (за 4 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Payment\Payment.Domain\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Payment\Payment.Domain\NovaCart.Services.Payment.Domain.csproj (за 2 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Payment\Payment.Contracts\NovaCart.Services.Payment.Contracts.csproj (за 2 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Identity\Identity.Domain\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Identity\Identity.Domain\NovaCart.Services.Identity.Domain.csproj (за 2 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Identity\Identity.Application\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Identity\Identity.Application\NovaCart.Services.Identity.Application.csproj (за 3 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Basket\Basket.Application\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Basket\Basket.Application\NovaCart.Services.Basket.Application.csproj (за 3 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Basket\Basket.API\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Basket\Basket.API\NovaCart.Services.Basket.API.csproj (за 6 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\src\Services\Ordering\Ordering.API\NovaCart.Services.Ordering.API.csproj (за 9 мс).
+         Файл ресурсов не был изменен. Пропуск записи файла ресурсов. Путь: D:\Repos\NovaCart\NovaCart.ServiceDefaults\obj\project.assets.json
+         Восстановлен D:\Repos\NovaCart\NovaCart.ServiceDefaults\NovaCart.ServiceDefaults.csproj (за 2 мс).
+         Идет восстановление пакетов для D:\Repos\NovaCart\NovaCart.AppHost\NovaCart.AppHost.csproj...
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.apphost/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.orchestration.win-x64/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.postgresql/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.dashboard.sdk.win-x64/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.redis/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.rabbitmq/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.postgresql/13.5.4/aspire.hosting.postgresql.13.5.4.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.apphost/13.5.4/aspire.hosting.apphost.13.5.4.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.rabbitmq/13.5.4/aspire.hosting.rabbitmq.13.5.4.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting.redis/13.5.4/aspire.hosting.redis.13.5.4.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.dashboard.sdk.win-x64/13.5.4/aspire.dashboard.sdk.win-x64.13.5.4.nupkg
+           GET https://api.nuget.org/v3-flatcontainer/aspire.hosting.orchestration.win-x64/13.5.4/aspire.hosting.orchestration.win-x64.13.5.4.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/aspire.hosting/13.5.4/aspire.hosting.13.5.4.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/jsonpatch.net/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/jsonpatch.net/5.0.2/jsonpatch.net.5.0.2.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.environmentvariables/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/10.0.11/microsoft.extensions.configuration.binder.10.0.11.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.filesystemglobbing/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.environmentvariables/10.0.11/microsoft.extensions.configuration.environmentvariables.10.0.11.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks/10.0.11/microsoft.extensions.diagnostics.healthchecks.10.0.11.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.filesystemglobbing/10.0.11/microsoft.extensions.filesystemglobbing.10.0.11.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.hosting/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.hosting.abstractions/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.hosting/10.0.11/microsoft.extensions.hosting.10.0.11.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.hosting.abstractions/10.0.11/microsoft.extensions.hosting.abstractions.10.0.11.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http/10.0.11/microsoft.extensions.http.10.0.11.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/streamjsonrpc/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks/8.0.30/microsoft.extensions.diagnostics.healthchecks.8.0.30.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/streamjsonrpc/2.25.29/streamjsonrpc.2.25.29.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/rabbitmq.client/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/rabbitmq.client/7.2.1/rabbitmq.client.7.2.1.nupkg
+           CACHE https://api.nuget.org/v3-flatcontainer/stackexchange.redis/index.json
+           CACHE https://api.nuget.org/v3-flatcontainer/stackexchange.redis/2.13.1/stackexchange.redis.2.13.1.nupkg
+           OK https://api.nuget.org/v3-flatcontainer/aspire.hosting.orchestration.win-x64/13.5.4/aspire.hosting.orchestration.win-x64.13.5.4.nupkg 5130 мс

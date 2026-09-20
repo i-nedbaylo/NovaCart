@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, "feature/**"]
+    branches: [main, "feature/**", "fix/**", "codex/**"]
   pull_request:
     branches: [main]
 
@@ -21,7 +21,7 @@ jobs:
           dotnet-version: "10.0.x"
 
       - name: Restore
-        run: dotnet restore NovaCart.slnx
+        run: dotnet restore NovaCart.slnx -p:NuGetAuditMode=all -warnaserror:NU1901,NU1902,NU1903,NU1904
 
       - name: Build
         run: dotnet build NovaCart.slnx --configuration Release --no-restore
@@ -37,8 +37,9 @@ jobs:
           --filter "Category!=Integration"
 
   integration-tests:
-    name: Integration Tests (Testcontainers PostgreSQL)
+    name: Integration Tests (PostgreSQL, Redis, full order flow)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -55,11 +56,37 @@ jobs:
       - name: Build
         run: dotnet build NovaCart.slnx --configuration Release --no-restore
 
-      # ubuntu-latest ships a running Docker engine; Testcontainers uses it to start
-      # PostgreSQL automatically. Tests self-skip if Docker is ever unavailable.
-      - name: Integration tests
+      # Infrastructure/startup failures must fail the job, never silently skip it.
+      - name: PostgreSQL and Redis integration tests
         run: >-
-          dotnet test NovaCart.slnx
+          dotnet test tests/IntegrationTests/Catalog.IntegrationTests/NovaCart.Tests.Catalog.IntegrationTests.csproj
           --configuration Release
           --no-build
-          --filter "Category=Integration"
+          --logger trx --results-directory TestResults
+
+      - name: Full order flow
+        run: >-
+          dotnet test tests/IntegrationTests/OrderFlow.E2E/NovaCart.Tests.OrderFlow.E2E.csproj
+          --configuration Release
+          --no-build
+          --logger trx --results-directory TestResults
+
+      - name: Reject skipped integration tests
+        shell: pwsh
+        run: |
+          $files = @(Get-ChildItem TestResults -Filter *.trx)
+          if ($files.Count -eq 0) { throw 'No integration test results found.' }
+          foreach ($file in $files) {
+            [xml]$trx = Get-Content -LiteralPath $file.FullName
+            $counts = $trx.TestRun.ResultSummary.Counters
+            if ([int]$counts.total -eq 0 -or [int]$counts.notExecuted -gt 0) {
+              throw "Empty or skipped integration tests: $($file.Name)"
+            }
+          }
+
+      - name: Upload integration results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-results
+          path: TestResults

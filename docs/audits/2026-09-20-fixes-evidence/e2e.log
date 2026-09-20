@@ -1,0 +1,72 @@
+Тестовый запуск для D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\bin\Release\net10.0\NovaCart.Tests.OrderFlow.E2E.dll (.NETCoreApp,Version=v10.0)
+Общее количество тестовых файлов (1), соответствующих указанному шаблону.
+[xUnit.net 00:00:44.15]     NovaCart.Tests.OrderFlow.E2E.OrderFlowE2EIntegrationTests.BasketCheckout_Should_Create_Order_And_Reach_Terminal_Payment_Status [FAIL]
+  Не пройден NovaCart.Tests.OrderFlow.E2E.OrderFlowE2EIntegrationTests.BasketCheckout_Should_Create_Order_And_Reach_Terminal_Payment_Status [41 s]
+  Сообщение об ошибке:
+   System.Net.Http.HttpRequestException : Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. (127.0.0.1:59289)
+---- System.Net.Sockets.SocketException : Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+  Трассировка стека:
+     at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp2ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at k8s.Kubernetes.SendRequestRaw(String requestContent, HttpRequestMessage httpRequest, CancellationToken cancellationToken)
+   at k8s.AbstractKubernetes.ICustomObjectsOperations_ListClusterCustomObjectWithHttpMessagesAsync[T](String group, String version, String plural, Nullable`1 allowWatchBookmarks, String continueParameter, String fieldSelector, String labelSelector, Nullable`1 limit, String resourceVersion, String resourceVersionMatch, Nullable`1 timeoutSeconds, Nullable`1 watch, Nullable`1 pretty, IReadOnlyDictionary`2 customHeaders, CancellationToken cancellationToken)
+   at k8s.AbstractKubernetes.k8s.ICustomObjectsOperations.ListClusterCustomObjectWithHttpMessagesAsync(String group, String version, String plural, Nullable`1 allowWatchBookmarks, String continueParameter, String fieldSelector, String labelSelector, Nullable`1 limit, String resourceVersion, String resourceVersionMatch, Nullable`1 timeoutSeconds, Nullable`1 watch, Nullable`1 pretty, IReadOnlyDictionary`2 customHeaders, CancellationToken cancellationToken)
+   at k8s.WatcherExt.<>c__DisplayClass1_0`2.<<MakeStreamReaderCreator>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at k8s.Watcher`1.<>c.<CreateWatchEventEnumerator>b__21_1[TR](Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at k8s.Watcher`1.CreateWatchEventEnumerator(Func`1 streamReaderCreator, Action`1 onError, CancellationToken cancellationToken)+MoveNext()
+   at k8s.Watcher`1.CreateWatchEventEnumerator(Func`1 streamReaderCreator, Action`1 onError, CancellationToken cancellationToken)+System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult()
+   at Aspire.Hosting.Utils.PeriodicRestartAsyncEnumerable.CreateAsync[T](Func`3 enumerableFactory, TimeSpan restartInterval, CancellationToken cancellationToken)+MoveNext() in /_/src/Aspire.Hosting/Utils/PeriodicRestartAsyncEnumerable.cs:line 39
+   at Aspire.Hosting.Utils.PeriodicRestartAsyncEnumerable.CreateAsync[T](Func`3 enumerableFactory, TimeSpan restartInterval, CancellationToken cancellationToken)+MoveNext() in /_/src/Aspire.Hosting/Utils/PeriodicRestartAsyncEnumerable.cs:line 59
+   at Aspire.Hosting.Utils.PeriodicRestartAsyncEnumerable.CreateAsync[T](Func`3 enumerableFactory, TimeSpan restartInterval, CancellationToken cancellationToken)+System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult()
+   at Aspire.Hosting.Dcp.KubernetesService.WatchAsync[T](String namespaceParameter, CancellationToken cancellationToken)+MoveNext() in /_/src/Aspire.Hosting/Dcp/KubernetesService.cs:line 300
+   at Aspire.Hosting.Dcp.KubernetesService.WatchAsync[T](String namespaceParameter, CancellationToken cancellationToken)+MoveNext() in /_/src/Aspire.Hosting/Dcp/KubernetesService.cs:line 300
+   at Aspire.Hosting.Dcp.KubernetesService.WatchAsync[T](String namespaceParameter, CancellationToken cancellationToken)+System.Threading.Tasks.Sources.IValueTaskSource<System.Boolean>.GetResult()
+   at Aspire.Hosting.Dcp.DcpExecutor.<>c__DisplayClass44_0`1.<<WatchUntilDesiredStateAsync>b__0>d.MoveNext() in /_/src/Aspire.Hosting/Dcp/DcpExecutor.cs:line 421
+--- End of stack trace from previous location ---
+   at Aspire.Hosting.Dcp.DcpExecutor.<>c__DisplayClass44_0`1.<<WatchUntilDesiredStateAsync>b__0>d.MoveNext() in /_/src/Aspire.Hosting/Dcp/DcpExecutor.cs:line 421
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c.<<ExecuteAsync>b__3_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync(Func`2 callback, CancellationToken cancellationToken)
+   at Aspire.Hosting.Dcp.DcpExecutor.WatchUntilDesiredStateAsync[TDcpResource](IEnumerable`1 objects, Func`3 isInDesiredState, ResiliencePipeline pipeline, CancellationToken cancellationToken) in /_/src/Aspire.Hosting/Dcp/DcpExecutor.cs:line 416
+   at Aspire.Hosting.Dcp.DcpExecutor.UpdateWithEffectiveAddressInfo(IEnumerable`1 services, CancellationToken cancellationToken, Nullable`1 timeout) in /_/src/Aspire.Hosting/Dcp/DcpExecutor.cs:line 487
+   at Aspire.Hosting.Dcp.DcpExecutor.<>c__DisplayClass38_1.<<RunApplicationAsync>b__1>d.MoveNext() in /_/src/Aspire.Hosting/Dcp/DcpExecutor.cs:line 205
+--- End of stack trace from previous location ---
+   at Aspire.Hosting.Dcp.DcpExecutor.<>c__DisplayClass38_1.<<RunApplicationAsync>b__3>d.MoveNext() in /_/src/Aspire.Hosting/Dcp/DcpExecutor.cs:line 212
+--- End of stack trace from previous location ---
+   at Aspire.Hosting.Dcp.DcpExecutor.<>c__DisplayClass38_1.<<RunApplicationAsync>b__4>d.MoveNext() in /_/src/Aspire.Hosting/Dcp/DcpExecutor.cs:line 249
+--- End of stack trace from previous location ---
+   at Aspire.Hosting.Dcp.DcpExecutor.RunApplicationAsync(CancellationToken ct) in /_/src/Aspire.Hosting/Dcp/DcpExecutor.cs:line 266
+   at Aspire.Hosting.Orchestrator.ApplicationOrchestrator.RunApplicationAsync(CancellationToken cancellationToken) in /_/src/Aspire.Hosting/Orchestrator/ApplicationOrchestrator.cs:line 616
+   at Aspire.Hosting.Orchestrator.OrchestratorHostService.StartAsync(CancellationToken cancellationToken) in /_/src/Aspire.Hosting/Orchestrator/OrchestratorHostService.cs:line 41
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Aspire.Hosting.Testing.DistributedApplicationFactory.ObservedHost.StartAsync(CancellationToken cancellationToken) in /_/src/Aspire.Hosting.Testing/DistributedApplicationFactory.cs:line 598
+   at Aspire.Hosting.Testing.DistributedApplicationFactory.StartAsync(CancellationToken cancellationToken) in /_/src/Aspire.Hosting.Testing/DistributedApplicationFactory.cs:line 73
+   at Aspire.Hosting.Testing.DistributedApplicationTestingBuilder.SuspendingDistributedApplicationFactory.DelegatedHost.StartAsync(CancellationToken cancellationToken) in /_/src/Aspire.Hosting.Testing/DistributedApplicationTestingBuilder.cs:line 314
+   at Aspire.Hosting.Testing.DistributedApplicationTestingBuilder.SuspendingDistributedApplicationFactory.DelegatedDistributedApplication.StartAsync(CancellationToken cancellationToken) in /_/src/Aspire.Hosting.Testing/DistributedApplicationTestingBuilder.cs:line 289
+   at NovaCart.Tests.OrderFlow.E2E.OrderFlowE2EIntegrationTests.StartAppAsync() in D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\OrderFlowE2EIntegrationTests.cs:line 200
+   at NovaCart.Tests.OrderFlow.E2E.OrderFlowE2EIntegrationTests.StartAppAsync() in D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\OrderFlowE2EIntegrationTests.cs:line 208
+   at NovaCart.Tests.OrderFlow.E2E.OrderFlowE2EIntegrationTests.BasketCheckout_Should_Create_Order_And_Reach_Terminal_Payment_Status() in D:\Repos\NovaCart\tests\IntegrationTests\OrderFlow.E2E\OrderFlowE2EIntegrationTests.cs:line 41
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+Файл результатов: D:\Repos\NovaCart\docs\audits\2026-09-20-fixes-evidence\e2e-results\inedb_MSI-DT_2026-09-20_12_09_18_net10.0.trx
+
+Не пройден!: не пройдено     1, пройдено     0, пропущено     0, всего     1, длительность 41 s. - NovaCart.Tests.OrderFlow.E2E.dll (net10.0)

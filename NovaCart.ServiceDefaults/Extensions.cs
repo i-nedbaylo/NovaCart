@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Http.Resilience;
 using Microsoft.Extensions.Logging;
 using OpenTelemetry;
 using OpenTelemetry.Metrics;
@@ -26,7 +27,8 @@ public static class Extensions
             // - Retry with exponential backoff + jitter (3 attempts)
             // - Circuit breaker (failure ratio 10%, 30s sampling)
             // - Per-attempt timeout (2s)
-            http.AddStandardResilienceHandler();
+            // Retrying a POST can repeat an already committed checkout or token rotation.
+            http.AddStandardResilienceHandler(options => options.Retry.DisableForUnsafeHttpMethods());
             http.AddServiceDiscovery();
         });
 
